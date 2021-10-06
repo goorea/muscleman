@@ -1,4 +1,4 @@
-package com.muscleman;
+package kr.muscleman;
 
 import android.app.Application;
 import android.content.Context;
