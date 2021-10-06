@@ -20,7 +20,7 @@ module.exports = {
         extensions: ['.ts', '.tsx', '.jsx', '.js', '.json'],
         alias: {
           '@src': './src',
-          '@tests': './__tests__',
+          '@tests': './tests',
         },
       },
     ],
