@@ -1,4 +1,4 @@
-package com.muscleman;
+package kr.muscleman;
 
 import com.facebook.react.ReactActivity;
 
