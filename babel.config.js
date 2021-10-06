@@ -13,5 +13,16 @@ module.exports = {
         verbose: false,
       },
     ],
+    [
+      'module-resolver',
+      {
+        root: ['.'],
+        extensions: ['.ts', '.tsx', '.jsx', '.js', '.json'],
+        alias: {
+          '@src': './src',
+          '@tests': './__tests__',
+        },
+      },
+    ],
   ],
 };
