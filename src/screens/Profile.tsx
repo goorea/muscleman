@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { CompositeScreenProps } from '@react-navigation/native';
 import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
 import { MainTabParamList, RootStackParamList } from '@src/types/navigation';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { Text } from 'react-native-elements';
 
 type P = CompositeScreenProps<
   BottomTabScreenProps<MainTabParamList, 'Profile'>,
