@@ -15,12 +15,12 @@ const SEND_VERIFY_EMAIL = gql`
 
 export function useSendVerifyEmailMutation(): [
   (
-    options?: MutationFunctionOptions<Mutation['sendVerifyEmail']>,
-  ) => Promise<FetchResult<Mutation['sendVerifyEmail']>>,
-  Pick<MutationResult<Mutation['sendVerifyEmail']>, 'data' | 'loading'>,
+    options?: MutationFunctionOptions<Pick<Mutation, 'sendVerifyEmail'>>,
+  ) => Promise<FetchResult<Pick<Mutation, 'sendVerifyEmail'>>>,
+  Pick<MutationResult<Pick<Mutation, 'sendVerifyEmail'>>, 'data' | 'loading'>,
 ] {
   const [sendVerifyEmail, { data, error, loading }] =
-    useMutation<Mutation['sendVerifyEmail']>(SEND_VERIFY_EMAIL);
+    useMutation<Pick<Mutation, 'sendVerifyEmail'>>(SEND_VERIFY_EMAIL);
 
   useErrorEffect(error);
 

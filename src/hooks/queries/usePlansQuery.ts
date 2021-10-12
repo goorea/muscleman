@@ -13,10 +13,10 @@ const PLANS = gql`
 `;
 
 export function usePlansQuery(): Pick<
-  QueryResult<Query['plans'], {}>,
+  QueryResult<Pick<Query, 'plans'>, {}>,
   'data' | 'loading'
 > {
-  const { data, error, loading } = useQuery<Query['plans']>(PLANS);
+  const { data, error, loading } = useQuery<Pick<Query, 'plans'>>(PLANS);
 
   useErrorEffect(error);
 

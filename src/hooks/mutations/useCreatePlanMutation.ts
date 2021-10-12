@@ -20,14 +20,14 @@ const CREATE_PLAN = gql`
 export function useCreatePlanMutation(): [
   (
     options?: MutationFunctionOptions<
-      Mutation['createPlan'],
+      Pick<Mutation, 'createPlan'>,
       MutationCreatePlanArgs
     >,
-  ) => Promise<FetchResult<Mutation['createPlan']>>,
-  Pick<MutationResult<Mutation['createPlan']>, 'data' | 'loading'>,
+  ) => Promise<FetchResult<Pick<Mutation, 'createPlan'>>>,
+  Pick<MutationResult<Pick<Mutation, 'createPlan'>>, 'data' | 'loading'>,
 ] {
   const [createPlan, { data, error, loading }] = useMutation<
-    Mutation['createPlan'],
+    Pick<Mutation, 'createPlan'>,
     MutationCreatePlanArgs
   >(CREATE_PLAN);
 

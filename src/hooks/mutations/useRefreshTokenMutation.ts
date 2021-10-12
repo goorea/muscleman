@@ -20,14 +20,14 @@ const REFRESH_TOKEN = gql`
 export function useRefreshTokenMutation(): [
   (
     options?: MutationFunctionOptions<
-      Mutation['refreshToken'],
+      Pick<Mutation, 'refreshToken'>,
       MutationRefreshTokenArgs
     >,
-  ) => Promise<FetchResult<Mutation['refreshToken']>>,
-  Pick<MutationResult<Mutation['refreshToken']>, 'data' | 'loading'>,
+  ) => Promise<FetchResult<Pick<Mutation, 'refreshToken'>>>,
+  Pick<MutationResult<Pick<Mutation, 'refreshToken'>>, 'data' | 'loading'>,
 ] {
   const [refreshToken, { data, error, loading }] = useMutation<
-    Mutation['refreshToken'],
+    Pick<Mutation, 'refreshToken'>,
     MutationRefreshTokenArgs
   >(REFRESH_TOKEN);
 
