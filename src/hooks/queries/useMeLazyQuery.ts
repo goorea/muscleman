@@ -7,7 +7,7 @@ import {
 import { useErrorEffect } from '@src/hooks/useErrorEffect';
 import { CORE_USER_FIELDS } from '@src/fragments/user';
 
-const UseMeLazyQuery = gql`
+export const ME = gql`
   ${CORE_USER_FIELDS}
   query me {
     me {
@@ -16,12 +16,11 @@ const UseMeLazyQuery = gql`
   }
 `;
 
-export function useMeQuery(): [
+export function useMeLazyQuery(): [
   (options?: QueryLazyOptions<{}>) => void,
-  Pick<LazyQueryResult<Query['me'], {}>, 'data' | 'loading'>,
+  Pick<LazyQueryResult<Pick<Query, 'me'>, {}>, 'data' | 'loading'>,
 ] {
-  const [me, { data, error, loading }] =
-    useLazyQuery<Query['me']>(UseMeLazyQuery);
+  const [me, { data, error, loading }] = useLazyQuery<Pick<Query, 'me'>>(ME);
 
   useErrorEffect(error);
 

@@ -16,14 +16,14 @@ const UPDATE_PLAN = gql`
 export function useUpdatePlanMutation(): [
   (
     options?: MutationFunctionOptions<
-      Mutation['updatePlan'],
+      Pick<Mutation, 'updatePlan'>,
       MutationUpdatePlanArgs
     >,
-  ) => Promise<FetchResult<Mutation['updatePlan']>>,
-  Pick<MutationResult<Mutation['updatePlan']>, 'data' | 'loading'>,
+  ) => Promise<FetchResult<Pick<Mutation, 'updatePlan'>>>,
+  Pick<MutationResult<Pick<Mutation, 'updatePlan'>>, 'data' | 'loading'>,
 ] {
   const [updatePlan, { data, error, loading }] = useMutation<
-    Mutation['updatePlan'],
+    Pick<Mutation, 'updatePlan'>,
     MutationUpdatePlanArgs
   >(UPDATE_PLAN);
 

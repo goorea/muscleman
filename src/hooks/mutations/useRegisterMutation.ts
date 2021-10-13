@@ -20,14 +20,14 @@ export const REGISTER = gql`
 export function useRegisterMutation(): [
   (
     options?: MutationFunctionOptions<
-      Mutation['register'],
+      Pick<Mutation, 'register'>,
       MutationRegisterArgs
     >,
-  ) => Promise<FetchResult<Mutation['register']>>,
-  Pick<MutationResult<Mutation['register']>, 'data' | 'loading'>,
+  ) => Promise<FetchResult<Pick<Mutation, 'register'>>>,
+  Pick<MutationResult<Pick<Mutation, 'register'>>, 'data' | 'loading'>,
 ] {
   const [register, { data, error, loading }] = useMutation<
-    Mutation['register'],
+    Pick<Mutation, 'register'>,
     MutationRegisterArgs
   >(REGISTER);
 

@@ -19,12 +19,15 @@ const LOGIN = gql`
 
 export function useLoginMutation(): [
   (
-    options?: MutationFunctionOptions<Mutation['login'], MutationLoginArgs>,
-  ) => Promise<FetchResult<Mutation['login']>>,
-  Pick<MutationResult<Mutation['login']>, 'data' | 'loading'>,
+    options?: MutationFunctionOptions<
+      Pick<Mutation, 'login'>,
+      MutationLoginArgs
+    >,
+  ) => Promise<FetchResult<Pick<Mutation, 'login'>>>,
+  Pick<MutationResult<Pick<Mutation, 'login'>>, 'data' | 'loading'>,
 ] {
   const [login, { data, error, loading }] = useMutation<
-    Mutation['login'],
+    Pick<Mutation, 'login'>,
     MutationLoginArgs
   >(LOGIN);
 

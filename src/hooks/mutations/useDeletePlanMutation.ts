@@ -16,14 +16,14 @@ const DELETE_PLAN = gql`
 export function useDeletePlanMutation(): [
   (
     options?: MutationFunctionOptions<
-      Mutation['deletePlan'],
+      Pick<Mutation, 'deletePlan'>,
       MutationDeletePlanArgs
     >,
-  ) => Promise<FetchResult<Mutation['deletePlan']>>,
-  Pick<MutationResult<Mutation['deletePlan']>, 'data' | 'loading'>,
+  ) => Promise<FetchResult<Pick<Mutation, 'deletePlan'>>>,
+  Pick<MutationResult<Pick<Mutation, 'deletePlan'>>, 'data' | 'loading'>,
 ] {
   const [deletePlan, { data, error, loading }] = useMutation<
-    Mutation['deletePlan'],
+    Pick<Mutation, 'deletePlan'>,
     MutationDeletePlanArgs
   >(DELETE_PLAN);
 

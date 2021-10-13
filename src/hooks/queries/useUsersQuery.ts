@@ -13,10 +13,11 @@ const UseUsersQuery = gql`
 `;
 
 export function useUsersQuery(): Pick<
-  QueryResult<Query['users'], {}>,
+  QueryResult<Pick<Query, 'users'>, {}>,
   'data' | 'loading'
 > {
-  const { data, error, loading } = useQuery<Query['users']>(UseUsersQuery);
+  const { data, error, loading } =
+    useQuery<Pick<Query, 'users'>>(UseUsersQuery);
 
   useErrorEffect(error);
 
