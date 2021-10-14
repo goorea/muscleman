@@ -77,6 +77,7 @@ module.exports = {
   moduleNameMapper: {
     '@src/(.*)$': '<rootDir>/src/$1',
     '@tests/(.*)$': '<rootDir>/tests/$1',
+    '^.+.(png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
@@ -121,7 +122,7 @@ module.exports = {
   // runner: "jest-runner",
 
   // The paths to modules that run some code to configure or set up the testing environment before each test
-  // setupFiles: [],
+  setupFiles: ['<rootDir>/tests/mocks.ts'],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   // setupFilesAfterEnv: [],
@@ -171,7 +172,9 @@ module.exports = {
   // transform: undefined,
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
-  transformIgnorePatterns: ['node_modules/(?!@react-native|react-native)'],
+  transformIgnorePatterns: [
+    'node_modules/(?!@react-native|react-native|recoil)',
+  ],
 
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
   // unmockedModulePathPatterns: undefined,
