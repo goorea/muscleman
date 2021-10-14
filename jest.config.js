@@ -77,6 +77,7 @@ module.exports = {
   moduleNameMapper: {
     '@src/(.*)$': '<rootDir>/src/$1',
     '@tests/(.*)$': '<rootDir>/tests/$1',
+    '^.+.(png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
