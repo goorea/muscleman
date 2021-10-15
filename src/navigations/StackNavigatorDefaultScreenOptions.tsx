@@ -6,13 +6,14 @@ export const StackNavigatorDefaultScreenOptions = ({
   navigation,
 }: {
   navigation: any;
-}): NativeStackNavigationOptions => ({
-  title: '',
-  headerLeft: () => (
-    <Icon
-      name="chevron-back-outline"
-      type="ionicon"
-      onPress={() => navigation.goBack()}
-    />
-  ),
-});
+}): NativeStackNavigationOptions => {
+  const onPress = () => navigation.goBack();
+
+  return {
+    title: '',
+    headerShadowVisible: false,
+    headerLeft: () => (
+      <Icon name="chevron-back-outline" type="ionicon" onPress={onPress} />
+    ),
+  };
+};
