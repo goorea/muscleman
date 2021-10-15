@@ -14,4 +14,8 @@ export type MainTabParamList = {
 export type AuthStackParamList = {
   Login: undefined;
   Register: undefined;
+  SuccessModal: {
+    type: '로그인' | '회원가입';
+    userName: string;
+  };
 };
