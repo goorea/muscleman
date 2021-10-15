@@ -1,5 +1,6 @@
 import React from 'react';
-import Navigation from '@src/navigations/Navigation';
+import NavigationContainer from '@src/navigations/NavigationContainer';
+import AppNavigator from '@src/navigations/AppNavigator';
 import { ThemeProvider } from 'react-native-elements';
 import theme from '@src/theme';
 import { useColorScheme } from 'react-native';
@@ -14,7 +15,10 @@ const App: React.FC = () => (
     <React.Suspense fallback={<Loader />}>
       <ApolloProvider client={client}>
         <ThemeProvider theme={theme} useDark={useColorScheme() === 'dark'}>
-          <Navigation />
+          <NavigationContainer>
+            <AppNavigator />
+          </NavigationContainer>
+
           <FlashMessage />
         </ThemeProvider>
       </ApolloProvider>
