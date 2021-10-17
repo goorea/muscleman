@@ -16,6 +16,7 @@ export type Scalars = {
   Int: number;
   Float: number;
   DateTime: any;
+  JSONObject: any;
   ObjectId: any;
 };
 
@@ -25,6 +26,7 @@ export enum Gender {
 }
 
 export type LoginInput = {
+  device_id: Scalars['String'];
   email: Scalars['String'];
   password: Scalars['String'];
 };
@@ -77,6 +79,7 @@ export type MutationLoginArgs = {
 };
 
 export type MutationRefreshTokenArgs = {
+  device_id: Scalars['String'];
   refresh_token: Scalars['String'];
 };
 
@@ -190,7 +193,7 @@ export type User = Model & {
   nickname: Scalars['String'];
   password?: Maybe<Scalars['String']>;
   profile_image_path?: Maybe<Scalars['String']>;
-  refresh_token?: Maybe<Scalars['String']>;
+  refresh_token?: Maybe<Scalars['JSONObject']>;
   roles?: Maybe<Array<Role>>;
   tel?: Maybe<Scalars['String']>;
   updated_at?: Maybe<Scalars['DateTime']>;

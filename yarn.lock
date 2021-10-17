@@ -7797,6 +7797,11 @@ react-native-codegen@^0.0.7:
     jscodeshift "^0.11.0"
     nullthrows "^1.1.1"
 
+react-native-device-info@^8.4.1:
+  version "8.4.1"
+  resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-8.4.1.tgz#21d1cf0c7bc8476a20c82f0dde968f1660261674"
+  integrity sha512-O+G0wUXAc3196CUAs/C/ugIvIUvTMPvw7gixStZyXOpOGwGQKWx6if1YV1qLD5oPldxSvg17CdgB91yOLniKEA==
+
 react-native-dotenv@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/react-native-dotenv/-/react-native-dotenv-3.2.0.tgz#3db4674cb56e6572fa8358904b8a58f35e56ff3f"
