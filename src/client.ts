@@ -1,27 +1,15 @@
 import 'cross-fetch/polyfill';
-import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
-import { APP_API_URI, APP_NAME, APP_VERSION } from '@env';
-import { setContext } from '@apollo/client/link/context';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { ApolloClient, from, InMemoryCache } from '@apollo/client';
+import { APP_NAME, APP_VERSION } from '@env';
+import errorLink from '@src/links/errorLink';
+import authLink from '@src/links/authLink';
+import httpLink from '@src/links/httpLink';
 
-const httpLink = createHttpLink({
-  uri: APP_API_URI,
-});
-
-const authLink = setContext(async (_, { headers }) => {
-  const token = await AsyncStorage.getItem('@token');
-
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : '',
-    },
-  };
-});
-
-export const client = new ApolloClient({
-  link: authLink.concat(httpLink),
+const client = new ApolloClient({
+  link: from([errorLink, authLink, httpLink]),
   cache: new InMemoryCache(),
   name: APP_NAME,
   version: APP_VERSION,
 });
+
+export default client;

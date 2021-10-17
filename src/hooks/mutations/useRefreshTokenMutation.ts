@@ -8,7 +8,7 @@ import {
 import { useErrorEffect } from '@src/hooks/useErrorEffect';
 import { LOGIN_RESPONSE_FIELDS } from '@src/fragments/user';
 
-const REFRESH_TOKEN = gql`
+export const REFRESH_TOKEN = gql`
   ${LOGIN_RESPONSE_FIELDS}
   mutation refreshToken($refresh_token: String!) {
     refreshToken(refresh_token: $refresh_token) {

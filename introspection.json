@@ -78,11 +78,33 @@
         "possibleTypes": null
       },
       {
+        "kind": "SCALAR",
+        "name": "JSONObject",
+        "description": "The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
         "kind": "INPUT_OBJECT",
         "name": "LoginInput",
         "description": "사용자 JWT 토큰 입력 객체",
         "fields": null,
         "inputFields": [
+          {
+            "name": "device_id",
+            "description": "디바이스 ID",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "SCALAR", "name": "String", "ofType": null }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
           {
             "name": "email",
             "description": "이메일",
@@ -115,7 +137,7 @@
       {
         "kind": "OBJECT",
         "name": "LoginResponse",
-        "description": null,
+        "description": "사용자 JWT 토큰 응답",
         "fields": [
           {
             "name": "refresh_token",
@@ -348,6 +370,22 @@
             "name": "refreshToken",
             "description": "사용자 JWT 토큰 갱신",
             "args": [
+              {
+                "name": "device_id",
+                "description": null,
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
               {
                 "name": "refresh_token",
                 "description": null,
@@ -1249,9 +1287,9 @@
           },
           {
             "name": "refresh_token",
-            "description": "JWT Refresh 토큰",
+            "description": "JWT Refresh 토큰 객체 { 디바이스 ID: Refresh 토큰 }",
             "args": [],
-            "type": { "kind": "SCALAR", "name": "String", "ofType": null },
+            "type": { "kind": "SCALAR", "name": "JSONObject", "ofType": null },
             "isDeprecated": false,
             "deprecationReason": null
           },
