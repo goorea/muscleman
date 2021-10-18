@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components/native';
 import Text, { TextProps } from '@src/components/Text';
 import { useTheme } from '@src/contexts/ThemeProvider';
 
-export type ButtonProps = TouchableOpacityProps &
+type P = TouchableOpacityProps &
   TextProps & {
     title: string;
     type?: 'solid' | 'clear' | 'outline';
@@ -12,7 +12,7 @@ export type ButtonProps = TouchableOpacityProps &
     disabled?: boolean;
   };
 
-const RNTouchableOpacity = styled.TouchableOpacity<ButtonProps>`
+const RNTouchableOpacity = styled.TouchableOpacity<P>`
   ${({ type = 'solid', theme, color }) =>
     type === 'solid'
       ? css`
@@ -27,7 +27,7 @@ const RNTouchableOpacity = styled.TouchableOpacity<ButtonProps>`
   padding: ${({ type }) => (type === 'clear' ? 0 : '6px 12px')};
 `;
 
-const Button: React.FC<ButtonProps> = props => {
+const Button: React.FC<P> = props => {
   const { colors } = useTheme();
 
   return (

@@ -1,6 +1,5 @@
 import React from 'react';
 import { TextField, TextFieldProps } from 'rn-material-ui-textfield';
-import { Icon } from 'react-native-elements';
 import {
   Animated,
   NativeSyntheticEvent,
@@ -8,6 +7,7 @@ import {
   TextInputFocusEventData,
 } from 'react-native';
 import { useTheme } from '@src/contexts/ThemeProvider';
+import Icon from '@src/components/Icon';
 
 type P = TextFieldProps & {
   onClear?: () => void;
@@ -42,11 +42,10 @@ const MaterialInput: React.ForwardRefRenderFunction<TextField, P> = (
   const renderRightAccessory = () => (
     <Animated.View style={{ opacity: fadeAnimation }}>
       <Icon
-        testID="icon"
         onPress={props.onClear}
         name="close-circle"
         type="ionicon"
-        color={colors.grey4}
+        color="grey4"
       />
     </Animated.View>
   );

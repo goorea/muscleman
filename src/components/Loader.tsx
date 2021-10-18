@@ -1,16 +1,13 @@
 import React from 'react';
-import { Overlay } from 'react-native-elements';
 import { ActivityIndicator } from 'react-native';
-import styled from 'styled-components';
-import { useTheme } from '@src/contexts/ThemeProvider';
+import styled from 'styled-components/native';
 import Text from '@src/components/Text';
+import { flexFillCenter } from '@src/styles/flex';
+import { useTheme } from '@src/contexts/ThemeProvider';
 
-const LoaderOverlay = styled(Overlay)`
-  background-color: ${props => props.theme.white};
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  elevation: 0;
+const Container = styled.View`
+  background-color: ${props => props.theme.background};
+  ${flexFillCenter}
 `;
 
 const Title = styled(Text)`
@@ -21,10 +18,10 @@ const Loader: React.FC = () => {
   const { colors } = useTheme();
 
   return (
-    <LoaderOverlay isVisible={true} fullScreen={true}>
+    <Container>
       <ActivityIndicator size="large" color={colors.foreground} />
       <Title>불러오는 중...😅😅😅</Title>
-    </LoaderOverlay>
+    </Container>
   );
 };
 

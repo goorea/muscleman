@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { CompositeScreenProps } from '@react-navigation/native';
 import { AuthStackParamList, RootStackParamList } from '@src/types/navigation';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { Input } from 'react-native-elements';
 import Loader from '@src/components/Loader';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { flash } from '@src/functions';
@@ -15,6 +14,7 @@ import { flexFillCenter } from '@src/styles/flex';
 import { getUniqueId } from 'react-native-device-info';
 import Text from '@src/components/Text';
 import Button from '@src/components/Button';
+import MaterialInput from '@src/components/MaterialInput';
 
 const Container = styled.View`
   ${flexFillCenter}
@@ -81,10 +81,9 @@ const LoginScreen: React.FC<P> = ({ navigation }) => {
       <Text>Login Screen</Text>
       <Controller
         render={({ field }) => (
-          <Input
-            leftIcon={{ name: 'email' }}
+          <MaterialInput
             label="이메일"
-            errorMessage={errors.email?.message}
+            error={errors.email?.message}
             keyboardType="email-address"
             returnKeyType="next"
             onChangeText={field.onChange}
@@ -99,10 +98,9 @@ const LoginScreen: React.FC<P> = ({ navigation }) => {
       />
       <Controller
         render={({ field }) => (
-          <Input
-            leftIcon={{ name: 'lock' }}
+          <MaterialInput
             label="비밀번호"
-            errorMessage={errors.password?.message}
+            error={errors.password?.message}
             returnKeyType="done"
             secureTextEntry={true}
             onChangeText={field.onChange}
