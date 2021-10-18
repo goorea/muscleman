@@ -1,7 +1,8 @@
 import React from 'react';
 import StackFlashMessage from 'react-native-stack-flash-message';
-import { Icon, Text } from 'react-native-elements';
+import { Icon } from 'react-native-elements';
 import { useTheme } from '@src/contexts/ThemeProvider';
+import Text from '@src/components/Text';
 
 const FlashMessage: React.FC = () => {
   const { colors } = useTheme();

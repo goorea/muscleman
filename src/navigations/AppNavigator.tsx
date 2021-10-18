@@ -3,11 +3,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import MainNavigator from '@src/navigations/MainNavigator';
 import AuthNavigator from '@src/navigations/AuthNavigator';
 import { RootStackParamList } from '@src/types/navigation';
-import { Text } from 'react-native-elements';
-import { fonts } from '@src/theme';
 import { APP_NAME } from '@env';
-import { StyleSheet } from 'react-native';
 import { useTheme } from '@src/contexts/ThemeProvider';
+import Text from '@src/components/Text';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -15,7 +13,7 @@ const AppNavigator: React.FC = () => {
   const { colors } = useTheme();
   const options = {
     title: '',
-    headerLeft: () => <Text style={styles.brand}>💪{APP_NAME}</Text>,
+    headerLeft: () => <Text weight="bold">💪{APP_NAME}</Text>,
     headerStyle: { backgroundColor: colors.white },
   };
 
@@ -29,11 +27,5 @@ const AppNavigator: React.FC = () => {
     </Stack.Navigator>
   );
 };
-
-const styles = StyleSheet.create({
-  brand: {
-    fontFamily: fonts.bold,
-  },
-});
 
 export default AppNavigator;

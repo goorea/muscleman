@@ -4,6 +4,7 @@ import SuccessModalScreen from '@src/screens/auth/SuccessModalScreen';
 import { navigationGoBackMock, navigationMock } from '@tests/mocks';
 import { act, render } from '@testing-library/react-native';
 import Sound from 'react-native-sound';
+import ThemeProvider from '@src/contexts/ThemeProvider';
 
 describe('SuccessModalScreen 컴포넌트', () => {
   beforeEach(() => {
@@ -15,17 +16,19 @@ describe('SuccessModalScreen 컴포넌트', () => {
     userName: string = 'John',
   ) =>
     render(
-      <SuccessModalScreen
-        navigation={navigationMock}
-        route={{
-          key: '',
-          name: 'SuccessModal',
-          params: {
-            type,
-            userName,
-          },
-        }}
-      />,
+      <ThemeProvider>
+        <SuccessModalScreen
+          navigation={navigationMock}
+          route={{
+            key: '',
+            name: 'SuccessModal',
+            params: {
+              type,
+              userName,
+            },
+          }}
+        />
+      </ThemeProvider>,
     );
 
   it('렌더링이 올바르게 된다', () => {
