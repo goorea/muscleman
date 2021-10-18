@@ -2,9 +2,9 @@ import React from 'react';
 import { CompositeScreenProps } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { AuthStackParamList, RootStackParamList } from '@src/types/navigation';
-import { Text } from 'react-native-elements';
 import styled from 'styled-components/native';
 import { flexFillCenter } from '@src/styles/flex';
+import Text from '@src/components/Text';
 
 const Container = styled.View`
   ${flexFillCenter}

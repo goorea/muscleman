@@ -3,21 +3,17 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { AuthStackParamList, RootStackParamList } from '@src/types/navigation';
 import { CompositeScreenProps } from '@react-navigation/native';
 import { Animated } from 'react-native';
-import { Text } from 'react-native-elements';
 import Svg, { Polyline } from 'react-native-svg';
 import Sound from 'react-native-sound';
 import styled from 'styled-components/native';
 import { flexCenter, flexFillCenter } from '@src/styles/flex';
 import { positionAbsoluteFill } from '@src/styles/position';
+import Text from '@src/components/Text';
 
 const AnimatedPolyline = Animated.createAnimatedComponent<Polyline>(Polyline);
 
 const Container = styled.View`
   ${flexFillCenter}
-`;
-
-const Title = styled(Text)`
-  color: ${props => props.theme.grey2};
 `;
 
 const WelcomeText1 = styled(Text)`
@@ -98,9 +94,13 @@ const SuccessModalScreen: React.FC<P> = ({ navigation, route }) => {
 
   return (
     <Container>
-      <Title>{route.params.type} 완료!</Title>
-      <WelcomeText1 h2>{route.params.userName}님,</WelcomeText1>
-      <WelcomeText2 h2>환영합니다!</WelcomeText2>
+      <Text color="grey2">{route.params.type} 완료!</Text>
+      <WelcomeText1 weight="bold" size={28}>
+        {route.params.userName}님,
+      </WelcomeText1>
+      <WelcomeText2 weight="bold" size={28}>
+        환영합니다!
+      </WelcomeText2>
       <CircleContainer>
         <Circle style={{ transform: [{ rotateX }, { rotateY }] }} />
 

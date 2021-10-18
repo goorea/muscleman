@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { CompositeScreenProps } from '@react-navigation/native';
 import { AuthStackParamList, RootStackParamList } from '@src/types/navigation';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { Button, Input, Text } from 'react-native-elements';
+import { Button, Input } from 'react-native-elements';
 import Loader from '@src/components/Loader';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { flash } from '@src/functions';
@@ -13,6 +13,7 @@ import { tokenState, userQuery } from '@src/recoils';
 import styled from 'styled-components/native';
 import { flexFillCenter } from '@src/styles/flex';
 import { getUniqueId } from 'react-native-device-info';
+import Text from '@src/components/Text';
 
 const Container = styled.View`
   ${flexFillCenter}
