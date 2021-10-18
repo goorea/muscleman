@@ -2,12 +2,55 @@ import React from 'react';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { AuthStackParamList, RootStackParamList } from '@src/types/navigation';
 import { CompositeScreenProps } from '@react-navigation/native';
-import { Animated, StyleSheet, TextStyle, View, ViewStyle } from 'react-native';
-import { Text, useTheme } from 'react-native-elements';
+import { Animated } from 'react-native';
+import { Text } from 'react-native-elements';
 import Svg, { Polyline } from 'react-native-svg';
 import Sound from 'react-native-sound';
+import styled from 'styled-components/native';
+import { flexCenter, flexFillCenter } from '@src/styles/flex';
+import { positionAbsoluteFill } from '@src/styles/position';
 
 const AnimatedPolyline = Animated.createAnimatedComponent<Polyline>(Polyline);
+
+const Container = styled.View`
+  ${flexFillCenter}
+`;
+
+const Title = styled(Text)`
+  color: ${props => props.theme.grey2};
+`;
+
+const WelcomeText1 = styled(Text)`
+  margin-top: 10px;
+`;
+
+const WelcomeText2 = styled(Text)`
+  margin-top: -2px;
+`;
+
+const CircleContainer = styled.View`
+  margin-top: 24px;
+`;
+
+const Circle = styled(Animated.View)`
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
+  border: 3px solid ${props => props.theme.primary};
+  transform: perspective(500);
+`;
+
+const CheckContainer = styled.View`
+  ${positionAbsoluteFill}
+  ${flexCenter}
+`;
+
+const Check = styled(AnimatedPolyline)`
+  stroke-linecap: round;
+  stroke: ${props => props.theme.primary};
+  stroke-width: 10px;
+  stroke-dasharray: 200px;
+`;
 
 type P = CompositeScreenProps<
   NativeStackScreenProps<AuthStackParamList, 'SuccessModal'>,
@@ -15,14 +58,7 @@ type P = CompositeScreenProps<
 >;
 
 const SuccessModalScreen: React.FC<P> = ({ navigation, route }) => {
-  const {
-    theme: { colors },
-  } = useTheme();
-  const successStyle: TextStyle = {
-    color: colors?.grey2,
-  };
   const sound = new Sound(require('@src/assets/alarms/success.mp4'));
-
   const rotateAnimation = new Animated.Value(0);
   const rotateX = rotateAnimation.interpolate({
     inputRange: [0, 1],
@@ -32,25 +68,11 @@ const SuccessModalScreen: React.FC<P> = ({ navigation, route }) => {
     inputRange: [0, 1],
     outputRange: ['-90deg', '180deg'],
   });
-  const circleStyles: Animated.WithAnimatedArray<ViewStyle> = [
-    {
-      width: 120,
-      height: 120,
-      borderRadius: 60,
-      borderWidth: 3,
-      borderColor: colors?.primary,
-    },
-    {
-      transform: [{ rotateX }, { rotateY }, { perspective: 500 }],
-    },
-  ];
-
   const checkAnimation = new Animated.Value(0);
   const strokeDashoffset = checkAnimation.interpolate({
     inputRange: [0, 1],
     outputRange: [200, 0],
   });
-
   const play = () => {
     rotateAnimation.setValue(0);
     checkAnimation.setValue(0);
@@ -75,58 +97,24 @@ const SuccessModalScreen: React.FC<P> = ({ navigation, route }) => {
   React.useEffect(play, [play]);
 
   return (
-    <View style={styles.container}>
-      <Text style={successStyle}>{route.params.type} 완료!</Text>
-      <Text h2 style={styles.welcome1}>
-        {route.params.userName}님,
-      </Text>
-      <Text h2 style={styles.welcome2}>
-        환영합니다!
-      </Text>
-      <View style={styles.circleWrapper}>
-        <Animated.View style={circleStyles} />
+    <Container>
+      <Title>{route.params.type} 완료!</Title>
+      <WelcomeText1 h2>{route.params.userName}님,</WelcomeText1>
+      <WelcomeText2 h2>환영합니다!</WelcomeText2>
+      <CircleContainer>
+        <Circle style={{ transform: [{ rotateX }, { rotateY }] }} />
 
-        <View style={styles.checkWrapper}>
+        <CheckContainer>
           <Svg width="110" height="110" viewBox="0 0 154 154">
-            <AnimatedPolyline
-              strokeLinecap="round"
-              stroke={colors?.primary}
-              strokeWidth={10}
-              strokeDasharray={200}
+            <Check
               strokeDashoffset={strokeDashoffset}
               points="43.5,77.8 63.7,97.9 112.2,49.4"
             />
           </Svg>
-        </View>
-      </View>
-    </View>
+        </CheckContainer>
+      </CircleContainer>
+    </Container>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  welcome1: {
-    marginTop: 10,
-  },
-  welcome2: {
-    marginTop: -2,
-  },
-  circleWrapper: {
-    marginTop: 24,
-  },
-  checkWrapper: {
-    position: 'absolute',
-    justifyContent: 'center',
-    alignItems: 'center',
-    left: 0,
-    top: 0,
-    right: 0,
-    bottom: 0,
-  },
-});
 
 export default SuccessModalScreen;

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, View } from 'react-native';
 import { CompositeScreenProps } from '@react-navigation/native';
 import { AuthStackParamList, RootStackParamList } from '@src/types/navigation';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
@@ -11,6 +10,13 @@ import { useLoginMutation } from '@src/hooks/mutations/useLoginMutation';
 import { useForm, Controller } from 'react-hook-form';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { tokenState, userQuery } from '@src/recoils';
+import styled from 'styled-components/native';
+import { flexFillCenter } from '@src/styles/flex';
+import { getUniqueId } from 'react-native-device-info';
+
+const Container = styled.View`
+  ${flexFillCenter}
+`;
 
 type P = CompositeScreenProps<
   NativeStackScreenProps<AuthStackParamList, 'Login'>,
@@ -38,7 +44,7 @@ const LoginScreen: React.FC<P> = ({ navigation }) => {
   const [login, { data, loading }] = useLoginMutation();
   const onSubmit = async (input: FormData) => {
     await login({
-      variables: { input },
+      variables: { input: { ...input, device_id: getUniqueId() } },
     });
   };
 
@@ -69,7 +75,7 @@ const LoginScreen: React.FC<P> = ({ navigation }) => {
   }
 
   return (
-    <View style={styles.container}>
+    <Container>
       <Text>Login Screen</Text>
       <Controller
         render={({ field }) => (
@@ -112,16 +118,8 @@ const LoginScreen: React.FC<P> = ({ navigation }) => {
         title="Register"
         onPress={() => navigation.navigate('Register')}
       />
-    </View>
+    </Container>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 export default LoginScreen;
