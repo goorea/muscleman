@@ -1,7 +1,8 @@
 import React from 'react';
-import { Overlay, Text, useTheme } from 'react-native-elements';
+import { Overlay, Text } from 'react-native-elements';
 import { ActivityIndicator, StyleSheet } from 'react-native';
 import styled from 'styled-components';
+import { useTheme } from '@src/contexts/ThemeProvider';
 
 const LoaderOverlay = styled(Overlay)`
   background-color: ${props => props.theme.white};
@@ -12,9 +13,7 @@ const LoaderOverlay = styled(Overlay)`
 `;
 
 const Loader: React.FC = () => {
-  const {
-    theme: { colors },
-  } = useTheme();
+  const { colors } = useTheme();
 
   return (
     <LoaderOverlay isVisible={true} fullScreen={true}>

@@ -5,22 +5,20 @@ import {
 } from '@react-navigation/native';
 import { RootStackParamList } from '@src/types/navigation';
 import analytics from '@react-native-firebase/analytics';
-import { useTheme } from 'react-native-elements';
-import { useColorScheme } from 'react-native';
+import { useTheme } from '@src/contexts/ThemeProvider';
 
 const NavigationContainer: React.FC = ({ children }) => {
-  const { theme } = useTheme();
-  const dark = useColorScheme() === 'dark';
+  const { dark, colors } = useTheme();
   const navigationRef = useNavigationContainerRef<RootStackParamList>();
   const navigationTheme = {
     dark,
     colors: {
-      primary: theme.colors?.primary || '',
-      background: theme.colors?.white || '',
-      card: theme.colors?.white || '',
-      text: theme.colors?.black || '',
-      border: theme.colors?.divider || '',
-      notification: theme.colors?.error || '',
+      primary: colors.primary,
+      background: colors.white,
+      card: colors.white,
+      text: colors.black,
+      border: colors.divider,
+      notification: colors.error,
     },
   };
   const routeNameRef = useRef<string>();

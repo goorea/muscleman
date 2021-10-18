@@ -1,5 +1,10 @@
-import { FullTheme } from 'react-native-elements';
-import { StyleProp, TextStyle } from 'react-native';
+import { StyleSheet } from 'react-native';
+import {
+  AccentColors,
+  CommonColors,
+  SocialColors,
+  Themes,
+} from '@src/types/theme';
 
 export const fonts = {
   thin: 'SpoqaHanSansNeo-Thin',
@@ -7,41 +12,48 @@ export const fonts = {
   bold: 'SpoqaHanSansNeo-Bold',
 };
 
-export const defaultFontStyles: StyleProp<TextStyle> = {
-  fontFamily: fonts.normal,
+const commonColors: CommonColors = {
+  white: '#ffffff',
+  black: '#000000',
+  grey0: '#393e42',
+  grey1: '#43484d',
+  grey2: '#5e6977',
+  grey3: '#86939e',
+  grey4: '#bdc6cf',
+  grey5: '#e1e8ee',
+  greyOutline: '#bbb',
+  disabled: 'hsl(208, 8%, 90%)',
+  divider: StyleSheet.hairlineWidth < 1 ? '#bcbbc1' : 'rgba(0, 0, 0, 0.12)',
 };
 
-const theme: Partial<FullTheme> = {
-  Text: {
-    style: defaultFontStyles,
+const accentColors: AccentColors = {
+  primary: '#2089dc',
+  secondary: '#ca71eb',
+  success: '#52c41a',
+  error: '#ff190c',
+  warning: '#faad14',
+};
+
+const socialColors: SocialColors = {
+  kakao: '#fee500',
+  naver: '#1ec800',
+  google: '#dd4b39',
+  facebook: '#3b5999',
+  apple: '#000',
+};
+
+const theme: Themes = {
+  light: {
+    ...commonColors,
+    ...accentColors,
+    ...socialColors,
   },
-  Badge: {
-    textStyle: defaultFontStyles,
-  },
-  Button: {
-    titleStyle: defaultFontStyles,
-    disabledTitleStyle: defaultFontStyles,
-  },
-  Input: {
-    disabledInputStyle: defaultFontStyles,
-    inputStyle: defaultFontStyles,
-    errorStyle: defaultFontStyles,
-    labelStyle: defaultFontStyles,
-  },
-  PricingCard: {
-    titleStyle: defaultFontStyles,
-    pricingStyle: defaultFontStyles,
-    infoStyle: defaultFontStyles,
-  },
-  SearchBar: {
-    inputStyle: defaultFontStyles,
-  },
-  SocialIcon: {
-    fontStyle: defaultFontStyles,
-  },
-  Tile: {
-    titleStyle: defaultFontStyles,
-    captionStyle: defaultFontStyles,
+  dark: {
+    ...commonColors,
+    ...accentColors,
+    ...socialColors,
+    white: commonColors.black,
+    black: commonColors.white,
   },
 };
 

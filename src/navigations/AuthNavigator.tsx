@@ -13,7 +13,7 @@ const Stack = createNativeStackNavigator();
 
 type P = NativeStackScreenProps<RootStackParamList, 'Main'> & {};
 
-const AuthNavigation: React.FC<P> = () => (
+const AuthNavigator: React.FC<P> = () => (
   <Stack.Navigator screenOptions={StackNavigatorDefaultScreenOptions}>
     <Stack.Screen name="Login" component={LoginScreen} />
     <Stack.Screen name="Register" component={RegisterScreen} />
@@ -24,4 +24,4 @@ const AuthNavigation: React.FC<P> = () => (
   </Stack.Navigator>
 );
 
-export default AuthNavigation;
+export default AuthNavigator;

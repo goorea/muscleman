@@ -1,10 +1,6 @@
 import 'styled-components';
-import { Colors } from 'react-native-elements/dist/config/colors';
-
-declare type RecursivePartial<T> = {
-  [P in keyof T]?: RecursivePartial<T[P]>;
-};
+import { Colors } from '@src/types/theme';
 
 declare module 'styled-components' {
-  export interface DefaultTheme extends RecursivePartial<Colors> {}
+  export interface DefaultTheme extends Colors {}
 }

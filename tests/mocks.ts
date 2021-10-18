@@ -24,6 +24,9 @@ jest
   })
   .mock('react-native/Libraries/Animated/NativeAnimatedHelper')
   .doMock('recoil', () => require('recoil/native/recoil'))
+  .mock('react-native-device-info', () =>
+    require('react-native-device-info/jest/react-native-device-info-mock'),
+  )
   .useFakeTimers();
 
 export const navigationDispatchMock = jest.fn();
