@@ -1,10 +1,15 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
 import { MainTabParamList, RootStackParamList } from '@src/types/navigation';
 import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { CompositeScreenProps } from '@react-navigation/native';
 import { Button, Text } from 'react-native-elements';
+import styled from 'styled-components/native';
+import { flexFillCenter } from '@src/styles/flex';
+
+const Container = styled.View`
+  ${flexFillCenter}
+`;
 
 type P = CompositeScreenProps<
   BottomTabScreenProps<MainTabParamList, 'Home'>,
@@ -12,21 +17,13 @@ type P = CompositeScreenProps<
 > & {};
 
 const HomeScreen: React.FC<P> = ({ navigation }) => (
-  <View style={styles.container}>
+  <Container>
     <Text>Home Screen</Text>
     <Button
       title="Login"
       onPress={() => navigation.navigate('Auth', { screen: 'Login' })}
     />
-  </View>
+  </Container>
 );
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 export default HomeScreen;

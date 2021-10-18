@@ -1,9 +1,14 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
 import { CompositeScreenProps } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { AuthStackParamList, RootStackParamList } from '@src/types/navigation';
 import { Text } from 'react-native-elements';
+import styled from 'styled-components/native';
+import { flexFillCenter } from '@src/styles/flex';
+
+const Container = styled.View`
+  ${flexFillCenter}
+`;
 
 type P = CompositeScreenProps<
   NativeStackScreenProps<AuthStackParamList, 'Login'>,
@@ -11,17 +16,9 @@ type P = CompositeScreenProps<
 > & {};
 
 const RegisterScreen: React.FC<P> = () => (
-  <View style={styles.container}>
+  <Container>
     <Text>Register Screen</Text>
-  </View>
+  </Container>
 );
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 export default RegisterScreen;
