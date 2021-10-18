@@ -1,12 +1,13 @@
 import React from 'react';
 import { TextField, TextFieldProps } from 'rn-material-ui-textfield';
-import { Icon, useTheme } from 'react-native-elements';
+import { Icon } from 'react-native-elements';
 import {
   Animated,
   NativeSyntheticEvent,
   TextInputChangeEventData,
   TextInputFocusEventData,
 } from 'react-native';
+import { useTheme } from '@src/contexts/ThemeProvider';
 
 type P = TextFieldProps & {
   onClear?: () => void;
@@ -16,9 +17,7 @@ const MaterialInput: React.ForwardRefRenderFunction<TextField, P> = (
   props,
   ref,
 ) => {
-  const {
-    theme: { colors },
-  } = useTheme();
+  const { colors } = useTheme();
   const fadeAnimation = new Animated.Value(0);
   const fade = (focus: boolean) =>
     Animated.timing(fadeAnimation, {
@@ -47,7 +46,7 @@ const MaterialInput: React.ForwardRefRenderFunction<TextField, P> = (
         onPress={props.onClear}
         name="close-circle"
         type="ionicon"
-        color={colors?.grey4}
+        color={colors.grey4}
       />
     </Animated.View>
   );
@@ -55,14 +54,14 @@ const MaterialInput: React.ForwardRefRenderFunction<TextField, P> = (
   return (
     <TextField
       ref={ref}
-      textColor={colors?.black}
+      textColor={colors.black}
       labelFontSize={14}
       lineWidth={1}
       activeLineWidth={1}
       disabledLineWidth={1}
-      tintColor={colors?.grey3}
-      baseColor={colors?.grey3}
-      errorColor={colors?.error}
+      tintColor={colors.grey3}
+      baseColor={colors.grey3}
+      errorColor={colors.error}
       disabledLineType="solid"
       renderRightAccessory={renderRightAccessory}
       {...props}

@@ -5,16 +5,17 @@ import PlansScreen from '@src/screens/PlansScreen';
 import ProfileScreen from '@src/screens/Profile';
 import { MainTabParamList, RootStackParamList } from '@src/types/navigation';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { Icon, useTheme } from 'react-native-elements';
 import { MaterialBottomTabNavigationOptions } from '@react-navigation/material-bottom-tabs/src/types';
+import { Icon } from 'react-native-elements';
+import { useTheme } from '@src/contexts/ThemeProvider';
 
 const Tab = createMaterialBottomTabNavigator<MainTabParamList>();
 
 type P = NativeStackScreenProps<RootStackParamList, 'Main'> & {};
 
-const MainNavigation: React.FC<P> = () => {
-  const { theme } = useTheme();
-  const barStyle = { backgroundColor: theme.colors?.white };
+const MainNavigator: React.FC<P> = () => {
+  const { colors } = useTheme();
+  const barStyle = { backgroundColor: colors.white };
   const homeOptions: MaterialBottomTabNavigationOptions = {
     tabBarLabel: '홈',
     tabBarIcon: ({ color }) => <Icon name="home" type="oction" color={color} />,
@@ -33,8 +34,8 @@ const MainNavigation: React.FC<P> = () => {
   return (
     <Tab.Navigator
       shifting={true}
-      activeColor={theme.colors?.primary}
-      inactiveColor={theme.colors?.greyOutline}
+      activeColor={colors.primary}
+      inactiveColor={colors.greyOutline}
       barStyle={barStyle}>
       <Tab.Screen name="Home" component={HomeScreen} options={homeOptions} />
       <Tab.Screen name="Plans" component={PlansScreen} options={plansOptions} />
@@ -47,4 +48,4 @@ const MainNavigation: React.FC<P> = () => {
   );
 };
 
-export default MainNavigation;
+export default MainNavigator;

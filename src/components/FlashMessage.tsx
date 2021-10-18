@@ -1,27 +1,26 @@
 import React from 'react';
 import StackFlashMessage from 'react-native-stack-flash-message';
-import { Icon, Text, useTheme } from 'react-native-elements';
+import { Icon, Text } from 'react-native-elements';
+import { useTheme } from '@src/contexts/ThemeProvider';
 
 const FlashMessage: React.FC = () => {
-  const {
-    theme: { colors },
-  } = useTheme();
+  const { colors } = useTheme();
   const messageWrapperStyle = {
     borderWidth: 1,
-    borderColor: colors?.greyOutline,
-    backgroundColor: colors?.white,
+    borderColor: colors.greyOutline,
+    backgroundColor: colors.white,
   };
   const theme = {
-    success: colors?.primary || '',
-    info: colors?.success || '',
-    error: colors?.error || '',
+    success: colors.primary,
+    info: colors.success,
+    error: colors.error,
   };
   const icons = {
     success: (
       <Icon
         name="checkmark-circle-outline"
         size={20}
-        color={colors?.primary}
+        color={colors.primary}
         type="ionicon"
       />
     ),
@@ -29,7 +28,7 @@ const FlashMessage: React.FC = () => {
       <Icon
         name="information-circle-outline"
         size={20}
-        color={colors?.success}
+        color={colors.success}
         type="ionicon"
       />
     ),
@@ -37,7 +36,7 @@ const FlashMessage: React.FC = () => {
       <Icon
         name="close-circle-outline"
         size={20}
-        color={colors?.error}
+        color={colors.error}
         type="ionicon"
       />
     ),
