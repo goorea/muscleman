@@ -10,6 +10,8 @@ export interface CommonColors {
   readonly greyOutline: string;
   readonly disabled: string;
   readonly divider: string;
+  readonly foreground: string;
+  readonly background: string;
 }
 
 export interface AccentColors {
@@ -30,7 +32,7 @@ export interface SocialColors {
 
 export interface Colors extends CommonColors, AccentColors, SocialColors {}
 
-export type Themes = {
+export type Theme = {
   light: Colors;
   dark: Colors;
 };

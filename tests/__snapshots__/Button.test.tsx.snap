@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button 컴포넌트 렌더링이 올바르게 된다 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={false}
+  nativeID="animatedComponent"
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#2089dc",
+      "opacity": 1,
+      "paddingBottom": 6,
+      "paddingLeft": 12,
+      "paddingRight": 12,
+      "paddingTop": 6,
+    }
+  }
+>
+  <Text
+    color="white"
+    style={
+      Array [
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SpoqaHanSansNeo-Bold",
+          "fontSize": 16,
+        },
+      ]
+    }
+    weight="bold"
+  >
+    버튼
+  </Text>
+</View>
+`;

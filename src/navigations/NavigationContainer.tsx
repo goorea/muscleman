@@ -14,9 +14,9 @@ const NavigationContainer: React.FC = ({ children }) => {
     dark,
     colors: {
       primary: colors.primary,
-      background: colors.white,
-      card: colors.white,
-      text: colors.black,
+      background: colors.background,
+      card: colors.background,
+      text: colors.foreground,
       border: colors.divider,
       notification: colors.error,
     },

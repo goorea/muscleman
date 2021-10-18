@@ -15,7 +15,7 @@ export type TextProps = {
 const RNText = styled.Text<Omit<TextProps, 'style'>>`
   font-family: ${({ weight }) => fonts[weight || 'normal']};
   font-size: ${({ size }) => `${size || 16}px`};
-  color: ${({ theme, color }) => theme[color || 'black']};
+  color: ${({ theme, color }) => theme[color || 'foreground']};
 `;
 
 const Text: React.FC<TextProps> = ({
