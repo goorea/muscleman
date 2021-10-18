@@ -3,10 +3,10 @@ import { MainTabParamList, RootStackParamList } from '@src/types/navigation';
 import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { CompositeScreenProps } from '@react-navigation/native';
-import { Button } from 'react-native-elements';
 import styled from 'styled-components/native';
 import { flexFillCenter } from '@src/styles/flex';
 import Text from '@src/components/Text';
+import Button from '@src/components/Button';
 
 const Container = styled.View`
   ${flexFillCenter}

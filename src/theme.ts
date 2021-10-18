@@ -3,7 +3,7 @@ import {
   AccentColors,
   CommonColors,
   SocialColors,
-  Themes,
+  Theme,
 } from '@src/types/theme';
 
 export const fonts = {
@@ -24,6 +24,8 @@ const commonColors: CommonColors = {
   greyOutline: '#bbb',
   disabled: 'hsl(208, 8%, 90%)',
   divider: StyleSheet.hairlineWidth < 1 ? '#bcbbc1' : 'rgba(0, 0, 0, 0.12)',
+  foreground: '#000000',
+  background: '#ffffff',
 };
 
 const accentColors: AccentColors = {
@@ -42,7 +44,7 @@ const socialColors: SocialColors = {
   apple: '#000',
 };
 
-const theme: Themes = {
+const theme: Theme = {
   light: {
     ...commonColors,
     ...accentColors,
@@ -52,8 +54,8 @@ const theme: Themes = {
     ...commonColors,
     ...accentColors,
     ...socialColors,
-    white: commonColors.black,
-    black: commonColors.white,
+    foreground: commonColors.background,
+    background: commonColors.foreground,
   },
 };
 

@@ -9,7 +9,7 @@ const FlashMessage: React.FC = () => {
   const messageWrapperStyle = {
     borderWidth: 1,
     borderColor: colors.greyOutline,
-    backgroundColor: colors.white,
+    backgroundColor: colors.background,
   };
   const theme = {
     success: colors.primary,

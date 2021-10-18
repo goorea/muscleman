@@ -15,7 +15,7 @@ type P = NativeStackScreenProps<RootStackParamList, 'Main'> & {};
 
 const MainNavigator: React.FC<P> = () => {
   const { colors } = useTheme();
-  const barStyle = { backgroundColor: colors.white };
+  const barStyle = { backgroundColor: colors.background };
   const homeOptions: MaterialBottomTabNavigationOptions = {
     tabBarLabel: '홈',
     tabBarIcon: ({ color }) => <Icon name="home" type="oction" color={color} />,

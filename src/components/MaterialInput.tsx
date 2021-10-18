@@ -54,7 +54,7 @@ const MaterialInput: React.ForwardRefRenderFunction<TextField, P> = (
   return (
     <TextField
       ref={ref}
-      textColor={colors.black}
+      textColor={colors.foreground}
       labelFontSize={14}
       lineWidth={1}
       activeLineWidth={1}

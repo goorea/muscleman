@@ -22,7 +22,7 @@ const Loader: React.FC = () => {
 
   return (
     <LoaderOverlay isVisible={true} fullScreen={true}>
-      <ActivityIndicator size="large" color={colors.black} />
+      <ActivityIndicator size="large" color={colors.foreground} />
       <Title>불러오는 중...😅😅😅</Title>
     </LoaderOverlay>
   );

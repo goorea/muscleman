@@ -14,7 +14,7 @@ const AppNavigator: React.FC = () => {
   const options = {
     title: '',
     headerLeft: () => <Text weight="bold">💪{APP_NAME}</Text>,
-    headerStyle: { backgroundColor: colors.white },
+    headerStyle: { backgroundColor: colors.background },
   };
 
   return (
