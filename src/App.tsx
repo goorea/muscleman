@@ -9,19 +9,19 @@ import Loader from '@src/components/Loader';
 import ThemeProvider from '@src/contexts/ThemeProvider';
 
 const App: React.FC = () => (
-  <RecoilRoot>
-    <React.Suspense fallback={<Loader />}>
-      <ApolloProvider client={client}>
-        <ThemeProvider>
+  <ThemeProvider>
+    <RecoilRoot>
+      <React.Suspense fallback={<Loader />}>
+        <ApolloProvider client={client}>
           <NavigationContainer>
             <AppNavigator />
           </NavigationContainer>
 
           <FlashMessage />
-        </ThemeProvider>
-      </ApolloProvider>
-    </React.Suspense>
-  </RecoilRoot>
+        </ApolloProvider>
+      </React.Suspense>
+    </RecoilRoot>
+  </ThemeProvider>
 );
 
 export default App;

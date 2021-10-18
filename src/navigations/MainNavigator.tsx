@@ -6,8 +6,8 @@ import ProfileScreen from '@src/screens/Profile';
 import { MainTabParamList, RootStackParamList } from '@src/types/navigation';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { MaterialBottomTabNavigationOptions } from '@react-navigation/material-bottom-tabs/src/types';
-import { Icon } from 'react-native-elements';
 import { useTheme } from '@src/contexts/ThemeProvider';
+import Icon from '@src/components/Icon';
 
 const Tab = createMaterialBottomTabNavigator<MainTabParamList>();
 
@@ -18,7 +18,7 @@ const MainNavigator: React.FC<P> = () => {
   const barStyle = { backgroundColor: colors.background };
   const homeOptions: MaterialBottomTabNavigationOptions = {
     tabBarLabel: '홈',
-    tabBarIcon: ({ color }) => <Icon name="home" type="oction" color={color} />,
+    tabBarIcon: 'home',
   };
   const plansOptions: MaterialBottomTabNavigationOptions = {
     tabBarLabel: '계획',
@@ -26,8 +26,12 @@ const MainNavigator: React.FC<P> = () => {
   };
   const profileOptions: MaterialBottomTabNavigationOptions = {
     tabBarLabel: '내정보',
-    tabBarIcon: ({ color }) => (
-      <Icon name="person-circle-outline" type="ionicon" color={color} />
+    tabBarIcon: ({ focused }) => (
+      <Icon
+        name="person-circle-outline"
+        type="ionicon"
+        color={focused ? 'primary' : 'greyOutline'}
+      />
     ),
   };
 
