@@ -3,10 +3,13 @@ import { ActivityIndicator, TouchableOpacityProps } from 'react-native';
 import styled, { css } from 'styled-components/native';
 import Text, { TextProps } from '@src/components/Text';
 import { useTheme } from '@src/contexts/ThemeProvider';
+import Icon, { IconProps } from '@src/components/Icon';
+import { flexCenter } from '@src/styles/flex';
 
 type P = TouchableOpacityProps &
   TextProps & {
-    title: string;
+    title?: string | React.ReactElement;
+    icon?: IconProps;
     type?: 'solid' | 'clear' | 'outline';
     loading?: boolean;
     disabled?: boolean;
@@ -24,7 +27,8 @@ const RNTouchableOpacity = styled.TouchableOpacity<P>`
         `}
 
   opacity: ${({ disabled }) => (disabled ? 0.6 : 1)};
-  padding: ${({ type }) => (type === 'clear' ? 0 : '6px 12px')};
+  padding: ${({ type }) => (type === 'clear' ? 0 : '14px 20px')};
+  ${flexCenter}
 `;
 
 const Button: React.FC<P> = props => {
@@ -35,9 +39,9 @@ const Button: React.FC<P> = props => {
       {props.loading ? (
         <ActivityIndicator
           size={props.size || 16}
-          color={colors[props.color || 'primary']}
+          color={colors[props.color || 'white']}
         />
-      ) : (
+      ) : props.title ? (
         <Text
           weight={props.weight || 'bold'}
           color={
@@ -47,6 +51,8 @@ const Button: React.FC<P> = props => {
           }>
           {props.title}
         </Text>
+      ) : (
+        props.icon && <Icon {...props.icon} />
       )}
     </RNTouchableOpacity>
   );

@@ -29,7 +29,7 @@ type IconType =
   | 'antdesign'
   | 'font-awesome-5';
 
-type P = {
+export type IconProps = {
   name: string;
   type?: IconType;
   size?: number;
@@ -37,7 +37,7 @@ type P = {
   onPress?: (event: GestureResponderEvent) => void;
 };
 
-const Icon: React.FC<P> = ({
+const Icon: React.FC<IconProps> = ({
   name,
   type,
   size = 24,
