@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { AuthStackParamList, RootStackParamList } from '@src/types/navigation';
 import { CompositeScreenProps } from '@react-navigation/native';
@@ -54,8 +54,10 @@ type P = CompositeScreenProps<
 >;
 
 const SuccessModalScreen: React.FC<P> = ({ navigation, route }) => {
-  const sound = new Sound(require('@src/assets/alarms/success.mp4'));
-  const rotateAnimation = new Animated.Value(0);
+  const sound = useRef(
+    new Sound(require('@src/assets/alarms/success.mp4')),
+  ).current;
+  const rotateAnimation = useRef(new Animated.Value(0)).current;
   const rotateX = rotateAnimation.interpolate({
     inputRange: [0, 1],
     outputRange: ['0deg', '180deg'],
@@ -64,33 +66,36 @@ const SuccessModalScreen: React.FC<P> = ({ navigation, route }) => {
     inputRange: [0, 1],
     outputRange: ['-90deg', '180deg'],
   });
-  const checkAnimation = new Animated.Value(0);
+  const checkAnimation = useRef(new Animated.Value(0)).current;
   const strokeDashoffset = checkAnimation.interpolate({
     inputRange: [0, 1],
     outputRange: [200, 0],
   });
-  const play = () => {
-    rotateAnimation.setValue(0);
-    checkAnimation.setValue(0);
 
-    setTimeout(() => sound.play(() => null), 500);
+  React.useEffect(
+    () =>
+      navigation.addListener('transitionEnd', () => {
+        rotateAnimation.setValue(0);
+        checkAnimation.setValue(0);
 
-    Animated.parallel([
-      Animated.timing(rotateAnimation, {
-        toValue: 1,
-        duration: 500,
-        useNativeDriver: true,
+        setTimeout(() => sound.play(() => null), 500);
+
+        Animated.parallel([
+          Animated.timing(rotateAnimation, {
+            toValue: 1,
+            duration: 500,
+            useNativeDriver: true,
+          }),
+          Animated.timing(checkAnimation, {
+            toValue: 1,
+            duration: 700,
+            delay: 400,
+            useNativeDriver: true,
+          }),
+        ]).start(() => navigation.getParent()?.goBack());
       }),
-      Animated.timing(checkAnimation, {
-        toValue: 1,
-        duration: 700,
-        delay: 400,
-        useNativeDriver: true,
-      }),
-    ]).start(navigation.goBack);
-  };
-
-  React.useEffect(play, [play]);
+    [navigation, rotateAnimation, checkAnimation, sound],
+  );
 
   return (
     <Container>
