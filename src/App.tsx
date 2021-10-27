@@ -5,21 +5,21 @@ import { ApolloProvider } from '@apollo/client';
 import client from '@src/client';
 import FlashMessage from '@src/components/FlashMessage';
 import { RecoilRoot } from 'recoil';
-import Loader from '@src/components/Loader';
 import ThemeProvider from '@src/contexts/ThemeProvider';
+import UserProvider from '@src/contexts/UserProvider';
 
 const App: React.FC = () => (
   <ThemeProvider>
     <RecoilRoot>
-      <React.Suspense fallback={<Loader />}>
-        <ApolloProvider client={client}>
+      <ApolloProvider client={client}>
+        <UserProvider>
           <NavigationContainer>
             <AppNavigator />
           </NavigationContainer>
 
           <FlashMessage />
-        </ApolloProvider>
-      </React.Suspense>
+        </UserProvider>
+      </ApolloProvider>
     </RecoilRoot>
   </ThemeProvider>
 );

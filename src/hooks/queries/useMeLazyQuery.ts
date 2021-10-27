@@ -7,7 +7,7 @@ import {
 import { useErrorEffect } from '@src/hooks/useErrorEffect';
 import { CORE_USER_FIELDS } from '@src/fragments/user';
 
-export const ME = gql`
+const ME = gql`
   ${CORE_USER_FIELDS}
   query me {
     me {
