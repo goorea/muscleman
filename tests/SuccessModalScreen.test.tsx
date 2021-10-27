@@ -1,10 +1,10 @@
 import 'react-native';
 import React from 'react';
 import SuccessModalScreen from '@src/screens/auth/SuccessModalScreen';
-import { navigationGoBackMock, navigationMock } from '@tests/mocks';
+import { navigationGoBackMock, navigationMock } from '@mocks/navigationMocks';
 import { act, render } from '@testing-library/react-native';
 import Sound from 'react-native-sound';
-import ThemeProvider from '@src/contexts/ThemeProvider';
+import { wrapper } from '@tests/functions';
 
 describe('SuccessModalScreen 컴포넌트', () => {
   beforeEach(() => {
@@ -16,19 +16,18 @@ describe('SuccessModalScreen 컴포넌트', () => {
     userName: string = 'John',
   ) =>
     render(
-      <ThemeProvider>
-        <SuccessModalScreen
-          navigation={navigationMock}
-          route={{
-            key: '',
-            name: 'SuccessModal',
-            params: {
-              type,
-              userName,
-            },
-          }}
-        />
-      </ThemeProvider>,
+      <SuccessModalScreen
+        navigation={navigationMock}
+        route={{
+          key: '',
+          name: 'SuccessModal',
+          params: {
+            type,
+            userName,
+          },
+        }}
+      />,
+      { wrapper },
     );
 
   it('렌더링이 올바르게 된다', () => {
