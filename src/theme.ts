@@ -29,7 +29,7 @@ const commonColors: CommonColors = {
 };
 
 const accentColors: AccentColors = {
-  primary: '#2089dc',
+  primary: '#2687ED',
   secondary: '#ca71eb',
   success: '#52c41a',
   error: '#ff190c',
