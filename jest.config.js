@@ -77,6 +77,7 @@ module.exports = {
   moduleNameMapper: {
     '@src/(.*)$': '<rootDir>/src/$1',
     '@tests/(.*)$': '<rootDir>/tests/$1',
+    '@mocks/(.*)$': '<rootDir>/mocks/$1',
     '^.+.(png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
   },
 
@@ -122,7 +123,7 @@ module.exports = {
   // runner: "jest-runner",
 
   // The paths to modules that run some code to configure or set up the testing environment before each test
-  setupFiles: ['<rootDir>/tests/mocks.ts'],
+  setupFiles: ['<rootDir>/mocks/index.ts'],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   setupFilesAfterEnv: [
