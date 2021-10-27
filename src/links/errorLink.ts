@@ -7,6 +7,7 @@ import httpLink from '@src/links/httpLink';
 import { Mutation, MutationRefreshTokenArgs } from '@src/types/graphql';
 import { REFRESH_TOKEN } from '@src/hooks/mutations/useRefreshTokenMutation';
 import { getUniqueId } from 'react-native-device-info';
+import { ERROR_CODES } from '@src/hooks/useErrorEffect';
 
 const isServerError = (
   error: Error | ServerError | ServerParseError,
@@ -16,7 +17,8 @@ const errorLink = onError(({ networkError, operation, forward }) => {
   if (
     networkError &&
     isServerError(networkError) &&
-    networkError.result.errors[0].extensions.code === 'TOKEN_EXPIRED_ERROR'
+    networkError.result.errors[0].extensions.code ===
+      ERROR_CODES.TOKEN_EXPIRED_ERROR
   ) {
     return new Observable(subscriber => {
       (async () => {
