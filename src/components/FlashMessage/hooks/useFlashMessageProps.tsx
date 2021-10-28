@@ -1,22 +1,30 @@
-import React from 'react';
-import StackFlashMessage from 'react-native-stack-flash-message';
-import { useTheme } from '@src/contexts/ThemeProvider';
-import Text from '@src/components/Text';
 import Icon from '@src/components/Icon';
+import React from 'react';
+import { Colors } from '@src/types/theme';
+import { ViewStyle } from 'react-native';
+import {
+  Theme as StackFlashMessageTheme,
+  Icon as StackFlashMessageIcon,
+} from 'react-native-stack-flash-message';
 
-const FlashMessage: React.FC = () => {
-  const { colors } = useTheme();
-  const messageWrapperStyle = {
+const useFlashMessageProps = (
+  colors: Colors,
+): {
+  messageWrapperStyle: ViewStyle;
+  theme: StackFlashMessageTheme;
+  icons: StackFlashMessageIcon;
+} => ({
+  messageWrapperStyle: {
     borderWidth: 1,
     borderColor: colors.greyOutline,
     backgroundColor: colors.background,
-  };
-  const theme = {
+  },
+  theme: {
     success: colors.primary,
     info: colors.success,
     error: colors.error,
-  };
-  const icons = {
+  },
+  icons: {
     success: (
       <Icon
         name="checkmark-circle-outline"
@@ -41,18 +49,7 @@ const FlashMessage: React.FC = () => {
         type="ionicon"
       />
     ),
-  };
+  },
+});
 
-  return (
-    <StackFlashMessage
-      ref={ref => StackFlashMessage.setRef(ref)}
-      messageWrapperStyle={messageWrapperStyle}
-      titleComponent={Text}
-      contentsComponent={Text}
-      theme={theme}
-      icons={icons}
-    />
-  );
-};
-
-export default FlashMessage;
+export default useFlashMessageProps;

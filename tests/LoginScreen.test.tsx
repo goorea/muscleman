@@ -1,7 +1,7 @@
 import 'react-native';
 import React from 'react';
 import { fireEvent, render, waitFor } from '@testing-library/react-native';
-import LoginScreen from '@src/screens/auth/LoginScreen';
+import LoginScreen from '@src/screens/LoginScreen';
 import { navigationMock, navigationNavigateMock } from '@mocks/navigationMocks';
 import { wrapper } from '@tests/functions';
 

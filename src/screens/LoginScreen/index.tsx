@@ -11,9 +11,9 @@ import Text from '@src/components/Text';
 import Button from '@src/components/Button';
 import MaterialInput from '@src/components/MaterialInput';
 import { APP_NAME } from '@env';
-import GoogleIcon from '@src/components/socials/GoogleIcon';
-import NaverIcon from '@src/components/socials/NaverIcon';
-import KakaoIcon from '@src/components/socials/KakaoIcon';
+import GoogleIcon from '@src/components/GoogleIcon';
+import NaverIcon from '@src/components/NaverIcon';
+import KakaoIcon from '@src/components/KakaoIcon';
 import KeyboardAvoidingScrollView from '@src/components/KeyboardAvoidingScrollView';
 import { TextField } from 'rn-material-ui-textfield';
 import { HeaderHeightContext } from '@react-navigation/elements';
@@ -33,7 +33,7 @@ import {
   LinksContainer,
   Divider,
   ErrorMessage,
-} from './styled';
+} from 'src/screens/LoginScreen/styled';
 
 type P = CompositeScreenProps<
   NativeStackScreenProps<AuthStackParamList, 'Login'>,

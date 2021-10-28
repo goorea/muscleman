@@ -3,13 +3,8 @@ import { CompositeScreenProps } from '@react-navigation/native';
 import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
 import { MainTabParamList, RootStackParamList } from '@src/types/navigation';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import styled from 'styled-components/native';
-import { flexFillCenter } from '@src/styles/flex';
 import Text from '@src/components/Text';
-
-const Container = styled.View`
-  ${flexFillCenter}
-`;
+import { Container } from './styled';
 
 type P = CompositeScreenProps<
   BottomTabScreenProps<MainTabParamList, 'Profile'>,
