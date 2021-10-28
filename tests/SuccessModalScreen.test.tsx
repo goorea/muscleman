@@ -1,6 +1,6 @@
 import 'react-native';
 import React from 'react';
-import SuccessModalScreen from '@src/screens/auth/SuccessModalScreen';
+import SuccessModalScreen from '@src/screens/SuccessModalScreen';
 import { navigationMock } from '@mocks/navigationMocks';
 import { render } from '@testing-library/react-native';
 import { wrapper } from '@tests/functions';
