@@ -20,21 +20,28 @@ export type Scalars = {
   ObjectId: any;
 };
 
+export type AuthenticationResponse = {
+  __typename?: 'AuthenticationResponse';
+  refresh_token: Scalars['String'];
+  token: Scalars['String'];
+  user: User;
+};
+
 export enum Gender {
   Female = 'FEMALE',
   Male = 'MALE',
 }
 
+export type JwtResponse = {
+  __typename?: 'JWTResponse';
+  refresh_token: Scalars['String'];
+  token: Scalars['String'];
+};
+
 export type LoginInput = {
   device_id: Scalars['String'];
   email: Scalars['String'];
   password: Scalars['String'];
-};
-
-export type LoginResponse = {
-  __typename?: 'LoginResponse';
-  refresh_token: Scalars['String'];
-  token: Scalars['String'];
 };
 
 export type Model = {
@@ -49,9 +56,9 @@ export type Mutation = {
   createTraining: Training;
   deletePlan: Scalars['Boolean'];
   deleteTraining: Scalars['Boolean'];
-  login: LoginResponse;
-  refreshToken: LoginResponse;
-  register: User;
+  login: AuthenticationResponse;
+  refreshToken: JwtResponse;
+  register: AuthenticationResponse;
   sendVerifyEmail: Scalars['String'];
   updatePlan: Scalars['Boolean'];
   updateTraining: Scalars['Boolean'];
@@ -201,6 +208,7 @@ export type User = Model & {
 
 export type UserInput = {
   birth?: Maybe<Scalars['DateTime']>;
+  device_id: Scalars['String'];
   email: Scalars['String'];
   gender: Gender;
   name: Scalars['String'];
