@@ -35,13 +35,13 @@ describe('LoginScreen 컴포넌트', () => {
   it('이메일 필드와 비밀번호 필드를 비우고 로그인 버튼을 누르면 에러 메세지들이 보인다', async () => {
     const { queryByText, getByText } = rendered();
 
-    expect(queryByText('이메일을 입력 해주세요')).toBeNull();
-    expect(queryByText('비밀번호를 입력 해주세요')).toBeNull();
+    expect(queryByText('이메일을 입력해주세요')).toBeNull();
+    expect(queryByText('비밀번호를 입력해주세요')).toBeNull();
 
     await waitFor(() => fireEvent.press(getByText('로그인')));
 
-    expect(queryByText('이메일을 입력 해주세요')).not.toBeNull();
-    expect(queryByText('비밀번호를 입력 해주세요')).not.toBeNull();
+    expect(queryByText('이메일을 입력해주세요')).not.toBeNull();
+    expect(queryByText('비밀번호를 입력해주세요')).not.toBeNull();
   });
 
   it('이메일 필드는 이메일 형식이 아니라면 에러 메세지가 보인다', async () => {
