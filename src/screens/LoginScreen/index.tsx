@@ -15,7 +15,6 @@ import GoogleIcon from '@src/components/GoogleIcon';
 import NaverIcon from '@src/components/NaverIcon';
 import KakaoIcon from '@src/components/KakaoIcon';
 import KeyboardAvoidingScrollView from '@src/components/KeyboardAvoidingScrollView';
-import { TextField } from 'rn-material-ui-textfield';
 import { HeaderHeightContext } from '@react-navigation/elements';
 import { useSetUser } from './hooks/useSetUser';
 import { useSetErrorMessages } from './hooks/useSetErrorMessages';
@@ -34,6 +33,7 @@ import {
   Divider,
   ErrorMessage,
 } from 'src/screens/LoginScreen/styled';
+import { TextInput } from 'react-native';
 
 type P = CompositeScreenProps<
   NativeStackScreenProps<AuthStackParamList, 'Login'>,
@@ -53,7 +53,7 @@ const LoginScreen: React.FC<P> = ({ navigation }) => {
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<FormInput>();
-  const passwordInputRef = React.useRef<TextField>(null);
+  const passwordInputRef = React.useRef<TextInput>(null);
   const focusPasswordInput = () => passwordInputRef.current?.focus();
   const [login, { data, error, loading }] = useLoginMutation();
   const [errorMessages, setErrorMessages] = React.useState<string[]>([]);
@@ -101,6 +101,7 @@ const LoginScreen: React.FC<P> = ({ navigation }) => {
               keyboardType="email-address"
               returnKeyType="next"
               onSubmitEditing={focusPasswordInput}
+              error={errors.email?.message}
             />
           )}
           name="email"
@@ -114,11 +115,6 @@ const LoginScreen: React.FC<P> = ({ navigation }) => {
             },
           }}
         />
-        {errors.email && (
-          <Text size={12} color="error">
-            {errors.email.message}
-          </Text>
-        )}
         <Controller
           render={({ field }) => (
             <MaterialInput
@@ -129,6 +125,7 @@ const LoginScreen: React.FC<P> = ({ navigation }) => {
               returnKeyType="done"
               secureTextEntry={true}
               onSubmitEditing={handleSubmit(onSubmit)}
+              error={errors.password?.message}
             />
           )}
           name="password"
@@ -141,13 +138,8 @@ const LoginScreen: React.FC<P> = ({ navigation }) => {
             },
           }}
         />
-        {errors.password && (
-          <Text size={11} color="error">
-            {errors.password.message}
-          </Text>
-        )}
         {errorMessages.map(message => (
-          <ErrorMessage key={message} size={11} color="error">
+          <ErrorMessage key={message} size={12} color="error">
             {message}
           </ErrorMessage>
         ))}
