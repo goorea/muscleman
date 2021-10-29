@@ -1,32 +1,78 @@
-import React from 'react';
-import { TextField, TextFieldProps } from 'rn-material-ui-textfield';
-import { useTheme } from '@src/contexts/ThemeProvider';
+import React, { useState } from 'react';
+import {
+  LayoutChangeEvent,
+  LayoutRectangle,
+  NativeSyntheticEvent,
+  TextInput,
+  TextInputFocusEventData,
+  TextInputProps,
+} from 'react-native';
+import Text from '@src/components/Text';
+import useAnimation from './hooks/useAnimation';
+import { Container, Label, Wrapper, Input } from './styled';
 
-type P = Omit<TextFieldProps, 'error'> & {
+type P = TextInputProps & {
   onChange: (text: string) => void;
+  label: string;
+  error?: string;
 };
 
-const MaterialInput: React.ForwardRefRenderFunction<TextField, P> = (
+const MaterialInput: React.ForwardRefRenderFunction<TextInput, P> = (
   props,
   ref,
 ) => {
-  const { colors } = useTheme();
+  const [active, setActive] = useState<boolean>(false);
+  const [labelLayout, setLabelLayout] = useState<
+    Pick<LayoutRectangle, 'width' | 'height'>
+  >({
+    width: 0,
+    height: 0,
+  });
+  const onLabelLayout = ({ nativeEvent }: LayoutChangeEvent) => {
+    setLabelLayout(nativeEvent.layout);
+  };
+  const onFocus = (event: NativeSyntheticEvent<TextInputFocusEventData>) => {
+    if (props.onFocus) {
+      props.onFocus(event);
+    }
+
+    setActive(true);
+  };
+  const onBlur = (event: NativeSyntheticEvent<TextInputFocusEventData>) => {
+    if (props.onBlur) {
+      props.onBlur(event);
+    }
+
+    if (!props.value) {
+      setActive(false);
+    }
+  };
+
+  const { translateX, translateY, scale } = useAnimation(active, labelLayout);
 
   return (
-    <TextField
-      ref={ref}
-      textColor={colors.foreground}
-      labelFontSize={14}
-      lineWidth={1}
-      activeLineWidth={1}
-      disabledLineWidth={1}
-      tintColor={colors.grey3}
-      baseColor={colors.grey3}
-      errorColor={colors.error}
-      disabledLineType="solid"
-      {...props}
-      onChangeText={props.onChange}
-    />
+    <Container>
+      <Wrapper>
+        <Label
+          onLayout={onLabelLayout}
+          color={active ? 'grey3' : 'foreground'}
+          style={{ transform: [{ translateX }, { translateY }, { scale }] }}>
+          {props.label}
+        </Label>
+        <Input
+          ref={ref}
+          {...props}
+          onChangeText={props.onChange}
+          onFocus={onFocus}
+          onBlur={onBlur}
+        />
+      </Wrapper>
+      {!!props.error && (
+        <Text size={12} color="error">
+          {props.error}
+        </Text>
+      )}
+    </Container>
   );
 };
 
