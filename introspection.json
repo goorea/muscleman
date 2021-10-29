@@ -5,6 +5,53 @@
     "subscriptionType": null,
     "types": [
       {
+        "kind": "OBJECT",
+        "name": "AuthenticationResponse",
+        "description": "사용자 정보와 JWT 토큰 응답",
+        "fields": [
+          {
+            "name": "refresh_token",
+            "description": "JWT Refresh 토큰",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "SCALAR", "name": "String", "ofType": null }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "token",
+            "description": "JWT 토큰",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "SCALAR", "name": "String", "ofType": null }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "user",
+            "description": "사용자 정보",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "OBJECT", "name": "User", "ofType": null }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
         "kind": "SCALAR",
         "name": "Boolean",
         "description": "The `Boolean` scalar type represents `true` or `false`.",
@@ -88,6 +135,41 @@
         "possibleTypes": null
       },
       {
+        "kind": "OBJECT",
+        "name": "JWTResponse",
+        "description": "사용자 JWT 토큰 응답",
+        "fields": [
+          {
+            "name": "refresh_token",
+            "description": "JWT Refresh 토큰",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "SCALAR", "name": "String", "ofType": null }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "token",
+            "description": "JWT 토큰",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "SCALAR", "name": "String", "ofType": null }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
         "kind": "INPUT_OBJECT",
         "name": "LoginInput",
         "description": "사용자 JWT 토큰 입력 객체",
@@ -131,41 +213,6 @@
           }
         ],
         "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "LoginResponse",
-        "description": "사용자 JWT 토큰 응답",
-        "fields": [
-          {
-            "name": "refresh_token",
-            "description": "JWT Refresh 토큰",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": { "kind": "SCALAR", "name": "String", "ofType": null }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "token",
-            "description": "JWT 토큰",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": { "kind": "SCALAR", "name": "String", "ofType": null }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
         "enumValues": null,
         "possibleTypes": null
       },
@@ -359,7 +406,7 @@
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "LoginResponse",
+                "name": "AuthenticationResponse",
                 "ofType": null
               }
             },
@@ -408,7 +455,7 @@
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "LoginResponse",
+                "name": "JWTResponse",
                 "ofType": null
               }
             },
@@ -439,7 +486,11 @@
             "type": {
               "kind": "NON_NULL",
               "name": null,
-              "ofType": { "kind": "OBJECT", "name": "User", "ofType": null }
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "AuthenticationResponse",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -1343,6 +1394,18 @@
             "name": "birth",
             "description": "생년월일",
             "type": { "kind": "SCALAR", "name": "DateTime", "ofType": null },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "device_id",
+            "description": "디바이스 ID",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "SCALAR", "name": "String", "ofType": null }
+            },
             "defaultValue": null,
             "isDeprecated": false,
             "deprecationReason": null

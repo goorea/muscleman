@@ -13,7 +13,18 @@ interface Model {
     updated_at: DateTime
 }
 
-type LoginResponse {
+"사용자 정보와 JWT 토큰 응답"
+type AuthenticationResponse {
+    "JWT Refresh 토큰"
+    refresh_token: String!
+    "JWT 토큰"
+    token: String!
+    "사용자 정보"
+    user: User!
+}
+
+"사용자 JWT 토큰 응답"
+type JWTResponse {
     "JWT Refresh 토큰"
     refresh_token: String!
     "JWT 토큰"
@@ -30,11 +41,11 @@ type Mutation {
     "운동종목 삭제"
     deleteTraining(_id: ObjectId!): Boolean!
     "사용자 JWT 토큰 반환"
-    login(input: LoginInput!): LoginResponse!
+    login(input: LoginInput!): AuthenticationResponse!
     "사용자 JWT 토큰 갱신"
-    refreshToken(refresh_token: String!): LoginResponse!
+    refreshToken(device_id: String!, refresh_token: String!): JWTResponse!
     "사용자 생성"
-    register(input: UserInput!): User!
+    register(input: UserInput!): AuthenticationResponse!
     "사용자 이메일 인증 메일 전송"
     sendVerifyEmail: String!
     "운동계획 수정"
@@ -129,8 +140,8 @@ type User implements Model {
     password: String
     "프로필 이미지 경로"
     profile_image_path: String
-    "JWT Refresh 토큰"
-    refresh_token: String
+    "JWT Refresh 토큰 객체 { 디바이스 ID: Refresh 토큰 }"
+    refresh_token: JSONObject
     "권한"
     roles: [Role!]
     "휴대폰번호"
@@ -165,6 +176,8 @@ enum TrainingType {
 
 "사용자 JWT 토큰 입력 객체"
 input LoginInput {
+    "디바이스 ID"
+    device_id: String!
     "이메일"
     email: String!
     "비밀번호"
@@ -215,6 +228,8 @@ input TrainingInput {
 input UserInput {
     "생년월일"
     birth: DateTime
+    "디바이스 ID"
+    device_id: String!
     "이메일"
     email: String!
     "성별"
@@ -244,6 +259,9 @@ input VerifyInput {
 
 "The javascript `Date` as string. Type represents date and time as the ISO Date string."
 scalar DateTime
+
+"The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)."
+scalar JSONObject
 
 "Mongoose의 ObjectID 스칼라 타입"
 scalar ObjectId

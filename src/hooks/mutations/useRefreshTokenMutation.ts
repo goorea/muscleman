@@ -6,13 +6,13 @@ import {
   MutationResult,
 } from '@apollo/client/react/types/types';
 import { useErrorEffect } from '@src/hooks/useErrorEffect';
-import { LOGIN_RESPONSE_FIELDS } from '@src/fragments/user';
+import { AUTHENTICATION_RESPONSE_FIELDS } from '@src/fragments/user';
 
 export const REFRESH_TOKEN = gql`
-  ${LOGIN_RESPONSE_FIELDS}
-  mutation refreshToken($refresh_token: String!) {
-    refreshToken(refresh_token: $refresh_token) {
-      ...LoginResponseFields
+  ${AUTHENTICATION_RESPONSE_FIELDS}
+  mutation refreshToken($refresh_token: String!, $device_id: String!) {
+    refreshToken(refresh_token: $refresh_token, device_id: $device_id) {
+      ...AuthenticationResponseFields
     }
   }
 `;

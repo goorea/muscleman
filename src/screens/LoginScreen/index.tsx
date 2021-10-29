@@ -106,7 +106,7 @@ const LoginScreen: React.FC<P> = ({ navigation }) => {
           name="email"
           control={control}
           rules={{
-            required: '이메일을 입력 해주세요',
+            required: '이메일을 입력해주세요',
             pattern: {
               value:
                 /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i,
@@ -134,7 +134,7 @@ const LoginScreen: React.FC<P> = ({ navigation }) => {
           name="password"
           control={control}
           rules={{
-            required: '비밀번호를 입력 해주세요',
+            required: '비밀번호를 입력해주세요',
             minLength: {
               value: 8,
               message: '8글자보다 적습니다',

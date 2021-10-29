@@ -16,9 +16,13 @@ export const CORE_USER_FIELDS = gql`
   }
 `;
 
-export const LOGIN_RESPONSE_FIELDS = gql`
-  fragment LoginResponseFields on LoginResponse {
+export const AUTHENTICATION_RESPONSE_FIELDS = gql`
+  ${CORE_USER_FIELDS}
+  fragment AuthenticationResponseFields on AuthenticationResponse {
     token
     refresh_token
+    user {
+      ...CoreUserFields
+    }
   }
 `;
