@@ -4,38 +4,44 @@ import Text, { TextProps } from '@src/components/Text';
 import { useTheme } from '@src/contexts/ThemeProvider';
 import Icon, { IconProps } from '@src/components/Icon';
 import { StyledButton } from './styled';
+import { Colors } from '@src/types/theme';
 
 type P = TouchableOpacityProps &
-  TextProps & {
+  Pick<TextProps, 'weight' | 'size'> & {
     title?: string | React.ReactElement;
     icon?: IconProps;
     type?: 'solid' | 'clear' | 'outline';
+    titleColor?: keyof Colors;
+    color?: keyof Colors;
     loading?: boolean;
     disabled?: boolean;
   };
 
 const Button: React.FC<P> = props => {
+  const {
+    weight = 'bold',
+    size = 16,
+    title,
+    icon,
+    type = 'solid',
+    titleColor = 'white',
+    color = 'primary',
+    loading,
+  } = props;
   const { colors } = useTheme();
 
   return (
     <StyledButton {...props}>
-      {props.loading ? (
-        <ActivityIndicator
-          size={props.size || 16}
-          color={colors[props.color || 'white']}
-        />
-      ) : props.title ? (
+      {loading ? (
+        <ActivityIndicator size={size} color={colors[titleColor]} />
+      ) : title ? (
         <Text
-          weight={props.weight || 'bold'}
-          color={
-            props.type === undefined || props.type === 'solid'
-              ? 'white'
-              : props.color || 'primary'
-          }>
-          {props.title}
+          weight={weight}
+          color={type === undefined || type === 'solid' ? titleColor : color}>
+          {title}
         </Text>
       ) : (
-        props.icon && <Icon {...props.icon} />
+        icon && <Icon {...icon} />
       )}
     </StyledButton>
   );
