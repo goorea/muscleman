@@ -12,7 +12,11 @@ export const REGISTER = gql`
   ${CORE_USER_FIELDS}
   mutation register($input: UserInput!) {
     register(input: $input) {
-      ...CoreUserFields
+      token
+      refresh_token
+      user {
+        ...CoreUserFields
+      }
     }
   }
 `;

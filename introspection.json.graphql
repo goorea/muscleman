@@ -78,6 +78,8 @@ type Plan implements Model {
 }
 
 type Query {
+    "해당 필드의 주어진 값 존재 여부"
+    existUser(field: String!, value: String!): Boolean!
     "특정 사용자 조회"
     me: User!
     "사용자의 모든 운동 계획 조회"

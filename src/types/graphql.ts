@@ -130,9 +130,15 @@ export type PlanInput = {
 
 export type Query = {
   __typename?: 'Query';
+  existUser: Scalars['Boolean'];
   me: User;
   plans: Array<Plan>;
   users: Array<User>;
+};
+
+export type QueryExistUserArgs = {
+  field: Scalars['String'];
+  value: Scalars['String'];
 };
 
 export enum Role {
