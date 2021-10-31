@@ -1,14 +1,9 @@
 import React, { useState } from 'react';
-import {
-  LayoutChangeEvent,
-  LayoutRectangle,
-  NativeSyntheticEvent,
-  TextInput,
-  TextInputFocusEventData,
-  TextInputProps,
-} from 'react-native';
+import { LayoutRectangle, TextInput, TextInputProps } from 'react-native';
 import Text from '@src/components/Text';
 import useAnimation from './hooks/useAnimation';
+import useFromPicker from './hooks/useFromPicker';
+import useListeners from './hooks/useListeners';
 import { Container, Label, Wrapper, Input } from './styled';
 
 type P = TextInputProps & {
@@ -21,34 +16,23 @@ const MaterialInput: React.ForwardRefRenderFunction<TextInput, P> = (
   props,
   ref,
 ) => {
-  const [active, setActive] = useState<boolean>(false);
+  const [active, setActive] = useState<boolean>(!!props.value);
   const [labelLayout, setLabelLayout] = useState<
     Pick<LayoutRectangle, 'width' | 'height'>
   >({
     width: 0,
-    height: 0,
+    height: 16,
   });
-  const onLabelLayout = ({ nativeEvent }: LayoutChangeEvent) => {
-    setLabelLayout(nativeEvent.layout);
-  };
-  const onFocus = (event: NativeSyntheticEvent<TextInputFocusEventData>) => {
-    if (props.onFocus) {
-      props.onFocus(event);
-    }
 
-    setActive(true);
-  };
-  const onBlur = (event: NativeSyntheticEvent<TextInputFocusEventData>) => {
-    if (props.onBlur) {
-      props.onBlur(event);
-    }
-
-    if (!props.value) {
-      setActive(false);
-    }
-  };
-
+  const { onLabelLayout, onFocus, onBlur } = useListeners(
+    setLabelLayout,
+    setActive,
+    props.value,
+    props.onFocus,
+    props.onBlur,
+  );
   const { translateX, translateY, scale } = useAnimation(active, labelLayout);
+  useFromPicker(active, setActive, props.value);
 
   return (
     <Container>
