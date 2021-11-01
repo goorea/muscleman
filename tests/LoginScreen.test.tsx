@@ -1,6 +1,6 @@
 import 'react-native';
 import React from 'react';
-import { fireEvent, render, waitFor } from '@testing-library/react-native';
+import { act, fireEvent, render } from '@testing-library/react-native';
 import LoginScreen from '@src/screens/LoginScreen';
 import { navigationMock, navigationNavigateMock } from '@mocks/navigationMocks';
 import { wrapper } from '@tests/functions';
@@ -38,7 +38,7 @@ describe('LoginScreen 컴포넌트', () => {
     expect(queryByText('이메일을 입력해주세요')).toBeNull();
     expect(queryByText('비밀번호를 입력해주세요')).toBeNull();
 
-    await waitFor(() => fireEvent.press(getByText('로그인')));
+    await act(async () => fireEvent.press(getByText('로그인')));
 
     expect(queryByText('이메일을 입력해주세요')).not.toBeNull();
     expect(queryByText('비밀번호를 입력해주세요')).not.toBeNull();
@@ -49,7 +49,7 @@ describe('LoginScreen 컴포넌트', () => {
 
     fireEvent.changeText(getByTestId('emailField'), 'Hello World');
 
-    await waitFor(() => fireEvent.press(getByText('로그인')));
+    await act(async () => fireEvent.press(getByText('로그인')));
 
     expect(queryByText('이메일 형식이 아닙니다')).not.toBeNull();
   });
@@ -60,7 +60,7 @@ describe('LoginScreen 컴포넌트', () => {
     fireEvent.changeText(getByTestId('emailField'), 'john@example.com');
     fireEvent.changeText(getByTestId('passwordField'), 'a'.repeat(7));
 
-    await waitFor(() => fireEvent.press(getByText('로그인')));
+    await act(async () => fireEvent.press(getByText('로그인')));
 
     expect(queryByText('8글자보다 적습니다')).not.toBeNull();
   });
@@ -68,7 +68,7 @@ describe('LoginScreen 컴포넌트', () => {
   it('회원가입 페이지로 이동할 수 있다', async () => {
     const { getByTestId } = rendered();
 
-    await waitFor(() => fireEvent.press(getByTestId('register-button')));
+    await act(async () => fireEvent.press(getByTestId('registerButton')));
 
     expect(navigationNavigateMock).toHaveBeenCalledWith('Register');
   });

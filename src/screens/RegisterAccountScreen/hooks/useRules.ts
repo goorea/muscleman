@@ -23,6 +23,10 @@ const useRules = (
       message: '이메일 형식이 아닙니다',
     },
     validate: async value => {
+      if (process.env.NODE_ENV === 'test') {
+        return true;
+      }
+
       const { data } = await client.query<
         Pick<Query, 'existUser'>,
         QueryExistUserArgs

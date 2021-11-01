@@ -23,6 +23,7 @@ const useRenders = (
   return {
     emailRender: ({ field, fieldState: { error } }) => (
       <MaterialInput
+        testID="emailField"
         {...field}
         label="이메일"
         autoFocus={true}
@@ -35,6 +36,7 @@ const useRenders = (
     ),
     passwordRender: ({ field, fieldState: { error } }) => (
       <MaterialInput
+        testID="passwordField"
         {...field}
         ref={ref => {
           field.ref(ref);
@@ -49,6 +51,7 @@ const useRenders = (
     ),
     passwordConfirmationRender: ({ field, fieldState: { error } }) => (
       <MaterialInput
+        testID="passwordConfirmationField"
         {...field}
         ref={ref => {
           field.ref(ref);

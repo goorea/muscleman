@@ -150,7 +150,7 @@ const LoginScreen: React.FC<P> = ({ navigation }) => {
 
         <LinksContainer>
           <Button
-            testID="register-button"
+            testID="registerButton"
             onPress={onRegister}
             type="clear"
             title="회원가입"
