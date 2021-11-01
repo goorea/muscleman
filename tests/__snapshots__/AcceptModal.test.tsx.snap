@@ -1,0 +1,313 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AcceptModal 컴포넌트 렌더링이 올바르게 된다 1`] = `
+<Modal
+  animationType="fade"
+  hardwareAccelerated={false}
+  onDismiss={[Function]}
+  onRequestClose={[Function]}
+  presentationStyle="overFullScreen"
+  transparent={true}
+  visible={false}
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      nativeID="animatedComponent"
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#000000",
+          "bottom": 0,
+          "left": 0,
+          "opacity": 0.4,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderTopLeftRadius": 20,
+          "borderTopRightRadius": 20,
+          "marginTop": "auto",
+          "paddingBottom": 30,
+          "paddingLeft": 30,
+          "paddingRight": 30,
+          "paddingTop": 30,
+          "transform": Array [
+            Object {
+              "translateY": 370,
+            },
+          ],
+        }
+      }
+    >
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        nativeID="animatedComponent"
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "borderColor": "#e1e8ee",
+            "borderRadius": 10,
+            "borderStyle": "solid",
+            "borderWidth": 1,
+            "flexDirection": "row",
+            "marginBottom": 10,
+            "opacity": 1,
+            "paddingBottom": 20,
+            "paddingLeft": 20,
+            "paddingRight": 20,
+            "paddingTop": 20,
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": "#e1e8ee",
+                "fontSize": 28,
+              },
+              undefined,
+              Object {
+                "fontFamily": "anticon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+          type="antdesign"
+        >
+          
+        </Text>
+        <Text
+          size={18}
+          style={
+            Array [
+              Object {
+                "color": "#000000",
+                "fontFamily": "SpoqaHanSansNeo-Bold",
+                "fontSize": 18,
+              },
+              Object {
+                "marginLeft": 10,
+              },
+            ]
+          }
+          weight="bold"
+        >
+          약관에 모두 동의
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        nativeID="animatedComponent"
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "opacity": 1,
+            "paddingBottom": 10,
+            "paddingLeft": 22,
+            "paddingRight": 0,
+            "paddingTop": 10,
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": "#e1e8ee",
+                "fontSize": 28,
+              },
+              undefined,
+              Object {
+                "fontFamily": "anticon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+          type="antdesign"
+        >
+          
+        </Text>
+        <Text
+          size={18}
+          style={
+            Array [
+              Object {
+                "color": "#000000",
+                "fontFamily": "SpoqaHanSansNeo-Regular",
+                "fontSize": 18,
+              },
+              Object {
+                "marginLeft": 10,
+              },
+            ]
+          }
+        >
+          이용약관 동의
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        nativeID="animatedComponent"
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "opacity": 1,
+            "paddingBottom": 10,
+            "paddingLeft": 22,
+            "paddingRight": 0,
+            "paddingTop": 10,
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": "#e1e8ee",
+                "fontSize": 28,
+              },
+              undefined,
+              Object {
+                "fontFamily": "anticon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+          type="antdesign"
+        >
+          
+        </Text>
+        <Text
+          size={18}
+          style={
+            Array [
+              Object {
+                "color": "#000000",
+                "fontFamily": "SpoqaHanSansNeo-Regular",
+                "fontSize": 18,
+              },
+              Object {
+                "marginLeft": 10,
+              },
+            ]
+          }
+        >
+          개인정보 처리방침 동의
+        </Text>
+      </View>
+      <View
+        accessibilityState={
+          Object {
+            "disabled": true,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        nativeID="animatedComponent"
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#2687ED",
+            "borderRadius": 10,
+            "justifyContent": "center",
+            "marginTop": 80,
+            "opacity": 0.6,
+            "paddingBottom": 14,
+            "paddingLeft": 20,
+            "paddingRight": 20,
+            "paddingTop": 14,
+          }
+        }
+      >
+        <Text
+          color="white"
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SpoqaHanSansNeo-Bold",
+                "fontSize": 16,
+              },
+            ]
+          }
+          weight="bold"
+        >
+          확인
+        </Text>
+      </View>
+    </View>
+  </View>
+</Modal>
+`;
