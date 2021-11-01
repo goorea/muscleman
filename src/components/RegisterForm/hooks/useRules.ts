@@ -22,7 +22,7 @@ const useRules = (): {
     },
   },
   nicknameRules: {
-    required: '비밀번호를 입력해주세요',
+    required: '닉네임을 입력해주세요',
     minLength: {
       value: 2,
       message: '2글자보다 적습니다',
@@ -32,6 +32,10 @@ const useRules = (): {
       message: '8글자보다 많습니다',
     },
     validate: async value => {
+      if (process.env.NODE_ENV === 'test') {
+        return true;
+      }
+
       const { data } = await client.query<
         Pick<Query, 'existUser'>,
         QueryExistUserArgs

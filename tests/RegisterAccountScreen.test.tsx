@@ -3,38 +3,17 @@ import { act, fireEvent, render } from '@testing-library/react-native';
 import RegisterAccountScreen from '@src/screens/RegisterAccountScreen';
 import { navigationMock, navigationNavigateMock } from '@mocks/navigationMocks';
 import { wrapper } from '@tests/functions';
-import { MockedProvider } from '@apollo/client/testing';
-import { EXIST_USER } from '@src/hooks/queries/useExistUserLazyQuery';
-import { MockedResponse } from '@apollo/client/utilities/testing/mocking/mockLink';
 
 describe('RegisterAccountScreen 컴포넌트', () => {
-  const mocks: ReadonlyArray<MockedResponse> = [
-    {
-      request: {
-        query: EXIST_USER,
-        variables: {
-          field: 'email',
-          value: 'john@example.com',
-        },
-      },
-      result: {
-        data: {
-          existUser: false,
-        },
-      },
-    },
-  ];
   const rendered = () =>
     render(
-      <MockedProvider mocks={mocks} addTypename={false}>
-        <RegisterAccountScreen
-          navigation={navigationMock}
-          route={{
-            key: '',
-            name: 'RegisterAccount',
-          }}
-        />
-      </MockedProvider>,
+      <RegisterAccountScreen
+        navigation={navigationMock}
+        route={{
+          key: '',
+          name: 'RegisterAccount',
+        }}
+      />,
       { wrapper },
     );
 

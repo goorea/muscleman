@@ -25,6 +25,7 @@ const useRenders = (
   return {
     nameRender: ({ field, fieldState: { error } }) => (
       <MaterialInput
+        testID="nameField"
         {...field}
         label="이름"
         autoFocus={true}
@@ -36,6 +37,7 @@ const useRenders = (
     ),
     nicknameRender: ({ field, fieldState: { error } }) => (
       <MaterialInput
+        testID="nicknameField"
         {...field}
         ref={ref => {
           field.ref(ref);
@@ -50,6 +52,7 @@ const useRenders = (
     ),
     telRender: ({ field, fieldState: { error } }) => (
       <MaterialInput
+        testID="telField"
         {...field}
         ref={ref => {
           field.ref(ref);
@@ -65,13 +68,13 @@ const useRenders = (
     ),
     birthRender: ({ field, fieldState: { error } }) => (
       <MaterialInput
+        testID="birthField"
         {...field}
         ref={ref => {
           field.ref(ref);
           birthInputRef.current = ref;
         }}
         onFocus={openBirthPicker}
-        onChange={() => null}
         label="생년월일"
         error={error?.message}
       />
