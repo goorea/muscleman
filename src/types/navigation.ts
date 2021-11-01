@@ -19,3 +19,12 @@ export type AuthStackParamList = {
     userName: string;
   };
 };
+
+export type RegisterStackParamList = {
+  RegisterAccount: undefined;
+  RegisterUser: {
+    email: string;
+    password: string;
+    password_confirmation: string;
+  };
+};

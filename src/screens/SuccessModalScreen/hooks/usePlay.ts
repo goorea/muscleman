@@ -1,6 +1,6 @@
-import React, { useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
 import Sound from 'react-native-sound';
-import { Animated } from 'react-native';
+import { Animated, Platform } from 'react-native';
 import { CompositeScreenProps } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { AuthStackParamList, RootStackParamList } from '@src/types/navigation';
@@ -32,31 +32,34 @@ const usePlay = (
     inputRange: [0, 1],
     outputRange: [200, 0],
   });
+  const play = useCallback(() => {
+    rotateAnimation.setValue(0);
+    checkAnimation.setValue(0);
 
-  React.useEffect(
-    () =>
-      navigation.addListener('transitionEnd', () => {
-        rotateAnimation.setValue(0);
-        checkAnimation.setValue(0);
+    setTimeout(() => sound.play(() => null), 500);
 
-        setTimeout(() => sound.play(() => null), 500);
-
-        Animated.parallel([
-          Animated.timing(rotateAnimation, {
-            toValue: 1,
-            duration: 500,
-            useNativeDriver: true,
-          }),
-          Animated.timing(checkAnimation, {
-            toValue: 1,
-            duration: 700,
-            delay: 400,
-            useNativeDriver: true,
-          }),
-        ]).start(() => navigation.getParent()?.goBack());
+    Animated.parallel([
+      Animated.timing(rotateAnimation, {
+        toValue: 1,
+        duration: 500,
+        useNativeDriver: true,
       }),
-    [navigation, rotateAnimation, checkAnimation, sound],
-  );
+      Animated.timing(checkAnimation, {
+        toValue: 1,
+        duration: 700,
+        delay: 400,
+        useNativeDriver: true,
+      }),
+    ]).start(() => navigation.getParent()?.goBack());
+  }, [navigation, rotateAnimation, checkAnimation, sound]);
+
+  React.useEffect(() => {
+    if (Platform.OS === 'ios' && process.env.NODE_ENV !== 'test') {
+      return navigation.addListener('transitionEnd', play);
+    }
+
+    play();
+  }, [play, navigation]);
 
   return {
     rotateX,

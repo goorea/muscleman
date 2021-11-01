@@ -360,6 +360,8 @@ PODS:
   - React-jsinspector (0.66.0)
   - React-logger (0.66.0):
     - glog
+  - react-native-date-picker (4.1.1):
+    - React-Core
   - react-native-safe-area-context (3.3.2):
     - React-Core
   - react-native-stack-flash-message (1.3.0):
@@ -497,6 +499,7 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
+  - react-native-date-picker (from `../node_modules/react-native-date-picker`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-stack-flash-message (from `../node_modules/react-native-stack-flash-message`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
@@ -583,6 +586,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   React-logger:
     :path: "../node_modules/react-native/ReactCommon/logger"
+  react-native-date-picker:
+    :path: "../node_modules/react-native-date-picker"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
   react-native-stack-flash-message:
@@ -671,6 +676,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 6a05173dc0142abc582bd4edd2d23146b8cc218a
   React-jsinspector: be95ad424ba9f7b817aff22732eb9b1b810a000a
   React-logger: 9a9cd87d4ea681ae929b32ef580638ff1b50fb24
+  react-native-date-picker: 414fe8f73392bae030dc4efec39d743b5c5de283
   react-native-safe-area-context: 584dc04881deb49474363f3be89e4ca0e854c057
   react-native-stack-flash-message: 40b12d1d80a29863535fce790ae4eae4c75b95cd
   React-perflogger: 1f554c2b684e2f484f9edcdfdaeedab039fbaca8
@@ -698,4 +704,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 073a35108f172ff09d1e024388e86fae0d5a3389
 
-COCOAPODS: 1.10.2
+COCOAPODS: 1.11.2

@@ -1,16 +1,25 @@
 import React from 'react';
-import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
+import { Platform, ScrollView } from 'react-native';
 import { HeaderHeightContext } from '@react-navigation/elements';
+import { Container } from './styled';
 
-const KeyboardAvoidingScrollView: React.FC = ({ children }) => {
+type P = {
+  floatChildren?: React.ReactNode;
+};
+
+const KeyboardAvoidingScrollView: React.FC<P> = ({
+  children,
+  floatChildren,
+}) => {
   const headerHeight = React.useContext(HeaderHeightContext);
 
   return (
-    <KeyboardAvoidingView
+    <Container
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       keyboardVerticalOffset={Platform.OS === 'ios' ? headerHeight : 0}>
       <ScrollView>{children}</ScrollView>
-    </KeyboardAvoidingView>
+      {floatChildren}
+    </Container>
   );
 };
 

@@ -4,12 +4,11 @@ import { AuthStackParamList, RootStackParamList } from '@src/types/navigation';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useLoginMutation } from '@src/hooks/mutations/useLoginMutation';
 import { useForm, Controller } from 'react-hook-form';
-import { useRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { userState } from '@src/recoils';
 import { getUniqueId } from 'react-native-device-info';
 import Text from '@src/components/Text';
 import Button from '@src/components/Button';
-import MaterialInput from '@src/components/MaterialInput';
 import { APP_NAME } from '@env';
 import GoogleIcon from '@src/components/GoogleIcon';
 import NaverIcon from '@src/components/NaverIcon';
@@ -32,32 +31,32 @@ import {
   LinksContainer,
   Divider,
   ErrorMessage,
-} from 'src/screens/LoginScreen/styled';
-import { TextInput } from 'react-native';
+} from './styled';
+import useRules from './hooks/useRules';
+import useRenders from './hooks/useRenders';
 
 type P = CompositeScreenProps<
   NativeStackScreenProps<AuthStackParamList, 'Login'>,
   NativeStackScreenProps<RootStackParamList>
 >;
 
-type FormInput = {
+export type LoginFormInput = {
   email: string;
   password: string;
 };
 
 const LoginScreen: React.FC<P> = ({ navigation }) => {
   const headerHeight = React.useContext(HeaderHeightContext) || 0;
-  const [user, setUser] = useRecoilState(userState);
+  const user = useRecoilValue(userState);
   const {
     control,
     handleSubmit,
-    formState: { errors, isSubmitting },
-  } = useForm<FormInput>();
-  const passwordInputRef = React.useRef<TextInput>(null);
-  const focusPasswordInput = () => passwordInputRef.current?.focus();
+    formState: { isSubmitting },
+  } = useForm<LoginFormInput>();
   const [login, { data, error, loading }] = useLoginMutation();
+  const { emailRules, passwordRules } = useRules();
   const [errorMessages, setErrorMessages] = React.useState<string[]>([]);
-  const onSubmit = async (input: FormInput) => {
+  const onSubmit = async (input: LoginFormInput) => {
     await login({
       variables: {
         input: {
@@ -67,6 +66,7 @@ const LoginScreen: React.FC<P> = ({ navigation }) => {
       },
     });
   };
+  const { emailRender, passwordRender } = useRenders(handleSubmit(onSubmit));
   const onGoogleLogin = () => {};
   const onAppleLogin = () => {};
   const onNaverLogin = () => {};
@@ -74,7 +74,7 @@ const LoginScreen: React.FC<P> = ({ navigation }) => {
   const onRegister = () => navigation.navigate('Register');
   const onFindPassword = () => {};
 
-  useSetUser(setUser, data);
+  useSetUser(data);
   useSetErrorMessages(setErrorMessages, error);
   useSuccess(navigation, user);
 
@@ -92,51 +92,16 @@ const LoginScreen: React.FC<P> = ({ navigation }) => {
         </TitleContainer>
 
         <Controller
-          render={({ field }) => (
-            <MaterialInput
-              {...field}
-              testID="emailField"
-              onChangeText={field.onChange}
-              label="이메일"
-              keyboardType="email-address"
-              returnKeyType="next"
-              onSubmitEditing={focusPasswordInput}
-              error={errors.email?.message}
-            />
-          )}
+          render={emailRender}
           name="email"
           control={control}
-          rules={{
-            required: '이메일을 입력해주세요',
-            pattern: {
-              value:
-                /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i,
-              message: '이메일 형식이 아닙니다',
-            },
-          }}
+          rules={emailRules}
         />
         <Controller
-          render={({ field }) => (
-            <MaterialInput
-              {...field}
-              testID="passwordField"
-              ref={passwordInputRef}
-              label="비밀번호"
-              returnKeyType="done"
-              secureTextEntry={true}
-              onSubmitEditing={handleSubmit(onSubmit)}
-              error={errors.password?.message}
-            />
-          )}
+          render={passwordRender}
           name="password"
           control={control}
-          rules={{
-            required: '비밀번호를 입력해주세요',
-            minLength: {
-              value: 8,
-              message: '8글자보다 적습니다',
-            },
-          }}
+          rules={passwordRules}
         />
         {errorMessages.map(message => (
           <ErrorMessage key={message} size={12} color="error">
@@ -185,7 +150,7 @@ const LoginScreen: React.FC<P> = ({ navigation }) => {
 
         <LinksContainer>
           <Button
-            testID="register-button"
+            testID="registerButton"
             onPress={onRegister}
             type="clear"
             title="회원가입"

@@ -12,7 +12,7 @@ const useAnimation = (
   const labelAnimation = useRef<Animated.Value>(new Animated.Value(0)).current;
   const translateX = labelAnimation.interpolate({
     inputRange: [0, 1],
-    outputRange: [0, -34],
+    outputRange: [0, -((labelLayout.width * 0.2) / 2)],
   });
   const translateY = labelAnimation.interpolate({
     inputRange: [0, 1],

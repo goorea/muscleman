@@ -10,6 +10,7 @@ export const Wrapper = styled.View`
   padding: 10px 0;
   border-bottom-width: 1px;
   border-bottom-color: ${({ theme }) => theme.greyOutline};
+  align-items: baseline;
 `;
 
 export const Label = styled(Animated.Text)<{ color: keyof Colors }>`
@@ -23,4 +24,5 @@ export const Input = styled.TextInput`
   font-size: 16px;
   color: ${({ theme }) => theme.foreground};
   padding: 0;
+  width: 100%;
 `;
