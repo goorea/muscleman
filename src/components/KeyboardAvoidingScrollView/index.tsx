@@ -1,6 +1,7 @@
+import { HeaderHeightContext } from '@react-navigation/elements';
 import React from 'react';
 import { Platform, ScrollView } from 'react-native';
-import { HeaderHeightContext } from '@react-navigation/elements';
+
 import { Container } from './styled';
 
 type P = {

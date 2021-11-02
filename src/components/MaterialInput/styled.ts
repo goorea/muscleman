@@ -1,7 +1,8 @@
-import styled from 'styled-components/native';
 import { Animated } from 'react-native';
-import { Colors } from '@src/types/theme';
+import styled from 'styled-components/native';
+
 import { fonts } from '@src/theme';
+import { Colors } from '@src/types/theme';
 
 export const Container = styled.View``;
 

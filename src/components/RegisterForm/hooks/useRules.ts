@@ -1,8 +1,9 @@
 import { RegisterOptions } from 'react-hook-form';
+
 import client from '@src/client';
-import { Query, QueryExistUserArgs } from '@src/types/graphql';
-import { EXIST_USER } from '@src/hooks/queries/useExistUserLazyQuery';
 import { RegisterUserFormInput } from '@src/components/RegisterForm';
+import { EXIST_USER } from '@src/hooks/queries/useExistUserLazyQuery';
+import { Query, QueryExistUserArgs } from '@src/types/graphql';
 
 const useRules = (): {
   nameRules: RegisterOptions<RegisterUserFormInput, 'name'>;

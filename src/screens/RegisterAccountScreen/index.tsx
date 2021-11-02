@@ -1,15 +1,17 @@
-import React from 'react';
 import { CompositeScreenProps } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import React from 'react';
+import { useForm, Controller } from 'react-hook-form';
+
+import KeyboardAvoidingScrollView from '@src/components/KeyboardAvoidingScrollView';
 import {
   AuthStackParamList,
   RegisterStackParamList,
 } from '@src/types/navigation';
-import KeyboardAvoidingScrollView from '@src/components/KeyboardAvoidingScrollView';
-import { useForm, Controller } from 'react-hook-form';
-import { Container, Title, Submit } from './styled';
-import useRules from './hooks/useRules';
+
 import useRenders from './hooks/useRenders';
+import useRules from './hooks/useRules';
+import { Container, Title, Submit } from './styled';
 
 type P = CompositeScreenProps<
   NativeStackScreenProps<RegisterStackParamList, 'RegisterAccount'>,

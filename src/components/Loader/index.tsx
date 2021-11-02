@@ -1,6 +1,8 @@
 import React from 'react';
 import { ActivityIndicator } from 'react-native';
+
 import { useTheme } from '@src/contexts/ThemeProvider';
+
 import { Container, Title } from './styled';
 
 const Loader: React.FC = () => {

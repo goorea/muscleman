@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Mutation } from '@src/types/graphql';
+import { useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
+
 import { userState } from '@src/recoils';
+import { Mutation } from '@src/types/graphql';
 
 export function useSetUser(data?: Pick<Mutation, 'login'> | null) {
   const setUser = useSetRecoilState(userState);

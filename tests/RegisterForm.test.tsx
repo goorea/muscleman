@@ -1,5 +1,6 @@
-import React from 'react';
 import { act, fireEvent, render } from '@testing-library/react-native';
+import React from 'react';
+
 import RegisterForm from '@src/components/RegisterForm';
 import { wrapper } from '@tests/functions';
 

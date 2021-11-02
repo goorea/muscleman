@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
-import { flexFillCenter } from '@src/styles/flex';
+
 import Text from '@src/components/Text';
+import { flexFillCenter } from '@src/styles/flex';
 
 export const Container = styled.View`
   background-color: ${props => props.theme.background};

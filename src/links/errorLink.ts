@@ -1,13 +1,14 @@
-import { onError } from '@apollo/client/link/error';
 import { ApolloClient, InMemoryCache, Observable } from '@apollo/client';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { ServerError } from '@apollo/client/link/utils';
+import { onError } from '@apollo/client/link/error';
 import { ServerParseError } from '@apollo/client/link/http';
+import { ServerError } from '@apollo/client/link/utils';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { getUniqueId } from 'react-native-device-info';
+
+import { REFRESH_TOKEN } from '@src/hooks/mutations/useRefreshTokenMutation';
+import { ERROR_CODES } from '@src/hooks/useErrorEffect';
 import httpLink from '@src/links/httpLink';
 import { Mutation, MutationRefreshTokenArgs } from '@src/types/graphql';
-import { REFRESH_TOKEN } from '@src/hooks/mutations/useRefreshTokenMutation';
-import { getUniqueId } from 'react-native-device-info';
-import { ERROR_CODES } from '@src/hooks/useErrorEffect';
 
 const isServerError = (
   error: Error | ServerError | ServerParseError,

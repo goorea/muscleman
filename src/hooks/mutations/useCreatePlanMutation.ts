@@ -1,12 +1,10 @@
 import { gql, useMutation } from '@apollo/client';
-import { CORE_PLAN_FIELDS } from '@src/fragments/plan';
-import { Mutation, MutationCreatePlanArgs } from '@src/types/graphql';
 import { FetchResult } from '@apollo/client/link/core';
-import {
-  MutationFunctionOptions,
-  MutationResult,
-} from '@apollo/client/react/types/types';
+import { MutationFunctionOptions, MutationResult } from '@apollo/client/react';
+
+import { CORE_PLAN_FIELDS } from '@src/fragments/plan';
 import { useErrorEffect } from '@src/hooks/useErrorEffect';
+import { Mutation, MutationCreatePlanArgs } from '@src/types/graphql';
 
 const CREATE_PLAN = gql`
   ${CORE_PLAN_FIELDS}

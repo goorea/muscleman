@@ -1,11 +1,12 @@
-import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import MainNavigator from '@src/navigations/MainNavigator';
-import AuthNavigator from '@src/navigations/AuthNavigator';
-import { RootStackParamList } from '@src/types/navigation';
 import { APP_NAME } from '@env';
-import { useTheme } from '@src/contexts/ThemeProvider';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React from 'react';
+
 import Text from '@src/components/Text';
+import { useTheme } from '@src/contexts/ThemeProvider';
+import AuthNavigator from '@src/navigations/AuthNavigator';
+import MainNavigator from '@src/navigations/MainNavigator';
+import { RootStackParamList } from '@src/types/navigation';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 

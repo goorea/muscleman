@@ -1,10 +1,8 @@
 import { gql, useLazyQuery } from '@apollo/client';
-import {
-  LazyQueryResult,
-  QueryLazyOptions,
-} from '@apollo/client/react/types/types';
-import { Query } from '@src/types/graphql';
+import { LazyQueryResult, QueryLazyOptions } from '@apollo/client/react';
+
 import { useErrorEffect } from '@src/hooks/useErrorEffect';
+import { Query } from '@src/types/graphql';
 
 export const EXIST_USER = gql`
   query existUser($field: String!, $value: String!) {

@@ -1,11 +1,9 @@
 import { gql, useMutation } from '@apollo/client';
-import { Mutation } from '@src/types/graphql';
 import { FetchResult } from '@apollo/client/link/core';
-import {
-  MutationFunctionOptions,
-  MutationResult,
-} from '@apollo/client/react/types/types';
+import { MutationFunctionOptions, MutationResult } from '@apollo/client/react';
+
 import { useErrorEffect } from '@src/hooks/useErrorEffect';
+import { Mutation } from '@src/types/graphql';
 
 const SEND_VERIFY_EMAIL = gql`
   mutation sendVerifyEmail {

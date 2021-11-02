@@ -1,19 +1,20 @@
 import React from 'react';
-import { Colors } from '@src/types/theme';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import { GestureResponderEvent } from 'react-native';
+import AntDesignIcon from 'react-native-vector-icons/AntDesign';
+import EntypoIcon from 'react-native-vector-icons/Entypo';
+import EvilIcon from 'react-native-vector-icons/EvilIcons';
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
+import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
+import FoundationIcon from 'react-native-vector-icons/Foundation';
+import IonIocn from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import OctIcon from 'react-native-vector-icons/Octicons';
 import SimpleLineIcon from 'react-native-vector-icons/SimpleLineIcons';
 import ZocialIcon from 'react-native-vector-icons/Zocial';
-import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
-import OctIcon from 'react-native-vector-icons/Octicons';
-import IonIocn from 'react-native-vector-icons/Ionicons';
-import FoundationIcon from 'react-native-vector-icons/Foundation';
-import EvilIcon from 'react-native-vector-icons/EvilIcons';
-import EntypoIcon from 'react-native-vector-icons/Entypo';
-import AntDesignIcon from 'react-native-vector-icons/AntDesign';
-import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
-import { GestureResponderEvent } from 'react-native';
+
 import { useTheme } from '@src/contexts/ThemeProvider';
+import { Colors } from '@src/types/theme';
 
 type IconType =
   | 'material'

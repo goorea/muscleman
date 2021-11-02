@@ -1,10 +1,10 @@
+import React from 'react';
 import {
   ControllerFieldState,
   ControllerRenderProps,
   FieldPath,
   UseFormStateReturn,
 } from 'react-hook-form';
-import React from 'react';
 
 export type RenderProps<
   TFieldValues,

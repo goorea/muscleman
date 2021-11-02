@@ -1,12 +1,13 @@
 import 'react-native';
-import React from 'react';
-import SuccessModalScreen from '@src/screens/SuccessModalScreen';
 import {
   navigationGetParentMock,
   navigationMock,
 } from '@mocks/navigationMocks';
 import { act, render } from '@testing-library/react-native';
+import React from 'react';
 import Sound from 'react-native-sound';
+
+import SuccessModalScreen from '@src/screens/SuccessModalScreen';
 import { wrapper } from '@tests/functions';
 
 describe('SuccessModalScreen 컴포넌트', () => {

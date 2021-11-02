@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
-import Text from '@src/components/Text';
+
 import Button from '@src/components/Button';
+import Text from '@src/components/Text';
 
 export const Container = styled.View`
   padding: 20px;

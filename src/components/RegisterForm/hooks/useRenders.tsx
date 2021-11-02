@@ -1,8 +1,9 @@
-import { RenderProps } from '@src/types/react-hook-form';
-import { RegisterUserFormInput } from '@src/components/RegisterForm';
-import MaterialInput from '@src/components/MaterialInput';
 import React, { Dispatch, SetStateAction, useRef } from 'react';
 import { TextInput } from 'react-native';
+
+import MaterialInput from '@src/components/MaterialInput';
+import { RegisterUserFormInput } from '@src/components/RegisterForm';
+import { RenderProps } from '@src/types/react-hook-form';
 
 const useRenders = (
   setVisibleBirthPicker: Dispatch<SetStateAction<boolean>>,

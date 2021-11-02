@@ -1,12 +1,10 @@
 import { gql, useMutation } from '@apollo/client';
-import { Mutation, MutationRefreshTokenArgs } from '@src/types/graphql';
 import { FetchResult } from '@apollo/client/link/core';
-import {
-  MutationFunctionOptions,
-  MutationResult,
-} from '@apollo/client/react/types/types';
-import { useErrorEffect } from '@src/hooks/useErrorEffect';
+import { MutationFunctionOptions, MutationResult } from '@apollo/client/react';
+
 import { AUTHENTICATION_RESPONSE_FIELDS } from '@src/fragments/user';
+import { useErrorEffect } from '@src/hooks/useErrorEffect';
+import { Mutation, MutationRefreshTokenArgs } from '@src/types/graphql';
 
 export const REFRESH_TOKEN = gql`
   ${AUTHENTICATION_RESPONSE_FIELDS}

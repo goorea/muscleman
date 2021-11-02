@@ -1,7 +1,8 @@
 import { gql, useMutation } from '@apollo/client';
-import { Mutation, MutationLoginArgs } from '@src/types/graphql';
-import { MutationTuple } from '@apollo/client/react/types/types';
+import { MutationTuple } from '@apollo/client/react';
+
 import { AUTHENTICATION_RESPONSE_FIELDS } from '@src/fragments/user';
+import { Mutation, MutationLoginArgs } from '@src/types/graphql';
 
 const LOGIN = gql`
   ${AUTHENTICATION_RESPONSE_FIELDS}

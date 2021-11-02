@@ -1,17 +1,19 @@
+import { CompositeScreenProps } from '@react-navigation/native';
 import {
   createNativeStackNavigator,
   NativeStackScreenProps,
 } from '@react-navigation/native-stack';
+import React from 'react';
+
+import RegisterAccountScreen from '@src/screens/RegisterAccountScreen';
+import RegisterUserScreen from '@src/screens/RegisterUserScreen';
 import {
   AuthStackParamList,
   RegisterStackParamList,
   RootStackParamList,
 } from '@src/types/navigation';
-import React from 'react';
+
 import { StackNavigatorDefaultScreenOptions } from './StackNavigatorDefaultScreenOptions';
-import RegisterAccountScreen from '@src/screens/RegisterAccountScreen';
-import RegisterUserScreen from '@src/screens/RegisterUserScreen';
-import { CompositeScreenProps } from '@react-navigation/native';
 
 const Stack = createNativeStackNavigator<RegisterStackParamList>();
 

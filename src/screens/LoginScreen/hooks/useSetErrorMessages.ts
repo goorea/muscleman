@@ -1,6 +1,7 @@
-import { Dispatch, SetStateAction, useEffect } from 'react';
-import { flash } from '@src/functions';
 import { ApolloError } from '@apollo/client/errors';
+import { Dispatch, SetStateAction, useEffect } from 'react';
+
+import { flash } from '@src/functions';
 import { ERROR_CODES } from '@src/hooks/useErrorEffect';
 
 export function useSetErrorMessages(

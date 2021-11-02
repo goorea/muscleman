@@ -1,22 +1,26 @@
-import React from 'react';
-import { CompositeScreenProps } from '@react-navigation/native';
-import { AuthStackParamList, RootStackParamList } from '@src/types/navigation';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { useLoginMutation } from '@src/hooks/mutations/useLoginMutation';
-import { useForm, Controller } from 'react-hook-form';
-import { useRecoilValue } from 'recoil';
-import { userState } from '@src/recoils';
-import { getUniqueId } from 'react-native-device-info';
-import Text from '@src/components/Text';
-import Button from '@src/components/Button';
 import { APP_NAME } from '@env';
+import { HeaderHeightContext } from '@react-navigation/elements';
+import { CompositeScreenProps } from '@react-navigation/native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import React from 'react';
+import { useForm, Controller } from 'react-hook-form';
+import { getUniqueId } from 'react-native-device-info';
+import { useRecoilValue } from 'recoil';
+
+import Button from '@src/components/Button';
 import GoogleIcon from '@src/components/GoogleIcon';
-import NaverIcon from '@src/components/NaverIcon';
 import KakaoIcon from '@src/components/KakaoIcon';
 import KeyboardAvoidingScrollView from '@src/components/KeyboardAvoidingScrollView';
-import { HeaderHeightContext } from '@react-navigation/elements';
-import { useSetUser } from './hooks/useSetUser';
+import NaverIcon from '@src/components/NaverIcon';
+import Text from '@src/components/Text';
+import { useLoginMutation } from '@src/hooks/mutations/useLoginMutation';
+import { userState } from '@src/recoils';
+import { AuthStackParamList, RootStackParamList } from '@src/types/navigation';
+
+import useRenders from './hooks/useRenders';
+import useRules from './hooks/useRules';
 import { useSetErrorMessages } from './hooks/useSetErrorMessages';
+import { useSetUser } from './hooks/useSetUser';
 import { useSuccess } from './hooks/useSuccess';
 import {
   Container,
@@ -32,8 +36,6 @@ import {
   Divider,
   ErrorMessage,
 } from './styled';
-import useRules from './hooks/useRules';
-import useRenders from './hooks/useRenders';
 
 type P = CompositeScreenProps<
   NativeStackScreenProps<AuthStackParamList, 'Login'>,

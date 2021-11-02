@@ -1,6 +1,8 @@
 import React from 'react';
 import { TextStyle } from 'react-native';
+
 import { Colors } from '@src/types/theme';
+
 import { StyledText } from './styled';
 
 export type TextProps = {

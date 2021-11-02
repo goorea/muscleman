@@ -1,13 +1,14 @@
-import React from 'react';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { MaterialBottomTabNavigationOptions } from '@react-navigation/material-bottom-tabs/src/types';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import React from 'react';
+
+import Icon from '@src/components/Icon';
+import { useTheme } from '@src/contexts/ThemeProvider';
 import HomeScreen from '@src/screens/HomeScreen';
 import PlansScreen from '@src/screens/PlansScreen';
 import ProfileScreen from '@src/screens/Profile';
 import { MainTabParamList, RootStackParamList } from '@src/types/navigation';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { MaterialBottomTabNavigationOptions } from '@react-navigation/material-bottom-tabs/src/types';
-import { useTheme } from '@src/contexts/ThemeProvider';
-import Icon from '@src/components/Icon';
 
 const Tab = createMaterialBottomTabNavigator<MainTabParamList>();
 
