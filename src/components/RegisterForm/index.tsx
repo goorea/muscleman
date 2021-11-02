@@ -1,6 +1,16 @@
+import moment from 'moment';
 import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import { UseFormGetValues } from 'react-hook-form';
+import DatePicker from 'react-native-date-picker';
+
+import KeyboardAvoidingScrollView from '@src/components/KeyboardAvoidingScrollView';
 import Text from '@src/components/Text';
+import { useTheme } from '@src/contexts/ThemeProvider';
+import { Gender } from '@src/types/graphql';
+
+import useRenders from './hooks/useRenders';
+import useRules from './hooks/useRules';
 import {
   Container,
   Submit,
@@ -9,14 +19,6 @@ import {
   GenderSelector,
   GenderSelectors,
 } from './styled';
-import { Gender } from '@src/types/graphql';
-import useRules from './hooks/useRules';
-import moment from 'moment';
-import DatePicker from 'react-native-date-picker';
-import { useTheme } from '@src/contexts/ThemeProvider';
-import KeyboardAvoidingScrollView from '@src/components/KeyboardAvoidingScrollView';
-import { UseFormGetValues } from 'react-hook-form';
-import useRenders from './hooks/useRenders';
 
 export type RegisterFormElement = {
   getValues: UseFormGetValues<RegisterUserFormInput>;

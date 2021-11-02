@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { AuthStackParamList, RootStackParamList } from '@src/types/navigation';
 import { CompositeScreenProps } from '@react-navigation/native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { useEffect } from 'react';
+
 import { User } from '@src/types/graphql';
+import { AuthStackParamList, RootStackParamList } from '@src/types/navigation';
 
 export function useSuccess(
   navigation: CompositeScreenProps<

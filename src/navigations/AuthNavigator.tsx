@@ -1,14 +1,16 @@
-import React from 'react';
+import { RouteGroupConfig } from '@react-navigation/native';
 import {
   createNativeStackNavigator,
   NativeStackScreenProps,
 } from '@react-navigation/native-stack';
+import React from 'react';
+
 import LoginScreen from '@src/screens/LoginScreen';
-import { AuthStackParamList, RootStackParamList } from '@src/types/navigation';
-import { StackNavigatorDefaultScreenOptions } from './StackNavigatorDefaultScreenOptions';
 import SuccessModalScreen from '@src/screens/SuccessModalScreen';
+import { AuthStackParamList, RootStackParamList } from '@src/types/navigation';
+
 import RegisterNavigator from './RegisterNavigator';
-import { RouteGroupConfig } from '@react-navigation/native';
+import { StackNavigatorDefaultScreenOptions } from './StackNavigatorDefaultScreenOptions';
 
 const Stack = createNativeStackNavigator<AuthStackParamList>();
 

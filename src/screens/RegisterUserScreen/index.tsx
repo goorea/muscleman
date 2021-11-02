@@ -1,16 +1,18 @@
-import React, { useRef, useState } from 'react';
 import { CompositeScreenProps } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import React, { useRef, useState } from 'react';
+import { getUniqueId } from 'react-native-device-info';
+
+import AcceptModal, { AcceptModalElement } from '@src/components/AcceptModal';
+import RegisterForm, {
+  RegisterFormElement,
+} from '@src/components/RegisterForm';
+import { useRegisterMutation } from '@src/hooks/mutations/useRegisterMutation';
 import {
   AuthStackParamList,
   RegisterStackParamList,
 } from '@src/types/navigation';
-import AcceptModal, { AcceptModalElement } from '@src/components/AcceptModal';
-import { useRegisterMutation } from '@src/hooks/mutations/useRegisterMutation';
-import RegisterForm, {
-  RegisterFormElement,
-} from '@src/components/RegisterForm';
-import { getUniqueId } from 'react-native-device-info';
+
 import useSuccess from './hooks/useSuccess';
 
 type P = CompositeScreenProps<

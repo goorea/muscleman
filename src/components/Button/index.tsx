@@ -1,10 +1,12 @@
 import React from 'react';
 import { ActivityIndicator, TouchableOpacityProps } from 'react-native';
+
+import Icon, { IconProps } from '@src/components/Icon';
 import Text, { TextProps } from '@src/components/Text';
 import { useTheme } from '@src/contexts/ThemeProvider';
-import Icon, { IconProps } from '@src/components/Icon';
-import { StyledButton } from './styled';
 import { Colors } from '@src/types/theme';
+
+import { StyledButton } from './styled';
 
 type P = TouchableOpacityProps &
   Pick<TextProps, 'weight' | 'size'> & {

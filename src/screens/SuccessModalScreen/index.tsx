@@ -1,9 +1,12 @@
-import React from 'react';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { AuthStackParamList, RootStackParamList } from '@src/types/navigation';
 import { CompositeScreenProps } from '@react-navigation/native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import React from 'react';
 import Svg from 'react-native-svg';
+
 import Text from '@src/components/Text';
+import { AuthStackParamList, RootStackParamList } from '@src/types/navigation';
+
+import usePlay from './hooks/usePlay';
 import {
   Container,
   CircleContainer,
@@ -13,7 +16,6 @@ import {
   WelcomeText1,
   WelcomeText2,
 } from './styled';
-import usePlay from './hooks/usePlay';
 
 type P = CompositeScreenProps<
   NativeStackScreenProps<AuthStackParamList, 'SuccessModal'>,

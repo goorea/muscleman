@@ -1,7 +1,8 @@
 import React from 'react';
-import theme from '@src/theme';
 import { useColorScheme } from 'react-native';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components/native';
+
+import theme from '@src/theme';
 import { ThemeContextState } from '@src/types/theme';
 
 export const ThemeContext = React.createContext<ThemeContextState>({

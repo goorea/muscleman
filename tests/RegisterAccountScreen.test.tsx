@@ -1,7 +1,8 @@
-import React from 'react';
-import { act, fireEvent, render } from '@testing-library/react-native';
-import RegisterAccountScreen from '@src/screens/RegisterAccountScreen';
 import { navigationMock, navigationNavigateMock } from '@mocks/navigationMocks';
+import { act, fireEvent, render } from '@testing-library/react-native';
+import React from 'react';
+
+import RegisterAccountScreen from '@src/screens/RegisterAccountScreen';
 import { wrapper } from '@tests/functions';
 
 describe('RegisterAccountScreen 컴포넌트', () => {

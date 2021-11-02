@@ -1,9 +1,10 @@
 import { RegisterOptions } from 'react-hook-form';
-import { EXIST_USER } from '@src/hooks/queries/useExistUserLazyQuery';
-import client from '@src/client';
-import { Query, QueryExistUserArgs } from '@src/types/graphql';
-import { RegisterAccountFormInput } from '@src/screens/RegisterAccountScreen';
 import { UseFormGetValues } from 'react-hook-form';
+
+import client from '@src/client';
+import { EXIST_USER } from '@src/hooks/queries/useExistUserLazyQuery';
+import { RegisterAccountFormInput } from '@src/screens/RegisterAccountScreen';
+import { Query, QueryExistUserArgs } from '@src/types/graphql';
 
 const useRules = (
   getValues: UseFormGetValues<RegisterAccountFormInput>,

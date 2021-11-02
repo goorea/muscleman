@@ -1,5 +1,6 @@
-import React from 'react';
 import { act, fireEvent, render } from '@testing-library/react-native';
+import React from 'react';
+
 import AcceptModal from '@src/components/AcceptModal';
 import { wrapper } from '@tests/functions';
 

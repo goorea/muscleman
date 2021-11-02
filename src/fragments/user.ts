@@ -1,4 +1,5 @@
 import { gql } from '@apollo/client';
+
 import { MODEL_FIELDS } from '@src/fragments/model';
 
 export const CORE_USER_FIELDS = gql`

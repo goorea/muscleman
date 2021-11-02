@@ -1,7 +1,9 @@
 import React from 'react';
 import StackFlashMessage from 'react-native-stack-flash-message';
-import { useTheme } from '@src/contexts/ThemeProvider';
+
 import Text from '@src/components/Text';
+import { useTheme } from '@src/contexts/ThemeProvider';
+
 import useFlashMessageProps from './hooks/useFlashMessageProps';
 
 const FlashMessage: React.FC = () => {

@@ -1,11 +1,12 @@
-import Icon from '@src/components/Icon';
 import React from 'react';
-import { Colors } from '@src/types/theme';
 import { ViewStyle } from 'react-native';
 import {
   Theme as StackFlashMessageTheme,
   Icon as StackFlashMessageIcon,
 } from 'react-native-stack-flash-message';
+
+import Icon from '@src/components/Icon';
+import { Colors } from '@src/types/theme';
 
 const useFlashMessageProps = (
   colors: Colors,

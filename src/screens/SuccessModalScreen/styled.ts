@@ -1,8 +1,9 @@
 import { Animated } from 'react-native';
 import { Polyline } from 'react-native-svg';
 import styled from 'styled-components/native';
-import { flexCenter, flexFillCenter } from '@src/styles/flex';
+
 import Text from '@src/components/Text';
+import { flexCenter, flexFillCenter } from '@src/styles/flex';
 import { positionAbsoluteFill } from '@src/styles/position';
 
 const AnimatedPolyline = Animated.createAnimatedComponent<Polyline>(Polyline);

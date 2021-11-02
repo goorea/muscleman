@@ -1,11 +1,9 @@
 import { gql, useMutation } from '@apollo/client';
-import {
-  MutationFunctionOptions,
-  MutationResult,
-} from '@apollo/client/react/types/types';
-import { Mutation, MutationDeletePlanArgs } from '@src/types/graphql';
 import { FetchResult } from '@apollo/client/link/core';
+import { MutationFunctionOptions, MutationResult } from '@apollo/client/react';
+
 import { useErrorEffect } from '@src/hooks/useErrorEffect';
+import { Mutation, MutationDeletePlanArgs } from '@src/types/graphql';
 
 const DELETE_PLAN = gql`
   mutation deletePlan($_id: ObjectId!) {

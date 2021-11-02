@@ -1,7 +1,8 @@
 import { gql } from '@apollo/client';
+
 import { MODEL_FIELDS } from '@src/fragments/model';
-import { CORE_USER_FIELDS } from '@src/fragments/user';
 import { TRAINING_FIELDS } from '@src/fragments/training';
+import { CORE_USER_FIELDS } from '@src/fragments/user';
 
 export const SET_FIELDS = gql`
   fragment SetFields on Set {

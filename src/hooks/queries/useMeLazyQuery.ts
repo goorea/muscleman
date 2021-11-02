@@ -1,11 +1,9 @@
 import { gql, useLazyQuery } from '@apollo/client';
-import { Query } from '@src/types/graphql';
-import {
-  LazyQueryResult,
-  QueryLazyOptions,
-} from '@apollo/client/react/types/types';
-import { useErrorEffect } from '@src/hooks/useErrorEffect';
+import { LazyQueryResult, QueryLazyOptions } from '@apollo/client/react';
+
 import { CORE_USER_FIELDS } from '@src/fragments/user';
+import { useErrorEffect } from '@src/hooks/useErrorEffect';
+import { Query } from '@src/types/graphql';
 
 const ME = gql`
   ${CORE_USER_FIELDS}

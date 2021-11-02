@@ -1,5 +1,7 @@
 import styled from 'styled-components/native';
+
 import { fonts } from '@src/theme';
+
 import { TextProps } from './index';
 
 export const StyledText = styled.Text<Omit<TextProps, 'style'>>`

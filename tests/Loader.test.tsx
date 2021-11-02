@@ -1,7 +1,8 @@
 import 'react-native';
-import React from 'react';
-import Loader from '@src/components/Loader';
 import { render } from '@testing-library/react-native';
+import React from 'react';
+
+import Loader from '@src/components/Loader';
 import { wrapper } from '@tests/functions';
 
 describe('Loader 컴포넌트', () => {

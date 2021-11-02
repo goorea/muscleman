@@ -1,8 +1,9 @@
-import MaterialInput from '@src/components/MaterialInput';
 import React from 'react';
-import { RenderProps } from '@src/types/react-hook-form';
-import { LoginFormInput } from '@src/screens/LoginScreen';
 import { TextInput } from 'react-native';
+
+import MaterialInput from '@src/components/MaterialInput';
+import { LoginFormInput } from '@src/screens/LoginScreen';
+import { RenderProps } from '@src/types/react-hook-form';
 
 const useRenders = (
   onSubmit: (e?: React.BaseSyntheticEvent) => Promise<void>,

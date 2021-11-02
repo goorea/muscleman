@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+import { Modal } from 'react-native';
+
+import Icon from '@src/components/Icon';
+
+import useAnimation from './hooks/useAnimation';
 import {
   AcceptContainer,
   AcceptText,
@@ -9,9 +14,6 @@ import {
   ModalContainer,
   Overlay,
 } from './styled';
-import Icon from '@src/components/Icon';
-import { Modal } from 'react-native';
-import useAnimation from './hooks/useAnimation';
 
 export type AcceptModalElement = {
   show: () => void;

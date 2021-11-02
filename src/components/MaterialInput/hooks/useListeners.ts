@@ -1,10 +1,10 @@
+import { Dispatch, SetStateAction } from 'react';
 import {
   LayoutChangeEvent,
   LayoutRectangle,
   NativeSyntheticEvent,
   TextInputFocusEventData,
 } from 'react-native';
-import { Dispatch, SetStateAction } from 'react';
 
 const useListeners = (
   setLabelLayout: Dispatch<

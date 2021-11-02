@@ -1,8 +1,9 @@
 import 'react-native';
-import React from 'react';
-import { act, fireEvent, render } from '@testing-library/react-native';
-import LoginScreen from '@src/screens/LoginScreen';
 import { navigationMock, navigationNavigateMock } from '@mocks/navigationMocks';
+import { act, fireEvent, render } from '@testing-library/react-native';
+import React from 'react';
+
+import LoginScreen from '@src/screens/LoginScreen';
 import { wrapper } from '@tests/functions';
 
 describe('LoginScreen 컴포넌트', () => {

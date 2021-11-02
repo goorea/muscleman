@@ -1,8 +1,9 @@
-import styled from 'styled-components/native';
-import { positionAbsoluteFill } from '@src/styles/position';
-import Text from '@src/components/Text';
-import Button from '@src/components/Button';
 import { Animated } from 'react-native';
+import styled from 'styled-components/native';
+
+import Button from '@src/components/Button';
+import Text from '@src/components/Text';
+import { positionAbsoluteFill } from '@src/styles/position';
 
 export const ModalContainer = styled.View`
   flex: 1;

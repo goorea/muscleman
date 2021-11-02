@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { LayoutRectangle, TextInput, TextInputProps } from 'react-native';
+
 import Text from '@src/components/Text';
+
 import useAnimation from './hooks/useAnimation';
 import useFromPicker from './hooks/useFromPicker';
 import useListeners from './hooks/useListeners';

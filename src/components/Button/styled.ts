@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components/native';
+
 import { flexCenter } from '@src/styles/flex';
 import { Colors } from '@src/types/theme';
 

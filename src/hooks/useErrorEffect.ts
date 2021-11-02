@@ -1,6 +1,7 @@
-import { useEffect } from 'react';
-import { flash } from '@src/functions';
 import { ApolloError } from '@apollo/client';
+import { useEffect } from 'react';
+
+import { flash } from '@src/functions';
 
 export const ERROR_CODES = {
   DOCUMENT_NOT_FOUND_ERROR: 'DOCUMENT_NOT_FOUND_ERROR',

@@ -1,11 +1,12 @@
-import React, { useRef } from 'react';
+import analytics from '@react-native-firebase/analytics';
 import {
   NavigationContainer as ReactNavigationContainer,
   useNavigationContainerRef,
 } from '@react-navigation/native';
-import { RootStackParamList } from '@src/types/navigation';
-import analytics from '@react-native-firebase/analytics';
+import React, { useRef } from 'react';
+
 import { useTheme } from '@src/contexts/ThemeProvider';
+import { RootStackParamList } from '@src/types/navigation';
 
 const NavigationContainer: React.FC = ({ children }) => {
   const { dark, colors } = useTheme();

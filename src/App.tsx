@@ -1,12 +1,13 @@
-import React from 'react';
-import NavigationContainer from '@src/navigations/NavigationContainer';
-import AppNavigator from '@src/navigations/AppNavigator';
 import { ApolloProvider } from '@apollo/client';
+import React from 'react';
+import { RecoilRoot } from 'recoil';
+
 import client from '@src/client';
 import FlashMessage from '@src/components/FlashMessage';
-import { RecoilRoot } from 'recoil';
 import ThemeProvider from '@src/contexts/ThemeProvider';
 import UserProvider from '@src/contexts/UserProvider';
+import AppNavigator from '@src/navigations/AppNavigator';
+import NavigationContainer from '@src/navigations/NavigationContainer';
 
 const App: React.FC = () => (
   <ThemeProvider>

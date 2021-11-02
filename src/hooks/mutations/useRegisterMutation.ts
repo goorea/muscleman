@@ -1,14 +1,12 @@
 import { gql, useMutation } from '@apollo/client';
-import { Mutation, MutationRegisterArgs } from '@src/types/graphql';
 import { FetchResult } from '@apollo/client/link/core';
-import {
-  MutationFunctionOptions,
-  MutationResult,
-} from '@apollo/client/react/types/types';
-import { ERROR_CODES } from '@src/hooks/useErrorEffect';
-import { CORE_USER_FIELDS } from '@src/fragments/user';
+import { MutationFunctionOptions, MutationResult } from '@apollo/client/react';
 import { Dispatch, SetStateAction } from 'react';
+
+import { CORE_USER_FIELDS } from '@src/fragments/user';
 import { flash } from '@src/functions';
+import { ERROR_CODES } from '@src/hooks/useErrorEffect';
+import { Mutation, MutationRegisterArgs } from '@src/types/graphql';
 
 export const REGISTER = gql`
   ${CORE_USER_FIELDS}

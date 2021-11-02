@@ -1,7 +1,8 @@
-import styled from 'styled-components/native';
 import { Dimensions } from 'react-native';
-import Text from '@src/components/Text';
+import styled from 'styled-components/native';
+
 import Button from '@src/components/Button';
+import Text from '@src/components/Text';
 import { flexCenter, flexFill } from '@src/styles/flex';
 
 export const Container = styled.View<{ headerHeight: number }>`

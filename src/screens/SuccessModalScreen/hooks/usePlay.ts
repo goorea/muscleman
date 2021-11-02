@@ -1,8 +1,9 @@
-import React, { useCallback, useRef } from 'react';
-import Sound from 'react-native-sound';
-import { Animated, Platform } from 'react-native';
 import { CompositeScreenProps } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import React, { useCallback, useRef } from 'react';
+import { Animated, Platform } from 'react-native';
+import Sound from 'react-native-sound';
+
 import { AuthStackParamList, RootStackParamList } from '@src/types/navigation';
 
 const usePlay = (

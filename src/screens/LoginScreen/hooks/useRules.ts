@@ -1,4 +1,5 @@
 import { RegisterOptions } from 'react-hook-form';
+
 import { LoginFormInput } from '@src/screens/LoginScreen';
 
 const useRules = (): {

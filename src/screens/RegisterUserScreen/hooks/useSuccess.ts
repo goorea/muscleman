@@ -1,14 +1,15 @@
-import { useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useSetRecoilState } from 'recoil';
-import { userState } from '@src/recoils';
 import { CompositeScreenProps } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { useEffect } from 'react';
+import { useSetRecoilState } from 'recoil';
+
+import { userState } from '@src/recoils';
+import { Mutation } from '@src/types/graphql';
 import {
   AuthStackParamList,
   RegisterStackParamList,
 } from '@src/types/navigation';
-import { Mutation } from '@src/types/graphql';
 
 const useSuccess = (
   navigation: CompositeScreenProps<

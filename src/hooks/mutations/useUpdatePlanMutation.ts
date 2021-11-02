@@ -1,11 +1,9 @@
 import { gql, useMutation } from '@apollo/client';
-import {
-  MutationFunctionOptions,
-  MutationResult,
-} from '@apollo/client/react/types/types';
-import { Mutation, MutationUpdatePlanArgs } from '@src/types/graphql';
 import { FetchResult } from '@apollo/client/link/core';
+import { MutationFunctionOptions, MutationResult } from '@apollo/client/react';
+
 import { useErrorEffect } from '@src/hooks/useErrorEffect';
+import { Mutation, MutationUpdatePlanArgs } from '@src/types/graphql';
 
 const UPDATE_PLAN = gql`
   mutation updatePlan($_id: ObjectId!, $input: PlanInput!) {
