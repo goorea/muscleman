@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useReducer, useState } from 'react';
 import { Modal } from 'react-native';
 
 import Icon from '@src/components/Icon';
 
 import useAnimation from './hooks/useAnimation';
+import reducer from './reducer';
 import {
   AcceptContainer,
   AcceptText,
@@ -30,21 +31,19 @@ const AcceptModal: React.ForwardRefRenderFunction<AcceptModalElement, P> = (
   ref,
 ) => {
   const [visible, setVisible] = useState<boolean>(false);
-  const [terms, setTerms] = useState<boolean>(false);
-  const [privacy, setPrivacy] = useState<boolean>(false);
+  const [{ terms, privacy }, dispatch] = useReducer(reducer, {
+    terms: false,
+    privacy: false,
+  });
   const { translateY, revert } = useAnimation(visible);
   const onDismiss = () => {
     revert();
-    setTerms(false);
-    setPrivacy(false);
+    dispatch({ type: 'all', action: 'off' });
   };
   const hide = () => setVisible(false);
-  const toggleAll = () => {
-    setTerms(!(terms && privacy));
-    setPrivacy(!(terms && privacy));
-  };
-  const toggleTerms = () => setTerms(!terms);
-  const togglePrivacy = () => setPrivacy(!privacy);
+  const toggleAll = () => dispatch({ type: 'all', action: 'toggle' });
+  const toggleTerms = () => dispatch({ type: 'terms', action: 'toggle' });
+  const togglePrivacy = () => dispatch({ type: 'privacy', action: 'toggle' });
 
   React.useImperativeHandle(ref, () => ({
     show: () => setVisible(true),
