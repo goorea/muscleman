@@ -14,7 +14,7 @@ import { StackNavigatorDefaultScreenOptions } from './StackNavigatorDefaultScree
 
 const Stack = createNativeStackNavigator<AuthStackParamList>();
 
-type P = NativeStackScreenProps<RootStackParamList, 'Auth'> & {};
+type P = NativeStackScreenProps<RootStackParamList, 'Auth'>;
 
 const AuthNavigator: React.FC<P> = () => {
   const registerOptions = { headerShown: false };

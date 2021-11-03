@@ -11,7 +11,7 @@ import { Container } from './styled';
 type P = CompositeScreenProps<
   BottomTabScreenProps<MainTabParamList, 'Profile'>,
   NativeStackScreenProps<RootStackParamList>
-> & {};
+>;
 
 const ProfileScreen: React.FC<P> = () => (
   <Container>

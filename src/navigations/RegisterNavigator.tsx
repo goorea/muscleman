@@ -20,7 +20,7 @@ const Stack = createNativeStackNavigator<RegisterStackParamList>();
 type P = CompositeScreenProps<
   NativeStackScreenProps<AuthStackParamList, 'Register'>,
   NativeStackScreenProps<RootStackParamList>
-> & {};
+>;
 
 const RegisterNavigator: React.FC<P> = () => (
   <Stack.Navigator screenOptions={StackNavigatorDefaultScreenOptions}>

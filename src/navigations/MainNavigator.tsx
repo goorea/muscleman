@@ -12,7 +12,7 @@ import { MainTabParamList, RootStackParamList } from '@src/types/navigation';
 
 const Tab = createMaterialBottomTabNavigator<MainTabParamList>();
 
-type P = NativeStackScreenProps<RootStackParamList, 'Main'> & {};
+type P = NativeStackScreenProps<RootStackParamList, 'Main'>;
 
 const MainNavigator: React.FC<P> = () => {
   const { colors } = useTheme();
