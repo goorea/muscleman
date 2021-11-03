@@ -2,7 +2,7 @@ import { gql, useMutation } from '@apollo/client';
 import { FetchResult } from '@apollo/client/link/core';
 import { MutationFunctionOptions, MutationResult } from '@apollo/client/react';
 
-import { useErrorEffect } from '@src/hooks/useErrorEffect';
+import useErrorEffect from '@src/hooks/useErrorEffect';
 import { Mutation, MutationUpdatePlanArgs } from '@src/types/graphql';
 
 const UPDATE_PLAN = gql`
@@ -11,7 +11,7 @@ const UPDATE_PLAN = gql`
   }
 `;
 
-export function useUpdatePlanMutation(): [
+const useUpdatePlanMutation = (): [
   (
     options?: MutationFunctionOptions<
       Pick<Mutation, 'updatePlan'>,
@@ -19,7 +19,7 @@ export function useUpdatePlanMutation(): [
     >,
   ) => Promise<FetchResult<Pick<Mutation, 'updatePlan'>>>,
   Pick<MutationResult<Pick<Mutation, 'updatePlan'>>, 'data' | 'loading'>,
-] {
+] => {
   const [updatePlan, { data, error, loading }] = useMutation<
     Pick<Mutation, 'updatePlan'>,
     MutationUpdatePlanArgs
@@ -28,4 +28,6 @@ export function useUpdatePlanMutation(): [
   useErrorEffect(error);
 
   return [updatePlan, { data, loading }];
-}
+};
+
+export default useUpdatePlanMutation;

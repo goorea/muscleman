@@ -14,7 +14,7 @@ export const ERROR_CODES = {
   VERIFIED_ERROR: 'VERIFIED_ERROR',
 } as const;
 
-export function useErrorEffect(error?: ApolloError): void {
+const useErrorEffect = (error?: ApolloError) => {
   useEffect(() => {
     if (error) {
       flash({
@@ -24,4 +24,6 @@ export function useErrorEffect(error?: ApolloError): void {
       });
     }
   }, [error]);
-}
+};
+
+export default useErrorEffect;

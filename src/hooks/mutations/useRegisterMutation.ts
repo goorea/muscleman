@@ -21,7 +21,7 @@ export const REGISTER = gql`
   }
 `;
 
-export function useRegisterMutation(
+const useRegisterMutation = (
   setErrorMessages: Dispatch<SetStateAction<string[]>>,
 ): [
   (
@@ -31,7 +31,7 @@ export function useRegisterMutation(
     >,
   ) => Promise<FetchResult<Pick<Mutation, 'register'>>>,
   Pick<MutationResult<Pick<Mutation, 'register'>>, 'data' | 'loading'>,
-] {
+] => {
   const [register, { data, error, loading }] = useMutation<
     Pick<Mutation, 'register'>,
     MutationRegisterArgs
@@ -73,4 +73,6 @@ export function useRegisterMutation(
   }
 
   return [register, { data, loading }];
-}
+};
+
+export default useRegisterMutation;

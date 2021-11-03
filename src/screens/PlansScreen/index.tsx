@@ -11,7 +11,7 @@ import { Container } from './styled';
 type P = CompositeScreenProps<
   BottomTabScreenProps<MainTabParamList, 'Plans'>,
   NativeStackScreenProps<RootStackParamList>
-> & {};
+>;
 
 const PlansScreen: React.FC<P> = () => (
   <Container>

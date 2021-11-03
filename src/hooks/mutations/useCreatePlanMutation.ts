@@ -3,7 +3,7 @@ import { FetchResult } from '@apollo/client/link/core';
 import { MutationFunctionOptions, MutationResult } from '@apollo/client/react';
 
 import { CORE_PLAN_FIELDS } from '@src/fragments/plan';
-import { useErrorEffect } from '@src/hooks/useErrorEffect';
+import useErrorEffect from '@src/hooks/useErrorEffect';
 import { Mutation, MutationCreatePlanArgs } from '@src/types/graphql';
 
 const CREATE_PLAN = gql`
@@ -15,7 +15,7 @@ const CREATE_PLAN = gql`
   }
 `;
 
-export function useCreatePlanMutation(): [
+const useCreatePlanMutation = (): [
   (
     options?: MutationFunctionOptions<
       Pick<Mutation, 'createPlan'>,
@@ -23,7 +23,7 @@ export function useCreatePlanMutation(): [
     >,
   ) => Promise<FetchResult<Pick<Mutation, 'createPlan'>>>,
   Pick<MutationResult<Pick<Mutation, 'createPlan'>>, 'data' | 'loading'>,
-] {
+] => {
   const [createPlan, { data, error, loading }] = useMutation<
     Pick<Mutation, 'createPlan'>,
     MutationCreatePlanArgs
@@ -32,4 +32,6 @@ export function useCreatePlanMutation(): [
   useErrorEffect(error);
 
   return [createPlan, { data, loading }];
-}
+};
+
+export default useCreatePlanMutation;

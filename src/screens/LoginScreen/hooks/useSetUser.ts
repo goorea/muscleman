@@ -5,7 +5,7 @@ import { useSetRecoilState } from 'recoil';
 import { userState } from '@src/recoils';
 import { Mutation } from '@src/types/graphql';
 
-export function useSetUser(data?: Pick<Mutation, 'login'> | null) {
+const useSetUser = (data?: Pick<Mutation, 'login'> | null) => {
   const setUser = useSetRecoilState(userState);
 
   useEffect(() => {
@@ -18,4 +18,6 @@ export function useSetUser(data?: Pick<Mutation, 'login'> | null) {
       ]).then(() => setUser(user));
     }
   }, [data, setUser]);
-}
+};
+
+export default useSetUser;

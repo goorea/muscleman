@@ -1,7 +1,7 @@
 import { gql, useLazyQuery } from '@apollo/client';
 import { LazyQueryResult, QueryLazyOptions } from '@apollo/client/react';
 
-import { useErrorEffect } from '@src/hooks/useErrorEffect';
+import useErrorEffect from '@src/hooks/useErrorEffect';
 import { Query } from '@src/types/graphql';
 
 export const EXIST_USER = gql`
@@ -10,14 +10,16 @@ export const EXIST_USER = gql`
   }
 `;
 
-export function useExistUserLazyQuery(): [
+const useExistUserLazyQuery = (): [
   (options?: QueryLazyOptions<{}>) => void,
   Pick<LazyQueryResult<Pick<Query, 'existUser'>, {}>, 'data' | 'loading'>,
-] {
+] => {
   const [existUser, { data, error, loading }] =
     useLazyQuery<Pick<Query, 'existUser'>>(EXIST_USER);
 
   useErrorEffect(error);
 
   return [existUser, { data, loading }];
-}
+};
+
+export default useExistUserLazyQuery;

@@ -1,3 +1,4 @@
+import { isEqual } from 'lodash';
 import React from 'react';
 import { ActivityIndicator, TouchableOpacityProps } from 'react-native';
 
@@ -10,8 +11,9 @@ import { StyledButton } from './styled';
 
 type P = TouchableOpacityProps &
   Pick<TextProps, 'weight' | 'size'> & {
-    title?: string | React.ReactElement;
+    title?: string;
     icon?: IconProps;
+    node?: React.ReactNode;
     type?: 'solid' | 'clear' | 'outline';
     titleColor?: keyof Colors;
     color?: keyof Colors;
@@ -25,6 +27,7 @@ const Button: React.FC<P> = props => {
     size = 16,
     title,
     icon,
+    node,
     type = 'solid',
     titleColor = 'white',
     color = 'primary',
@@ -42,11 +45,13 @@ const Button: React.FC<P> = props => {
           color={type === undefined || type === 'solid' ? titleColor : color}>
           {title}
         </Text>
+      ) : icon ? (
+        <Icon {...icon} />
       ) : (
-        icon && <Icon {...icon} />
+        node && node
       )}
     </StyledButton>
   );
 };
 
-export default Button;
+export default React.memo<P>(Button, isEqual);

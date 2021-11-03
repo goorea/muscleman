@@ -12,7 +12,7 @@ import { Container } from './styled';
 type P = CompositeScreenProps<
   BottomTabScreenProps<MainTabParamList, 'Home'>,
   NativeStackScreenProps<RootStackParamList>
-> & {};
+>;
 
 const HomeScreen: React.FC<P> = ({ navigation }) => (
   <Container>

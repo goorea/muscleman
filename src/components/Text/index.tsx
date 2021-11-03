@@ -1,3 +1,4 @@
+import { isEqual } from 'lodash';
 import React from 'react';
 import { TextStyle } from 'react-native';
 
@@ -6,6 +7,7 @@ import { Colors } from '@src/types/theme';
 import { StyledText } from './styled';
 
 export type TextProps = {
+  children: React.ReactNode;
   weight?: 'normal' | 'bold' | 'thin';
   size?: number;
   color?: keyof Colors;
@@ -31,4 +33,4 @@ const Text: React.FC<TextProps> = ({
   </StyledText>
 );
 
-export default Text;
+export default React.memo<TextProps>(Text, isEqual);
