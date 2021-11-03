@@ -20,5 +20,5 @@ export const StyledButton = styled.TouchableOpacity<{
 
   opacity: ${({ disabled }) => (disabled ? 0.6 : 1)};
   padding: ${({ type }) => (type === 'clear' ? 0 : '14px 20px')};
-  ${flexCenter}
+  ${flexCenter};
 `;

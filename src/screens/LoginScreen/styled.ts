@@ -47,13 +47,6 @@ export const SNSButtonsContainer = styled.View`
   padding: 0 30px;
 `;
 
-export const SNSButton = styled(Button)`
-  padding: 0;
-  width: 46px;
-  height: 46px;
-  border-radius: 23px;
-`;
-
 export const LinksContainer = styled.View`
   margin-top: auto;
   flex-direction: row;

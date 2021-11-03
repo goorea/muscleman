@@ -2,16 +2,17 @@ import { APP_NAME } from '@env';
 import { HeaderHeightContext } from '@react-navigation/elements';
 import { CompositeScreenProps } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { getUniqueId } from 'react-native-device-info';
 import { useRecoilValue } from 'recoil';
 
+import AppleLogin from '@src/components/AppleLogin';
 import Button from '@src/components/Button';
-import GoogleIcon from '@src/components/GoogleIcon';
-import KakaoIcon from '@src/components/KakaoIcon';
+import GoogleLogin from '@src/components/GoogleLogin';
+import KakaoLogin from '@src/components/KakaoLogin';
 import KeyboardAvoidingScrollView from '@src/components/KeyboardAvoidingScrollView';
-import NaverIcon from '@src/components/NaverIcon';
+import NaverLogin from '@src/components/NaverLogin';
 import Text from '@src/components/Text';
 import { useLoginMutation } from '@src/hooks/mutations/useLoginMutation';
 import { userState } from '@src/recoils';
@@ -31,7 +32,6 @@ import {
   Line,
   SNSTitle,
   SNSButtonsContainer,
-  SNSButton,
   LinksContainer,
   Divider,
   ErrorMessage,
@@ -69,12 +69,11 @@ const LoginScreen: React.FC<P> = ({ navigation }) => {
     });
   };
   const { emailRender, passwordRender } = useRenders(handleSubmit(onSubmit));
-  const onGoogleLogin = () => {};
-  const onAppleLogin = () => {};
-  const onNaverLogin = () => {};
-  const onKakaoLogin = () => {};
-  const onRegister = () => navigation.navigate('Register');
-  const onFindPassword = () => {};
+  const onRegister = useCallback(
+    () => navigation.navigate('Register'),
+    [navigation],
+  );
+  const onFindPassword = useCallback(() => {}, []);
 
   useSetUser(data);
   useSetErrorMessages(setErrorMessages, error);
@@ -124,30 +123,10 @@ const LoginScreen: React.FC<P> = ({ navigation }) => {
           <Line />
         </SNSTitleContainer>
         <SNSButtonsContainer>
-          <SNSButton
-            title={<GoogleIcon />}
-            onPress={onGoogleLogin}
-            color="grey5"
-          />
-          <SNSButton
-            icon={{
-              name: 'apple',
-              type: 'font-awesome-5',
-              color: 'background',
-            }}
-            onPress={onAppleLogin}
-            color="foreground"
-          />
-          <SNSButton
-            title={<NaverIcon />}
-            onPress={onNaverLogin}
-            color="naver"
-          />
-          <SNSButton
-            title={<KakaoIcon />}
-            onPress={onKakaoLogin}
-            color="kakao"
-          />
+          <GoogleLogin />
+          <AppleLogin />
+          <NaverLogin />
+          <KakaoLogin />
         </SNSButtonsContainer>
 
         <LinksContainer>
