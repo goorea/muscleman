@@ -5,13 +5,13 @@ import { useEffect } from 'react';
 import { User } from '@src/types/graphql';
 import { AuthStackParamList, RootStackParamList } from '@src/types/navigation';
 
-export function useSuccess(
+const useSuccess = (
   navigation: CompositeScreenProps<
     NativeStackScreenProps<AuthStackParamList, 'Login'>,
     NativeStackScreenProps<RootStackParamList>
   >['navigation'],
   user?: User,
-) {
+) => {
   useEffect(() => {
     if (navigation && user) {
       navigation.navigate('SuccessModal', {
@@ -20,4 +20,6 @@ export function useSuccess(
       });
     }
   }, [navigation, user]);
-}
+};
+
+export default useSuccess;

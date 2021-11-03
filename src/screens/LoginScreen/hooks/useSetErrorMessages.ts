@@ -4,10 +4,11 @@ import { Dispatch, SetStateAction, useEffect } from 'react';
 import { flash } from '@src/functions';
 import { ERROR_CODES } from '@src/hooks/useErrorEffect';
 
-export function useSetErrorMessages(
+const useSetErrorMessages = (
+  errorMessages: string[],
   setErrorMessages: Dispatch<SetStateAction<string[]>>,
   error?: ApolloError,
-) {
+) => {
   useEffect(() => {
     if (error) {
       setErrorMessages(
@@ -44,8 +45,10 @@ export function useSetErrorMessages(
           return '';
         }),
       );
-    } else {
+    } else if (errorMessages.length) {
       setErrorMessages([]);
     }
-  }, [setErrorMessages, error]);
-}
+  }, [errorMessages, setErrorMessages, error]);
+};
+
+export default useSetErrorMessages;

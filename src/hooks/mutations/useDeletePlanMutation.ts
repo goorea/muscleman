@@ -2,7 +2,7 @@ import { gql, useMutation } from '@apollo/client';
 import { FetchResult } from '@apollo/client/link/core';
 import { MutationFunctionOptions, MutationResult } from '@apollo/client/react';
 
-import { useErrorEffect } from '@src/hooks/useErrorEffect';
+import useErrorEffect from '@src/hooks/useErrorEffect';
 import { Mutation, MutationDeletePlanArgs } from '@src/types/graphql';
 
 const DELETE_PLAN = gql`
@@ -11,7 +11,7 @@ const DELETE_PLAN = gql`
   }
 `;
 
-export function useDeletePlanMutation(): [
+const useDeletePlanMutation = (): [
   (
     options?: MutationFunctionOptions<
       Pick<Mutation, 'deletePlan'>,
@@ -19,7 +19,7 @@ export function useDeletePlanMutation(): [
     >,
   ) => Promise<FetchResult<Pick<Mutation, 'deletePlan'>>>,
   Pick<MutationResult<Pick<Mutation, 'deletePlan'>>, 'data' | 'loading'>,
-] {
+] => {
   const [deletePlan, { data, error, loading }] = useMutation<
     Pick<Mutation, 'deletePlan'>,
     MutationDeletePlanArgs
@@ -28,4 +28,6 @@ export function useDeletePlanMutation(): [
   useErrorEffect(error);
 
   return [deletePlan, { data, loading }];
-}
+};
+
+export default useDeletePlanMutation;

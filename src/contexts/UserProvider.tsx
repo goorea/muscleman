@@ -2,7 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 
-import { useMeLazyQuery } from '@src/hooks/queries/useMeLazyQuery';
+import useMeLazyQuery from '@src/hooks/queries/useMeLazyQuery';
 import { userState } from '@src/recoils';
 
 const UserProvider: React.FC = ({ children }) => {

@@ -13,9 +13,9 @@ const LOGIN = gql`
   }
 `;
 
-export function useLoginMutation(): MutationTuple<
+const useLoginMutation = (): MutationTuple<
   Pick<Mutation, 'login'>,
   MutationLoginArgs
-> {
-  return useMutation<Pick<Mutation, 'login'>, MutationLoginArgs>(LOGIN);
-}
+> => useMutation<Pick<Mutation, 'login'>, MutationLoginArgs>(LOGIN);
+
+export default useLoginMutation;

@@ -14,15 +14,15 @@ import KakaoLogin from '@src/components/KakaoLogin';
 import KeyboardAvoidingScrollView from '@src/components/KeyboardAvoidingScrollView';
 import NaverLogin from '@src/components/NaverLogin';
 import Text from '@src/components/Text';
-import { useLoginMutation } from '@src/hooks/mutations/useLoginMutation';
+import useLoginMutation from '@src/hooks/mutations/useLoginMutation';
 import { userState } from '@src/recoils';
 import { AuthStackParamList, RootStackParamList } from '@src/types/navigation';
 
 import useRenders from './hooks/useRenders';
 import useRules from './hooks/useRules';
-import { useSetErrorMessages } from './hooks/useSetErrorMessages';
-import { useSetUser } from './hooks/useSetUser';
-import { useSuccess } from './hooks/useSuccess';
+import useSetErrorMessages from './hooks/useSetErrorMessages';
+import useSetUser from './hooks/useSetUser';
+import useSuccess from './hooks/useSuccess';
 import {
   Container,
   TitleContainer,
@@ -76,7 +76,7 @@ const LoginScreen: React.FC<P> = ({ navigation }) => {
   const onFindPassword = useCallback(() => {}, []);
 
   useSetUser(data);
-  useSetErrorMessages(setErrorMessages, error);
+  useSetErrorMessages(errorMessages, setErrorMessages, error);
   useSuccess(navigation, user);
 
   return (

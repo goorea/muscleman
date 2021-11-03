@@ -7,7 +7,7 @@ import AcceptModal, { AcceptModalElement } from '@src/components/AcceptModal';
 import RegisterForm, {
   RegisterFormElement,
 } from '@src/components/RegisterForm';
-import { useRegisterMutation } from '@src/hooks/mutations/useRegisterMutation';
+import useRegisterMutation from '@src/hooks/mutations/useRegisterMutation';
 import {
   AuthStackParamList,
   RegisterStackParamList,
