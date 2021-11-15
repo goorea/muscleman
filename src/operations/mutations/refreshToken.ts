@@ -15,7 +15,7 @@ export const REFRESH_TOKEN = gql`
   }
 `;
 
-const useRefreshTokenMutation = (): [
+export const useRefreshTokenMutation = (): [
   (
     options?: MutationFunctionOptions<
       Pick<Mutation, 'refreshToken'>,
@@ -33,5 +33,3 @@ const useRefreshTokenMutation = (): [
 
   return [refreshToken, { data, loading }];
 };
-
-export default useRefreshTokenMutation;

@@ -5,13 +5,13 @@ import { MutationFunctionOptions, MutationResult } from '@apollo/client/react';
 import useErrorEffect from '@src/hooks/useErrorEffect';
 import { Mutation, MutationUpdatePlanArgs } from '@src/types/graphql';
 
-const UPDATE_PLAN = gql`
+export const UPDATE_PLAN = gql`
   mutation updatePlan($_id: ObjectId!, $input: UpdatePlanInput!) {
     updatePlan(_id: $_id, input: $input)
   }
 `;
 
-const useUpdatePlanMutation = (): [
+export const useUpdatePlanMutation = (): [
   (
     options?: MutationFunctionOptions<
       Pick<Mutation, 'updatePlan'>,
@@ -29,5 +29,3 @@ const useUpdatePlanMutation = (): [
 
   return [updatePlan, { data, loading }];
 };
-
-export default useUpdatePlanMutation;

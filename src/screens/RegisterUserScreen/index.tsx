@@ -1,13 +1,13 @@
 import { CompositeScreenProps } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { getUniqueId } from 'react-native-device-info';
 
 import AcceptModal, { AcceptModalElement } from '@src/components/AcceptModal';
 import RegisterForm, {
   RegisterFormElement,
 } from '@src/components/RegisterForm';
-import useRegisterMutation from '@src/hooks/mutations/useRegisterMutation';
+import { useRegisterMutation } from '@src/operations/mutations/register';
 import {
   AuthStackParamList,
   RegisterStackParamList,
@@ -21,10 +21,9 @@ type P = CompositeScreenProps<
 >;
 
 const RegisterUserScreen: React.FC<P> = ({ navigation, route }) => {
-  const [errorMessages, setErrorMessages] = useState<string[]>([]);
   const registerFormRef = useRef<RegisterFormElement>(null);
   const acceptModalRef = useRef<AcceptModalElement>(null);
-  const [register, { data, loading }] = useRegisterMutation(setErrorMessages);
+  const [register, { data, loading, errorMessages }] = useRegisterMutation();
   const onSubmit = () => acceptModalRef.current?.show();
   const onConfirm = async () => {
     if (registerFormRef.current) {

@@ -5,9 +5,9 @@ import { ServerError } from '@apollo/client/link/utils';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { getUniqueId } from 'react-native-device-info';
 
-import { REFRESH_TOKEN } from '@src/hooks/mutations/useRefreshTokenMutation';
 import { ERROR_CODES } from '@src/hooks/useErrorEffect';
 import httpLink from '@src/links/httpLink';
+import { REFRESH_TOKEN } from '@src/operations/mutations/refreshToken';
 import { Mutation, MutationRefreshTokenArgs } from '@src/types/graphql';
 
 const isServerError = (
