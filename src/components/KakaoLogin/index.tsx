@@ -33,7 +33,7 @@ const KakaoLogin: React.FC<P> = () => {
     ),
     [],
   );
-  const onKakaoLogin = useCallback<() => void>(() => {}, []);
+  const onKakaoLogin = useCallback(() => {}, []);
 
   return <SNSButton node={kakaoIcon} onPress={onKakaoLogin} color="kakao" />;
 };

@@ -31,7 +31,7 @@ const GoogleLogin: React.FC<P> = () => {
     ),
     [],
   );
-  const onGoogleLogin = useCallback<() => void>(() => {}, []);
+  const onGoogleLogin = useCallback(() => {}, []);
 
   return <SNSButton node={googleIcon} onPress={onGoogleLogin} color="grey5" />;
 };
