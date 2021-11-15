@@ -1,15 +1,15 @@
 import { useLazyQuery } from '@apollo/client';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 
 import { ME } from '@src/operations/queries/me';
 import { userState } from '@src/recoils';
 import { Query } from '@src/types/graphql';
 
-const UserProvider: React.FC = ({ children }) => {
+const useUser = (): { loading: boolean } => {
   const setUser = useSetRecoilState(userState);
-  const [me, { data }] = useLazyQuery<Pick<Query, 'me'>>(ME);
+  const [me, { data, loading }] = useLazyQuery<Pick<Query, 'me'>>(ME);
 
   useEffect(() => {
     AsyncStorage.getItem('@token').then(token => {
@@ -25,7 +25,7 @@ const UserProvider: React.FC = ({ children }) => {
     }
   }, [setUser, data]);
 
-  return <>{children}</>;
+  return { loading };
 };
 
-export default UserProvider;
+export default useUser;
