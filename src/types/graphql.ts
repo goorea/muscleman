@@ -22,9 +22,25 @@ export type Scalars = {
 
 export type AuthenticationResponse = {
   __typename?: 'AuthenticationResponse';
-  refresh_token: Scalars['String'];
+  refreshToken: Scalars['String'];
   token: Scalars['String'];
   user: User;
+};
+
+export type CreatePlanInput = {
+  complete?: Maybe<Scalars['Boolean']>;
+  plannedAt: Scalars['DateTime'];
+  sets?: Maybe<Array<SetInput>>;
+  training: Scalars['ID'];
+};
+
+export type CreateTrainingInput = {
+  description?: Maybe<Scalars['String']>;
+  name: Scalars['String'];
+  preference?: Maybe<Scalars['Int']>;
+  thumbnailPath?: Maybe<Scalars['String']>;
+  type: TrainingType;
+  videoPath?: Maybe<Scalars['String']>;
 };
 
 export enum Gender {
@@ -34,20 +50,20 @@ export enum Gender {
 
 export type JwtResponse = {
   __typename?: 'JWTResponse';
-  refresh_token: Scalars['String'];
+  refreshToken: Scalars['String'];
   token: Scalars['String'];
 };
 
 export type LoginInput = {
-  device_id: Scalars['String'];
+  deviceID: Scalars['String'];
   email: Scalars['String'];
   password: Scalars['String'];
 };
 
 export type Model = {
   _id: Scalars['ID'];
-  created_at?: Maybe<Scalars['DateTime']>;
-  updated_at?: Maybe<Scalars['DateTime']>;
+  createdAt: Scalars['DateTime'];
+  updatedAt: Scalars['DateTime'];
 };
 
 export type Mutation = {
@@ -60,17 +76,18 @@ export type Mutation = {
   refreshToken: JwtResponse;
   register: AuthenticationResponse;
   sendVerifyEmail: Scalars['String'];
+  socialLogin: AuthenticationResponse;
   updatePlan: Scalars['Boolean'];
   updateTraining: Scalars['Boolean'];
   verify: Scalars['Boolean'];
 };
 
 export type MutationCreatePlanArgs = {
-  input: PlanInput;
+  input: CreatePlanInput;
 };
 
 export type MutationCreateTrainingArgs = {
-  input: TrainingInput;
+  input: CreateTrainingInput;
 };
 
 export type MutationDeletePlanArgs = {
@@ -86,22 +103,26 @@ export type MutationLoginArgs = {
 };
 
 export type MutationRefreshTokenArgs = {
-  device_id: Scalars['String'];
-  refresh_token: Scalars['String'];
+  deviceID: Scalars['String'];
+  refreshToken: Scalars['String'];
 };
 
 export type MutationRegisterArgs = {
-  input: UserInput;
+  input: RegisterInput;
+};
+
+export type MutationSocialLoginArgs = {
+  input: SocialLoginInput;
 };
 
 export type MutationUpdatePlanArgs = {
   _id: Scalars['ObjectId'];
-  input: PlanInput;
+  input: UpdatePlanInput;
 };
 
 export type MutationUpdateTrainingArgs = {
   _id: Scalars['ObjectId'];
-  input: TrainingInput;
+  input: UpdateTrainingInput;
 };
 
 export type MutationVerifyArgs = {
@@ -111,34 +132,46 @@ export type MutationVerifyArgs = {
 export type Plan = Model & {
   __typename?: 'Plan';
   _id: Scalars['ID'];
-  checkPermission: Scalars['Boolean'];
   complete?: Maybe<Scalars['Boolean']>;
-  created_at?: Maybe<Scalars['DateTime']>;
-  plan_date: Scalars['DateTime'];
+  createdAt: Scalars['DateTime'];
+  oneRM?: Maybe<Scalars['Float']>;
+  plannedAt: Scalars['DateTime'];
   sets?: Maybe<Array<Set>>;
   training: Training;
-  updated_at?: Maybe<Scalars['DateTime']>;
+  updatedAt: Scalars['DateTime'];
   user: User;
-};
-
-export type PlanInput = {
-  complete?: Maybe<Scalars['Boolean']>;
-  plan_date: Scalars['DateTime'];
-  sets?: Maybe<Array<SetInput>>;
-  training: Scalars['ID'];
 };
 
 export type Query = {
   __typename?: 'Query';
   existUser: Scalars['Boolean'];
+  getOneRM: Scalars['Float'];
   me: User;
   plans: Array<Plan>;
+  todayPlans: Array<Plan>;
   users: Array<User>;
 };
 
 export type QueryExistUserArgs = {
   field: Scalars['String'];
   value: Scalars['String'];
+};
+
+export type QueryGetOneRmArgs = {
+  name: Scalars['String'];
+};
+
+export type RegisterInput = {
+  birth?: Maybe<Scalars['DateTime']>;
+  deviceID: Scalars['String'];
+  email: Scalars['String'];
+  gender?: Maybe<Gender>;
+  name: Scalars['String'];
+  nickname: Scalars['String'];
+  password: Scalars['String'];
+  passwordConfirmation: Scalars['String'];
+  profileImagePath?: Maybe<Scalars['String']>;
+  tel?: Maybe<Scalars['String']>;
 };
 
 export enum Role {
@@ -161,26 +194,32 @@ export type SetInput = {
   weight?: Maybe<Scalars['Float']>;
 };
 
+export type SocialLoginInput = {
+  deviceID: Scalars['String'];
+  email: Scalars['String'];
+  name: Scalars['String'];
+  nickname?: Maybe<Scalars['String']>;
+  provider: SocialProvider;
+};
+
+export enum SocialProvider {
+  Apple = 'APPLE',
+  Google = 'GOOGLE',
+  Kakao = 'KAKAO',
+  Naver = 'NAVER',
+}
+
 export type Training = Model & {
   __typename?: 'Training';
   _id: Scalars['ID'];
-  created_at?: Maybe<Scalars['DateTime']>;
+  createdAt: Scalars['DateTime'];
   description?: Maybe<Scalars['String']>;
   name: Scalars['String'];
   preference?: Maybe<Scalars['Int']>;
-  thumbnail_path?: Maybe<Scalars['String']>;
+  thumbnailPath?: Maybe<Scalars['String']>;
   type: TrainingType;
-  updated_at?: Maybe<Scalars['DateTime']>;
-  video_path?: Maybe<Scalars['String']>;
-};
-
-export type TrainingInput = {
-  description?: Maybe<Scalars['String']>;
-  name: Scalars['String'];
-  preference?: Maybe<Scalars['Int']>;
-  thumbnail_path?: Maybe<Scalars['String']>;
-  type: TrainingType;
-  video_path?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+  videoPath?: Maybe<Scalars['String']>;
 };
 
 export enum TrainingType {
@@ -194,38 +233,42 @@ export enum TrainingType {
   Shoulder = 'SHOULDER',
 }
 
+export type UpdatePlanInput = {
+  complete?: Maybe<Scalars['Boolean']>;
+  plannedAt?: Maybe<Scalars['DateTime']>;
+  sets?: Maybe<Array<SetInput>>;
+  training?: Maybe<Scalars['ID']>;
+};
+
+export type UpdateTrainingInput = {
+  description?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  preference?: Maybe<Scalars['Int']>;
+  thumbnailPath?: Maybe<Scalars['String']>;
+  type?: Maybe<TrainingType>;
+  videoPath?: Maybe<Scalars['String']>;
+};
+
 export type User = Model & {
   __typename?: 'User';
   _id: Scalars['ID'];
   birth?: Maybe<Scalars['DateTime']>;
-  created_at?: Maybe<Scalars['DateTime']>;
+  createdAt: Scalars['DateTime'];
   email: Scalars['String'];
-  email_verify_token?: Maybe<Scalars['String']>;
-  gender: Gender;
+  emailVerifyToken?: Maybe<Scalars['String']>;
+  gender?: Maybe<Gender>;
   name: Scalars['String'];
   nickname: Scalars['String'];
   password?: Maybe<Scalars['String']>;
-  profile_image_path?: Maybe<Scalars['String']>;
-  refresh_token?: Maybe<Scalars['JSONObject']>;
+  profileImagePath?: Maybe<Scalars['String']>;
+  provider?: Maybe<SocialProvider>;
+  refreshToken?: Maybe<Scalars['JSONObject']>;
   roles?: Maybe<Array<Role>>;
   tel?: Maybe<Scalars['String']>;
-  updated_at?: Maybe<Scalars['DateTime']>;
-};
-
-export type UserInput = {
-  birth?: Maybe<Scalars['DateTime']>;
-  device_id: Scalars['String'];
-  email: Scalars['String'];
-  gender: Gender;
-  name: Scalars['String'];
-  nickname: Scalars['String'];
-  password: Scalars['String'];
-  password_confirmation: Scalars['String'];
-  profile_image_path?: Maybe<Scalars['String']>;
-  tel?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
 };
 
 export type VerifyInput = {
   email: Scalars['String'];
-  email_verify_token: Scalars['String'];
+  emailVerifyToken: Scalars['String'];
 };

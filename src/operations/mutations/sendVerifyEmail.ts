@@ -11,7 +11,7 @@ const SEND_VERIFY_EMAIL = gql`
   }
 `;
 
-const useSendVerifyEmailMutation = (): [
+export const useSendVerifyEmailMutation = (): [
   (
     options?: MutationFunctionOptions<Pick<Mutation, 'sendVerifyEmail'>>,
   ) => Promise<FetchResult<Pick<Mutation, 'sendVerifyEmail'>>>,
@@ -24,5 +24,3 @@ const useSendVerifyEmailMutation = (): [
 
   return [sendVerifyEmail, { data, loading }];
 };
-
-export default useSendVerifyEmailMutation;

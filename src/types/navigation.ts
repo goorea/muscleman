@@ -25,6 +25,6 @@ export type RegisterStackParamList = {
   RegisterUser: {
     email: string;
     password: string;
-    password_confirmation: string;
+    passwordConfirmation: string;
   };
 };

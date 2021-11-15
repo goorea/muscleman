@@ -21,7 +21,7 @@ type P = CompositeScreenProps<
 export type RegisterAccountFormInput = {
   email: string;
   password: string;
-  password_confirmation: string;
+  passwordConfirmation: string;
 };
 
 const RegisterAccountScreen: React.FC<P> = ({ navigation }) => {
@@ -56,7 +56,7 @@ const RegisterAccountScreen: React.FC<P> = ({ navigation }) => {
         />
         <Controller
           render={passwordConfirmationRender}
-          name="password_confirmation"
+          name="passwordConfirmation"
           control={control}
           rules={passwordConfirmationRules}
         />

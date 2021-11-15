@@ -6,16 +6,16 @@ import { CORE_PLAN_FIELDS } from '@src/fragments/plan';
 import useErrorEffect from '@src/hooks/useErrorEffect';
 import { Mutation, MutationCreatePlanArgs } from '@src/types/graphql';
 
-const CREATE_PLAN = gql`
+export const CREATE_PLAN = gql`
   ${CORE_PLAN_FIELDS}
-  mutation createPlan($input: PlanInput!) {
+  mutation createPlan($input: CreatePlanInput!) {
     createPlan(input: $input) {
       ...CorePlanFields
     }
   }
 `;
 
-const useCreatePlanMutation = (): [
+export const useCreatePlanMutation = (): [
   (
     options?: MutationFunctionOptions<
       Pick<Mutation, 'createPlan'>,
@@ -33,5 +33,3 @@ const useCreatePlanMutation = (): [
 
   return [createPlan, { data, loading }];
 };
-
-export default useCreatePlanMutation;
