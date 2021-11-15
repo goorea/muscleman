@@ -14,6 +14,7 @@ export const navigationPushMock = jest.fn();
 export const navigationPopToTopMock = jest.fn();
 export const navigationAddListenerMock = jest.fn();
 export const navigationRemoveListenerMock = jest.fn();
+export const navigationJumpToMock = jest.fn();
 export const navigationMock = {
   dispatch: navigationDispatchMock,
   navigate: navigationNavigateMock,
@@ -31,4 +32,5 @@ export const navigationMock = {
   pop: navigationPopMock,
   push: navigationPushMock,
   popToTop: navigationPopToTopMock,
+  jumpTo: navigationJumpToMock,
 };
