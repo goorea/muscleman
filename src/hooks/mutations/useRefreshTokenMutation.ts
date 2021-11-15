@@ -8,8 +8,8 @@ import { Mutation, MutationRefreshTokenArgs } from '@src/types/graphql';
 
 export const REFRESH_TOKEN = gql`
   ${AUTHENTICATION_RESPONSE_FIELDS}
-  mutation refreshToken($refresh_token: String!, $device_id: String!) {
-    refreshToken(refresh_token: $refresh_token, device_id: $device_id) {
+  mutation refreshToken($refreshToken: String!, $deviceID: String!) {
+    refreshToken(refreshToken: $refreshToken, deviceID: $deviceID) {
       ...AuthenticationResponseFields
     }
   }

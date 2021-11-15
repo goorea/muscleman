@@ -13,7 +13,7 @@ const useRules = (
   passwordRules: RegisterOptions<RegisterAccountFormInput, 'password'>;
   passwordConfirmationRules: RegisterOptions<
     RegisterAccountFormInput,
-    'password_confirmation'
+    'passwordConfirmation'
   >;
 } => ({
   emailRules: {

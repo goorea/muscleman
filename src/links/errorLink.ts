@@ -24,10 +24,10 @@ const errorLink = onError(({ networkError, operation, forward }) => {
     return new Observable(subscriber => {
       (async () => {
         try {
-          const refresh_token = await AsyncStorage.getItem('@refresh_token');
+          const refreshToken = await AsyncStorage.getItem('@refreshToken');
 
-          if (!refresh_token) {
-            await AsyncStorage.multiRemove(['@token', '@refresh_token']);
+          if (!refreshToken) {
+            await AsyncStorage.multiRemove(['@token', '@refreshToken']);
             throw new Error('리플래쉬 토큰이 없습니다.');
           }
 
@@ -41,19 +41,19 @@ const errorLink = onError(({ networkError, operation, forward }) => {
             MutationRefreshTokenArgs
           >({
             mutation: REFRESH_TOKEN,
-            variables: { refresh_token, device_id: getUniqueId() },
+            variables: { refreshToken, deviceID: getUniqueId() },
           });
 
           if (!data) {
-            await AsyncStorage.multiRemove(['@token', '@refresh_token']);
+            await AsyncStorage.multiRemove(['@token', '@refreshToken']);
             throw new Error('올바르지 않은 요청입니다.');
           }
 
-          const { token, refresh_token: refreshed_token } = data.refreshToken;
+          const { token, refreshToken: refreshed_token } = data.refreshToken;
 
           await AsyncStorage.multiSet([
             ['@token', token],
-            ['@refresh_token', refreshed_token],
+            ['@refreshToken', refreshed_token],
           ]);
 
           operation.setContext(({ headers = {} }) => ({

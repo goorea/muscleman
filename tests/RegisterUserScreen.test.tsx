@@ -16,7 +16,7 @@ describe('RegisterUserScreen 컴포넌트', () => {
           params: {
             email: 'john@example.com',
             password: '123123123',
-            password_confirmation: '123123123',
+            passwordConfirmation: '123123123',
           },
         }}
       />,

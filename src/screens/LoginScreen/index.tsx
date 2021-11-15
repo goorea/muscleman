@@ -63,7 +63,7 @@ const LoginScreen: React.FC<P> = ({ navigation }) => {
       variables: {
         input: {
           ...input,
-          device_id: getUniqueId(),
+          deviceID: getUniqueId(),
         },
       },
     });

@@ -8,7 +8,7 @@ import { Mutation, MutationCreatePlanArgs } from '@src/types/graphql';
 
 const CREATE_PLAN = gql`
   ${CORE_PLAN_FIELDS}
-  mutation createPlan($input: PlanInput!) {
+  mutation createPlan($input: CreatePlanInput!) {
     createPlan(input: $input) {
       ...CorePlanFields
     }

@@ -6,7 +6,7 @@ import useErrorEffect from '@src/hooks/useErrorEffect';
 import { Mutation, MutationUpdatePlanArgs } from '@src/types/graphql';
 
 const UPDATE_PLAN = gql`
-  mutation updatePlan($_id: ObjectId!, $input: PlanInput!) {
+  mutation updatePlan($_id: ObjectId!, $input: UpdatePlanInput!) {
     updatePlan(_id: $_id, input: $input)
   }
 `;

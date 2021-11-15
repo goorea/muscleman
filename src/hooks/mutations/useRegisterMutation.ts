@@ -10,10 +10,10 @@ import { Mutation, MutationRegisterArgs } from '@src/types/graphql';
 
 export const REGISTER = gql`
   ${CORE_USER_FIELDS}
-  mutation register($input: UserInput!) {
+  mutation register($input: RegisterInput!) {
     register(input: $input) {
       token
-      refresh_token
+      refreshToken
       user {
         ...CoreUserFields
       }

@@ -10,7 +10,7 @@
         "description": "사용자 정보와 JWT 토큰 응답",
         "fields": [
           {
-            "name": "refresh_token",
+            "name": "refreshToken",
             "description": "JWT Refresh 토큰",
             "args": [],
             "type": {
@@ -57,6 +57,140 @@
         "description": "The `Boolean` scalar type represents `true` or `false`.",
         "fields": null,
         "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "CreatePlanInput",
+        "description": "운동 계획 입력 객체",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "complete",
+            "description": "완료 여부",
+            "type": { "kind": "SCALAR", "name": "Boolean", "ofType": null },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "plannedAt",
+            "description": "운동 날짜",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "SCALAR", "name": "DateTime", "ofType": null }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "sets",
+            "description": "세트",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "SetInput",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "training",
+            "description": "운동종목",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "SCALAR", "name": "ID", "ofType": null }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "CreateTrainingInput",
+        "description": "운동종목 추가 입력 객체",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "description",
+            "description": "설명",
+            "type": { "kind": "SCALAR", "name": "String", "ofType": null },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "name",
+            "description": "이름",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "SCALAR", "name": "String", "ofType": null }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "preference",
+            "description": "선호도",
+            "type": { "kind": "SCALAR", "name": "Int", "ofType": null },
+            "defaultValue": "1",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "thumbnailPath",
+            "description": "썸네일 경로",
+            "type": { "kind": "SCALAR", "name": "String", "ofType": null },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "type",
+            "description": "종류",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "TrainingType",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "videoPath",
+            "description": "운동영상 경로",
+            "type": { "kind": "SCALAR", "name": "String", "ofType": null },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
         "interfaces": null,
         "enumValues": null,
         "possibleTypes": null
@@ -140,7 +274,7 @@
         "description": "사용자 JWT 토큰 응답",
         "fields": [
           {
-            "name": "refresh_token",
+            "name": "refreshToken",
             "description": "JWT Refresh 토큰",
             "args": [],
             "type": {
@@ -176,7 +310,7 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "device_id",
+            "name": "deviceID",
             "description": "디바이스 ID",
             "type": {
               "kind": "NON_NULL",
@@ -234,18 +368,26 @@
             "deprecationReason": null
           },
           {
-            "name": "created_at",
-            "description": "생성 날짜",
+            "name": "createdAt",
+            "description": null,
             "args": [],
-            "type": { "kind": "SCALAR", "name": "DateTime", "ofType": null },
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "SCALAR", "name": "DateTime", "ofType": null }
+            },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "updated_at",
-            "description": "수정 날짜",
+            "name": "updatedAt",
+            "description": null,
             "args": [],
-            "type": { "kind": "SCALAR", "name": "DateTime", "ofType": null },
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "SCALAR", "name": "DateTime", "ofType": null }
+            },
             "isDeprecated": false,
             "deprecationReason": null
           }
@@ -276,7 +418,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "PlanInput",
+                    "name": "CreatePlanInput",
                     "ofType": null
                   }
                 },
@@ -305,7 +447,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "TrainingInput",
+                    "name": "CreateTrainingInput",
                     "ofType": null
                   }
                 },
@@ -418,7 +560,7 @@
             "description": "사용자 JWT 토큰 갱신",
             "args": [
               {
-                "name": "device_id",
+                "name": "deviceID",
                 "description": null,
                 "type": {
                   "kind": "NON_NULL",
@@ -434,7 +576,7 @@
                 "deprecationReason": null
               },
               {
-                "name": "refresh_token",
+                "name": "refreshToken",
                 "description": null,
                 "type": {
                   "kind": "NON_NULL",
@@ -474,7 +616,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "UserInput",
+                    "name": "RegisterInput",
                     "ofType": null
                   }
                 },
@@ -508,6 +650,39 @@
             "deprecationReason": null
           },
           {
+            "name": "socialLogin",
+            "description": "소셜 로그인 사용자 생성",
+            "args": [
+              {
+                "name": "input",
+                "description": null,
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "SocialLoginInput",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "AuthenticationResponse",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "updatePlan",
             "description": "운동계획 수정",
             "args": [
@@ -535,7 +710,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "PlanInput",
+                    "name": "UpdatePlanInput",
                     "ofType": null
                   }
                 },
@@ -580,7 +755,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "TrainingInput",
+                    "name": "UpdateTrainingInput",
                     "ofType": null
                   }
                 },
@@ -660,18 +835,6 @@
             "deprecationReason": null
           },
           {
-            "name": "checkPermission",
-            "description": "수정, 삭제 권한",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": { "kind": "SCALAR", "name": "Boolean", "ofType": null }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "complete",
             "description": "완료 여부",
             "args": [],
@@ -680,15 +843,27 @@
             "deprecationReason": null
           },
           {
-            "name": "created_at",
-            "description": "생성 날짜",
+            "name": "createdAt",
+            "description": null,
             "args": [],
-            "type": { "kind": "SCALAR", "name": "DateTime", "ofType": null },
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "SCALAR", "name": "DateTime", "ofType": null }
+            },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "plan_date",
+            "name": "oneRM",
+            "description": "1rm",
+            "args": [],
+            "type": { "kind": "SCALAR", "name": "Float", "ofType": null },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "plannedAt",
             "description": "운동 날짜",
             "args": [],
             "type": {
@@ -728,10 +903,14 @@
             "deprecationReason": null
           },
           {
-            "name": "updated_at",
-            "description": "수정 날짜",
+            "name": "updatedAt",
+            "description": null,
             "args": [],
-            "type": { "kind": "SCALAR", "name": "DateTime", "ofType": null },
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "SCALAR", "name": "DateTime", "ofType": null }
+            },
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -752,69 +931,6 @@
         "interfaces": [
           { "kind": "INTERFACE", "name": "Model", "ofType": null }
         ],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "PlanInput",
-        "description": "운동 계획 입력 객체",
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "complete",
-            "description": "완료 여부",
-            "type": { "kind": "SCALAR", "name": "Boolean", "ofType": null },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "plan_date",
-            "description": "운동 날짜",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": { "kind": "SCALAR", "name": "DateTime", "ofType": null }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "sets",
-            "description": "세트",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "SetInput",
-                  "ofType": null
-                }
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "training",
-            "description": "운동종목",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": { "kind": "SCALAR", "name": "ID", "ofType": null }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "interfaces": null,
         "enumValues": null,
         "possibleTypes": null
       },
@@ -869,6 +985,35 @@
             "deprecationReason": null
           },
           {
+            "name": "getOneRM",
+            "description": "최대 무게",
+            "args": [
+              {
+                "name": "name",
+                "description": null,
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "SCALAR", "name": "Float", "ofType": null }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "me",
             "description": "특정 사용자 조회",
             "args": [],
@@ -883,6 +1028,26 @@
           {
             "name": "plans",
             "description": "사용자의 모든 운동 계획 조회",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": { "kind": "OBJECT", "name": "Plan", "ofType": null }
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "todayPlans",
+            "description": "사용자의 오늘의 운동 계획 조회",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -923,6 +1088,121 @@
         ],
         "inputFields": null,
         "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "RegisterInput",
+        "description": "사용자 입력 객체",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "birth",
+            "description": "생년월일",
+            "type": { "kind": "SCALAR", "name": "DateTime", "ofType": null },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "deviceID",
+            "description": "디바이스 ID",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "SCALAR", "name": "String", "ofType": null }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "email",
+            "description": "이메일",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "SCALAR", "name": "String", "ofType": null }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "gender",
+            "description": "성별",
+            "type": { "kind": "ENUM", "name": "Gender", "ofType": null },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "name",
+            "description": "이름",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "SCALAR", "name": "String", "ofType": null }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "nickname",
+            "description": "닉네임",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "SCALAR", "name": "String", "ofType": null }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "password",
+            "description": "비밀번호",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "SCALAR", "name": "String", "ofType": null }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "passwordConfirmation",
+            "description": "비밀번호 확인",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "SCALAR", "name": "String", "ofType": null }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "profileImagePath",
+            "description": "프로필 이미지 경로",
+            "type": { "kind": "SCALAR", "name": "String", "ofType": null },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "tel",
+            "description": "휴대폰번호",
+            "type": { "kind": "SCALAR", "name": "String", "ofType": null },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "interfaces": null,
         "enumValues": null,
         "possibleTypes": null
       },
@@ -1036,6 +1316,112 @@
         "possibleTypes": null
       },
       {
+        "kind": "INPUT_OBJECT",
+        "name": "SocialLoginInput",
+        "description": "SNS 로그인 사용자 객체",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "deviceID",
+            "description": "디바이스 ID",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "SCALAR", "name": "String", "ofType": null }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "email",
+            "description": "이메일",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "SCALAR", "name": "String", "ofType": null }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "name",
+            "description": "이름",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "SCALAR", "name": "String", "ofType": null }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "nickname",
+            "description": "닉네임",
+            "type": { "kind": "SCALAR", "name": "String", "ofType": null },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "provider",
+            "description": "소셜 로그인 유형",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "SocialProvider",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "SocialProvider",
+        "description": "SNS 로그인 유형",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "APPLE",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "GOOGLE",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "KAKAO",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "NAVER",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
         "kind": "SCALAR",
         "name": "String",
         "description": "The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.",
@@ -1063,10 +1449,14 @@
             "deprecationReason": null
           },
           {
-            "name": "created_at",
-            "description": "생성 날짜",
+            "name": "createdAt",
+            "description": null,
             "args": [],
-            "type": { "kind": "SCALAR", "name": "DateTime", "ofType": null },
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "SCALAR", "name": "DateTime", "ofType": null }
+            },
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -1099,7 +1489,7 @@
             "deprecationReason": null
           },
           {
-            "name": "thumbnail_path",
+            "name": "thumbnailPath",
             "description": "썸네일 경로",
             "args": [],
             "type": { "kind": "SCALAR", "name": "String", "ofType": null },
@@ -1123,15 +1513,19 @@
             "deprecationReason": null
           },
           {
-            "name": "updated_at",
-            "description": "수정 날짜",
+            "name": "updatedAt",
+            "description": null,
             "args": [],
-            "type": { "kind": "SCALAR", "name": "DateTime", "ofType": null },
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "SCALAR", "name": "DateTime", "ofType": null }
+            },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "video_path",
+            "name": "videoPath",
             "description": "운동영상 경로",
             "args": [],
             "type": { "kind": "SCALAR", "name": "String", "ofType": null },
@@ -1143,77 +1537,6 @@
         "interfaces": [
           { "kind": "INTERFACE", "name": "Model", "ofType": null }
         ],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "TrainingInput",
-        "description": "운동종목 추가 입력 객체",
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "description",
-            "description": "설명",
-            "type": { "kind": "SCALAR", "name": "String", "ofType": null },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "name",
-            "description": "이름",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": { "kind": "SCALAR", "name": "String", "ofType": null }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "preference",
-            "description": "선호도",
-            "type": { "kind": "SCALAR", "name": "Int", "ofType": null },
-            "defaultValue": "1",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "thumbnail_path",
-            "description": "썸네일 경로",
-            "type": { "kind": "SCALAR", "name": "String", "ofType": null },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "type",
-            "description": "종류",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "ENUM",
-                "name": "TrainingType",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "video_path",
-            "description": "운동영상 경로",
-            "type": { "kind": "SCALAR", "name": "String", "ofType": null },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "interfaces": null,
         "enumValues": null,
         "possibleTypes": null
       },
@@ -1277,6 +1600,120 @@
         "possibleTypes": null
       },
       {
+        "kind": "INPUT_OBJECT",
+        "name": "UpdatePlanInput",
+        "description": "운동 계획 입력 객체",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "complete",
+            "description": "완료 여부",
+            "type": { "kind": "SCALAR", "name": "Boolean", "ofType": null },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "plannedAt",
+            "description": "운동 날짜",
+            "type": { "kind": "SCALAR", "name": "DateTime", "ofType": null },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "sets",
+            "description": "세트",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "SetInput",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "training",
+            "description": "운동종목",
+            "type": { "kind": "SCALAR", "name": "ID", "ofType": null },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "UpdateTrainingInput",
+        "description": "운동종목 추가 입력 객체",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "description",
+            "description": "설명",
+            "type": { "kind": "SCALAR", "name": "String", "ofType": null },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "name",
+            "description": "이름",
+            "type": { "kind": "SCALAR", "name": "String", "ofType": null },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "preference",
+            "description": "선호도",
+            "type": { "kind": "SCALAR", "name": "Int", "ofType": null },
+            "defaultValue": "1",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "thumbnailPath",
+            "description": "썸네일 경로",
+            "type": { "kind": "SCALAR", "name": "String", "ofType": null },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "type",
+            "description": "종류",
+            "type": { "kind": "ENUM", "name": "TrainingType", "ofType": null },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "videoPath",
+            "description": "운동영상 경로",
+            "type": { "kind": "SCALAR", "name": "String", "ofType": null },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
         "kind": "OBJECT",
         "name": "User",
         "description": "사용자 모델",
@@ -1302,10 +1739,14 @@
             "deprecationReason": null
           },
           {
-            "name": "created_at",
-            "description": "생성 날짜",
+            "name": "createdAt",
+            "description": null,
             "args": [],
-            "type": { "kind": "SCALAR", "name": "DateTime", "ofType": null },
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "SCALAR", "name": "DateTime", "ofType": null }
+            },
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -1322,7 +1763,7 @@
             "deprecationReason": null
           },
           {
-            "name": "email_verify_token",
+            "name": "emailVerifyToken",
             "description": "이메일 인증 토큰",
             "args": [],
             "type": { "kind": "SCALAR", "name": "String", "ofType": null },
@@ -1333,11 +1774,7 @@
             "name": "gender",
             "description": "성별",
             "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": { "kind": "ENUM", "name": "Gender", "ofType": null }
-            },
+            "type": { "kind": "ENUM", "name": "Gender", "ofType": null },
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -1374,7 +1811,7 @@
             "deprecationReason": null
           },
           {
-            "name": "profile_image_path",
+            "name": "profileImagePath",
             "description": "프로필 이미지 경로",
             "args": [],
             "type": { "kind": "SCALAR", "name": "String", "ofType": null },
@@ -1382,7 +1819,19 @@
             "deprecationReason": null
           },
           {
-            "name": "refresh_token",
+            "name": "provider",
+            "description": "소셜 로그인 유형",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "SocialProvider",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "refreshToken",
             "description": "JWT Refresh 토큰 객체 { 디바이스 ID: Refresh 토큰 }",
             "args": [],
             "type": { "kind": "SCALAR", "name": "JSONObject", "ofType": null },
@@ -1414,10 +1863,14 @@
             "deprecationReason": null
           },
           {
-            "name": "updated_at",
-            "description": "수정 날짜",
+            "name": "updatedAt",
+            "description": null,
             "args": [],
-            "type": { "kind": "SCALAR", "name": "DateTime", "ofType": null },
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "SCALAR", "name": "DateTime", "ofType": null }
+            },
             "isDeprecated": false,
             "deprecationReason": null
           }
@@ -1426,125 +1879,6 @@
         "interfaces": [
           { "kind": "INTERFACE", "name": "Model", "ofType": null }
         ],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "UserInput",
-        "description": "사용자 입력 객체",
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "birth",
-            "description": "생년월일",
-            "type": { "kind": "SCALAR", "name": "DateTime", "ofType": null },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "device_id",
-            "description": "디바이스 ID",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": { "kind": "SCALAR", "name": "String", "ofType": null }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "email",
-            "description": "이메일",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": { "kind": "SCALAR", "name": "String", "ofType": null }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "gender",
-            "description": "성별",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": { "kind": "ENUM", "name": "Gender", "ofType": null }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "name",
-            "description": "이름",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": { "kind": "SCALAR", "name": "String", "ofType": null }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "nickname",
-            "description": "닉네임",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": { "kind": "SCALAR", "name": "String", "ofType": null }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "password",
-            "description": "비밀번호",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": { "kind": "SCALAR", "name": "String", "ofType": null }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "password_confirmation",
-            "description": "비밀번호 확인",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": { "kind": "SCALAR", "name": "String", "ofType": null }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "profile_image_path",
-            "description": "프로필 이미지 경로",
-            "type": { "kind": "SCALAR", "name": "String", "ofType": null },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "tel",
-            "description": "휴대폰번호",
-            "type": { "kind": "SCALAR", "name": "String", "ofType": null },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "interfaces": null,
         "enumValues": null,
         "possibleTypes": null
       },
@@ -1567,7 +1901,7 @@
             "deprecationReason": null
           },
           {
-            "name": "email_verify_token",
+            "name": "emailVerifyToken",
             "description": "이메일 인증 토큰",
             "type": {
               "kind": "NON_NULL",

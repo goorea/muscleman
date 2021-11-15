@@ -12,7 +12,7 @@ const useRenders = (
   passwordRender: RenderProps<RegisterAccountFormInput, 'password'>;
   passwordConfirmationRender: RenderProps<
     RegisterAccountFormInput,
-    'password_confirmation'
+    'passwordConfirmation'
   >;
 } => {
   const passwordInputRef = useRef<TextInput | null>(null);

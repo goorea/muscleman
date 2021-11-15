@@ -25,7 +25,7 @@ const useSuccess = (
       setUser(data.register.user);
       AsyncStorage.multiSet([
         ['@token', data.register.token],
-        ['@refresh_token', data.register.refresh_token],
+        ['@refreshToken', data.register.refreshToken],
       ]).then(() => {
         navigation.navigate('SuccessModal', {
           type: '회원가입',

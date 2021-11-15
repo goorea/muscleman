@@ -34,7 +34,7 @@ const RegisterUserScreen: React.FC<P> = ({ navigation, route }) => {
           input: {
             ...route.params,
             ...registerFormRef.current.getValues(),
-            device_id: getUniqueId(),
+            deviceID: getUniqueId(),
           },
         },
       });

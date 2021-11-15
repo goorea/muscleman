@@ -10,11 +10,11 @@ const useSetUser = (data?: Pick<Mutation, 'login'> | null) => {
 
   useEffect(() => {
     if (data) {
-      const { token, refresh_token, user } = data.login;
+      const { token, refreshToken, user } = data.login;
 
       AsyncStorage.multiSet([
         ['@token', token],
-        ['@refresh_token', refresh_token],
+        ['@refreshToken', refreshToken],
       ]).then(() => setUser(user));
     }
   }, [data, setUser]);
