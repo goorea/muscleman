@@ -421,6 +421,7 @@ Array [
               >
                 <Text
                   color="white"
+                  size={16}
                   style={
                     Array [
                       Object {
@@ -465,6 +466,7 @@ Array [
               >
                 <Text
                   color="black"
+                  size={16}
                   style={
                     Array [
                       Object {
@@ -517,6 +519,7 @@ Array [
     >
       <Text
         color="white"
+        size={16}
         style={
           Array [
             Object {
@@ -824,6 +827,7 @@ Array [
         >
           <Text
             color="white"
+            size={16}
             style={
               Array [
                 Object {

@@ -41,6 +41,7 @@ const Button: React.FC<P> = props => {
         <ActivityIndicator size={size} color={colors[titleColor]} />
       ) : title ? (
         <Text
+          size={size}
           weight={weight}
           color={type === undefined || type === 'solid' ? titleColor : color}>
           {title}
