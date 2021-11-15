@@ -25,4 +25,12 @@ jest
   .mock('react-native-device-info', () =>
     require('react-native-device-info/jest/react-native-device-info-mock'),
   )
+  .mock('react-native-splash-screen', () => ({
+    show: jest.fn().mockImplementation(() => {
+      console.log('show splash screen');
+    }),
+    hide: jest.fn().mockImplementation(() => {
+      console.log('hide splash screen');
+    }),
+  }))
   .useFakeTimers();
