@@ -9,12 +9,12 @@ import {
   SBDOneRmAndTodayPlans,
 } from '@src/operations/queries/getSBDOneRMAndTodayPlans';
 import { SBDOneRMState, todayPlansState, userState } from '@src/recoils';
-import { Mutation } from '@src/types/graphql';
+import { Mutation, Plan } from '@src/types/graphql';
 
 const useSetRecoilStates = (loginData?: Pick<Mutation, 'login'> | null) => {
   const setUser = useSetRecoilState(userState);
   const setSBDOneRM = useSetRecoilState<SBDOneRM>(SBDOneRMState);
-  const setTodayPlans = useSetRecoilState(todayPlansState);
+  const setTodayPlans = useSetRecoilState<Plan[]>(todayPlansState);
   const [getSBDOneRMAndTodayPlans, { data }] =
     useLazyQuery<SBDOneRmAndTodayPlans>(GET_SBD_ONE_RM_AND_TODAY_PLANS);
 

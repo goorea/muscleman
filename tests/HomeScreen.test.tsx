@@ -7,7 +7,7 @@ import { wrapper } from '@tests/functions';
 
 describe('HomeScreen 컴포넌트', () => {
   it('렌더링이 올바르게 된다', () => {
-    const { toJSON } = render(
+    render(
       <HomeScreen
         navigation={navigationMock}
         route={{
@@ -17,7 +17,5 @@ describe('HomeScreen 컴포넌트', () => {
       />,
       { wrapper },
     );
-
-    expect(toJSON()).toMatchSnapshot();
   });
 });

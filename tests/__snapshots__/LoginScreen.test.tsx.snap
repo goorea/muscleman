@@ -631,10 +631,10 @@ exports[`LoginScreen 컴포넌트 렌더링이 올바르게 된다 1`] = `
           >
             <RNSVGSvgView
               align="xMidYMid"
-              bbHeight={25.74444432}
-              bbWidth={28}
+              bbHeight={18.3888888}
+              bbWidth={20}
               focusable={false}
-              height={25.74444432}
+              height={18.3888888}
               meetOrSlice={0}
               minX={0}
               minY={0}
@@ -646,14 +646,14 @@ exports[`LoginScreen 컴포넌트 렌더링이 올바르게 된다 1`] = `
                   },
                   Object {
                     "flex": 0,
-                    "height": 25,
-                    "width": 28,
+                    "height": 18,
+                    "width": 20,
                   },
                 ]
               }
               vbHeight={33.1}
               vbWidth={36}
-              width={28}
+              width={20}
             >
               <RNSVGGroup>
                 <RNSVGPath
