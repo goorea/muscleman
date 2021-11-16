@@ -17,7 +17,7 @@ const NaverLogin: React.FC<P> = () => {
     ),
     [],
   );
-  const onNaverLogin = useCallback<() => void>(() => {}, []);
+  const onNaverLogin = useCallback(() => {}, []);
 
   return <SNSButton node={naverIcon} onPress={onNaverLogin} color="naver" />;
 };

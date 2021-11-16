@@ -34,6 +34,7 @@ Array [
           }
         >
           <Text
+            italic={false}
             size={20}
             style={
               Array [
@@ -41,6 +42,7 @@ Array [
                   "color": "#000000",
                   "fontFamily": "SpoqaHanSansNeo-Bold",
                   "fontSize": 20,
+                  "fontStyle": "normal",
                 },
                 Object {
                   "marginBottom": 20,
@@ -369,12 +371,14 @@ Array [
           >
             <Text
               color="grey3"
+              italic={false}
               style={
                 Array [
                   Object {
                     "color": "#86939e",
                     "fontFamily": "SpoqaHanSansNeo-Regular",
                     "fontSize": 16,
+                    "fontStyle": "normal",
                   },
                 ]
               }
@@ -421,12 +425,15 @@ Array [
               >
                 <Text
                   color="white"
+                  italic={false}
+                  size={16}
                   style={
                     Array [
                       Object {
                         "color": "#ffffff",
                         "fontFamily": "SpoqaHanSansNeo-Regular",
                         "fontSize": 16,
+                        "fontStyle": "normal",
                       },
                     ]
                   }
@@ -465,12 +472,15 @@ Array [
               >
                 <Text
                   color="black"
+                  italic={false}
+                  size={16}
                   style={
                     Array [
                       Object {
                         "color": "#000000",
                         "fontFamily": "SpoqaHanSansNeo-Regular",
                         "fontSize": 16,
+                        "fontStyle": "normal",
                       },
                     ]
                   }
@@ -517,12 +527,15 @@ Array [
     >
       <Text
         color="white"
+        italic={false}
+        size={16}
         style={
           Array [
             Object {
               "color": "#ffffff",
               "fontFamily": "SpoqaHanSansNeo-Bold",
               "fontSize": 16,
+              "fontStyle": "normal",
             },
           ]
         }
@@ -646,6 +659,7 @@ Array [
             
           </Text>
           <Text
+            italic={false}
             size={18}
             style={
               Array [
@@ -653,6 +667,7 @@ Array [
                   "color": "#000000",
                   "fontFamily": "SpoqaHanSansNeo-Bold",
                   "fontSize": 18,
+                  "fontStyle": "normal",
                 },
                 Object {
                   "marginLeft": 10,
@@ -710,6 +725,7 @@ Array [
             
           </Text>
           <Text
+            italic={false}
             size={18}
             style={
               Array [
@@ -717,6 +733,7 @@ Array [
                   "color": "#000000",
                   "fontFamily": "SpoqaHanSansNeo-Regular",
                   "fontSize": 18,
+                  "fontStyle": "normal",
                 },
                 Object {
                   "marginLeft": 10,
@@ -773,6 +790,7 @@ Array [
             
           </Text>
           <Text
+            italic={false}
             size={18}
             style={
               Array [
@@ -780,6 +798,7 @@ Array [
                   "color": "#000000",
                   "fontFamily": "SpoqaHanSansNeo-Regular",
                   "fontSize": 18,
+                  "fontStyle": "normal",
                 },
                 Object {
                   "marginLeft": 10,
@@ -824,12 +843,15 @@ Array [
         >
           <Text
             color="white"
+            italic={false}
+            size={16}
             style={
               Array [
                 Object {
                   "color": "#ffffff",
                   "fontFamily": "SpoqaHanSansNeo-Bold",
                   "fontSize": 16,
+                  "fontStyle": "normal",
                 },
               ]
             }

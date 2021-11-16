@@ -44,6 +44,7 @@ exports[`LoginScreen 컴포넌트 렌더링이 올바르게 된다 1`] = `
           }
         >
           <Text
+            italic={false}
             size={40}
             style={
               Array [
@@ -51,6 +52,7 @@ exports[`LoginScreen 컴포넌트 렌더링이 올바르게 된다 1`] = `
                   "color": "#000000",
                   "fontFamily": "SpoqaHanSansNeo-Bold",
                   "fontSize": 40,
+                  "fontStyle": "normal",
                 },
               ]
             }
@@ -60,6 +62,7 @@ exports[`LoginScreen 컴포넌트 렌더링이 올바르게 된다 1`] = `
             근육맨
           </Text>
           <Text
+            italic={false}
             size={22}
             style={
               Array [
@@ -67,6 +70,7 @@ exports[`LoginScreen 컴포넌트 렌더링이 올바르게 된다 1`] = `
                   "color": "#000000",
                   "fontFamily": "SpoqaHanSansNeo-Regular",
                   "fontSize": 22,
+                  "fontStyle": "normal",
                 },
                 Object {
                   "marginTop": 16,
@@ -77,6 +81,7 @@ exports[`LoginScreen 컴포넌트 렌더링이 올바르게 된다 1`] = `
             반가워요!
           </Text>
           <Text
+            italic={false}
             size={22}
             style={
               Array [
@@ -84,6 +89,7 @@ exports[`LoginScreen 컴포넌트 렌더링이 올바르게 된다 1`] = `
                   "color": "#000000",
                   "fontFamily": "SpoqaHanSansNeo-Bold",
                   "fontSize": 22,
+                  "fontStyle": "normal",
                 },
               ]
             }
@@ -275,12 +281,15 @@ exports[`LoginScreen 컴포넌트 렌더링이 올바르게 된다 1`] = `
         >
           <Text
             color="white"
+            italic={false}
+            size={16}
             style={
               Array [
                 Object {
                   "color": "#ffffff",
                   "fontFamily": "SpoqaHanSansNeo-Bold",
                   "fontSize": 16,
+                  "fontStyle": "normal",
                 },
               ]
             }
@@ -315,6 +324,7 @@ exports[`LoginScreen 컴포넌트 렌더링이 올바르게 된다 1`] = `
           />
           <Text
             color="grey3"
+            italic={false}
             size={13}
             style={
               Array [
@@ -322,6 +332,7 @@ exports[`LoginScreen 컴포넌트 렌더링이 올바르게 된다 1`] = `
                   "color": "#86939e",
                   "fontFamily": "SpoqaHanSansNeo-Regular",
                   "fontSize": 13,
+                  "fontStyle": "normal",
                 },
                 Object {
                   "paddingBottom": 0,
@@ -733,12 +744,15 @@ exports[`LoginScreen 컴포넌트 렌더링이 올바르게 된다 1`] = `
           >
             <Text
               color="grey3"
+              italic={false}
+              size={16}
               style={
                 Array [
                   Object {
                     "color": "#86939e",
                     "fontFamily": "SpoqaHanSansNeo-Regular",
                     "fontSize": 16,
+                    "fontStyle": "normal",
                   },
                 ]
               }
@@ -749,12 +763,14 @@ exports[`LoginScreen 컴포넌트 렌더링이 올바르게 된다 1`] = `
           </View>
           <Text
             color="grey3"
+            italic={false}
             style={
               Array [
                 Object {
                   "color": "#86939e",
                   "fontFamily": "SpoqaHanSansNeo-Regular",
                   "fontSize": 16,
+                  "fontStyle": "normal",
                 },
                 Object {
                   "marginBottom": 0,
@@ -793,12 +809,15 @@ exports[`LoginScreen 컴포넌트 렌더링이 올바르게 된다 1`] = `
           >
             <Text
               color="grey3"
+              italic={false}
+              size={16}
               style={
                 Array [
                   Object {
                     "color": "#86939e",
                     "fontFamily": "SpoqaHanSansNeo-Regular",
                     "fontSize": 16,
+                    "fontStyle": "normal",
                   },
                 ]
               }

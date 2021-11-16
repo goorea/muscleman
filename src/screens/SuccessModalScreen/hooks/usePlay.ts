@@ -17,7 +17,7 @@ const usePlay = (
   strokeDashoffset: Animated.AnimatedInterpolation;
 } => {
   const sound = useRef(
-    new Sound(require('@src/assets/alarms/success.mp4')),
+    new Sound(require('@src/resources/alarms/success.mp4')),
   ).current;
   const rotateAnimation = useRef(new Animated.Value(0)).current;
   const rotateX = rotateAnimation.interpolate({
