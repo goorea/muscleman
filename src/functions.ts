@@ -1,7 +1,8 @@
+import { Source } from 'react-native-fast-image';
 import StackFlashMessage, { Options } from 'react-native-stack-flash-message';
 
 import { WeightSet } from '@src/types';
-import { Set, TrainingType } from '@src/types/graphql';
+import { Set, TrainingType, User } from '@src/types/graphql';
 
 export const flash = (options: Options) => StackFlashMessage.show(options);
 
@@ -32,3 +33,8 @@ export const isWeightSets = (sets: Set[]): sets is WeightSet[] =>
       (set as WeightSet).weight !== undefined &&
       (set as WeightSet).count !== undefined,
   );
+
+export const getProfileImage = (user: User): Source | number =>
+  user.profileImagePath
+    ? { uri: user.profileImagePath }
+    : require('@src/resources/images/mock.png');
