@@ -1,7 +1,7 @@
 import { atom } from 'recoil';
 
 import { SBDOneRM } from '@src/operations/queries/getOneRM';
-import { User } from '@src/types/graphql';
+import { User, Plan } from '@src/types/graphql';
 
 export const userState = atom<User | undefined>({
   key: 'user',
@@ -15,4 +15,9 @@ export const SBDOneRMState = atom<SBDOneRM>({
     benchPress: 0,
     deadlift: 0,
   },
+});
+
+export const todayPlansState = atom<Plan[]>({
+  key: 'todayPlans',
+  default: [],
 });
