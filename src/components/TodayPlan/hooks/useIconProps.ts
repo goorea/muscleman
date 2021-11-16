@@ -12,10 +12,10 @@ const useIconProps = (
   ),
   completeIconProps: useMemo<IconProps>(
     () => ({
-      name: plan.complete ? 'checkmark' : 'close',
-      type: 'ionicon',
+      name: plan.complete ? 'check-square' : 'square',
+      type: 'feather',
       color: 'white',
-      size: 18,
+      size: 16,
     }),
     [plan.complete],
   ),

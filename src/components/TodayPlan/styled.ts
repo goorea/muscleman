@@ -38,6 +38,6 @@ export const CompleteButton = styled(RoundedButton)<{
   complete?: Maybe<boolean>;
 }>`
   background-color: ${({ theme, complete }) =>
-    theme[complete ? 'success' : 'error']};
+    theme[complete ? 'success' : 'warning']};
   margin-left: 6px;
 `;

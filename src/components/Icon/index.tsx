@@ -3,6 +3,7 @@ import { GestureResponderEvent } from 'react-native';
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
 import EntypoIcon from 'react-native-vector-icons/Entypo';
 import EvilIcon from 'react-native-vector-icons/EvilIcons';
+import FeatherIcon from 'react-native-vector-icons/Feather';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import FoundationIcon from 'react-native-vector-icons/Foundation';
@@ -21,6 +22,7 @@ type IconType =
   | 'material-community'
   | 'simple-line-icon'
   | 'zocial'
+  | 'feather'
   | 'font-awesome'
   | 'octicon'
   | 'ionicon'
@@ -61,6 +63,8 @@ const Icon: React.FC<IconProps> = ({
       return <SimpleLineIcon {...props} />;
     case 'zocial':
       return <ZocialIcon {...props} />;
+    case 'feather':
+      return <FeatherIcon {...props} />;
     case 'font-awesome':
       return <FontAwesomeIcon {...props} />;
     case 'octicon':
