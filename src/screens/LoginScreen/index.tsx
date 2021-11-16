@@ -20,7 +20,7 @@ import { AuthStackParamList, RootStackParamList } from '@src/types/navigation';
 
 import useRenders from './hooks/useRenders';
 import useRules from './hooks/useRules';
-import useSetUser from './hooks/useSetUser';
+import useSetRecoilStates from './hooks/useSetRecoilStates';
 import useSuccess from './hooks/useSuccess';
 import {
   Container,
@@ -73,7 +73,7 @@ const LoginScreen: React.FC<P> = ({ navigation }) => {
   );
   const onFindPassword = useCallback(() => {}, []);
 
-  useSetUser(data);
+  useSetRecoilStates(data);
   useSuccess(navigation, user);
 
   return (
