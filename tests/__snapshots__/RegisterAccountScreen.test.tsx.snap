@@ -33,6 +33,7 @@ exports[`RegisterAccountScreen 컴포넌트 렌더링이 올바르게 된다 1`]
         }
       >
         <Text
+          italic={false}
           size={20}
           style={
             Array [
@@ -40,6 +41,7 @@ exports[`RegisterAccountScreen 컴포넌트 렌더링이 올바르게 된다 1`]
                 "color": "#000000",
                 "fontFamily": "SpoqaHanSansNeo-Bold",
                 "fontSize": 20,
+                "fontStyle": "normal",
               },
               Object {
                 "marginBottom": 20,
@@ -314,6 +316,7 @@ exports[`RegisterAccountScreen 컴포넌트 렌더링이 올바르게 된다 1`]
   >
     <Text
       color="white"
+      italic={false}
       size={16}
       style={
         Array [
@@ -321,6 +324,7 @@ exports[`RegisterAccountScreen 컴포넌트 렌더링이 올바르게 된다 1`]
             "color": "#ffffff",
             "fontFamily": "SpoqaHanSansNeo-Bold",
             "fontSize": 16,
+            "fontStyle": "normal",
           },
         ]
       }

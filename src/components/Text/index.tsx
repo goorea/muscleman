@@ -13,6 +13,7 @@ export type TextProps = {
   color?: keyof Colors;
   style?: TextStyle;
   ellipsis?: boolean;
+  italic?: boolean;
 };
 
 const Text: React.FC<TextProps> = ({
@@ -21,6 +22,7 @@ const Text: React.FC<TextProps> = ({
   color,
   style,
   ellipsis = false,
+  italic = false,
   children,
 }) => (
   <StyledText
@@ -28,7 +30,8 @@ const Text: React.FC<TextProps> = ({
     size={size}
     color={color}
     style={style}
-    numberOfLines={ellipsis ? 1 : undefined}>
+    numberOfLines={ellipsis ? 1 : undefined}
+    italic={italic}>
     {children}
   </StyledText>
 );

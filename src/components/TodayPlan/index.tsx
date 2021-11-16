@@ -39,7 +39,7 @@ const TodayPlan: React.FC<P> = ({ plan: _plan }) => {
           {getTrainingTypeForKorean(plan.training.type)}
         </Text>
         <Text>{plan.training.name}</Text>
-        <Text size={10} color="grey3">
+        <Text size={10} color="grey3" italic={true}>
           {footerText}
         </Text>
       </View>

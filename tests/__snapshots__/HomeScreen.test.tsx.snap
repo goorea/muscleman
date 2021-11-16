@@ -261,12 +261,14 @@ exports[`HomeScreen 컴포넌트 렌더링이 올바르게 된다 1`] = `
                 <View>
                   <Text
                     color="white"
+                    italic={false}
                     style={
                       Array [
                         Object {
                           "color": "#ffffff",
                           "fontFamily": "SpoqaHanSansNeo-Bold",
                           "fontSize": 16,
+                          "fontStyle": "normal",
                         },
                       ]
                     }
@@ -307,6 +309,7 @@ exports[`HomeScreen 컴포넌트 렌더링이 올바르게 된다 1`] = `
                     </Text>
                     <Text
                       color="white"
+                      italic={false}
                       size={12}
                       style={
                         Array [
@@ -314,6 +317,7 @@ exports[`HomeScreen 컴포넌트 렌더링이 올바르게 된다 1`] = `
                             "color": "#ffffff",
                             "fontFamily": "SpoqaHanSansNeo-Regular",
                             "fontSize": 12,
+                            "fontStyle": "normal",
                           },
                           Object {
                             "marginLeft": 4,
@@ -341,12 +345,14 @@ exports[`HomeScreen 컴포넌트 렌더링이 올바르게 된다 1`] = `
               >
                 <Text
                   color="white"
+                  italic={false}
                   style={
                     Array [
                       Object {
                         "color": "#ffffff",
                         "fontFamily": "SpoqaHanSansNeo-Bold",
                         "fontSize": 16,
+                        "fontStyle": "normal",
                       },
                     ]
                   }
@@ -385,6 +391,7 @@ exports[`HomeScreen 컴포넌트 렌더링이 올바르게 된다 1`] = `
                 >
                   <Text
                     color="white"
+                    italic={false}
                     size={12}
                     style={
                       Array [
@@ -392,6 +399,7 @@ exports[`HomeScreen 컴포넌트 렌더링이 올바르게 된다 1`] = `
                           "color": "#ffffff",
                           "fontFamily": "SpoqaHanSansNeo-Bold",
                           "fontSize": 12,
+                          "fontStyle": "normal",
                         },
                       ]
                     }
@@ -416,6 +424,7 @@ exports[`HomeScreen 컴포넌트 렌더링이 올바르게 된다 1`] = `
       }
     >
       <Text
+        italic={false}
         size={16}
         style={
           Array [
@@ -423,6 +432,7 @@ exports[`HomeScreen 컴포넌트 렌더링이 올바르게 된다 1`] = `
               "color": "#000000",
               "fontFamily": "SpoqaHanSansNeo-Bold",
               "fontSize": 16,
+              "fontStyle": "normal",
             },
           ]
         }
@@ -474,6 +484,7 @@ exports[`HomeScreen 컴포넌트 렌더링이 올바르게 된다 1`] = `
         >
           <Text
             color="error"
+            italic={false}
             size={16}
             style={
               Array [
@@ -481,6 +492,7 @@ exports[`HomeScreen 컴포넌트 렌더링이 올바르게 된다 1`] = `
                   "color": "#ff190c",
                   "fontFamily": "SpoqaHanSansNeo-Bold",
                   "fontSize": 16,
+                  "fontStyle": "normal",
                 },
               ]
             }
@@ -490,12 +502,14 @@ exports[`HomeScreen 컴포넌트 렌더링이 올바르게 된다 1`] = `
           </Text>
         </View>
         <Text
+          italic={false}
           style={
             Array [
               Object {
                 "color": "#000000",
                 "fontFamily": "SpoqaHanSansNeo-Regular",
                 "fontSize": 16,
+                "fontStyle": "normal",
               },
             ]
           }
@@ -537,6 +551,7 @@ exports[`HomeScreen 컴포넌트 렌더링이 올바르게 된다 1`] = `
         >
           <Text
             color="white"
+            italic={false}
             size={16}
             style={
               Array [
@@ -544,6 +559,7 @@ exports[`HomeScreen 컴포넌트 렌더링이 올바르게 된다 1`] = `
                   "color": "#ffffff",
                   "fontFamily": "SpoqaHanSansNeo-Bold",
                   "fontSize": 16,
+                  "fontStyle": "normal",
                 },
               ]
             }

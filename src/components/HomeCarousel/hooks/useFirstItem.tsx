@@ -50,9 +50,9 @@ const useFirstItem = (
         </View>
 
         {!!user && (
-          <Text size={28} color="white" weight="bold">
+          <Text size={28} color="white" weight="bold" italic={true}>
             {total}
-            <Text size={22} color="white" weight="bold">
+            <Text size={22} color="white" weight="bold" italic={true}>
               kg
             </Text>
           </Text>
@@ -94,7 +94,7 @@ const useFirstItem = (
               />
             </ContentSvg>
 
-            <Text color="white" weight="bold">
+            <Text color="white" weight="bold" italic={true}>
               {squat}kg
             </Text>
           </ContentContainer>
@@ -122,7 +122,7 @@ const useFirstItem = (
 		c0,0,0-2.67,4.01-2.67l1.34,2.67h4.01V29.25H125.4z"
               />
             </ContentSvg>
-            <Text color="white" weight="bold">
+            <Text color="white" weight="bold" italic={true}>
               {benchPress}kg
             </Text>
           </ContentContainer>
@@ -157,7 +157,7 @@ const useFirstItem = (
 		l9.24,33.26H84.87C84.87,73.7,80.95,68.81,80.95,68.81z"
               />
             </ContentSvg>
-            <Text color="white" weight="bold">
+            <Text color="white" weight="bold" italic={true}>
               {deadlift}kg
             </Text>
           </ContentContainer>

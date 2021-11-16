@@ -52,6 +52,7 @@ exports[`TodayPlan 컴포넌트 렌더링이 올바르게 된다 1`] = `
   <View>
     <Text
       color="primary"
+      italic={false}
       size={12}
       style={
         Array [
@@ -59,6 +60,7 @@ exports[`TodayPlan 컴포넌트 렌더링이 올바르게 된다 1`] = `
             "color": "#2687ED",
             "fontFamily": "SpoqaHanSansNeo-Bold",
             "fontSize": 12,
+            "fontStyle": "normal",
           },
         ]
       }
@@ -67,12 +69,14 @@ exports[`TodayPlan 컴포넌트 렌더링이 올바르게 된다 1`] = `
       하체
     </Text>
     <Text
+      italic={false}
       style={
         Array [
           Object {
             "color": "#000000",
             "fontFamily": "SpoqaHanSansNeo-Regular",
             "fontSize": 16,
+            "fontStyle": "normal",
           },
         ]
       }
@@ -81,6 +85,7 @@ exports[`TodayPlan 컴포넌트 렌더링이 올바르게 된다 1`] = `
     </Text>
     <Text
       color="grey3"
+      italic={true}
       size={10}
       style={
         Array [
@@ -88,6 +93,7 @@ exports[`TodayPlan 컴포넌트 렌더링이 올바르게 된다 1`] = `
             "color": "#86939e",
             "fontFamily": "SpoqaHanSansNeo-Regular",
             "fontSize": 10,
+            "fontStyle": "italic",
           },
         ]
       }
