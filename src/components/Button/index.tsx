@@ -29,7 +29,7 @@ const Button: React.FC<P> = props => {
     icon,
     node,
     type = 'solid',
-    titleColor = 'white',
+    titleColor,
     color = 'primary',
     loading,
   } = props;
@@ -38,12 +38,18 @@ const Button: React.FC<P> = props => {
   return (
     <StyledButton {...props}>
       {loading ? (
-        <ActivityIndicator size={size} color={colors[titleColor]} />
+        <ActivityIndicator size={size} color={colors[titleColor || 'white']} />
       ) : title ? (
         <Text
           size={size}
           weight={weight}
-          color={type === undefined || type === 'solid' ? titleColor : color}>
+          color={
+            type === 'solid'
+              ? titleColor || 'white'
+              : type === 'outline'
+              ? titleColor || color
+              : color
+          }>
           {title}
         </Text>
       ) : icon ? (
