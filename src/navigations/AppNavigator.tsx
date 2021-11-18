@@ -4,9 +4,11 @@ import React from 'react';
 
 import Text from '@src/components/Text';
 import { useTheme } from '@src/contexts/ThemeProvider';
-import AuthNavigator from '@src/navigations/AuthNavigator';
-import MainNavigator from '@src/navigations/MainNavigator';
 import { RootStackParamList } from '@src/types/navigation';
+
+import AuthNavigator from './AuthNavigator';
+import MainNavigator from './MainNavigator';
+import PlanningNavigator from './PlanningNavigator';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -24,6 +26,7 @@ const AppNavigator: React.FC = () => {
 
       <Stack.Group screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Auth" component={AuthNavigator} />
+        <Stack.Screen name="Planning" component={PlanningNavigator} />
       </Stack.Group>
     </Stack.Navigator>
   );

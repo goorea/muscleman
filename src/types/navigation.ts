@@ -3,6 +3,7 @@ import { NavigatorScreenParams } from '@react-navigation/native';
 export type RootStackParamList = {
   Main: NavigatorScreenParams<MainTabParamList>;
   Auth: NavigatorScreenParams<AuthStackParamList>;
+  Planning: NavigatorScreenParams<PlanningStackParamList>;
 };
 
 export type MainTabParamList = {
@@ -26,5 +27,15 @@ export type RegisterStackParamList = {
     email: string;
     password: string;
     passwordConfirmation: string;
+  };
+};
+
+export type PlanningStackParamList = {
+  EditPlan: {
+    plannedAt: string;
+    trainings?: string[];
+  };
+  AddTraining: {
+    plannedAt: string;
   };
 };
