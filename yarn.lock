@@ -8089,6 +8089,11 @@ react-native-dotenv@^3.2.0:
   dependencies:
     dotenv "^10.0.0"
 
+react-native-easy-calendar@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/react-native-easy-calendar/-/react-native-easy-calendar-0.3.0.tgz#bd6402424bd8034c7e9dd3a293e48480fdc2909b"
+  integrity sha512-NS/qRI/JKIvml/qDwFsyfd2LgwyZN/+KVIdMdvjq+4HZb1S/3P5SHIm9I7KrpkgXxLyhbAWHtNuBHrGhDYgFgA==
+
 react-native-fast-image@^8.5.11:
   version "8.5.11"
   resolved "https://registry.yarnpkg.com/react-native-fast-image/-/react-native-fast-image-8.5.11.tgz#e3dc969d0e4e8df026646bf18194465aa55cbc2b"
