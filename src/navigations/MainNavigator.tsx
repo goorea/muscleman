@@ -7,7 +7,7 @@ import Icon from '@src/components/Icon';
 import { useTheme } from '@src/contexts/ThemeProvider';
 import HomeScreen from '@src/screens/HomeScreen';
 import PlansScreen from '@src/screens/PlansScreen';
-import ProfileScreen from '@src/screens/Profile';
+import ProfileScreen from '@src/screens/ProfileScreen';
 import { MainTabParamList, RootStackParamList } from '@src/types/navigation';
 
 const Tab = createMaterialBottomTabNavigator<MainTabParamList>();

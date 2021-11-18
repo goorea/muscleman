@@ -13,10 +13,10 @@ type P = CompositeScreenProps<
   NativeStackScreenProps<RootStackParamList>
 >;
 
-const AddTraining: React.FC<P> = () => (
+const AddTrainingScreen: React.FC<P> = () => (
   <Container>
     <Text>AddTraining Screen</Text>
   </Container>
 );
 
-export default AddTraining;
+export default AddTrainingScreen;

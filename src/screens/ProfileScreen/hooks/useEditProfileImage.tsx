@@ -15,7 +15,7 @@ const useEditProfileImage = (): {
   const user = useRecoilValue<User | undefined>(userState);
 
   return {
-    // TODO: Edit Profile Image
+    // TODO: Edit ProfileScreen Image
     editProfileImage: useCallback(() => null, []),
     editProfileImageNode: useMemo<ReactNode>(
       () =>

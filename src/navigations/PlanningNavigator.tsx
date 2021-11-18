@@ -5,7 +5,7 @@ import {
 } from '@react-navigation/native-stack';
 import React from 'react';
 
-import AddTraining from '@src/screens/AddTraining';
+import AddTrainingScreen from '@src/screens/AddTrainingScreen';
 import EditPlanScreen from '@src/screens/EditPlanScreen';
 import {
   MainTabParamList,
@@ -25,7 +25,7 @@ type P = CompositeScreenProps<
 const PlanningNavigator: React.FC<P> = () => (
   <Stack.Navigator screenOptions={StackNavigatorDefaultScreenOptions}>
     <Stack.Screen name="EditPlan" component={EditPlanScreen} />
-    <Stack.Screen name="AddTraining" component={AddTraining} />
+    <Stack.Screen name="AddTraining" component={AddTrainingScreen} />
   </Stack.Navigator>
 );
 

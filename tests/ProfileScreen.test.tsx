@@ -2,7 +2,7 @@ import { navigationMock, navigationNavigateMock } from '@mocks/navigationMocks';
 import { act, fireEvent, render } from '@testing-library/react-native';
 import React from 'react';
 
-import ProfileScreen from '@src/screens/Profile';
+import ProfileScreen from '@src/screens/ProfileScreen';
 import { wrapper } from '@tests/functions';
 
 describe('ProfileScreen 컴포넌트', () => {
