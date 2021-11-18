@@ -1,4 +1,4 @@
-import moment from 'moment';
+import dayjs from 'dayjs';
 import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { UseFormGetValues } from 'react-hook-form';
@@ -59,7 +59,7 @@ const RegisterForm: React.ForwardRefRenderFunction<RegisterFormElement, P> = (
   );
   const onBirthPick = (date: Date) => {
     setVisibleBirthPicker(false);
-    setValue('birth', moment(date).format('YYYY-MM-DD'));
+    setValue('birth', dayjs(date).format('YYYY-MM-DD'));
   };
   const onBirthCancel = () => setVisibleBirthPicker(false);
   const setMale = () => setValue('gender', Gender.Male);
@@ -147,7 +147,7 @@ const RegisterForm: React.ForwardRefRenderFunction<RegisterFormElement, P> = (
         locale="ko"
         textColor={colors.foreground}
         open={visibleBirthPicker}
-        date={moment(watch('birth')).toDate()}
+        date={dayjs(watch('birth')).toDate()}
         title="생년월일"
         confirmText="확인"
         cancelText="취소"

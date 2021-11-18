@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react-native';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import React from 'react';
 
 import TodayPlan from '@src/components/TodayPlan';
@@ -16,9 +16,9 @@ describe('TodayPlan 컴포넌트', () => {
     const plan: Plan = {
       _id: '1',
       complete: false,
-      plannedAt: moment().format('YYYY-MM-DD'),
-      createdAt: moment().toISOString(),
-      updatedAt: moment().toISOString(),
+      plannedAt: dayjs().format('YYYY-MM-DD'),
+      createdAt: dayjs().toISOString(),
+      updatedAt: dayjs().toISOString(),
       volumes: [],
       training: {
         _id: '1',
@@ -26,8 +26,8 @@ describe('TodayPlan 컴포넌트', () => {
         category: TrainingCategory.Weight,
         thumbnailPath: undefined,
         type: TrainingType.Lower,
-        createdAt: moment().toISOString(),
-        updatedAt: moment().toISOString(),
+        createdAt: dayjs().toISOString(),
+        updatedAt: dayjs().toISOString(),
       },
       user: {
         _id: '1',
@@ -35,8 +35,8 @@ describe('TodayPlan 컴포넌트', () => {
         gender: Gender.Male,
         name: '존시나',
         nickname: '레슬러',
-        createdAt: moment().toISOString(),
-        updatedAt: moment().toISOString(),
+        createdAt: dayjs().toISOString(),
+        updatedAt: dayjs().toISOString(),
       },
     };
     plan.volumes = [...Array(5).keys()].map(i => ({
@@ -44,8 +44,8 @@ describe('TodayPlan 컴포넌트', () => {
       plan,
       weight: 90,
       count: 5,
-      createdAt: moment().toISOString(),
-      updatedAt: moment().toISOString(),
+      createdAt: dayjs().toISOString(),
+      updatedAt: dayjs().toISOString(),
     }));
     const { toJSON } = render(<TodayPlan plan={plan} />, { wrapper });
 

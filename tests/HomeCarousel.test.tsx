@@ -1,6 +1,6 @@
 import { navigationMock, navigationNavigateMock } from '@mocks/navigationMocks';
 import { act, fireEvent, render } from '@testing-library/react-native';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import React from 'react';
 
 import HomeCarousel from '@src/components/HomeCarousel';
@@ -33,6 +33,6 @@ describe('HomeCarousel 컴포넌트', () => {
     const { queryByText } = rendered();
 
     expect(queryByText('나의 3대 측정')).not.toBeNull();
-    expect(queryByText(moment().format('YY`M.DD'))).not.toBeNull();
+    expect(queryByText(dayjs().format('YY`M.DD'))).not.toBeNull();
   });
 });

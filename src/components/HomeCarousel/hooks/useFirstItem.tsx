@@ -1,4 +1,4 @@
-import moment from 'moment';
+import dayjs from 'dayjs';
 import React from 'react';
 import { View, ViewProps } from 'react-native';
 import { LinearGradientProps } from 'react-native-linear-gradient';
@@ -44,7 +44,7 @@ const useFirstItem = (
           <DateContainer>
             <Icon name="calendar-today" color="white" size={16} />
             <Date size={12} color="white">
-              {moment().format('YY`M.DD')}
+              {dayjs().format('YY`M.DD')}
             </Date>
           </DateContainer>
         </View>
