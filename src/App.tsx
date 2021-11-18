@@ -2,6 +2,7 @@ import { ApolloProvider } from '@apollo/client';
 import React from 'react';
 import { RecoilRoot } from 'recoil';
 
+import '@src/plugins/dayjs';
 import client from '@src/client';
 import FlashMessage from '@src/components/FlashMessage';
 import RecoilProvider from '@src/contexts/RecoilProvider';
