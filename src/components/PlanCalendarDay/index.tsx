@@ -19,8 +19,9 @@ const PlanCalendarDay: React.FC<P> = ({
   isExtraDay = false,
 }) => {
   const _onPress = useCallback(() => onPress(date), [onPress, date]);
-  const isComplete = completeDates.includes(dayjs(date).format('YYYY-MM-DD'));
-  const isPlanned = plannedDates.includes(dayjs(date).format('YYYY-MM-DD'));
+  const predicate = (value: string) => dayjs(value).isSame(date, 'day');
+  const isComplete = completeDates.some(predicate);
+  const isPlanned = plannedDates.some(predicate);
 
   return (
     <Day
