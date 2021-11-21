@@ -59,20 +59,14 @@ type Mutation {
 "운동계획 모델"
 type Plan implements Model {
     _id: ID!
-    "완료 여부"
-    complete: Boolean
     createdAt: DateTime!
-    "1rm"
-    oneRM: Float
     "운동 날짜"
     plannedAt: DateTime!
-    "세트"
-    sets: [Set!]
-    "운동종목"
-    training: Training!
     updatedAt: DateTime!
     "사용자"
     user: User!
+    "볼륨"
+    volumes: [Volume!]
 }
 
 type Query {
@@ -84,27 +78,15 @@ type Query {
     me: User!
     "사용자의 모든 운동 계획 조회"
     plans: [Plan!]!
-    "사용자의 오늘의 운동 계획 조회"
-    todayPlans: [Plan!]!
     "모든 사용자 조회"
     users: [User!]!
-}
-
-"운동계획의 세트"
-type Set {
-    "횟수"
-    count: Int
-    "거리(m)"
-    distances: Float
-    "시간(초)"
-    times: Float
-    "무게(kg)"
-    weight: Float
 }
 
 "운동종목 모델"
 type Training implements Model {
     _id: ID!
+    "분류"
+    category: TrainingCategory!
     createdAt: DateTime!
     "설명"
     description: String
@@ -152,6 +134,31 @@ type User implements Model {
     updatedAt: DateTime!
 }
 
+"운동 볼륨"
+type Volume implements Model {
+    _id: ID!
+    "완료 여부"
+    complete: Boolean
+    "횟수"
+    count: Int
+    createdAt: DateTime!
+    "거리(m)"
+    distances: Float
+    "1rm"
+    oneRM: Float
+    "운동계획"
+    plan: Plan!
+    "시간(초)"
+    times: Float
+    "총 볼륨"
+    total: Float
+    "운동종목"
+    training: Training!
+    updatedAt: DateTime!
+    "무게(kg)"
+    weight: Float
+}
+
 "성별"
 enum Gender {
     FEMALE
@@ -172,6 +179,13 @@ enum SocialProvider {
     NAVER
 }
 
+"운동분류"
+enum TrainingCategory {
+    CALISTHENICS
+    CARDIOVASCULAR
+    WEIGHT
+}
+
 "운동종류"
 enum TrainingType {
     ABDOMINAL
@@ -186,18 +200,16 @@ enum TrainingType {
 
 "운동 계획 입력 객체"
 input CreatePlanInput {
-    "완료 여부"
-    complete: Boolean
     "운동 날짜"
     plannedAt: DateTime!
-    "세트"
-    sets: [SetInput!]
-    "운동종목"
-    training: ID!
+    "볼륨"
+    volumes: [VolumeInput!]!
 }
 
 "운동종목 추가 입력 객체"
 input CreateTrainingInput {
+    "분류"
+    category: TrainingCategory!
     "설명"
     description: String
     "이름"
@@ -246,18 +258,6 @@ input RegisterInput {
     tel: String
 }
 
-"세트 입력 객체"
-input SetInput {
-    "횟수"
-    count: Int
-    "거리(m)"
-    distances: Float
-    "시간(초)"
-    times: Float
-    "무게(kg)"
-    weight: Float
-}
-
 "SNS 로그인 사용자 객체"
 input SocialLoginInput {
     "디바이스 ID"
@@ -274,18 +274,16 @@ input SocialLoginInput {
 
 "운동 계획 입력 객체"
 input UpdatePlanInput {
-    "완료 여부"
-    complete: Boolean
     "운동 날짜"
     plannedAt: DateTime
-    "세트"
-    sets: [SetInput!]
-    "운동종목"
-    training: ID
+    "볼륨"
+    volumes: [VolumeInput!]
 }
 
 "운동종목 추가 입력 객체"
 input UpdateTrainingInput {
+    "분류"
+    category: TrainingCategory
     "설명"
     description: String
     "이름"
@@ -306,6 +304,23 @@ input VerifyInput {
     email: String!
     "이메일 인증 토큰"
     emailVerifyToken: String!
+}
+
+"볼륨 입력 객체"
+input VolumeInput {
+    _id: ID
+    "완료 여부"
+    complete: Boolean
+    "횟수"
+    count: Int
+    "거리(m)"
+    distances: Float
+    "시간(초)"
+    times: Float
+    "운동종목"
+    training: ID!
+    "무게(kg)"
+    weight: Float
 }
 
 
