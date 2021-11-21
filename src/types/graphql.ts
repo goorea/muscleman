@@ -28,13 +28,12 @@ export type AuthenticationResponse = {
 };
 
 export type CreatePlanInput = {
-  complete?: Maybe<Scalars['Boolean']>;
   plannedAt: Scalars['DateTime'];
-  sets?: Maybe<Array<SetInput>>;
-  training: Scalars['ID'];
+  volumes: Array<VolumeInput>;
 };
 
 export type CreateTrainingInput = {
+  category: TrainingCategory;
   description?: Maybe<Scalars['String']>;
   name: Scalars['String'];
   preference?: Maybe<Scalars['Int']>;
@@ -132,14 +131,11 @@ export type MutationVerifyArgs = {
 export type Plan = Model & {
   __typename?: 'Plan';
   _id: Scalars['ID'];
-  complete?: Maybe<Scalars['Boolean']>;
   createdAt: Scalars['DateTime'];
-  oneRM?: Maybe<Scalars['Float']>;
   plannedAt: Scalars['DateTime'];
-  sets?: Maybe<Array<Set>>;
-  training: Training;
   updatedAt: Scalars['DateTime'];
   user: User;
+  volumes?: Maybe<Array<Volume>>;
 };
 
 export type Query = {
@@ -148,7 +144,6 @@ export type Query = {
   getOneRM: Scalars['Float'];
   me: User;
   plans: Array<Plan>;
-  todayPlans: Array<Plan>;
   users: Array<User>;
 };
 
@@ -179,21 +174,6 @@ export enum Role {
   Verified = 'VERIFIED',
 }
 
-export type Set = {
-  __typename?: 'Set';
-  count?: Maybe<Scalars['Int']>;
-  distances?: Maybe<Scalars['Float']>;
-  times?: Maybe<Scalars['Float']>;
-  weight?: Maybe<Scalars['Float']>;
-};
-
-export type SetInput = {
-  count?: Maybe<Scalars['Int']>;
-  distances?: Maybe<Scalars['Float']>;
-  times?: Maybe<Scalars['Float']>;
-  weight?: Maybe<Scalars['Float']>;
-};
-
 export type SocialLoginInput = {
   deviceID: Scalars['String'];
   email: Scalars['String'];
@@ -212,6 +192,7 @@ export enum SocialProvider {
 export type Training = Model & {
   __typename?: 'Training';
   _id: Scalars['ID'];
+  category: TrainingCategory;
   createdAt: Scalars['DateTime'];
   description?: Maybe<Scalars['String']>;
   name: Scalars['String'];
@@ -221,6 +202,12 @@ export type Training = Model & {
   updatedAt: Scalars['DateTime'];
   videoPath?: Maybe<Scalars['String']>;
 };
+
+export enum TrainingCategory {
+  Calisthenics = 'CALISTHENICS',
+  Cardiovascular = 'CARDIOVASCULAR',
+  Weight = 'WEIGHT',
+}
 
 export enum TrainingType {
   Abdominal = 'ABDOMINAL',
@@ -234,13 +221,12 @@ export enum TrainingType {
 }
 
 export type UpdatePlanInput = {
-  complete?: Maybe<Scalars['Boolean']>;
   plannedAt?: Maybe<Scalars['DateTime']>;
-  sets?: Maybe<Array<SetInput>>;
-  training?: Maybe<Scalars['ID']>;
+  volumes?: Maybe<Array<VolumeInput>>;
 };
 
 export type UpdateTrainingInput = {
+  category?: Maybe<TrainingCategory>;
   description?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
   preference?: Maybe<Scalars['Int']>;
@@ -271,4 +257,30 @@ export type User = Model & {
 export type VerifyInput = {
   email: Scalars['String'];
   emailVerifyToken: Scalars['String'];
+};
+
+export type Volume = Model & {
+  __typename?: 'Volume';
+  _id: Scalars['ID'];
+  complete?: Maybe<Scalars['Boolean']>;
+  count?: Maybe<Scalars['Int']>;
+  createdAt: Scalars['DateTime'];
+  distances?: Maybe<Scalars['Float']>;
+  oneRM?: Maybe<Scalars['Float']>;
+  plan: Plan;
+  times?: Maybe<Scalars['Float']>;
+  total?: Maybe<Scalars['Float']>;
+  training: Training;
+  updatedAt: Scalars['DateTime'];
+  weight?: Maybe<Scalars['Float']>;
+};
+
+export type VolumeInput = {
+  _id?: Maybe<Scalars['ID']>;
+  complete?: Maybe<Scalars['Boolean']>;
+  count?: Maybe<Scalars['Int']>;
+  distances?: Maybe<Scalars['Float']>;
+  times?: Maybe<Scalars['Float']>;
+  training: Scalars['ID'];
+  weight?: Maybe<Scalars['Float']>;
 };
