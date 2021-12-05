@@ -17,7 +17,7 @@ export const SBDOneRMState = atom<SBDOneRM>({
   },
 });
 
-export const todayPlansState = atom<Plan[]>({
-  key: 'todayPlans',
+export const plansState = atom<Plan[]>({
+  key: 'plans',
   default: [],
 });

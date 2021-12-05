@@ -13,7 +13,7 @@ import {
   SetButton,
   ButtonGroup,
   Container,
-  PlanImage,
+  TrainingImage,
 } from './styled';
 
 type P = {
@@ -26,14 +26,14 @@ const TodayPlan: React.FC<P> = ({ plan: _plan }) => {
     ? { uri: plan.training.thumbnailPath }
     : require('@src/resources/images/mock.png');
   const { loading, onToggleComplete } = useToggleComplete(plan, setPlan);
-  const footerText = useFooterText(plan.sets || []);
+  const footerText = useFooterText(plan.volumes || []);
   // TODO: Edit
   const edit = useCallback(() => {}, []);
   const { editIconProps, completeIconProps } = useIconProps(plan);
 
   return (
     <Container>
-      <PlanImage source={source} />
+      <TrainingImage source={source} />
       <View>
         <Text size={12} weight="bold" color="primary">
           {getTrainingTypeForKorean(plan.training.type)}

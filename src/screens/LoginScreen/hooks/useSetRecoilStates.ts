@@ -5,18 +5,19 @@ import { useSetRecoilState } from 'recoil';
 
 import { SBDOneRM } from '@src/operations/queries/getOneRM';
 import {
-  GET_SBD_ONE_RM_AND_TODAY_PLANS,
-  SBDOneRmAndTodayPlans,
-} from '@src/operations/queries/getSBDOneRMAndTodayPlans';
-import { SBDOneRMState, todayPlansState, userState } from '@src/recoils';
+  GET_SBD_ONE_RM_AND_PLANS,
+  SBDOneRmAndPlans,
+} from '@src/operations/queries/getSBDOneRMAndPlans';
+import { SBDOneRMState, plansState, userState } from '@src/recoils';
 import { Mutation, Plan } from '@src/types/graphql';
 
 const useSetRecoilStates = (loginData?: Pick<Mutation, 'login'> | null) => {
   const setUser = useSetRecoilState(userState);
   const setSBDOneRM = useSetRecoilState<SBDOneRM>(SBDOneRMState);
-  const setTodayPlans = useSetRecoilState<Plan[]>(todayPlansState);
-  const [getSBDOneRMAndTodayPlans, { data }] =
-    useLazyQuery<SBDOneRmAndTodayPlans>(GET_SBD_ONE_RM_AND_TODAY_PLANS);
+  const setPlans = useSetRecoilState<Plan[]>(plansState);
+  const [getSBDOneRMAndTodayPlans, { data }] = useLazyQuery<SBDOneRmAndPlans>(
+    GET_SBD_ONE_RM_AND_PLANS,
+  );
 
   useEffect(() => {
     if (loginData) {
@@ -39,9 +40,9 @@ const useSetRecoilStates = (loginData?: Pick<Mutation, 'login'> | null) => {
         benchPress: data.benchPress,
         deadlift: data.deadlift,
       });
-      setTodayPlans(data.todayPlans);
+      setPlans(data.plans);
     }
-  }, [data, setSBDOneRM, setTodayPlans]);
+  }, [data, setSBDOneRM, setPlans]);
 };
 
 export default useSetRecoilStates;

@@ -11,7 +11,7 @@ export const Container = styled.View`
   margin: 6px 0;
 `;
 
-export const PlanImage = styled(Image)`
+export const TrainingImage = styled(Image)`
   width: 75px;
   height: 75px;
   margin-right: 6px;
