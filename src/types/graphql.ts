@@ -28,7 +28,9 @@ export type AuthenticationResponse = {
 };
 
 export type CreatePlanInput = {
+  complete?: Maybe<Scalars['Boolean']>;
   plannedAt: Scalars['DateTime'];
+  training: Scalars['ID'];
   volumes: Array<VolumeInput>;
 };
 
@@ -131,8 +133,11 @@ export type MutationVerifyArgs = {
 export type Plan = Model & {
   __typename?: 'Plan';
   _id: Scalars['ID'];
+  complete?: Maybe<Scalars['Boolean']>;
   createdAt: Scalars['DateTime'];
+  oneRM?: Maybe<Scalars['Float']>;
   plannedAt: Scalars['DateTime'];
+  training: Training;
   updatedAt: Scalars['DateTime'];
   user: User;
   volumes?: Maybe<Array<Volume>>;
@@ -221,7 +226,9 @@ export enum TrainingType {
 }
 
 export type UpdatePlanInput = {
+  complete?: Maybe<Scalars['Boolean']>;
   plannedAt?: Maybe<Scalars['DateTime']>;
+  training?: Maybe<Scalars['ID']>;
   volumes?: Maybe<Array<VolumeInput>>;
 };
 
@@ -262,25 +269,20 @@ export type VerifyInput = {
 export type Volume = Model & {
   __typename?: 'Volume';
   _id: Scalars['ID'];
-  complete?: Maybe<Scalars['Boolean']>;
   count?: Maybe<Scalars['Int']>;
   createdAt: Scalars['DateTime'];
   distances?: Maybe<Scalars['Float']>;
-  oneRM?: Maybe<Scalars['Float']>;
   plan: Plan;
   times?: Maybe<Scalars['Float']>;
   total?: Maybe<Scalars['Float']>;
-  training: Training;
   updatedAt: Scalars['DateTime'];
   weight?: Maybe<Scalars['Float']>;
 };
 
 export type VolumeInput = {
   _id?: Maybe<Scalars['ID']>;
-  complete?: Maybe<Scalars['Boolean']>;
   count?: Maybe<Scalars['Int']>;
   distances?: Maybe<Scalars['Float']>;
   times?: Maybe<Scalars['Float']>;
-  training: Scalars['ID'];
   weight?: Maybe<Scalars['Float']>;
 };

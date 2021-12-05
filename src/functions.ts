@@ -1,8 +1,12 @@
 import { Source } from 'react-native-fast-image';
 import StackFlashMessage, { Options } from 'react-native-stack-flash-message';
 
-import { WeightSet } from '@src/types';
-import { Set, TrainingType, User } from '@src/types/graphql';
+import {
+  CalisthenicsVolume,
+  CardiovascularVolume,
+  WeightVolume,
+} from '@src/types';
+import { TrainingType, User, Volume } from '@src/types/graphql';
 
 export const flash = (options: Options) => StackFlashMessage.show(options);
 
@@ -27,12 +31,21 @@ export const getTrainingTypeForKorean = (type: TrainingType): string => {
   }
 };
 
-export const isWeightSets = (sets: Set[]): sets is WeightSet[] =>
-  sets.every(
-    set =>
-      (set as WeightSet).weight !== undefined &&
-      (set as WeightSet).count !== undefined,
-  );
+export const isCalisthenicsVolume = (
+  volume: Volume,
+): volume is CalisthenicsVolume =>
+  (volume as CalisthenicsVolume).count !== undefined &&
+  (volume as CalisthenicsVolume).weight === undefined;
+
+export const isCardiovascularVolume = (
+  volume: Volume,
+): volume is CardiovascularVolume =>
+  (volume as CardiovascularVolume).times !== undefined &&
+  (volume as CardiovascularVolume).distances !== undefined;
+
+export const isWeightVolume = (volume: Volume): volume is WeightVolume =>
+  (volume as WeightVolume).weight !== undefined &&
+  (volume as WeightVolume).count !== undefined;
 
 export const getProfileImage = (user: User): Source | number =>
   user.profileImagePath

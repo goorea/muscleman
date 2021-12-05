@@ -59,9 +59,15 @@ type Mutation {
 "운동계획 모델"
 type Plan implements Model {
     _id: ID!
+    "완료 여부"
+    complete: Boolean
     createdAt: DateTime!
+    "1rm"
+    oneRM: Float
     "운동 날짜"
     plannedAt: DateTime!
+    "운동종목"
+    training: Training!
     updatedAt: DateTime!
     "사용자"
     user: User!
@@ -137,23 +143,17 @@ type User implements Model {
 "운동 볼륨"
 type Volume implements Model {
     _id: ID!
-    "완료 여부"
-    complete: Boolean
     "횟수"
     count: Int
     createdAt: DateTime!
     "거리(m)"
     distances: Float
-    "1rm"
-    oneRM: Float
     "운동계획"
     plan: Plan!
     "시간(초)"
     times: Float
     "총 볼륨"
     total: Float
-    "운동종목"
-    training: Training!
     updatedAt: DateTime!
     "무게(kg)"
     weight: Float
@@ -200,8 +200,12 @@ enum TrainingType {
 
 "운동 계획 입력 객체"
 input CreatePlanInput {
+    "완료 여부"
+    complete: Boolean
     "운동 날짜"
     plannedAt: DateTime!
+    "운동종목"
+    training: ID!
     "볼륨"
     volumes: [VolumeInput!]!
 }
@@ -274,8 +278,12 @@ input SocialLoginInput {
 
 "운동 계획 입력 객체"
 input UpdatePlanInput {
+    "완료 여부"
+    complete: Boolean
     "운동 날짜"
     plannedAt: DateTime
+    "운동종목"
+    training: ID
     "볼륨"
     volumes: [VolumeInput!]
 }
@@ -309,16 +317,12 @@ input VerifyInput {
 "볼륨 입력 객체"
 input VolumeInput {
     _id: ID
-    "완료 여부"
-    complete: Boolean
     "횟수"
     count: Int
     "거리(m)"
     distances: Float
     "시간(초)"
     times: Float
-    "운동종목"
-    training: ID!
     "무게(kg)"
     weight: Float
 }

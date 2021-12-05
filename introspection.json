@@ -68,12 +68,32 @@
         "fields": null,
         "inputFields": [
           {
+            "name": "complete",
+            "description": "완료 여부",
+            "type": { "kind": "SCALAR", "name": "Boolean", "ofType": null },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "plannedAt",
             "description": "운동 날짜",
             "type": {
               "kind": "NON_NULL",
               "name": null,
               "ofType": { "kind": "SCALAR", "name": "DateTime", "ofType": null }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "training",
+            "description": "운동종목",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "SCALAR", "name": "ID", "ofType": null }
             },
             "defaultValue": null,
             "isDeprecated": false,
@@ -836,6 +856,14 @@
             "deprecationReason": null
           },
           {
+            "name": "complete",
+            "description": "완료 여부",
+            "args": [],
+            "type": { "kind": "SCALAR", "name": "Boolean", "ofType": null },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "createdAt",
             "description": null,
             "args": [],
@@ -848,6 +876,14 @@
             "deprecationReason": null
           },
           {
+            "name": "oneRM",
+            "description": "1rm",
+            "args": [],
+            "type": { "kind": "SCALAR", "name": "Float", "ofType": null },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "plannedAt",
             "description": "운동 날짜",
             "args": [],
@@ -855,6 +891,18 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": { "kind": "SCALAR", "name": "DateTime", "ofType": null }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "training",
+            "description": "운동종목",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "OBJECT", "name": "Training", "ofType": null }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -1518,9 +1566,25 @@
         "fields": null,
         "inputFields": [
           {
+            "name": "complete",
+            "description": "완료 여부",
+            "type": { "kind": "SCALAR", "name": "Boolean", "ofType": null },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "plannedAt",
             "description": "운동 날짜",
             "type": { "kind": "SCALAR", "name": "DateTime", "ofType": null },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "training",
+            "description": "운동종목",
+            "type": { "kind": "SCALAR", "name": "ID", "ofType": null },
             "defaultValue": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -1843,14 +1907,6 @@
             "deprecationReason": null
           },
           {
-            "name": "complete",
-            "description": "완료 여부",
-            "args": [],
-            "type": { "kind": "SCALAR", "name": "Boolean", "ofType": null },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "count",
             "description": "횟수",
             "args": [],
@@ -1873,14 +1929,6 @@
           {
             "name": "distances",
             "description": "거리(m)",
-            "args": [],
-            "type": { "kind": "SCALAR", "name": "Float", "ofType": null },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "oneRM",
-            "description": "1rm",
             "args": [],
             "type": { "kind": "SCALAR", "name": "Float", "ofType": null },
             "isDeprecated": false,
@@ -1911,18 +1959,6 @@
             "description": "총 볼륨",
             "args": [],
             "type": { "kind": "SCALAR", "name": "Float", "ofType": null },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "training",
-            "description": "운동종목",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": { "kind": "OBJECT", "name": "Training", "ofType": null }
-            },
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -1969,14 +2005,6 @@
             "deprecationReason": null
           },
           {
-            "name": "complete",
-            "description": "완료 여부",
-            "type": { "kind": "SCALAR", "name": "Boolean", "ofType": null },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "count",
             "description": "횟수",
             "type": { "kind": "SCALAR", "name": "Int", "ofType": null },
@@ -1996,18 +2024,6 @@
             "name": "times",
             "description": "시간(초)",
             "type": { "kind": "SCALAR", "name": "Float", "ofType": null },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "training",
-            "description": "운동종목",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": { "kind": "SCALAR", "name": "ID", "ofType": null }
-            },
             "defaultValue": null,
             "isDeprecated": false,
             "deprecationReason": null

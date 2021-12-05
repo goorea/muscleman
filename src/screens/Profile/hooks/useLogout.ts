@@ -4,13 +4,13 @@ import { useSetRecoilState } from 'recoil';
 
 import { flash } from '@src/functions';
 import { SBDOneRM } from '@src/operations/queries/getOneRM';
-import { SBDOneRMState, todayPlansState, userState } from '@src/recoils';
+import { SBDOneRMState, plansState, userState } from '@src/recoils';
 import { Plan, User } from '@src/types/graphql';
 
 const useLogout = (): { logout: () => void } => {
   const setUser = useSetRecoilState<User | undefined>(userState);
   const setSBDOneRM = useSetRecoilState<SBDOneRM>(SBDOneRMState);
-  const setTodayPlans = useSetRecoilState<Plan[]>(todayPlansState);
+  const setPlans = useSetRecoilState<Plan[]>(plansState);
 
   return {
     logout: useCallback(async () => {
@@ -21,14 +21,14 @@ const useLogout = (): { logout: () => void } => {
         benchPress: 0,
         deadlift: 0,
       });
-      setTodayPlans([]);
+      setPlans([]);
 
       flash({
         title: '로그아웃',
         contents: '또 방문해주세요 :)',
         type: 'success',
       });
-    }, [setUser, setSBDOneRM, setTodayPlans]),
+    }, [setUser, setSBDOneRM, setPlans]),
   };
 };
 
