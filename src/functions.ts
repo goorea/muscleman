@@ -6,7 +6,12 @@ import {
   CardiovascularVolume,
   WeightVolume,
 } from '@src/types';
-import { TrainingType, User, Volume } from '@src/types/graphql';
+import {
+  TrainingCategory,
+  TrainingType,
+  User,
+  Volume,
+} from '@src/types/graphql';
 
 export const flash = (options: Options) => StackFlashMessage.show(options);
 
@@ -28,6 +33,20 @@ export const getTrainingTypeForKorean = (type: TrainingType): string => {
       return '유산소';
     default:
       return '기타';
+  }
+};
+
+export const getTrainingCategoryForKorean = (
+  category: TrainingCategory,
+): string => {
+  switch (category) {
+    case TrainingCategory.Weight:
+      return '중량 운동';
+    case TrainingCategory.Calisthenics:
+      return '맨몸 운동';
+    case TrainingCategory.Cardiovascular:
+    default:
+      return '유산소 운동';
   }
 };
 
