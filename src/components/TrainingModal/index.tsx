@@ -31,11 +31,17 @@ const TrainingModal: React.FC<P> = ({ training, hide }) => (
     presentationStyle="overFullScreen">
     {training && (
       <Overlay
+        testID="overlay"
         type="clear"
         onPress={hide}
         node={
           <Container>
-            <CloseButton type="clear" icon={{ name: 'close' }} onPress={hide} />
+            <CloseButton
+              testID="closeButton"
+              type="clear"
+              icon={{ name: 'close' }}
+              onPress={hide}
+            />
             <Text size={20} weight="bold">
               {getTrainingTypeForKorean(training.type)} | {training.name}
             </Text>
