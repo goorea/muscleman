@@ -84,6 +84,8 @@ type Query {
     me: User!
     "사용자의 모든 운동 계획 조회"
     plans: [Plan!]!
+    "운동종목 조회"
+    trainings: [Training!]!
     "모든 사용자 조회"
     users: [User!]!
 }

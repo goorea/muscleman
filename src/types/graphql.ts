@@ -149,6 +149,7 @@ export type Query = {
   getOneRM: Scalars['Float'];
   me: User;
   plans: Array<Plan>;
+  trainings: Array<Training>;
   users: Array<User>;
 };
 
