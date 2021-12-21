@@ -1,5 +1,7 @@
 import { NavigatorScreenParams } from '@react-navigation/native';
 
+import { Training } from './graphql';
+
 export type RootStackParamList = {
   Main: NavigatorScreenParams<MainTabParamList>;
   Auth: NavigatorScreenParams<AuthStackParamList>;
@@ -33,7 +35,7 @@ export type RegisterStackParamList = {
 export type PlanningStackParamList = {
   EditPlan: {
     plannedAt: string;
-    trainings?: string[];
+    trainings?: Training[];
   };
   AddTraining: {
     plannedAt: string;
