@@ -86,6 +86,7 @@ const AddTrainingScreen: React.FC<P> = ({ navigation, route }) => {
                       />
                       <Text>{item.name}</Text>
                       <InfoButton
+                        testID="infoButton"
                         type="clear"
                         onPress={() => showInfoModal(item)}
                         icon={{ name: 'info', color: 'success' }}

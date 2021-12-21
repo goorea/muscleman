@@ -24,6 +24,7 @@ export const wrapper: React.ComponentType<any> = ({ children }) => (
 );
 
 export const trainingFacotry = (input?: Partial<Training>): Training => ({
+  __typename: 'Training',
   _id: uniqueId(),
   name: uniqueId(),
   category: faker.random.arrayElement([
@@ -54,6 +55,7 @@ export const trainingFacotry = (input?: Partial<Training>): Training => ({
 });
 
 export const userFactory = (input?: Partial<User>): User => ({
+  __typename: 'User',
   _id: uniqueId(),
   name: faker.name.lastName() + faker.name.firstName(),
   email: `${uniqueId('email')}@${faker.internet.email().split('@')[1]}`,
@@ -92,6 +94,7 @@ export const volumeFactory = (plan: Plan, input?: Partial<Volume>): Volume => {
           distances: faker.datatype.float(2),
         },
     {
+      __typename: 'Volume',
       _id: uniqueId(),
       plan,
       createdAt: faker.date.future().toISOString(),
@@ -102,7 +105,8 @@ export const volumeFactory = (plan: Plan, input?: Partial<Volume>): Volume => {
 };
 
 export const planFactory = (input?: Partial<Plan>): Plan => {
-  const plan = {
+  const plan: Plan = {
+    __typename: 'Plan',
     _id: uniqueId(),
     user: userFactory(),
     plannedAt: faker.date.future().toISOString(),

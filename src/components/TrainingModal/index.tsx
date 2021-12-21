@@ -25,6 +25,7 @@ type P = {
 
 const TrainingModal: React.FC<P> = ({ training, hide }) => (
   <Modal
+    testID="trainingModal"
     visible={!!training}
     animationType="fade"
     transparent={true}

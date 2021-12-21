@@ -9,7 +9,7 @@ const Loader: React.FC = () => {
   const { colors } = useTheme();
 
   return (
-    <Container>
+    <Container testID="loader">
       <ActivityIndicator size="large" color={colors.foreground} />
       <Title>불러오는 중...😅😅😅</Title>
     </Container>
