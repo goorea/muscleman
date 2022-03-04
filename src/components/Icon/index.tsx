@@ -6,6 +6,7 @@ import EvilIcon from 'react-native-vector-icons/EvilIcons';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
+import FontistoIcon from 'react-native-vector-icons/Fontisto';
 import FoundationIcon from 'react-native-vector-icons/Foundation';
 import IonIocn from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -24,6 +25,7 @@ type IconType =
   | 'zocial'
   | 'feather'
   | 'font-awesome'
+  | 'fontisto'
   | 'octicon'
   | 'ionicon'
   | 'foundation'
@@ -67,6 +69,8 @@ const Icon: React.FC<IconProps> = ({
       return <FeatherIcon {...props} />;
     case 'font-awesome':
       return <FontAwesomeIcon {...props} />;
+    case 'fontisto':
+      return <FontistoIcon {...props} />;
     case 'octicon':
       return <OctIcon {...props} />;
     case 'ionicon':
