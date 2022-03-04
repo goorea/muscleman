@@ -48,7 +48,9 @@ const TodayPlan: React.FC<P> = ({ plan: _plan }) => {
         <CompleteButton
           loading={loading}
           onPress={onToggleComplete}
-          complete={plan.complete}
+          complete={
+            plan.volumes && plan.volumes.every(volume => volume.complete)
+          }
           icon={completeIconProps}
         />
       </ButtonGroup>

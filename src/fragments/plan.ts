@@ -12,17 +12,15 @@ export const CORE_PLAN_FIELDS = gql`
     _id
     createdAt
     updatedAt
+    plannedAt
     user {
       ...CoreUserFields
     }
     training {
       ...TrainingFields
     }
-    plannedAt
-    complete
     volumes {
       ...CoreVolumeFields
     }
-    oneRM
   }
 `;

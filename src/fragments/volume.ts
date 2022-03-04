@@ -10,5 +10,7 @@ export const CORE_VOLUME_FIELDS = gql`
     distances
     times
     total
+    complete
+    oneRM
   }
 `;

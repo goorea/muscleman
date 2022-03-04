@@ -8,7 +8,9 @@ import { Query } from '@src/types/graphql';
 
 const usePlans = (): { loading: boolean } => {
   const setPlans = useSetRecoilState(plansState);
-  const { data, loading } = useQuery<Pick<Query, 'plans'>>(PLANS);
+  const { data, loading } = useQuery<Pick<Query, 'plans'>>(PLANS, {
+    fetchPolicy: 'network-only',
+  });
 
   useEffect(() => {
     if (data) {

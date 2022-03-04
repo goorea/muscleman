@@ -2,7 +2,7 @@ import { useLazyQuery } from '@apollo/client';
 import { Dispatch, SetStateAction, useCallback, useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 
-import { useUpdatePlanMutation } from '@src/operations/mutations/updatePlan';
+import { useMultipleCreateOrUpdatePlansMutation } from '@src/operations/mutations/multipleCreateOrUpdatePlans';
 import { GET_SBD_ONE_RM, SBDOneRM } from '@src/operations/queries/getOneRM';
 import { SBDOneRMState } from '@src/recoils';
 import { Plan } from '@src/types/graphql';
@@ -15,21 +15,36 @@ const useToggleComplete = (
   onToggleComplete: () => Promise<void>;
 } => {
   const setSBDOneRM = useSetRecoilState<SBDOneRM>(SBDOneRMState);
-  const [updatePlan, { loading }] = useUpdatePlanMutation();
+  const [multipleCreateOrUpdatePlans, { loading }] =
+    useMultipleCreateOrUpdatePlansMutation();
   const [getSBDOneRM, { data }] = useLazyQuery<SBDOneRM>(GET_SBD_ONE_RM, {
     fetchPolicy: 'network-only',
   });
+  const complete =
+    plan.volumes && !plan.volumes.every(volume => volume.complete);
   const onToggleComplete = useCallback(async () => {
-    await updatePlan({
+    await multipleCreateOrUpdatePlans({
       variables: {
-        _id: plan._id,
-        input: {
-          complete: !plan.complete,
-        },
+        inputs: [
+          {
+            ...plan,
+            _id: plan._id,
+            training: plan.training._id,
+            volumes:
+              plan.volumes?.map(volume => ({
+                ...volume,
+                complete,
+              })) || [],
+          },
+        ],
       },
     });
 
-    setPlan(prevState => ({ ...prevState, complete: !prevState.complete }));
+    setPlan(prevState => ({
+      ...prevState,
+      volumes:
+        prevState.volumes?.map(volume => ({ ...volume, complete })) || [],
+    }));
 
     if (
       ['바벨 백스쿼트', '벤치 프레스', '데드리프트'].includes(
@@ -38,7 +53,7 @@ const useToggleComplete = (
     ) {
       await getSBDOneRM();
     }
-  }, [updatePlan, plan, setPlan, getSBDOneRM]);
+  }, [multipleCreateOrUpdatePlans, plan, setPlan, complete, getSBDOneRM]);
 
   useEffect(() => {
     if (data) {

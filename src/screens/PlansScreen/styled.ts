@@ -18,7 +18,7 @@ export const PlanContainer = styled.View`
   margin-top: 10px;
 `;
 
-export const SetContainer = styled.View`
+export const VolumeContainer = styled.View`
   flex-direction: row;
   align-items: center;
   margin-top: 6px;

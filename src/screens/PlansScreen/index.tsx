@@ -20,7 +20,7 @@ import useEvents from './hooks/useEvents';
 import {
   Container,
   PlanContainer,
-  SetContainer,
+  VolumeContainer,
   VolumnText,
   Wrapper,
 } from './styled';
@@ -59,27 +59,27 @@ const PlansScreen: React.FC<P> = ({ navigation }) => {
             <PlanContainer key={plan._id}>
               <Text weight="bold">
                 {getTrainingTypeForKorean(plan.training.type)} |{' '}
-                {plan.training.name} {plan.sets?.length}세트
+                {plan.training.name} {plan.volumes?.length}세트
               </Text>
 
-              {plan.sets?.map((set, i) => (
-                <SetContainer key={i}>
+              {plan.volumes?.map((volume, i) => (
+                <VolumeContainer key={i}>
                   <Text color="grey3">
                     <Text color="grey3" italic={true}>
                       {i + 1}세트
                     </Text>{' '}
-                    {set.weight}kg x {set.count}회
+                    {volume.weight}kg x {volume.count}회
                   </Text>
                   <VolumnText color="grey3">
-                    {(set.weight || 0) * (set.count || 0)}kg
+                    {(volume.weight || 0) * (volume.count || 0)}kg
                   </VolumnText>
                   <Icon
                     type="feather"
-                    name={plan.complete ? 'check-square' : 'square'}
-                    color={plan.complete ? 'success' : 'warning'}
+                    name={volume.complete ? 'check-square' : 'square'}
+                    color={volume.complete ? 'success' : 'warning'}
                     size={20}
                   />
-                </SetContainer>
+                </VolumeContainer>
               ))}
             </PlanContainer>
           ))}

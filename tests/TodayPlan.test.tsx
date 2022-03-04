@@ -20,7 +20,6 @@ import {
 describe('TodayPlan 컴포넌트', () => {
   it('렌더링이 올바르게 된다', () => {
     const plan: Plan = planFactory({
-      complete: false,
       plannedAt: dayjs().format('YYYY-MM-DD'),
       volumes: [],
       training: trainingFacotry({
