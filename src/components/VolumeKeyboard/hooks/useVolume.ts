@@ -27,18 +27,14 @@ const useVolume = (
 
   const changeVolume = useCallback(
     (target: 'weight' | 'count', unit: number) => {
-      setSelectedEditingVolume(prevVolume => {
-        const value = Number(prevVolume![target]) + unit;
-
-        if (prevVolume && value >= 0) {
-          return {
-            ...prevVolume,
-            [target]: value,
-          };
-        }
-
-        return prevVolume;
-      });
+      setSelectedEditingVolume(prevVolume =>
+        prevVolume && Number(prevVolume[target]) + unit < 0
+          ? {
+              ...prevVolume,
+              [target]: Number(prevVolume[target]) + unit,
+            }
+          : prevVolume,
+      );
     },
     [setSelectedEditingVolume],
   );

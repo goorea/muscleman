@@ -44,6 +44,7 @@ const VolumeKeyboard: React.FC<P> = () => {
         <ButtonGroup dark={dark}>
           {units.map(unit => (
             <SmallButton
+              testID={`unitButton${unit}`}
               key={unit}
               onPress={() => changeUnit(unit)}
               type={currentUnit === unit ? 'solid' : 'clear'}
