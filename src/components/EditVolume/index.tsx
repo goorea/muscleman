@@ -30,8 +30,13 @@ const EditVolume: React.FC<P> = ({ editingVolume, planID, index, drag }) => {
   );
 
   return (
-    <VolumeContainer isFirst={index === 0} onPress={select} selected={selected}>
+    <VolumeContainer
+      testID="volumeContainer"
+      isFirst={index === 0}
+      onPress={select}
+      selected={selected}>
       <DragVolumeButton
+        testID="dragButton"
         type="clear"
         onLongPress={drag}
         icon={dragIconProps}
@@ -44,11 +49,13 @@ const EditVolume: React.FC<P> = ({ editingVolume, planID, index, drag }) => {
       <FilledText>{editingVolume.count}개</FilledText>
       <SetButtonGroup>
         <IconButton
+          testID="toggleButton"
           type="clear"
           onPress={toggleComplete}
           icon={completeIconProps}
         />
         <IconButton
+          testID="deleteButton"
           type="clear"
           onPress={deleteVolume}
           icon={deleteIconProps}
