@@ -68,4 +68,7 @@ jest
       Directions: {},
     };
   })
+  .mock('react-native-draggable-flatlist', () =>
+    require('react-native/Libraries/Components/View/View'),
+  )
   .useFakeTimers();

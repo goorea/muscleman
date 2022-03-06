@@ -49,13 +49,20 @@ const EditPlan: React.FC<P> = ({ editingPlan, drag }) => {
         </Text>
 
         <HeaderButtonGroup>
-          <IconButton type="clear" onLongPress={drag} icon={dragIconProps} />
           <IconButton
+            testID="dragButton"
+            type="clear"
+            onLongPress={drag}
+            icon={dragIconProps}
+          />
+          <IconButton
+            testID="toggleButton"
             type="clear"
             onPress={toggleAllComplete}
             icon={completeIconProps}
           />
           <IconButton
+            testID="deleteButton"
             type="clear"
             onPress={() => deletePlan(editingPlan._id)}
             icon={deleteIconProps}
@@ -83,6 +90,7 @@ const EditPlan: React.FC<P> = ({ editingPlan, drag }) => {
 
       <AddSetContainer>
         <AddSetButton
+          testID="addVolumeButton"
           onPress={addVolume}
           node={
             <AddSetWrapper>
