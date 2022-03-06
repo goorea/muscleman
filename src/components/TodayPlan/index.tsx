@@ -4,9 +4,9 @@ import { View } from 'react-native';
 import Text from '@src/components/Text';
 import useFooterText from '@src/components/TodayPlan/hooks/useFooterText';
 import { getTrainingTypeForKorean } from '@src/functions';
+import useIconProps from '@src/hooks/useIconProps';
 import { Plan } from '@src/types/graphql';
 
-import useIconProps from './hooks/useIconProps';
 import useToggleComplete from './hooks/useToggleComplete';
 import {
   CompleteButton,
@@ -29,7 +29,9 @@ const TodayPlan: React.FC<P> = ({ plan: _plan }) => {
   const footerText = useFooterText(plan.volumes || []);
   // TODO: Edit
   const edit = useCallback(() => {}, []);
-  const { editIconProps, completeIconProps } = useIconProps(plan);
+  const { editIconProps, completeIconProps } = useIconProps(
+    plan.volumes?.every(volume => volume.complete) || false,
+  );
 
   return (
     <Container>

@@ -28,7 +28,7 @@ const useVolume = (
   const changeVolume = useCallback(
     (target: 'weight' | 'count', unit: number) => {
       setSelectedEditingVolume(prevVolume =>
-        prevVolume && Number(prevVolume[target]) + unit < 0
+        prevVolume && Number(prevVolume[target]) + unit >= 0
           ? {
               ...prevVolume,
               [target]: Number(prevVolume[target]) + unit,
