@@ -4,10 +4,10 @@ import { Volume } from '@src/types/graphql';
 
 const useFooterText = (volumes: Volume[]): string => {
   if (volumes.length && volumes.every(isWeightVolume)) {
-    const topWeight = (volumes as WeightVolume[]).sort(
+    const topWeight = ([...volumes] as WeightVolume[]).sort(
       (a, b) => b.weight - a.weight,
     )[0].weight;
-    const maxVolume = (volumes as WeightVolume[]).sort(
+    const maxVolume = ([...volumes] as WeightVolume[]).sort(
       (a, b) => b.total - a.total,
     )[0];
 

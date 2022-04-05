@@ -1,4 +1,5 @@
 import { useLazyQuery } from '@apollo/client';
+import { pick } from 'lodash';
 import { Dispatch, SetStateAction, useCallback, useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 
@@ -27,12 +28,18 @@ const useToggleComplete = (
       variables: {
         inputs: [
           {
-            ...plan,
             _id: plan._id,
+            plannedAt: plan.plannedAt,
             training: plan.training._id,
             volumes:
               plan.volumes?.map(volume => ({
-                ...volume,
+                ...pick(volume, [
+                  '_id',
+                  'count',
+                  'distances',
+                  'times',
+                  'weight',
+                ]),
                 complete,
               })) || [],
           },
