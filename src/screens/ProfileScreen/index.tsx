@@ -1,7 +1,7 @@
 import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
 import { CompositeScreenProps } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import React, { useCallback } from 'react';
 import { useRecoilValue } from 'recoil';
 
@@ -110,7 +110,7 @@ const ProfileScreen: React.FC<P> = ({ navigation }) => {
         )}
         {!!user.birth && (
           <Info>
-            <Text weight="bold">{moment(user.birth).format('YYYYMMDD')}</Text>
+            <Text weight="bold">{dayjs(user.birth).format('YYYYMMDD')}</Text>
           </Info>
         )}
       </InfoContainer>

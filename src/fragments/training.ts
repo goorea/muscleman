@@ -6,6 +6,7 @@ export const TRAINING_FIELDS = gql`
     createdAt
     updatedAt
     name
+    category
     type
     description
     preference

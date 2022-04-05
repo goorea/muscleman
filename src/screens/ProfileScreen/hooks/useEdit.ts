@@ -6,7 +6,7 @@ const useEdit = (): {
   edit: () => null;
   editIconProps: IconProps;
 } => ({
-  // TODO: Edit Profile
+  // TODO: Edit ProfileScreen
   edit: useCallback(() => null, []),
   editIconProps: useMemo<IconProps>(
     () => ({

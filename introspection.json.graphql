@@ -30,8 +30,6 @@ type JWTResponse {
 }
 
 type Mutation {
-    "운동계획 생성"
-    createPlan(input: CreatePlanInput!): Plan!
     "운동종목 추가"
     createTraining(input: CreateTrainingInput!): Training!
     "운동계획 삭제"
@@ -40,6 +38,8 @@ type Mutation {
     deleteTraining(_id: ObjectId!): Boolean!
     "사용자 JWT 토큰 반환"
     login(input: LoginInput!): AuthenticationResponse!
+    "여러개의 운동 계획 생성 및 수정"
+    multipleCreateOrUpdatePlans(inputs: [PlanInput!]!): [Plan!]!
     "사용자 JWT 토큰 갱신"
     refreshToken(deviceID: String!, refreshToken: String!): JWTResponse!
     "사용자 생성"
@@ -48,8 +48,6 @@ type Mutation {
     sendVerifyEmail: String!
     "소셜 로그인 사용자 생성"
     socialLogin(input: SocialLoginInput!): AuthenticationResponse!
-    "운동계획 수정"
-    updatePlan(_id: ObjectId!, input: UpdatePlanInput!): Boolean!
     "운동종목 수정"
     updateTraining(_id: ObjectId!, input: UpdateTrainingInput!): Boolean!
     "사용자 이메일 인증"
@@ -59,11 +57,7 @@ type Mutation {
 "운동계획 모델"
 type Plan implements Model {
     _id: ID!
-    "완료 여부"
-    complete: Boolean
     createdAt: DateTime!
-    "1rm"
-    oneRM: Float
     "운동 날짜"
     plannedAt: DateTime!
     "운동종목"
@@ -84,6 +78,8 @@ type Query {
     me: User!
     "사용자의 모든 운동 계획 조회"
     plans: [Plan!]!
+    "운동종목 조회"
+    trainings: [Training!]!
     "모든 사용자 조회"
     users: [User!]!
 }
@@ -143,11 +139,15 @@ type User implements Model {
 "운동 볼륨"
 type Volume implements Model {
     _id: ID!
+    "완료 여부"
+    complete: Boolean
     "횟수"
     count: Int
     createdAt: DateTime!
     "거리(m)"
     distances: Float
+    "1rm"
+    oneRM: Float
     "운동계획"
     plan: Plan!
     "시간(초)"
@@ -198,17 +198,14 @@ enum TrainingType {
     SHOULDER
 }
 
-"운동 계획 입력 객체"
-input CreatePlanInput {
-    "완료 여부"
-    complete: Boolean
-    "운동 날짜"
-    plannedAt: DateTime!
-    "운동종목"
-    training: ID!
-    "볼륨"
-    volumes: [VolumeInput!]!
-}
+"The javascript `Date` as string. Type represents date and time as the ISO Date string."
+scalar DateTime
+
+"The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)."
+scalar JSONObject
+
+"Mongoose의 ObjectID 스칼라 타입"
+scalar ObjectId
 
 "운동종목 추가 입력 객체"
 input CreateTrainingInput {
@@ -236,6 +233,17 @@ input LoginInput {
     email: String!
     "비밀번호"
     password: String!
+}
+
+"운동 계획 입력 객체"
+input PlanInput {
+    _id: ID
+    "운동 날짜"
+    plannedAt: DateTime!
+    "운동종목"
+    training: ID!
+    "볼륨"
+    volumes: [VolumeInput!]!
 }
 
 "사용자 입력 객체"
@@ -276,18 +284,6 @@ input SocialLoginInput {
     provider: SocialProvider!
 }
 
-"운동 계획 입력 객체"
-input UpdatePlanInput {
-    "완료 여부"
-    complete: Boolean
-    "운동 날짜"
-    plannedAt: DateTime
-    "운동종목"
-    training: ID
-    "볼륨"
-    volumes: [VolumeInput!]
-}
-
 "운동종목 추가 입력 객체"
 input UpdateTrainingInput {
     "분류"
@@ -317,6 +313,8 @@ input VerifyInput {
 "볼륨 입력 객체"
 input VolumeInput {
     _id: ID
+    "완료 여부"
+    complete: Boolean
     "횟수"
     count: Int
     "거리(m)"
@@ -326,13 +324,3 @@ input VolumeInput {
     "무게(kg)"
     weight: Float
 }
-
-
-"The javascript `Date` as string. Type represents date and time as the ISO Date string."
-scalar DateTime
-
-"The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)."
-scalar JSONObject
-
-"Mongoose의 ObjectID 스칼라 타입"
-scalar ObjectId

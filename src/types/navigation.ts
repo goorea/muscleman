@@ -1,13 +1,16 @@
 import { NavigatorScreenParams } from '@react-navigation/native';
 
+import { Training } from './graphql';
+
 export type RootStackParamList = {
   Main: NavigatorScreenParams<MainTabParamList>;
   Auth: NavigatorScreenParams<AuthStackParamList>;
+  Planning: NavigatorScreenParams<PlanningStackParamList>;
 };
 
 export type MainTabParamList = {
   Home: undefined;
-  Plans: undefined;
+  Plans: { plannedAt?: string };
   Profile: undefined;
 };
 
@@ -26,5 +29,15 @@ export type RegisterStackParamList = {
     email: string;
     password: string;
     passwordConfirmation: string;
+  };
+};
+
+export type PlanningStackParamList = {
+  EditPlan: {
+    plannedAt: string;
+    trainings?: Training[];
+  };
+  AddTraining: {
+    plannedAt: string;
   };
 };

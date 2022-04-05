@@ -63,73 +63,6 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "CreatePlanInput",
-        "description": "운동 계획 입력 객체",
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "complete",
-            "description": "완료 여부",
-            "type": { "kind": "SCALAR", "name": "Boolean", "ofType": null },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "plannedAt",
-            "description": "운동 날짜",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": { "kind": "SCALAR", "name": "DateTime", "ofType": null }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "training",
-            "description": "운동종목",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": { "kind": "SCALAR", "name": "ID", "ofType": null }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "volumes",
-            "description": "볼륨",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "VolumeInput",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
         "name": "CreateTrainingInput",
         "description": "운동종목 추가 입력 객체",
         "fields": null,
@@ -428,35 +361,6 @@
         "description": null,
         "fields": [
           {
-            "name": "createPlan",
-            "description": "운동계획 생성",
-            "args": [
-              {
-                "name": "input",
-                "description": null,
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "CreatePlanInput",
-                    "ofType": null
-                  }
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              }
-            ],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": { "kind": "OBJECT", "name": "Plan", "ofType": null }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "createTraining",
             "description": "운동종목 추가",
             "args": [
@@ -571,6 +475,51 @@
                 "kind": "OBJECT",
                 "name": "AuthenticationResponse",
                 "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "multipleCreateOrUpdatePlans",
+            "description": "여러개의 운동 계획 생성 및 수정",
+            "args": [
+              {
+                "name": "inputs",
+                "description": null,
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "name": null,
+                      "ofType": {
+                        "kind": "INPUT_OBJECT",
+                        "name": "PlanInput",
+                        "ofType": null
+                      }
+                    }
+                  }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": { "kind": "OBJECT", "name": "Plan", "ofType": null }
+                }
               }
             },
             "isDeprecated": false,
@@ -704,51 +653,6 @@
             "deprecationReason": null
           },
           {
-            "name": "updatePlan",
-            "description": "운동계획 수정",
-            "args": [
-              {
-                "name": "_id",
-                "description": null,
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "ObjectId",
-                    "ofType": null
-                  }
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "input",
-                "description": null,
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "UpdatePlanInput",
-                    "ofType": null
-                  }
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              }
-            ],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": { "kind": "SCALAR", "name": "Boolean", "ofType": null }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "updateTraining",
             "description": "운동종목 수정",
             "args": [
@@ -856,14 +760,6 @@
             "deprecationReason": null
           },
           {
-            "name": "complete",
-            "description": "완료 여부",
-            "args": [],
-            "type": { "kind": "SCALAR", "name": "Boolean", "ofType": null },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "createdAt",
             "description": null,
             "args": [],
@@ -872,14 +768,6 @@
               "name": null,
               "ofType": { "kind": "SCALAR", "name": "DateTime", "ofType": null }
             },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "oneRM",
-            "description": "1rm",
-            "args": [],
-            "type": { "kind": "SCALAR", "name": "Float", "ofType": null },
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -952,6 +840,73 @@
         "interfaces": [
           { "kind": "INTERFACE", "name": "Model", "ofType": null }
         ],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "PlanInput",
+        "description": "운동 계획 입력 객체",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "_id",
+            "description": null,
+            "type": { "kind": "SCALAR", "name": "ID", "ofType": null },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "plannedAt",
+            "description": "운동 날짜",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "SCALAR", "name": "DateTime", "ofType": null }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "training",
+            "description": "운동종목",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": { "kind": "SCALAR", "name": "ID", "ofType": null }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "volumes",
+            "description": "볼륨",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "VolumeInput",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "interfaces": null,
         "enumValues": null,
         "possibleTypes": null
       },
@@ -1060,6 +1015,30 @@
                   "kind": "NON_NULL",
                   "name": null,
                   "ofType": { "kind": "OBJECT", "name": "Plan", "ofType": null }
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "trainings",
+            "description": "운동종목 조회",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "Training",
+                    "ofType": null
+                  }
                 }
               }
             },
@@ -1561,61 +1540,6 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "UpdatePlanInput",
-        "description": "운동 계획 입력 객체",
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "complete",
-            "description": "완료 여부",
-            "type": { "kind": "SCALAR", "name": "Boolean", "ofType": null },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "plannedAt",
-            "description": "운동 날짜",
-            "type": { "kind": "SCALAR", "name": "DateTime", "ofType": null },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "training",
-            "description": "운동종목",
-            "type": { "kind": "SCALAR", "name": "ID", "ofType": null },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "volumes",
-            "description": "볼륨",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "VolumeInput",
-                  "ofType": null
-                }
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
         "name": "UpdateTrainingInput",
         "description": "운동종목 추가 입력 객체",
         "fields": null,
@@ -1907,6 +1831,14 @@
             "deprecationReason": null
           },
           {
+            "name": "complete",
+            "description": "완료 여부",
+            "args": [],
+            "type": { "kind": "SCALAR", "name": "Boolean", "ofType": null },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "count",
             "description": "횟수",
             "args": [],
@@ -1929,6 +1861,14 @@
           {
             "name": "distances",
             "description": "거리(m)",
+            "args": [],
+            "type": { "kind": "SCALAR", "name": "Float", "ofType": null },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "oneRM",
+            "description": "1rm",
             "args": [],
             "type": { "kind": "SCALAR", "name": "Float", "ofType": null },
             "isDeprecated": false,
@@ -2000,6 +1940,14 @@
             "name": "_id",
             "description": null,
             "type": { "kind": "SCALAR", "name": "ID", "ofType": null },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "complete",
+            "description": "완료 여부",
+            "type": { "kind": "SCALAR", "name": "Boolean", "ofType": null },
             "defaultValue": null,
             "isDeprecated": false,
             "deprecationReason": null

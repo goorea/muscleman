@@ -26,11 +26,49 @@ jest
     require('react-native-device-info/jest/react-native-device-info-mock'),
   )
   .mock('react-native-splash-screen', () => ({
-    show: jest.fn().mockImplementation(() => {
-      console.log('show splash screen');
-    }),
-    hide: jest.fn().mockImplementation(() => {
-      console.log('hide splash screen');
-    }),
+    show: jest.fn(),
+    hide: jest.fn(),
   }))
+  .mock('react-native-easy-calendar', () => {
+    return {
+      DateSelectionCalendar: require('react-native/Libraries/Components/View/View'),
+    };
+  })
+  .mock('react-native-gesture-handler', () => {
+    const View = require('react-native/Libraries/Components/View/View');
+
+    return {
+      Swipeable: View,
+      DrawerLayout: View,
+      State: {},
+      ScrollView: View,
+      Slider: View,
+      Switch: View,
+      TextInput: View,
+      ToolbarAndroid: View,
+      ViewPagerAndroid: View,
+      DrawerLayoutAndroid: View,
+      WebView: View,
+      NativeViewGestureHandler: View,
+      TapGestureHandler: View,
+      FlingGestureHandler: View,
+      ForceTouchGestureHandler: View,
+      LongPressGestureHandler: View,
+      PanGestureHandler: View,
+      PinchGestureHandler: View,
+      RotationGestureHandler: View,
+      /* Buttons */
+      RawButton: View,
+      BaseButton: View,
+      RectButton: View,
+      BorderlessButton: View,
+      /* Other */
+      FlatList: View,
+      gestureHandlerRootHOC: jest.fn(),
+      Directions: {},
+    };
+  })
+  .mock('react-native-draggable-flatlist', () =>
+    require('react-native/Libraries/Components/View/View'),
+  )
   .useFakeTimers();

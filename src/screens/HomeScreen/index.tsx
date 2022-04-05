@@ -1,7 +1,7 @@
 import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
 import { CompositeScreenProps } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import React, { useCallback } from 'react';
 import { useRecoilValue } from 'recoil';
 
@@ -28,7 +28,7 @@ type P = CompositeScreenProps<
 
 const HomeScreen: React.FC<P> = ({ navigation }) => {
   const todayPlans = useRecoilValue(plansState).filter(plan =>
-    moment(plan.plannedAt).isSame(new Date(), 'day'),
+    dayjs(plan.plannedAt).isSame(new Date(), 'day'),
   );
   const { onPressUser, userNode } = useUser(navigation);
   const toPlan = useCallback(() => navigation.navigate('Plans'), [navigation]);

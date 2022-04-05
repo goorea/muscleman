@@ -1,0 +1,814 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VolumeKeyboard 컴포넌트 렌더링이 올바르게 된다 1`] = `
+<View
+  collapsable={false}
+  nativeID="animatedComponent"
+  onLayout={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "bottom": 0,
+      "left": 0,
+      "marginBottom": -4,
+      "marginLeft": -4,
+      "marginRight": -4,
+      "marginTop": -4,
+      "paddingBottom": 16,
+      "paddingLeft": 8,
+      "paddingRight": 8,
+      "paddingTop": 8,
+      "position": "absolute",
+      "right": 0,
+      "transform": Array [
+        Object {
+          "translateY": 0,
+        },
+      ],
+      "zIndex": 10,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={false}
+      nativeID="animatedComponent"
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffffff",
+          "borderRadius": 6,
+          "height": 36,
+          "justifyContent": "center",
+          "marginBottom": 4,
+          "marginLeft": 4,
+          "marginRight": 4,
+          "marginTop": 4,
+          "opacity": 1,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "paddingRight": 0,
+          "paddingTop": 0,
+          "width": 54,
+        }
+      }
+    />
+    <View
+      dark={false}
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#e1e8ee",
+            "borderRadius": 6,
+            "flexBasis": 0,
+            "flexDirection": "row",
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "height": 36,
+            "justifyContent": "space-between",
+            "marginBottom": 4,
+            "marginLeft": 4,
+            "marginRight": 4,
+            "marginTop": 4,
+            "paddingBottom": 4,
+            "paddingLeft": 4,
+            "paddingRight": 4,
+            "paddingTop": 4,
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        nativeID="animatedComponent"
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "borderRadius": 4,
+            "height": "100%",
+            "justifyContent": "center",
+            "opacity": 1,
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "width": 50,
+          }
+        }
+        testID="unitButton2.5"
+      >
+        <Text
+          color="grey2"
+          italic={false}
+          size={16}
+          style={
+            Array [
+              Object {
+                "color": "#5e6977",
+                "fontFamily": "SpoqaHanSansNeo-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+              },
+            ]
+          }
+          weight="normal"
+        >
+          2.5
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        nativeID="animatedComponent"
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#5e6977",
+            "borderRadius": 4,
+            "height": "100%",
+            "justifyContent": "center",
+            "opacity": 1,
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "width": 50,
+          }
+        }
+        testID="unitButton5"
+      >
+        <Text
+          color="white"
+          italic={false}
+          size={16}
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SpoqaHanSansNeo-Bold",
+                "fontSize": 16,
+                "fontStyle": "normal",
+              },
+            ]
+          }
+          weight="bold"
+        >
+          5
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        nativeID="animatedComponent"
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "borderRadius": 4,
+            "height": "100%",
+            "justifyContent": "center",
+            "opacity": 1,
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "width": 50,
+          }
+        }
+        testID="unitButton10"
+      >
+        <Text
+          color="grey2"
+          italic={false}
+          size={16}
+          style={
+            Array [
+              Object {
+                "color": "#5e6977",
+                "fontFamily": "SpoqaHanSansNeo-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+              },
+            ]
+          }
+          weight="normal"
+        >
+          10
+        </Text>
+      </View>
+    </View>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      nativeID="animatedComponent"
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#2687ED",
+          "borderRadius": 6,
+          "height": 36,
+          "justifyContent": "center",
+          "marginBottom": 4,
+          "marginLeft": 4,
+          "marginRight": 4,
+          "marginTop": 4,
+          "opacity": 1,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "paddingRight": 0,
+          "paddingTop": 0,
+          "width": 54,
+        }
+      }
+    >
+      <Text
+        color="white"
+        italic={false}
+        size={16}
+        style={
+          Array [
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SpoqaHanSansNeo-Bold",
+              "fontSize": 16,
+              "fontStyle": "normal",
+            },
+          ]
+        }
+        weight="bold"
+      >
+        확인
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      nativeID="animatedComponent"
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#e1e8ee",
+          "borderRadius": 6,
+          "height": 36,
+          "justifyContent": "center",
+          "marginBottom": 4,
+          "marginLeft": 4,
+          "marginRight": 4,
+          "marginTop": 4,
+          "opacity": 1,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "paddingRight": 0,
+          "paddingTop": 0,
+          "width": 54,
+        }
+      }
+    >
+      <Text
+        color="grey2"
+        italic={false}
+        size={16}
+        style={
+          Array [
+            Object {
+              "color": "#5e6977",
+              "fontFamily": "SpoqaHanSansNeo-Bold",
+              "fontSize": 16,
+              "fontStyle": "normal",
+            },
+          ]
+        }
+        weight="bold"
+      >
+        -5
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      nativeID="animatedComponent"
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#e1e8ee",
+          "borderRadius": 6,
+          "height": 36,
+          "justifyContent": "center",
+          "marginBottom": 4,
+          "marginLeft": 4,
+          "marginRight": 4,
+          "marginTop": 4,
+          "opacity": 1,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "paddingRight": 0,
+          "paddingTop": 0,
+          "width": 54,
+        }
+      }
+    >
+      <Text
+        color="grey2"
+        italic={false}
+        size={16}
+        style={
+          Array [
+            Object {
+              "color": "#5e6977",
+              "fontFamily": "SpoqaHanSansNeo-Bold",
+              "fontSize": 16,
+              "fontStyle": "normal",
+            },
+          ]
+        }
+        weight="bold"
+      >
+        -1
+      </Text>
+    </View>
+    <Text
+      italic={false}
+      style={
+        Array [
+          Object {
+            "color": "#000000",
+            "fontFamily": "SpoqaHanSansNeo-Bold",
+            "fontSize": 16,
+            "fontStyle": "normal",
+          },
+          Object {
+            "flexBasis": 0,
+            "flexGrow": 1.2,
+            "flexShrink": 1,
+            "marginBottom": 4,
+            "marginLeft": 4,
+            "marginRight": 4,
+            "marginTop": 4,
+            "textAlign": "center",
+            "textDecorationColor": "black",
+            "textDecorationLine": "underline",
+            "textDecorationStyle": "solid",
+          },
+        ]
+      }
+      weight="bold"
+    >
+      <Text
+        italic={false}
+        size={12}
+        style={
+          Array [
+            Object {
+              "color": "#000000",
+              "fontFamily": "SpoqaHanSansNeo-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+            },
+          ]
+        }
+      >
+        kg
+      </Text>
+    </Text>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      nativeID="animatedComponent"
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#e1e8ee",
+          "borderRadius": 6,
+          "height": 36,
+          "justifyContent": "center",
+          "marginBottom": 4,
+          "marginLeft": 4,
+          "marginRight": 4,
+          "marginTop": 4,
+          "opacity": 1,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "paddingRight": 0,
+          "paddingTop": 0,
+          "width": 54,
+        }
+      }
+    >
+      <Text
+        color="grey2"
+        italic={false}
+        size={16}
+        style={
+          Array [
+            Object {
+              "color": "#5e6977",
+              "fontFamily": "SpoqaHanSansNeo-Bold",
+              "fontSize": 16,
+              "fontStyle": "normal",
+            },
+          ]
+        }
+        weight="bold"
+      >
+        +1
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      nativeID="animatedComponent"
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#e1e8ee",
+          "borderRadius": 6,
+          "height": 36,
+          "justifyContent": "center",
+          "marginBottom": 4,
+          "marginLeft": 4,
+          "marginRight": 4,
+          "marginTop": 4,
+          "opacity": 1,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "paddingRight": 0,
+          "paddingTop": 0,
+          "width": 54,
+        }
+      }
+    >
+      <Text
+        color="grey2"
+        italic={false}
+        size={16}
+        style={
+          Array [
+            Object {
+              "color": "#5e6977",
+              "fontFamily": "SpoqaHanSansNeo-Bold",
+              "fontSize": 16,
+              "fontStyle": "normal",
+            },
+          ]
+        }
+        weight="bold"
+      >
+        +5
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      nativeID="animatedComponent"
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#e1e8ee",
+          "borderRadius": 6,
+          "height": 36,
+          "justifyContent": "center",
+          "marginBottom": 4,
+          "marginLeft": 4,
+          "marginRight": 4,
+          "marginTop": 4,
+          "opacity": 1,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "paddingRight": 0,
+          "paddingTop": 0,
+          "width": 54,
+        }
+      }
+    >
+      <Text
+        color="grey2"
+        italic={false}
+        size={16}
+        style={
+          Array [
+            Object {
+              "color": "#5e6977",
+              "fontFamily": "SpoqaHanSansNeo-Bold",
+              "fontSize": 16,
+              "fontStyle": "normal",
+            },
+          ]
+        }
+        weight="bold"
+      >
+        -5
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      nativeID="animatedComponent"
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#e1e8ee",
+          "borderRadius": 6,
+          "height": 36,
+          "justifyContent": "center",
+          "marginBottom": 4,
+          "marginLeft": 4,
+          "marginRight": 4,
+          "marginTop": 4,
+          "opacity": 1,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "paddingRight": 0,
+          "paddingTop": 0,
+          "width": 54,
+        }
+      }
+    >
+      <Text
+        color="grey2"
+        italic={false}
+        size={16}
+        style={
+          Array [
+            Object {
+              "color": "#5e6977",
+              "fontFamily": "SpoqaHanSansNeo-Bold",
+              "fontSize": 16,
+              "fontStyle": "normal",
+            },
+          ]
+        }
+        weight="bold"
+      >
+        -1
+      </Text>
+    </View>
+    <Text
+      italic={false}
+      style={
+        Array [
+          Object {
+            "color": "#000000",
+            "fontFamily": "SpoqaHanSansNeo-Bold",
+            "fontSize": 16,
+            "fontStyle": "normal",
+          },
+          Object {
+            "flexBasis": 0,
+            "flexGrow": 1.2,
+            "flexShrink": 1,
+            "marginBottom": 4,
+            "marginLeft": 4,
+            "marginRight": 4,
+            "marginTop": 4,
+            "textAlign": "center",
+            "textDecorationColor": "black",
+            "textDecorationLine": "underline",
+            "textDecorationStyle": "solid",
+          },
+        ]
+      }
+      weight="bold"
+    >
+      <Text
+        italic={false}
+        size={12}
+        style={
+          Array [
+            Object {
+              "color": "#000000",
+              "fontFamily": "SpoqaHanSansNeo-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+            },
+          ]
+        }
+      >
+        회
+      </Text>
+    </Text>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      nativeID="animatedComponent"
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#e1e8ee",
+          "borderRadius": 6,
+          "height": 36,
+          "justifyContent": "center",
+          "marginBottom": 4,
+          "marginLeft": 4,
+          "marginRight": 4,
+          "marginTop": 4,
+          "opacity": 1,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "paddingRight": 0,
+          "paddingTop": 0,
+          "width": 54,
+        }
+      }
+    >
+      <Text
+        color="grey2"
+        italic={false}
+        size={16}
+        style={
+          Array [
+            Object {
+              "color": "#5e6977",
+              "fontFamily": "SpoqaHanSansNeo-Bold",
+              "fontSize": 16,
+              "fontStyle": "normal",
+            },
+          ]
+        }
+        weight="bold"
+      >
+        +1
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      nativeID="animatedComponent"
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#e1e8ee",
+          "borderRadius": 6,
+          "height": 36,
+          "justifyContent": "center",
+          "marginBottom": 4,
+          "marginLeft": 4,
+          "marginRight": 4,
+          "marginTop": 4,
+          "opacity": 1,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "paddingRight": 0,
+          "paddingTop": 0,
+          "width": 54,
+        }
+      }
+    >
+      <Text
+        color="grey2"
+        italic={false}
+        size={16}
+        style={
+          Array [
+            Object {
+              "color": "#5e6977",
+              "fontFamily": "SpoqaHanSansNeo-Bold",
+              "fontSize": 16,
+              "fontStyle": "normal",
+            },
+          ]
+        }
+        weight="bold"
+      >
+        +5
+      </Text>
+    </View>
+  </View>
+</View>
+`;
