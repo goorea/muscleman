@@ -30,8 +30,11 @@ type P = CompositeScreenProps<
   NativeStackScreenProps<RootStackParamList>
 >;
 
-const PlansScreen: React.FC<P> = ({ navigation }) => {
-  const { selectedDate, onSelectDate, onPlanning } = useEvents(navigation);
+const PlansScreen: React.FC<P> = ({ navigation, route }) => {
+  const { selectedDate, onSelectDate, onPlanning } = useEvents({
+    navigation,
+    route,
+  });
   const { completeDates, plannedDates } = useDates();
   const plansBySelectedDate: Plan[] = useRecoilValue<Plan[]>(plansState).filter(
     ({ plannedAt }) => dayjs(plannedAt).isSame(selectedDate, 'day'),

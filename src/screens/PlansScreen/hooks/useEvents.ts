@@ -2,16 +2,17 @@ import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
 import { CompositeScreenProps } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import dayjs from 'dayjs';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { MainTabParamList, RootStackParamList } from '@src/types/navigation';
 
-const useEvents = (
-  navigation: CompositeScreenProps<
-    BottomTabScreenProps<MainTabParamList, 'Plans'>,
-    NativeStackScreenProps<RootStackParamList>
-  >['navigation'],
-): {
+const useEvents = ({
+  navigation,
+  route,
+}: CompositeScreenProps<
+  BottomTabScreenProps<MainTabParamList, 'Plans'>,
+  NativeStackScreenProps<RootStackParamList>
+>): {
   selectedDate: string;
   onSelectDate: (date: string) => void;
   onPlanning: () => void;
@@ -20,22 +21,39 @@ const useEvents = (
     dayjs().format('YYYY-MM-DD'),
   );
 
+  const navigateEditPlan = useCallback(
+    (plannedAt: string) =>
+      navigation.navigate('Planning', {
+        screen: 'EditPlan',
+        params: {
+          plannedAt,
+        },
+      }),
+    [navigation],
+  );
+
+  const onSelectDate = useCallback(
+    (date: string) => setSelectedDate(date),
+    [setSelectedDate],
+  );
+
+  const onPlanning = useCallback(
+    () => navigateEditPlan(selectedDate),
+    [navigateEditPlan, selectedDate],
+  );
+
+  useEffect(() => {
+    if (route.params?.plannedAt) {
+      onSelectDate(route.params.plannedAt);
+      navigateEditPlan(route.params.plannedAt);
+      navigation.setParams({ plannedAt: undefined });
+    }
+  }, [navigateEditPlan, navigation, onSelectDate, route.params?.plannedAt]);
+
   return {
     selectedDate,
-    onSelectDate: useCallback(
-      (date: string) => setSelectedDate(date),
-      [setSelectedDate],
-    ),
-    onPlanning: useCallback(
-      () =>
-        navigation.navigate('Planning', {
-          screen: 'EditPlan',
-          params: {
-            plannedAt: selectedDate,
-          },
-        }),
-      [navigation, selectedDate],
-    ),
+    onSelectDate,
+    onPlanning,
   };
 };
 

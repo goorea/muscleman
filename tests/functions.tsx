@@ -1,4 +1,5 @@
 import { MockedProvider } from '@apollo/client/testing';
+import { NavigationContainer } from '@react-navigation/native';
 import faker from 'faker';
 import { uniqueId } from 'lodash';
 import React from 'react';
@@ -18,7 +19,9 @@ import {
 export const wrapper: React.ComponentType<any> = ({ children }) => (
   <ThemeProvider>
     <RecoilRoot>
-      <MockedProvider>{children}</MockedProvider>
+      <NavigationContainer>
+        <MockedProvider>{children}</MockedProvider>
+      </NavigationContainer>
     </RecoilRoot>
   </ThemeProvider>
 );

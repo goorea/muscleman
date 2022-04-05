@@ -10,7 +10,7 @@ export type RootStackParamList = {
 
 export type MainTabParamList = {
   Home: undefined;
-  Plans: undefined;
+  Plans: { plannedAt?: string };
   Profile: undefined;
 };
 

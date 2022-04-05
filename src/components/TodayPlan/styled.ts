@@ -30,7 +30,7 @@ export const RoundedButton = styled(Button)`
   ${flexCenter};
 `;
 
-export const SetButton = styled(RoundedButton)`
+export const VolumeButton = styled(RoundedButton)`
   background-color: ${({ theme }) => theme.primary};
 `;
 
