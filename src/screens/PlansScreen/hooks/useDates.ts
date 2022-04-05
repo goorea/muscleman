@@ -9,7 +9,10 @@ const useDates = (): { completeDates: string[]; plannedDates: string[] } => {
 
   return {
     completeDates: useMemo<string[]>(
-      () => plans.filter(plan => plan.complete).map(plan => plan.plannedAt),
+      () =>
+        plans
+          .filter(plan => plan.volumes?.every(volume => volume.complete))
+          .map(plan => plan.plannedAt),
       [plans],
     ),
     plannedDates: useMemo<string[]>(

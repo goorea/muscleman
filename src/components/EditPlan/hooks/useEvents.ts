@@ -48,7 +48,7 @@ const useEvents = (
 
         return prevValue.concat({
           _id: uniqueId(),
-          complete: false,
+          complete: lastVolume?.complete || false,
           count: lastVolume?.count || 0,
           weight: lastVolume?.weight || 0,
         });
