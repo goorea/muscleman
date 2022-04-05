@@ -1,0 +1,505 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectPlan 컴포넌트 렌더링이 올바르게 된다 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 10,
+      },
+    ]
+  }
+>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    nativeID="animatedComponent"
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        nativeID="animatedComponent"
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+            "opacity": 1,
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+          }
+        }
+        testID="toggleButton"
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": "#faad14",
+                "fontSize": 18,
+              },
+              undefined,
+              Object {
+                "fontFamily": "Feather",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+          type="feather"
+        >
+          
+        </Text>
+      </View>
+      <Text
+        italic={false}
+        size={12}
+        style={
+          Array [
+            Object {
+              "color": "#000000",
+              "fontFamily": "SpoqaHanSansNeo-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+            },
+            Object {
+              "marginLeft": 4,
+            },
+          ]
+        }
+      >
+        하체
+         |
+         
+        바벨 백스쿼트
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "overflow": "hidden",
+            },
+            Array [
+              Object {
+                "height": 75,
+                "marginRight": 16,
+                "width": 75,
+              },
+            ],
+          ]
+        }
+      >
+        <FastImageView
+          resizeMode="cover"
+          source={
+            Object {
+              "uri": "http://placeimg.com/64/64",
+            }
+          }
+          style={
+            Object {
+              "bottom": 0,
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "flexBasis": 0,
+              "flexGrow": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Text
+            italic={true}
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontFamily": "SpoqaHanSansNeo-Bold",
+                  "fontSize": 16,
+                  "fontStyle": "italic",
+                },
+              ]
+            }
+            weight="bold"
+          >
+            1
+            Set
+          </Text>
+          <Text
+            italic={false}
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontFamily": "SpoqaHanSansNeo-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                },
+                Object {
+                  "textAlign": "right",
+                  "width": "22%",
+                },
+              ]
+            }
+          >
+            100
+            kg
+          </Text>
+          <Text
+            italic={false}
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontFamily": "SpoqaHanSansNeo-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                },
+                Object {
+                  "textAlign": "right",
+                  "width": "22%",
+                },
+              ]
+            }
+          >
+            5
+            개
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Text
+            italic={true}
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontFamily": "SpoqaHanSansNeo-Bold",
+                  "fontSize": 16,
+                  "fontStyle": "italic",
+                },
+              ]
+            }
+            weight="bold"
+          >
+            2
+            Set
+          </Text>
+          <Text
+            italic={false}
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontFamily": "SpoqaHanSansNeo-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                },
+                Object {
+                  "textAlign": "right",
+                  "width": "22%",
+                },
+              ]
+            }
+          >
+            100
+            kg
+          </Text>
+          <Text
+            italic={false}
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontFamily": "SpoqaHanSansNeo-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                },
+                Object {
+                  "textAlign": "right",
+                  "width": "22%",
+                },
+              ]
+            }
+          >
+            5
+            개
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Text
+            italic={true}
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontFamily": "SpoqaHanSansNeo-Bold",
+                  "fontSize": 16,
+                  "fontStyle": "italic",
+                },
+              ]
+            }
+            weight="bold"
+          >
+            3
+            Set
+          </Text>
+          <Text
+            italic={false}
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontFamily": "SpoqaHanSansNeo-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                },
+                Object {
+                  "textAlign": "right",
+                  "width": "22%",
+                },
+              ]
+            }
+          >
+            100
+            kg
+          </Text>
+          <Text
+            italic={false}
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontFamily": "SpoqaHanSansNeo-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                },
+                Object {
+                  "textAlign": "right",
+                  "width": "22%",
+                },
+              ]
+            }
+          >
+            5
+            개
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Text
+            italic={true}
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontFamily": "SpoqaHanSansNeo-Bold",
+                  "fontSize": 16,
+                  "fontStyle": "italic",
+                },
+              ]
+            }
+            weight="bold"
+          >
+            4
+            Set
+          </Text>
+          <Text
+            italic={false}
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontFamily": "SpoqaHanSansNeo-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                },
+                Object {
+                  "textAlign": "right",
+                  "width": "22%",
+                },
+              ]
+            }
+          >
+            100
+            kg
+          </Text>
+          <Text
+            italic={false}
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontFamily": "SpoqaHanSansNeo-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                },
+                Object {
+                  "textAlign": "right",
+                  "width": "22%",
+                },
+              ]
+            }
+          >
+            5
+            개
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Text
+            italic={true}
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontFamily": "SpoqaHanSansNeo-Bold",
+                  "fontSize": 16,
+                  "fontStyle": "italic",
+                },
+              ]
+            }
+            weight="bold"
+          >
+            5
+            Set
+          </Text>
+          <Text
+            italic={false}
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontFamily": "SpoqaHanSansNeo-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                },
+                Object {
+                  "textAlign": "right",
+                  "width": "22%",
+                },
+              ]
+            }
+          >
+            100
+            kg
+          </Text>
+          <Text
+            italic={false}
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontFamily": "SpoqaHanSansNeo-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                },
+                Object {
+                  "textAlign": "right",
+                  "width": "22%",
+                },
+              ]
+            }
+          >
+            5
+            개
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;

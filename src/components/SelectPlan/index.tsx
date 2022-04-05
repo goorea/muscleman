@@ -32,6 +32,7 @@ const SelectPlan: React.FC<P> = ({ plan }) => {
       <TouchableOpacity onPress={onToggleSelect}>
         <Header>
           <Button
+            testID="toggleButton"
             onPress={onToggleSelect}
             icon={completeIconProps}
             type="clear"
