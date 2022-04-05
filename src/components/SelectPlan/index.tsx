@@ -21,14 +21,15 @@ import {
 
 type P = {
   plan: Plan;
+  testID?: string;
 };
 
-const SelectPlan: React.FC<P> = ({ plan }) => {
+const SelectPlan: React.FC<P> = ({ plan, testID }) => {
   const { selected, onToggleSelect } = useSelect(plan);
   const { completeIconProps } = useIconProps(selected);
 
   return (
-    <Container>
+    <Container testID={testID}>
       <TouchableOpacity onPress={onToggleSelect}>
         <Header>
           <Button

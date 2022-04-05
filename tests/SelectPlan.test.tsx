@@ -42,7 +42,7 @@ describe('SelectPlan 컴포넌트', () => {
     expect(toJSON()).toMatchSnapshot();
   });
 
-  it('완료 상태를 토글 할 수 있다', async () => {
+  it('선택을 토글 할 수 있다', async () => {
     const { getByTestId } = rendered();
 
     await act(async () => await fireEvent.press(getByTestId('toggleButton')));

@@ -32,11 +32,13 @@ const SelectPlans: React.FC<P> = ({ plannedAt, plans }) => {
             <Text>{dayjs(plannedAt).format('YYYY년 MMMM D일 dddd')}</Text>
             <ButtonGroup>
               <Button
+                testID="toggleSelectButton"
                 onPress={onToggleSelect}
                 type="clear"
                 icon={completeIconProps}
               />
               <Button
+                testID="toggleCollapseButton"
                 onPress={toggleCollapse}
                 type="clear"
                 icon={{
@@ -51,7 +53,7 @@ const SelectPlans: React.FC<P> = ({ plannedAt, plans }) => {
 
       <Collapsible collapsed={collapsed}>
         {plans.map(plan => (
-          <SelectPlan key={plan._id} plan={plan} />
+          <SelectPlan testID="SelectPlan" key={plan._id} plan={plan} />
         ))}
       </Collapsible>
     </Container>
