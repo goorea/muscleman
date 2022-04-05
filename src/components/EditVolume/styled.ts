@@ -30,7 +30,7 @@ export const FilledText = styled(Text)`
   text-align: right;
 `;
 
-export const SetButtonGroup = styled.View`
+export const VolumeButtonGroup = styled.View`
   margin-left: auto;
   padding-left: 10px;
   flex-direction: row;

@@ -9,7 +9,7 @@ import {
   DragVolumeButton,
   FilledText,
   IconButton,
-  SetButtonGroup,
+  VolumeButtonGroup,
   VolumeContainer,
 } from './styled';
 
@@ -47,7 +47,7 @@ const EditVolume: React.FC<P> = ({ editingVolume, planID, index, drag }) => {
       </Text>
       <FilledText>{editingVolume.weight}kg</FilledText>
       <FilledText>{editingVolume.count}개</FilledText>
-      <SetButtonGroup>
+      <VolumeButtonGroup>
         <IconButton
           testID="toggleButton"
           type="clear"
@@ -60,7 +60,7 @@ const EditVolume: React.FC<P> = ({ editingVolume, planID, index, drag }) => {
           onPress={deleteVolume}
           icon={deleteIconProps}
         />
-      </SetButtonGroup>
+      </VolumeButtonGroup>
     </VolumeContainer>
   );
 };
