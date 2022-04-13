@@ -1,6 +1,6 @@
 import { NavigationProp } from '@react-navigation/core/src/types';
 import { useNavigation } from '@react-navigation/native';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import { View } from 'react-native';
 
 import Text from '@src/components/Text';
@@ -23,13 +23,12 @@ type P = {
   plan: Plan;
 };
 
-const TodayPlan: React.FC<P> = ({ plan: _plan }) => {
+const TodayPlan: React.FC<P> = ({ plan }) => {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
-  const [plan, setPlan] = useState<Plan>(_plan);
   const source = plan.training.thumbnailPath
     ? { uri: plan.training.thumbnailPath }
     : require('@src/resources/images/mock.png');
-  const { loading, onToggleComplete } = useToggleComplete(plan, setPlan);
+  const { loading, onToggleComplete } = useToggleComplete(plan);
   const footerText = useFooterText(plan.volumes || []);
   const edit = useCallback(
     () =>
@@ -39,9 +38,8 @@ const TodayPlan: React.FC<P> = ({ plan: _plan }) => {
       }),
     [navigation, plan.plannedAt],
   );
-  const { editIconProps, completeIconProps } = useIconProps(
-    plan.volumes?.every(volume => volume.complete) || false,
-  );
+  const complete = plan.volumes?.every(volume => volume.complete) || false;
+  const { editIconProps, completeIconProps } = useIconProps(complete);
 
   return (
     <Container>
@@ -60,9 +58,7 @@ const TodayPlan: React.FC<P> = ({ plan: _plan }) => {
         <CompleteButton
           loading={loading}
           onPress={onToggleComplete}
-          complete={
-            plan.volumes && plan.volumes.every(volume => volume.complete)
-          }
+          complete={complete}
           icon={completeIconProps}
         />
       </ButtonGroup>

@@ -4,7 +4,6 @@ import dayjs from 'dayjs';
 import { useCallback, useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 
-import { flash } from '@src/functions';
 import { useMultipleCreateOrUpdatePlansMutation } from '@src/operations/mutations/multipleCreateOrUpdatePlans';
 import { plansState } from '@src/recoils';
 import { editingPlans as editingPlansAtom } from '@src/screens/EditPlanScreen/recoils';
@@ -14,6 +13,9 @@ import {
   PlanningStackParamList,
   RootStackParamList,
 } from '@src/types/navigation';
+
+import useSBDOneRM from './useSBDOneRM';
+import useValidation from './useValidation';
 
 const useFetch = ({
   navigation,
@@ -27,6 +29,8 @@ const useFetch = ({
   submit: () => void;
 } => {
   const { plannedAt } = route.params;
+  const { getSBDOneRM } = useSBDOneRM(navigation);
+  const { validation } = useValidation();
   const [multipleCreateOrUpdatePlans, { data, loading }] =
     useMultipleCreateOrUpdatePlansMutation();
   const [plans, setPlans] = useRecoilState<Plan[]>(plansState);
@@ -34,56 +38,22 @@ const useFetch = ({
     useRecoilState<EditingPlan[]>(editingPlansAtom);
 
   const submit = useCallback(async () => {
-    if (editingPlans.some(plan => plan.volumes.length === 0)) {
-      return flash({
-        type: 'error',
-        title: '유효성 검사에 실패했습니다.',
-        contents: '볼륨은 하나 이상 추가해야합니다.',
-      });
-    }
-
-    if (
-      editingPlans.some(plan =>
-        plan.volumes.some(
-          volume => (volume.count || 0) < 1 || (volume.weight || 0) < 1,
-        ),
-      )
-    ) {
-      return flash({
-        type: 'error',
-        title: '유효성 검사에 실패했습니다.',
-        contents: '무게와 개수는 0보다 커야 합니다.',
-      });
-    }
-
-    await multipleCreateOrUpdatePlans({
-      variables: {
-        inputs: editingPlans.map(plan => ({
-          _id: isNaN(Number(plan._id)) ? plan._id : undefined,
-          plannedAt,
-          training: plan.training._id,
-          volumes: plan.volumes.map(volume => ({
-            ...volume,
-            _id: isNaN(Number(volume._id)) ? volume._id : undefined,
+    if (validation()) {
+      await multipleCreateOrUpdatePlans({
+        variables: {
+          inputs: editingPlans.map(plan => ({
+            _id: isNaN(Number(plan._id)) ? plan._id : undefined,
+            plannedAt,
+            training: plan.training._id,
+            volumes: plan.volumes.map(volume => ({
+              ...volume,
+              _id: isNaN(Number(volume._id)) ? volume._id : undefined,
+            })),
           })),
-        })),
-      },
-    });
-
-    flash({
-      type: 'success',
-      title: '운동 계획 완료',
-      contents: '운동 계획을 생성했습니다',
-    });
-    setEditingPlans([]);
-    navigation.goBack();
-  }, [
-    editingPlans,
-    multipleCreateOrUpdatePlans,
-    navigation,
-    plannedAt,
-    setEditingPlans,
-  ]);
+        },
+      });
+    }
+  }, [editingPlans, multipleCreateOrUpdatePlans, plannedAt, validation]);
 
   useEffect(() => {
     const filteredPlans = plans.filter(plan =>
@@ -110,10 +80,18 @@ const useFetch = ({
 
   useEffect(() => {
     if (data) {
-      setEditingPlans(data.multipleCreateOrUpdatePlans as EditingPlan[]);
-      setPlans(prevPlans => prevPlans.concat(data.multipleCreateOrUpdatePlans));
+      setPlans(prevPlans => {
+        const plansIds = (data.multipleCreateOrUpdatePlans as Plan[]).map(
+          ({ _id }) => _id,
+        );
+
+        return prevPlans
+          .filter(({ _id }) => !plansIds.includes(_id))
+          .concat(data.multipleCreateOrUpdatePlans);
+      });
+      getSBDOneRM();
     }
-  }, [data, setEditingPlans, setPlans]);
+  }, [data, getSBDOneRM, setEditingPlans, setPlans]);
 
   return {
     loading,

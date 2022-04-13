@@ -1,4 +1,4 @@
-import { atom } from 'recoil';
+import { atom, selectorFamily } from 'recoil';
 
 import { SBDOneRM } from '@src/operations/queries/getOneRM';
 import { User, Plan } from '@src/types/graphql';
@@ -20,4 +20,21 @@ export const SBDOneRMState = atom<SBDOneRM>({
 export const plansState = atom<Plan[]>({
   key: 'plans',
   default: [],
+});
+
+export const planState = selectorFamily<Plan | undefined, string>({
+  key: 'planState',
+  get:
+    planID =>
+    ({ get }) =>
+      get(plansState).find(({ _id }) => _id === planID),
+  set:
+    planID =>
+    ({ set }, newValue) => {
+      set(plansState, prevPlans =>
+        prevPlans.map(prevPlan =>
+          prevPlan._id === planID ? (newValue as Plan) : prevPlan,
+        ),
+      );
+    },
 });
