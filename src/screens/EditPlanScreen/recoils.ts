@@ -57,3 +57,8 @@ export const selectedEditingVolumeState = selectorFamily<
       );
     },
 });
+
+export const deletePlansState = atom<string[]>({
+  key: 'deletePlansState',
+  default: [],
+});

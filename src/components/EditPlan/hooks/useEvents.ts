@@ -4,6 +4,7 @@ import { DragEndParams } from 'react-native-draggable-flatlist/src/types';
 import { useSetRecoilState } from 'recoil';
 
 import {
+  deletePlansState,
   editingPlansState,
   editingVolumesState,
 } from '@src/screens/EditPlanScreen/recoils';
@@ -21,6 +22,7 @@ const useEvents = (
   const setEditingVolumes = useSetRecoilState<EditingVolume[]>(
     editingVolumesState(planID),
   );
+  const setDeletePlans = useSetRecoilState<string[]>(deletePlansState);
 
   const toggleAllComplete = useCallback(
     () =>
@@ -35,9 +37,13 @@ const useEvents = (
     [setEditingVolumes],
   );
   const deletePlan = useCallback(
-    (_id: string) =>
-      setEditingPlans(prevState => prevState.filter(plan => plan._id !== _id)),
-    [setEditingPlans],
+    (_id: string) => {
+      setEditingPlans(prevState => prevState.filter(plan => plan._id !== _id));
+      if (isNaN(Number(_id))) {
+        setDeletePlans(prevState => prevState.concat(_id));
+      }
+    },
+    [setDeletePlans, setEditingPlans],
   );
   const onDragEnd = (params: DragEndParams<EditingVolume>) =>
     setEditingVolumes(params.data);
