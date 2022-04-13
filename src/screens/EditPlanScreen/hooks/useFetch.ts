@@ -4,9 +4,13 @@ import dayjs from 'dayjs';
 import { useCallback, useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 
+import useDeletePlanMutation from '@src/operations/mutations/deletePlan';
 import { useMultipleCreateOrUpdatePlansMutation } from '@src/operations/mutations/multipleCreateOrUpdatePlans';
 import { plansState } from '@src/recoils';
-import { editingPlans as editingPlansAtom } from '@src/screens/EditPlanScreen/recoils';
+import {
+  deletePlansState,
+  editingPlansState,
+} from '@src/screens/EditPlanScreen/recoils';
 import { EditingPlan } from '@src/types';
 import { Plan } from '@src/types/graphql';
 import {
@@ -33,12 +37,23 @@ const useFetch = ({
   const { validation } = useValidation();
   const [multipleCreateOrUpdatePlans, { data, loading }] =
     useMultipleCreateOrUpdatePlansMutation();
+  const [deletePlan] = useDeletePlanMutation();
   const [plans, setPlans] = useRecoilState<Plan[]>(plansState);
   const [editingPlans, setEditingPlans] =
-    useRecoilState<EditingPlan[]>(editingPlansAtom);
+    useRecoilState<EditingPlan[]>(editingPlansState);
+  const [deletePlans, setDeletePlans] =
+    useRecoilState<string[]>(deletePlansState);
 
   const submit = useCallback(async () => {
     if (validation()) {
+      await Promise.all(
+        deletePlans.map(planID =>
+          deletePlan({
+            variables: { _id: planID },
+          }),
+        ),
+      );
+
       await multipleCreateOrUpdatePlans({
         variables: {
           inputs: editingPlans.map(plan => ({
@@ -53,7 +68,14 @@ const useFetch = ({
         },
       });
     }
-  }, [editingPlans, multipleCreateOrUpdatePlans, plannedAt, validation]);
+  }, [
+    deletePlan,
+    deletePlans,
+    editingPlans,
+    multipleCreateOrUpdatePlans,
+    plannedAt,
+    validation,
+  ]);
 
   useEffect(() => {
     const filteredPlans = plans.filter(plan =>
@@ -74,8 +96,6 @@ const useFetch = ({
         })),
       );
     }
-
-    return () => setEditingPlans([]);
   }, [plans, plannedAt, setEditingPlans]);
 
   useEffect(() => {
@@ -86,12 +106,21 @@ const useFetch = ({
         );
 
         return prevPlans
+          .filter(({ _id }) => !deletePlans.includes(_id))
           .filter(({ _id }) => !plansIds.includes(_id))
           .concat(data.multipleCreateOrUpdatePlans);
       });
       getSBDOneRM();
     }
-  }, [data, getSBDOneRM, setEditingPlans, setPlans]);
+  }, [data, deletePlans, getSBDOneRM, setEditingPlans, setPlans]);
+
+  useEffect(
+    () => () => {
+      setEditingPlans([]);
+      setDeletePlans([]);
+    },
+    [setDeletePlans, setEditingPlans],
+  );
 
   return {
     loading,

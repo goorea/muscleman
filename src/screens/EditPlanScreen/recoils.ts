@@ -2,21 +2,21 @@ import { atom, selectorFamily } from 'recoil';
 
 import { EditingPlan, EditingVolume } from '@src/types';
 
-export const editingPlans = atom<EditingPlan[]>({
-  key: 'editingPlans',
+export const editingPlansState = atom<EditingPlan[]>({
+  key: 'editingPlansState',
   default: [],
 });
 
 export const editingVolumesState = selectorFamily<EditingVolume[], string>({
-  key: 'editingVolumes',
+  key: 'editingVolumesState',
   get:
     planID =>
     ({ get }) =>
-      get(editingPlans).find(plan => plan._id === planID)?.volumes || [],
+      get(editingPlansState).find(plan => plan._id === planID)?.volumes || [],
   set:
     planID =>
     ({ set }, newValue) => {
-      set(editingPlans, prevValue =>
+      set(editingPlansState, prevValue =>
         prevValue.map(plan =>
           plan._id === planID
             ? {
@@ -30,7 +30,7 @@ export const editingVolumesState = selectorFamily<EditingVolume[], string>({
 });
 
 export const selectedEditingVolumeIDState = atom<string>({
-  key: 'selectedEditingVolumeID',
+  key: 'selectedEditingVolumeIDState',
   default: '',
 });
 
@@ -56,4 +56,9 @@ export const selectedEditingVolumeState = selectorFamily<
         ),
       );
     },
+});
+
+export const deletePlansState = atom<string[]>({
+  key: 'deletePlansState',
+  default: [],
 });

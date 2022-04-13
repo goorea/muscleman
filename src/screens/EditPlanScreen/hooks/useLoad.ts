@@ -3,8 +3,8 @@ import { MutableRefObject, useCallback, useRef } from 'react';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 
 import { PreviousPlansModalElement } from '@src/components/PreviousPlansModal';
-import { selectedPlans as selectedPlansAtom } from '@src/components/PreviousPlansModal/recoils';
-import { editingPlans as editingPlansAtom } from '@src/screens/EditPlanScreen/recoils';
+import { selectedPlansState } from '@src/components/PreviousPlansModal/recoils';
+import { editingPlansState } from '@src/screens/EditPlanScreen/recoils';
 import { EditingPlan } from '@src/types';
 import { Plan } from '@src/types/graphql';
 
@@ -17,8 +17,8 @@ const useLoad = (
 } => {
   const previousPlansModalRef = useRef<PreviousPlansModalElement>(null);
   const [selectedPlans, setSelectedPlans] =
-    useRecoilState<Plan[]>(selectedPlansAtom);
-  const setEditingPlans = useSetRecoilState<EditingPlan[]>(editingPlansAtom);
+    useRecoilState<Plan[]>(selectedPlansState);
+  const setEditingPlans = useSetRecoilState<EditingPlan[]>(editingPlansState);
 
   const showPreviousPlans = useCallback(
     () => previousPlansModalRef.current?.show(),

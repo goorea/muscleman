@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useRecoilState } from 'recoil';
 
-import { selectedPlans as selectedPlansAtom } from '@src/components/PreviousPlansModal/recoils';
+import { selectedPlansState } from '@src/components/PreviousPlansModal/recoils';
 import { Plan } from '@src/types/graphql';
 
 const useSelect = (
@@ -11,7 +11,7 @@ const useSelect = (
   onToggleSelect: () => void;
 } => {
   const [selectedPlans, setSelectedPlans] =
-    useRecoilState<Plan[]>(selectedPlansAtom);
+    useRecoilState<Plan[]>(selectedPlansState);
   const selectedPlansIds = selectedPlans.map(({ _id }) => _id);
   const selected = plans.every(({ _id }) => selectedPlansIds.includes(_id));
 

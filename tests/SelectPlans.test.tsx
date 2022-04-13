@@ -2,7 +2,7 @@ import { act, fireEvent, render } from '@testing-library/react-native';
 import dayjs from 'dayjs';
 import React from 'react';
 
-import { selectedPlans } from '@src/components/PreviousPlansModal/recoils';
+import { selectedPlansState } from '@src/components/PreviousPlansModal/recoils';
 import RecoilObserver from '@src/components/RecoilObserver';
 import SelectPlans from '@src/components/SelectPlans';
 import { planFactory, wrapper } from '@tests/functions';
@@ -14,7 +14,7 @@ describe('SelectPlans 컴포넌트', () => {
   const rendered = () =>
     render(
       <>
-        <RecoilObserver node={selectedPlans} onChange={onChange} />
+        <RecoilObserver node={selectedPlansState} onChange={onChange} />
         <SelectPlans plannedAt={plannedAt} plans={plans} />
       </>,
       { wrapper },

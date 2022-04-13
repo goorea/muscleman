@@ -34,7 +34,7 @@ const useSBDOneRM = (
       flash({
         type: 'success',
         title: '운동 계획 완료',
-        contents: '운동 계획을 생성했습니다',
+        contents: '운동을 계획 했습니다.',
       });
       navigation.goBack();
     }

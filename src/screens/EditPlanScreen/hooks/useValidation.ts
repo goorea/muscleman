@@ -1,12 +1,27 @@
 import { useRecoilValue } from 'recoil';
 
 import { flash } from '@src/functions';
-import { editingPlans as editingPlansAtom } from '@src/screens/EditPlanScreen/recoils';
+import {
+  deletePlansState,
+  editingPlansState,
+} from '@src/screens/EditPlanScreen/recoils';
 import { EditingPlan } from '@src/types';
 
 const useValidation = (): { validation: () => boolean } => {
-  const editingPlans = useRecoilValue<EditingPlan[]>(editingPlansAtom);
+  const editingPlans = useRecoilValue<EditingPlan[]>(editingPlansState);
+  const deletePlans = useRecoilValue<string[]>(deletePlansState);
+
   const validation = () => {
+    if (!editingPlans.length && !deletePlans.length) {
+      flash({
+        type: 'error',
+        title: '유효성 검사에 실패했습니다.',
+        contents: '변경할 사항을 추가해야합니다.',
+      });
+
+      return false;
+    }
+
     if (editingPlans.some(plan => plan.volumes.length === 0)) {
       flash({
         type: 'error',

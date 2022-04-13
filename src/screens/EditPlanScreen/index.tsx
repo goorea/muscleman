@@ -62,7 +62,6 @@ const EditPlanScreen: React.FC<P> = ({ navigation, route }) => {
             title="확인"
             onPress={submit}
             loading={loading}
-            disabled={editingPlans.length === 0}
           />
         </ButtonWrapper>
 

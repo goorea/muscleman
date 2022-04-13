@@ -4,7 +4,7 @@ import { useRecoilValue } from 'recoil';
 import Text from '@src/components/Text';
 import { useTheme } from '@src/contexts/ThemeProvider';
 import {
-  editingPlans,
+  editingPlansState,
   selectedEditingVolumeIDState,
 } from '@src/screens/EditPlanScreen/recoils';
 import { EditingPlan } from '@src/types';
@@ -29,7 +29,7 @@ const VolumeKeyboard: React.FC<P> = () => {
     selectedEditingVolumeIDState,
   );
   const planID =
-    useRecoilValue<EditingPlan[]>(editingPlans).find(plan =>
+    useRecoilValue<EditingPlan[]>(editingPlansState).find(plan =>
       plan.volumes.some(({ _id }) => _id === selectedEditingVolumeID),
     )?._id || '';
 

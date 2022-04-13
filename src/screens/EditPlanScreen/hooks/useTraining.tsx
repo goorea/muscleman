@@ -5,7 +5,7 @@ import React, { useCallback, useEffect, useMemo } from 'react';
 import { useSetRecoilState } from 'recoil';
 
 import Icon from '@src/components/Icon';
-import { editingPlans as editingPlansAtom } from '@src/screens/EditPlanScreen/recoils';
+import { editingPlansState } from '@src/screens/EditPlanScreen/recoils';
 import { EditingPlan } from '@src/types';
 import {
   PlanningStackParamList,
@@ -25,7 +25,7 @@ const useTraining = ({
   node: React.ReactElement;
 } => {
   const { plannedAt } = route.params;
-  const setEditingPlans = useSetRecoilState<EditingPlan[]>(editingPlansAtom);
+  const setEditingPlans = useSetRecoilState<EditingPlan[]>(editingPlansState);
 
   useEffect(() => {
     const trainings = route.params.trainings;
