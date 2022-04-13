@@ -1,7 +1,7 @@
 import { act, fireEvent, render } from '@testing-library/react-native';
 import React from 'react';
 
-import { selectedPlans } from '@src/components/PreviousPlansModal/recoils';
+import { selectedPlansState } from '@src/components/PreviousPlansModal/recoils';
 import RecoilObserver from '@src/components/RecoilObserver';
 import SelectPlan from '@src/components/SelectPlan';
 import { TrainingType } from '@src/types/graphql';
@@ -30,7 +30,7 @@ describe('SelectPlan 컴포넌트', () => {
   const rendered = () =>
     render(
       <>
-        <RecoilObserver node={selectedPlans} onChange={onChange} />
+        <RecoilObserver node={selectedPlansState} onChange={onChange} />
         <SelectPlan plan={plan} />
       </>,
       { wrapper },

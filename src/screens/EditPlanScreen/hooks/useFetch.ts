@@ -6,7 +6,7 @@ import { useRecoilState } from 'recoil';
 
 import { useMultipleCreateOrUpdatePlansMutation } from '@src/operations/mutations/multipleCreateOrUpdatePlans';
 import { plansState } from '@src/recoils';
-import { editingPlans as editingPlansAtom } from '@src/screens/EditPlanScreen/recoils';
+import { editingPlansState } from '@src/screens/EditPlanScreen/recoils';
 import { EditingPlan } from '@src/types';
 import { Plan } from '@src/types/graphql';
 import {
@@ -35,7 +35,7 @@ const useFetch = ({
     useMultipleCreateOrUpdatePlansMutation();
   const [plans, setPlans] = useRecoilState<Plan[]>(plansState);
   const [editingPlans, setEditingPlans] =
-    useRecoilState<EditingPlan[]>(editingPlansAtom);
+    useRecoilState<EditingPlan[]>(editingPlansState);
 
   const submit = useCallback(async () => {
     if (validation()) {

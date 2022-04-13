@@ -18,7 +18,7 @@ export const SBDOneRMState = atom<SBDOneRM>({
 });
 
 export const plansState = atom<Plan[]>({
-  key: 'plans',
+  key: 'plansState',
   default: [],
 });
 

@@ -11,7 +11,7 @@ import Button from '@src/components/Button';
 import EditPlan from '@src/components/EditPlan';
 import Icon from '@src/components/Icon';
 import Text from '@src/components/Text';
-import { editingPlans as editingPlansAtom } from '@src/screens/EditPlanScreen/recoils';
+import { editingPlansState } from '@src/screens/EditPlanScreen/recoils';
 import { EditingPlan } from '@src/types';
 
 import {
@@ -28,7 +28,7 @@ const useDraggableFlistList = (
   renderItem: RenderItem<EditingPlan>;
   ListHeaderComponent: () => ReactElement;
 } => {
-  const setEditingPlans = useSetRecoilState<EditingPlan[]>(editingPlansAtom);
+  const setEditingPlans = useSetRecoilState<EditingPlan[]>(editingPlansState);
 
   const onDragEnd = (params: DragEndParams<EditingPlan>) => {
     setEditingPlans(params.data);

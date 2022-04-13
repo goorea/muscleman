@@ -1,11 +1,11 @@
 import { useRecoilValue } from 'recoil';
 
 import { flash } from '@src/functions';
-import { editingPlans as editingPlansAtom } from '@src/screens/EditPlanScreen/recoils';
+import { editingPlansState } from '@src/screens/EditPlanScreen/recoils';
 import { EditingPlan } from '@src/types';
 
 const useValidation = (): { validation: () => boolean } => {
-  const editingPlans = useRecoilValue<EditingPlan[]>(editingPlansAtom);
+  const editingPlans = useRecoilValue<EditingPlan[]>(editingPlansState);
   const validation = () => {
     if (editingPlans.some(plan => plan.volumes.length === 0)) {
       flash({
