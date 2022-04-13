@@ -1,20 +1,20 @@
 import { useLazyQuery } from '@apollo/client';
 import { pick } from 'lodash';
-import { Dispatch, SetStateAction, useCallback, useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 
 import { useMultipleCreateOrUpdatePlansMutation } from '@src/operations/mutations/multipleCreateOrUpdatePlans';
 import { GET_SBD_ONE_RM, SBDOneRM } from '@src/operations/queries/getOneRM';
-import { SBDOneRMState } from '@src/recoils';
+import { planState, SBDOneRMState } from '@src/recoils';
 import { Plan } from '@src/types/graphql';
 
 const useToggleComplete = (
   plan: Plan,
-  setPlan: Dispatch<SetStateAction<Plan>>,
 ): {
   loading: boolean;
   onToggleComplete: () => Promise<void>;
 } => {
+  const setPlan = useSetRecoilState<Plan | undefined>(planState(plan._id));
   const setSBDOneRM = useSetRecoilState<SBDOneRM>(SBDOneRMState);
   const [multipleCreateOrUpdatePlans, { loading }] =
     useMultipleCreateOrUpdatePlansMutation();
@@ -23,6 +23,7 @@ const useToggleComplete = (
   });
   const complete =
     plan.volumes && !plan.volumes.every(volume => volume.complete);
+
   const onToggleComplete = useCallback(async () => {
     await multipleCreateOrUpdatePlans({
       variables: {
@@ -47,11 +48,15 @@ const useToggleComplete = (
       },
     });
 
-    setPlan(prevState => ({
-      ...prevState,
-      volumes:
-        prevState.volumes?.map(volume => ({ ...volume, complete })) || [],
-    }));
+    setPlan(prevPlan => {
+      if (prevPlan) {
+        return {
+          ...prevPlan,
+          volumes:
+            prevPlan.volumes?.map(volume => ({ ...volume, complete })) || [],
+        };
+      }
+    });
 
     if (
       ['바벨 백스쿼트', '벤치 프레스', '데드리프트'].includes(
