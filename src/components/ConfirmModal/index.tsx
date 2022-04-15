@@ -49,7 +49,12 @@ const ConfirmModal: React.ForwardRefRenderFunction<ConfirmModalElement, P> = (
         <Overlay onPress={hide} />
 
         <Container>
-          <CloseButton type="clear" onPress={hide} icon={{ name: 'close' }} />
+          <CloseButton
+            testID="closeButton"
+            type="clear"
+            onPress={hide}
+            icon={{ name: 'close' }}
+          />
 
           <MessageContainer>
             <Text>{message}</Text>
