@@ -8,6 +8,7 @@ const useIconProps = (
   editIconProps: IconProps;
   dragIconProps: IconProps;
   completeIconProps: IconProps;
+  copyIconProps: IconProps;
   deleteIconProps: IconProps;
 } => ({
   editIconProps: useMemo<IconProps>(
@@ -26,6 +27,15 @@ const useIconProps = (
       color: complete ? 'success' : 'warning',
     }),
     [complete],
+  ),
+  copyIconProps: useMemo<IconProps>(
+    () => ({
+      type: 'ionicon',
+      name: 'copy',
+      color: 'success',
+      size: 16,
+    }),
+    [],
   ),
   deleteIconProps: useMemo<IconProps>(
     () => ({

@@ -1,4 +1,9 @@
-import { gql } from '@apollo/client';
+import { gql, QueryResult, useLazyQuery } from '@apollo/client';
+import { OperationVariables } from '@apollo/client/core';
+import { QueryLazyOptions } from '@apollo/client/react/types/types';
+import { useSetRecoilState } from 'recoil';
+
+import { SBDOneRMState } from '@src/recoils';
 
 export const GET_ONE_RM = gql`
   query getOneRM($name: String!) {
@@ -19,3 +24,22 @@ export const GET_SBD_ONE_RM = gql`
     deadlift: getOneRM(name: "데드리프트")
   }
 `;
+
+export const useSBDOneRM = (
+  callback: () => any | undefined = () => null,
+): [
+  (options?: QueryLazyOptions<OperationVariables>) => void,
+  Pick<QueryResult<SBDOneRM>, 'loading'>,
+] => {
+  const setSBDOneRM = useSetRecoilState<SBDOneRM>(SBDOneRMState);
+
+  const [getSBDOneRM, { loading }] = useLazyQuery<SBDOneRM>(GET_SBD_ONE_RM, {
+    fetchPolicy: 'network-only',
+    onCompleted: data => {
+      setSBDOneRM(data);
+      callback();
+    },
+  });
+
+  return [getSBDOneRM, { loading }];
+};
