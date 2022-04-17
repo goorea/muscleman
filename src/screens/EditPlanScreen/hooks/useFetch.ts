@@ -2,8 +2,9 @@ import { CompositeScreenProps } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import dayjs from 'dayjs';
 import { useCallback, useEffect } from 'react';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 
+import { flash } from '@src/functions';
 import useDeletePlanMutation from '@src/operations/mutations/deletePlan';
 import { useMultipleCreateOrUpdatePlansMutation } from '@src/operations/mutations/multipleCreateOrUpdatePlans';
 import { plansState } from '@src/recoils';
@@ -18,7 +19,6 @@ import {
   RootStackParamList,
 } from '@src/types/navigation';
 
-import useSBDOneRM from './useSBDOneRM';
 import useValidation from './useValidation';
 
 const useFetch = ({
@@ -33,12 +33,18 @@ const useFetch = ({
   submit: () => void;
 } => {
   const { plannedAt } = route.params;
-  const { getSBDOneRM } = useSBDOneRM(navigation);
   const { validation } = useValidation();
-  const [multipleCreateOrUpdatePlans, { data, loading }] =
-    useMultipleCreateOrUpdatePlansMutation();
+  const [multipleCreateOrUpdatePlans, { loading }] =
+    useMultipleCreateOrUpdatePlansMutation(() => {
+      flash({
+        type: 'success',
+        title: '운동 계획 완료',
+        contents: '운동을 계획 했습니다.',
+      });
+      navigation.goBack();
+    });
   const [deletePlan] = useDeletePlanMutation();
-  const [plans, setPlans] = useRecoilState<Plan[]>(plansState);
+  const plans = useRecoilValue<Plan[]>(plansState);
   const [editingPlans, setEditingPlans] =
     useRecoilState<EditingPlan[]>(editingPlansState);
   const [deletePlans, setDeletePlans] =
@@ -97,22 +103,6 @@ const useFetch = ({
       );
     }
   }, [plans, plannedAt, setEditingPlans]);
-
-  useEffect(() => {
-    if (data) {
-      setPlans(prevPlans => {
-        const plansIds = (data.multipleCreateOrUpdatePlans as Plan[]).map(
-          ({ _id }) => _id,
-        );
-
-        return prevPlans
-          .filter(({ _id }) => !deletePlans.includes(_id))
-          .filter(({ _id }) => !plansIds.includes(_id))
-          .concat(data.multipleCreateOrUpdatePlans);
-      });
-      getSBDOneRM();
-    }
-  }, [data, deletePlans, getSBDOneRM, setEditingPlans, setPlans]);
 
   useEffect(
     () => () => {
