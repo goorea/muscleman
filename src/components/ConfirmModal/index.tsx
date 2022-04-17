@@ -25,6 +25,7 @@ type P = {
   onCancel?: () => void;
   confirmText?: string;
   cancelText?: string;
+  loading?: boolean;
 };
 
 const ConfirmModal: React.ForwardRefRenderFunction<ConfirmModalElement, P> = (
@@ -34,6 +35,7 @@ const ConfirmModal: React.ForwardRefRenderFunction<ConfirmModalElement, P> = (
     onCancel = () => null,
     confirmText = '확인',
     cancelText = '취소',
+    loading = false,
   },
   ref,
 ) => {
@@ -62,7 +64,11 @@ const ConfirmModal: React.ForwardRefRenderFunction<ConfirmModalElement, P> = (
 
           <ButtonWrapper>
             <StyledButton title={cancelText} onPress={hide} type="outline" />
-            <StyledButton title={confirmText} onPress={onConfirm} />
+            <StyledButton
+              title={confirmText}
+              onPress={onConfirm}
+              loading={loading}
+            />
           </ButtonWrapper>
         </Container>
       </ModalContainer>
