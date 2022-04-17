@@ -15,6 +15,7 @@ type P = {
   onSelectDate: (date: string) => void;
   completeDates: string[];
   plannedDates: string[];
+  disableDates?: string[];
 };
 
 const PlanCalendar: React.FC<P> = ({
@@ -22,6 +23,7 @@ const PlanCalendar: React.FC<P> = ({
   onSelectDate,
   completeDates,
   plannedDates,
+  disableDates = [],
 }) => {
   const { theme } = useTheme();
 
@@ -40,6 +42,7 @@ const PlanCalendar: React.FC<P> = ({
           {...props}
           completeDates={completeDates}
           plannedDates={plannedDates}
+          disabledDates={disableDates}
         />
       )}
       WeekdaysComponent={PlanCalendarWeekdays}
