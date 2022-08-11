@@ -18,9 +18,10 @@ import { useLoginMutation } from '@src/operations/mutations/login';
 import { userState } from '@src/recoils';
 import { AuthStackParamList, RootStackParamList } from '@src/types/navigation';
 
+import useSetRecoilStates from '../../hooks/useSetRecoilStates';
+
 import useRenders from './hooks/useRenders';
 import useRules from './hooks/useRules';
-import useSetRecoilStates from './hooks/useSetRecoilStates';
 import useSuccess from './hooks/useSuccess';
 import {
   Container,
@@ -73,7 +74,7 @@ const LoginScreen: React.FC<P> = ({ navigation }) => {
   );
   const onFindPassword = useCallback(() => {}, []);
 
-  useSetRecoilStates(data);
+  useSetRecoilStates(data?.login);
   useSuccess(navigation, user);
 
   return (

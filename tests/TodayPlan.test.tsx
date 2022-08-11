@@ -39,6 +39,7 @@ describe('TodayPlan 컴포넌트', () => {
       volumeFactory(plan, {
         weight: 90,
         count: 5,
+        complete: false,
       }),
     );
     const { toJSON } = render(<TodayPlan plan={plan} />, { wrapper });

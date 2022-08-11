@@ -9,9 +9,9 @@ import {
   SBDOneRmAndPlans,
 } from '@src/operations/queries/getSBDOneRMAndPlans';
 import { SBDOneRMState, plansState, userState } from '@src/recoils';
-import { Mutation, Plan } from '@src/types/graphql';
+import { AuthenticationResponse, Plan } from '@src/types/graphql';
 
-const useSetRecoilStates = (loginData?: Pick<Mutation, 'login'> | null) => {
+const useSetRecoilStates = (loginData?: AuthenticationResponse) => {
   const setUser = useSetRecoilState(userState);
   const setSBDOneRM = useSetRecoilState<SBDOneRM>(SBDOneRMState);
   const setPlans = useSetRecoilState<Plan[]>(plansState);
@@ -21,7 +21,7 @@ const useSetRecoilStates = (loginData?: Pick<Mutation, 'login'> | null) => {
 
   useEffect(() => {
     if (loginData) {
-      const { token, refreshToken, user } = loginData.login;
+      const { token, refreshToken, user } = loginData;
 
       AsyncStorage.multiSet([
         ['@token', token],
