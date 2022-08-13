@@ -13,6 +13,7 @@ export const CORE_USER_FIELDS = gql`
     tel
     profileImagePath
     roles
+    provider
   }
 `;
 
