@@ -4,6 +4,7 @@ import { MutationFunctionOptions, MutationResult } from '@apollo/client/react';
 
 import { AUTHENTICATION_RESPONSE_FIELDS } from '@src/fragments/user';
 import useErrorEffect from '@src/hooks/useErrorEffect';
+import useSetRecoilStates from '@src/hooks/useSetRecoilStates';
 import { Mutation, MutationSocialLoginArgs } from '@src/types/graphql';
 
 export const SOCIAL_LOGIN = gql`
@@ -30,6 +31,7 @@ export const useSocialLoginMutation = (): [
   >(SOCIAL_LOGIN);
 
   useErrorEffect(error);
+  useSetRecoilStates(data?.socialLogin);
 
   return [socialLogin, { data, loading }];
 };

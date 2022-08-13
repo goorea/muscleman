@@ -20,6 +20,20 @@
 		B8A810A62716EB49006D292F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B8A810A52716EB49006D292F /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXBuildRule section */
+		EB5E45E028A6D98F00108CA6 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = sourcecode.swift;
+			inputFiles = (
+			);
+			isEditable = 1;
+			outputFiles = (
+			);
+			script = "# $(SWIFT_EXEC)\n";
+		};
+/* End PBXBuildRule section */
+
 /* Begin PBXContainerItemProxy section */
 		00E356F41AD99517003FC87E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -50,6 +64,7 @@
 		83DCC6E760B324AD69EE59B0 /* Pods-muscleman.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-muscleman.release.xcconfig"; path = "Target Support Files/Pods-muscleman/Pods-muscleman.release.xcconfig"; sourceTree = "<group>"; };
 		B8A810A52716EB49006D292F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "muscleman/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CD3E3BA0CD203F9D139579F5 /* libPods-muscleman-musclemanTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-muscleman-musclemanTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB5E45DF28A6D59700108CA6 /* muscleman-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "muscleman-Bridging-Header.h"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FDD67A14A27D4E8CA85A1EFE /* SpoqaHanSansNeo-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SpoqaHanSansNeo-Regular.ttf"; path = "../src/assets/fonts/SpoqaHanSansNeo-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,6 +150,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				EB5E45DF28A6D59700108CA6 /* muscleman-Bridging-Header.h */,
 				13B07FAE1A68108700A75B9A /* muscleman */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* musclemanTests */,
@@ -208,6 +224,7 @@
 				ABB9A07153854C98859DD8D9 /* Upload Debug Symbols to Sentry */,
 			);
 			buildRules = (
+				EB5E45E028A6D98F00108CA6 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);

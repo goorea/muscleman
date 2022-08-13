@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.6.2)
   - AppAuth (1.5.0):
     - AppAuth/Core (= 1.5.0)
     - AppAuth/ExternalUserAgent (= 1.5.0)
@@ -170,6 +171,45 @@ PODS:
     - AppAuth/Core (~> 1.4)
     - GTMSessionFetcher/Core (~> 1.5)
   - GTMSessionFetcher/Core (1.7.2)
+  - kakao-login (4.2.3):
+    - KakaoSDK (= 2.9.0)
+    - KakaoSDKAuth (= 2.9.0)
+    - KakaoSDKCommon (= 2.9.0)
+    - KakaoSDKTalk (= 2.9.0)
+    - KakaoSDKUser (= 2.9.0)
+    - React
+  - KakaoSDK (2.9.0):
+    - KakaoSDKAuth (= 2.9.0)
+    - KakaoSDKCommon (= 2.9.0)
+    - KakaoSDKLink (= 2.9.0)
+    - KakaoSDKNavi (= 2.9.0)
+    - KakaoSDKStory (= 2.9.0)
+    - KakaoSDKTalk (= 2.9.0)
+    - KakaoSDKTemplate (= 2.9.0)
+    - KakaoSDKUser (= 2.9.0)
+  - KakaoSDKAuth (2.9.0):
+    - KakaoSDKCommon (= 2.9.0)
+  - KakaoSDKCommon (2.9.0):
+    - KakaoSDKCommon/Common (= 2.9.0)
+    - KakaoSDKCommon/Network (= 2.9.0)
+  - KakaoSDKCommon/Common (2.9.0)
+  - KakaoSDKCommon/Network (2.9.0):
+    - Alamofire (~> 5.1)
+    - KakaoSDKCommon/Common (= 2.9.0)
+  - KakaoSDKLink (2.9.0):
+    - KakaoSDKCommon (= 2.9.0)
+    - KakaoSDKTemplate (= 2.9.0)
+  - KakaoSDKNavi (2.9.0):
+    - KakaoSDKCommon/Common (= 2.9.0)
+  - KakaoSDKStory (2.9.0):
+    - KakaoSDKUser (= 2.9.0)
+  - KakaoSDKTalk (2.9.0):
+    - KakaoSDKTemplate (= 2.9.0)
+    - KakaoSDKUser (= 2.9.0)
+  - KakaoSDKTemplate (2.9.0):
+    - KakaoSDKCommon/Common (= 2.9.0)
+  - KakaoSDKUser (2.9.0):
+    - KakaoSDKAuth (= 2.9.0)
   - libevent (2.1.12)
   - libwebp (1.2.1):
     - libwebp/demux (= 1.2.1)
@@ -562,6 +602,7 @@ DEPENDENCIES:
   - FlipperKit/FlipperKitUserDefaultsPlugin (= 0.99.0)
   - FlipperKit/SKIOSNetworkPlugin (= 0.99.0)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
+  - "kakao-login (from `../node_modules/@react-native-seoul/kakao-login`)"
   - RCT-Folly (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
   - RCTTypeSafety (from `../node_modules/react-native/Libraries/TypeSafety`)
@@ -609,6 +650,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - AppAuth
     - CocoaAsyncSocket
     - Firebase
@@ -632,6 +674,15 @@ SPEC REPOS:
     - GoogleUtilities
     - GTMAppAuth
     - GTMSessionFetcher
+    - KakaoSDK
+    - KakaoSDKAuth
+    - KakaoSDKCommon
+    - KakaoSDKLink
+    - KakaoSDKNavi
+    - KakaoSDKStory
+    - KakaoSDKTalk
+    - KakaoSDKTemplate
+    - KakaoSDKUser
     - libevent
     - libwebp
     - nanopb
@@ -655,6 +706,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/React/FBReactNativeSpec"
   glog:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
+  kakao-login:
+    :path: "../node_modules/@react-native-seoul/kakao-login"
   RCT-Folly:
     :podspec: "../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec"
   RCTRequired:
@@ -741,6 +794,7 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
+  Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
   AppAuth: 80317d99ac7ff2801a2f18ff86b48cd315ed465d
   boost: a7c83b31436843459a1961bfd74b96033dc77234
   BVLinearGradient: e3aad03778a456d77928f594a649e96995f1c872
@@ -770,6 +824,16 @@ SPEC CHECKSUMS:
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   GTMAppAuth: 4d8f864896f3646f0c33baf38a28362f4c601e15
   GTMSessionFetcher: 5595ec75acf5be50814f81e9189490412bad82ba
+  kakao-login: 6c75ad420e66f0708eb109d39212650906bd39f2
+  KakaoSDK: d5a5a38ebf4da97beeecf100ac3dc9a020e19648
+  KakaoSDKAuth: 5d9eec3317320dc60015ba8d597b2ad32fc70b1a
+  KakaoSDKCommon: aaed06bb779b92cd6f5c35e94160d4ecfaaac511
+  KakaoSDKLink: 575d1119427a7b278eb49da656f8d648a0a94411
+  KakaoSDKNavi: 8b767610d59fc044f1f5df3f29c89688a446a1fc
+  KakaoSDKStory: a494a364a3539601289d01aadd117f165f39d7b2
+  KakaoSDKTalk: b0ac197fd7fce4afc9af3f012c1abee7f053c910
+  KakaoSDKTemplate: eaf03ad5e44d374cbfff85588552a5627cd0519c
+  KakaoSDKUser: 37e92bfc1d36b339420952080a8d31c217a38a63
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   libwebp: 98a37e597e40bfdb4c911fc98f2c53d0b12d05fc
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96

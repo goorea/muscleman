@@ -6,7 +6,6 @@ import React, { ReactElement, useMemo } from 'react';
 import { getUniqueId } from 'react-native-device-info';
 
 import SocialIcon from '@src/components/SocialIcon';
-import useSetRecoilStates from '@src/hooks/useSetRecoilStates';
 import { useSocialLoginMutation } from '@src/operations/mutations/socialLogin';
 import { SocialProvider } from '@src/types/graphql';
 
@@ -27,7 +26,7 @@ const GoogleLogin: React.FC<P> = () => {
     [],
   );
 
-  const [socialLogin, { data }] = useSocialLoginMutation();
+  const [socialLogin] = useSocialLoginMutation();
 
   const signIn = async () => {
     try {
@@ -41,7 +40,7 @@ const GoogleLogin: React.FC<P> = () => {
             email: user.email,
             name: user.name || '',
             nickname: user.name,
-            provider: SocialProvider.Kakao,
+            provider: SocialProvider.Google,
           },
         },
       });
@@ -57,8 +56,6 @@ const GoogleLogin: React.FC<P> = () => {
       }
     }
   };
-
-  useSetRecoilStates(data?.socialLogin);
 
   return <SNSButton node={node} onPress={signIn} color="grey5" />;
 };
