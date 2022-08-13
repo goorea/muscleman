@@ -38,21 +38,31 @@
 				<string>kakao3c0232133a313051f27bfd92d53cb832</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>kr.muscleman</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>KAKAO_APP_KEY</key>
-    <string>3c0232133a313051f27bfd92d53cb832</string>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>storylink</string>
-        <string>kakaostory-2.9.0</string>
-        <string>storykompassauth</string>
-        <string>kakaotalk-4.5.0</string>
-        <string>kakaolink</string>
-        <string>kakao3c0232133a313051f27bfd92d53cb832</string>
-        <string>kakaokompassauth</string>
-    </array>
+	<string>3c0232133a313051f27bfd92d53cb832</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>storylink</string>
+		<string>kakaostory-2.9.0</string>
+		<string>storykompassauth</string>
+		<string>kakaotalk-4.5.0</string>
+		<string>kakaolink</string>
+		<string>kakao3c0232133a313051f27bfd92d53cb832</string>
+		<string>kakaokompassauth</string>
+		<string>naversearchapp</string>
+		<string>naversearchthirdlogin</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>

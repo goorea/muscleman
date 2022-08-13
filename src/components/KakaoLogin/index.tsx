@@ -8,6 +8,7 @@ import React, { ReactElement, useCallback, useMemo } from 'react';
 import { getUniqueId } from 'react-native-device-info';
 
 import SocialIcon from '@src/components/SocialIcon';
+import { flash } from '@src/functions';
 import { useSocialLoginMutation } from '@src/operations/mutations/socialLogin';
 import { SocialProvider } from '@src/types/graphql';
 
@@ -46,7 +47,11 @@ const KakaoLogin: React.FC<P> = () => {
         });
       }
     } catch (error: any) {
-      console.log(error.message);
+      flash({
+        type: 'error',
+        title: '소셜 로그인에 실패했습니다.',
+        contents: error.message,
+      });
     }
   }, [socialLogin]);
 

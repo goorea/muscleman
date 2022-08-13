@@ -17,6 +17,7 @@
     "@react-native-firebase/analytics": "^12.9.1",
     "@react-native-firebase/app": "^12.9.1",
     "@react-native-seoul/kakao-login": "4.2.3",
+    "@react-native-seoul/naver-login": "2.3.0",
     "@react-navigation/bottom-tabs": "^6.0.7",
     "@react-navigation/material-bottom-tabs": "^6.0.7",
     "@react-navigation/native": "^6.0.4",

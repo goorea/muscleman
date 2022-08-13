@@ -6,6 +6,7 @@ import React, { ReactElement, useMemo } from 'react';
 import { getUniqueId } from 'react-native-device-info';
 
 import SocialIcon from '@src/components/SocialIcon';
+import { flash } from '@src/functions';
 import { useSocialLoginMutation } from '@src/operations/mutations/socialLogin';
 import { SocialProvider } from '@src/types/graphql';
 
@@ -46,13 +47,29 @@ const GoogleLogin: React.FC<P> = () => {
       });
     } catch (error: any) {
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-        console.log('user cancelled the login flow');
+        flash({
+          type: 'error',
+          title: '소셜 로그인이 취소되었습니다.',
+          contents: error.message,
+        });
       } else if (error.code === statusCodes.IN_PROGRESS) {
-        console.log('operation (e.g. sign in) is in progress already');
+        flash({
+          type: 'error',
+          title: '소셜 로그인을 진행 중입니다.',
+          contents: error.message,
+        });
       } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-        console.log('play services not available or outdated');
+        flash({
+          type: 'error',
+          title: '구글 로그인을 사용할 수 없습니다.',
+          contents: error.message,
+        });
       } else {
-        console.log(error.message);
+        flash({
+          type: 'error',
+          title: '소셜 로그인에 실패했습니다.',
+          contents: error.message,
+        });
       }
     }
   };

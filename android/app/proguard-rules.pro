@@ -16,3 +16,6 @@
 
 # react-native-reanimated
 -keep class com.facebook.react.turbomodule.** { *; }
+-keep public class com.nhn.android.naverlogin.** {
+       public protected *;
+}
