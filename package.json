@@ -59,6 +59,7 @@
     "@graphql-codegen/typescript": "2.2.2",
     "@graphql-codegen/typescript-operations": "2.1.6",
     "@react-native-community/eslint-config": "^2.0.0",
+    "@sentry/react-native": "^4.2.3",
     "@testing-library/jest-native": "^4.0.2",
     "@testing-library/react-native": "^7.2.0",
     "@types/faker": "^5.5.9",
