@@ -1,4 +1,4 @@
-export {};
+import React from 'react';
 
 jest
   .mock('@react-native-async-storage/async-storage', () =>
@@ -71,4 +71,8 @@ jest
   .mock('react-native-draggable-flatlist', () =>
     require('react-native/Libraries/Components/View/View'),
   )
+  .mock('@sentry/react-native', () => ({
+    init: jest.fn(),
+    wrap: (children: React.ReactNode) => children,
+  }))
   .useFakeTimers();
