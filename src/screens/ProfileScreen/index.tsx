@@ -9,7 +9,7 @@ import Button from '@src/components/Button';
 import SocialIcon from '@src/components/SocialIcon';
 import Text from '@src/components/Text';
 import { userState } from '@src/recoils';
-import { Gender, SocialProvider, User } from '@src/types/graphql';
+import { Gender, User } from '@src/types/graphql';
 import { MainTabParamList, RootStackParamList } from '@src/types/navigation';
 
 import useEdit from './hooks/useEdit';
@@ -22,11 +22,11 @@ import {
   EditButton,
   EditProfileImage,
   EmailContainer,
+  FooterContainer,
   HeaderContainer,
   Info,
   InfoContainer,
   LoginButton,
-  FooterContainer,
   NicknameContainer,
   NicknameEmailContainer,
   NotLoginContainer,
@@ -82,14 +82,12 @@ const ProfileScreen: React.FC<P> = ({ navigation }) => {
             <EditButton onPress={edit} type="clear" icon={editIconProps} />
           </NicknameContainer>
           <EmailContainer>
-            <>
-              <SocialIcon
-                provider={SocialProvider.Naver}
-                size={18}
-                fill={true}
-              />
-              <Divider />
-            </>
+            {user.provider && (
+              <>
+                <SocialIcon provider={user.provider} size={18} fill={true} />
+                <Divider />
+              </>
+            )}
             <Text size={12} color="grey2">
               {user.email}
             </Text>
