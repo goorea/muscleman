@@ -14,11 +14,10 @@ import KakaoLogin from '@src/components/KakaoLogin';
 import KeyboardAvoidingScrollView from '@src/components/KeyboardAvoidingScrollView';
 import NaverLogin from '@src/components/NaverLogin';
 import Text from '@src/components/Text';
+import useSetRecoilStates from '@src/hooks/useSetRecoilStates';
 import { useLoginMutation } from '@src/operations/mutations/login';
 import { userState } from '@src/recoils';
 import { AuthStackParamList, RootStackParamList } from '@src/types/navigation';
-
-import useSetRecoilStates from '../../hooks/useSetRecoilStates';
 
 import useRenders from './hooks/useRenders';
 import useRules from './hooks/useRules';
