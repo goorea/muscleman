@@ -75,4 +75,9 @@ jest
     init: jest.fn(),
     wrap: (children: React.ReactNode) => children,
   }))
+  .mock('@react-native-community/google-signin', () => ({
+    GoogleSignin: {
+      configure: jest.fn(),
+    },
+  }))
   .useFakeTimers();

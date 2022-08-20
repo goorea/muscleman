@@ -12,6 +12,7 @@ import com.facebook.react.bridge.JSIModulePackage;
 import com.swmansion.reanimated.ReanimatedJSIModulePackage;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+import com.dooboolab.naverlogin.RNNaverLoginPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
