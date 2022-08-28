@@ -8,3 +8,14 @@
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
 # Add any project specific keep options here:
+
+# react-native-device-info
+-keepclassmembers class com.android.installreferrer.api.** {
+  *;
+}
+
+# react-native-reanimated
+-keep class com.facebook.react.turbomodule.** { *; }
+-keep public class com.nhn.android.naverlogin.** {
+       public protected *;
+}

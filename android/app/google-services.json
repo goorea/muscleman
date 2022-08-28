@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "999665329797",
+    "project_id": "muscleman",
+    "storage_bucket": "muscleman.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:999665329797:android:4f889c69533cbab9a0ebec",
+        "android_client_info": {
+          "package_name": "kr.muscleman"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "999665329797-dqv4v8ce0ouf2f7uabv8k52so6493bc9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kr.muscleman",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "999665329797-gp6jj1470l5f3r50158d38dg0slj76qt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqvpNSUAz1Aj1Dpk_nXILGuVQk5zgeitQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "999665329797-gp6jj1470l5f3r50158d38dg0slj76qt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

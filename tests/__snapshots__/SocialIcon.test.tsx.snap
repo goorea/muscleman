@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SocialIcon 컴포넌트 렌더링이 올바르게 된다 1`] = `
+<RNSVGSvgView
+  align="xMidYMid"
+  bbHeight={18.285714286}
+  bbWidth={20}
+  focusable={false}
+  height={18.285714286}
+  meetOrSlice={0}
+  minX={0}
+  minY={0}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      Object {
+        "flex": 0,
+        "height": 18,
+        "width": 20,
+      },
+    ]
+  }
+  vbHeight={25.6}
+  vbWidth={28}
+  width={20}
+>
+  <RNSVGGroup>
+    <RNSVGPath
+      d="M18.5 0 18.5 12.9 9.6 0 0 0 0 25.7 9.6 25.7 9.6 12.7 18.4 25.7 28 25.7 28 0 z"
+      fill={4294967295}
+      propList={
+        Array [
+          "fill",
+        ]
+      }
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;

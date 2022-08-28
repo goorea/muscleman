@@ -1,0 +1,337 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RegisterAccountScreen 컴포넌트 렌더링이 올바르게 된다 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Array [
+      Array [
+        Object {
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+        },
+      ],
+      Object {
+        "paddingBottom": 0,
+      },
+    ]
+  }
+>
+  <RCTScrollView>
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingBottom": 20,
+              "paddingLeft": 20,
+              "paddingRight": 20,
+              "paddingTop": 20,
+            },
+          ]
+        }
+      >
+        <Text
+          italic={false}
+          size={20}
+          style={
+            Array [
+              Object {
+                "color": "#000000",
+                "fontFamily": "SpoqaHanSansNeo-Bold",
+                "fontSize": 20,
+                "fontStyle": "normal",
+              },
+              Object {
+                "marginBottom": 20,
+              },
+            ]
+          }
+          weight="bold"
+        >
+          이메일과 비밀번호를 입력해주세요
+        </Text>
+        <View
+          style={
+            Array [
+              Object {},
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "baseline",
+                  "borderBottomColor": "#bbb",
+                  "borderBottomWidth": 1,
+                  "marginBottom": 4,
+                  "paddingBottom": 10,
+                  "paddingLeft": 0,
+                  "paddingRight": 0,
+                  "paddingTop": 10,
+                },
+              ]
+            }
+          >
+            <Text
+              collapsable={false}
+              color="foreground"
+              nativeID="animatedComponent"
+              onLayout={[Function]}
+              style={
+                Object {
+                  "color": "#000000",
+                  "fontFamily": "SpoqaHanSansNeo-Regular",
+                  "fontSize": 16,
+                  "transform": Array [
+                    Object {
+                      "translateX": 0,
+                    },
+                    Object {
+                      "translateY": 16,
+                    },
+                    Object {
+                      "scale": 1,
+                    },
+                  ],
+                }
+              }
+            >
+              이메일
+            </Text>
+            <TextInput
+              autoCompleteType="email"
+              autoFocus={true}
+              keyboardType="email-address"
+              label="이메일"
+              name="email"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onChangeText={[Function]}
+              onFocus={[Function]}
+              onSubmitEditing={[Function]}
+              returnKeyType="next"
+              style={
+                Array [
+                  Object {
+                    "color": "#000000",
+                    "fontFamily": "SpoqaHanSansNeo-Regular",
+                    "fontSize": 16,
+                    "paddingBottom": 0,
+                    "paddingLeft": 0,
+                    "paddingRight": 0,
+                    "paddingTop": 0,
+                    "width": "100%",
+                  },
+                ]
+              }
+              testID="emailField"
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {},
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "baseline",
+                  "borderBottomColor": "#bbb",
+                  "borderBottomWidth": 1,
+                  "marginBottom": 4,
+                  "paddingBottom": 10,
+                  "paddingLeft": 0,
+                  "paddingRight": 0,
+                  "paddingTop": 10,
+                },
+              ]
+            }
+          >
+            <Text
+              collapsable={false}
+              color="foreground"
+              nativeID="animatedComponent"
+              onLayout={[Function]}
+              style={
+                Object {
+                  "color": "#000000",
+                  "fontFamily": "SpoqaHanSansNeo-Regular",
+                  "fontSize": 16,
+                  "transform": Array [
+                    Object {
+                      "translateX": 0,
+                    },
+                    Object {
+                      "translateY": 16,
+                    },
+                    Object {
+                      "scale": 1,
+                    },
+                  ],
+                }
+              }
+            >
+              비밀번호
+            </Text>
+            <TextInput
+              label="비밀번호"
+              name="password"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onChangeText={[Function]}
+              onFocus={[Function]}
+              onSubmitEditing={[Function]}
+              returnKeyType="next"
+              secureTextEntry={true}
+              style={
+                Array [
+                  Object {
+                    "color": "#000000",
+                    "fontFamily": "SpoqaHanSansNeo-Regular",
+                    "fontSize": 16,
+                    "paddingBottom": 0,
+                    "paddingLeft": 0,
+                    "paddingRight": 0,
+                    "paddingTop": 0,
+                    "width": "100%",
+                  },
+                ]
+              }
+              testID="passwordField"
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {},
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "baseline",
+                  "borderBottomColor": "#bbb",
+                  "borderBottomWidth": 1,
+                  "marginBottom": 4,
+                  "paddingBottom": 10,
+                  "paddingLeft": 0,
+                  "paddingRight": 0,
+                  "paddingTop": 10,
+                },
+              ]
+            }
+          >
+            <Text
+              collapsable={false}
+              color="foreground"
+              nativeID="animatedComponent"
+              onLayout={[Function]}
+              style={
+                Object {
+                  "color": "#000000",
+                  "fontFamily": "SpoqaHanSansNeo-Regular",
+                  "fontSize": 16,
+                  "transform": Array [
+                    Object {
+                      "translateX": 0,
+                    },
+                    Object {
+                      "translateY": 16,
+                    },
+                    Object {
+                      "scale": 1,
+                    },
+                  ],
+                }
+              }
+            >
+              비밀번호 확인
+            </Text>
+            <TextInput
+              label="비밀번호 확인"
+              name="passwordConfirmation"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onChangeText={[Function]}
+              onFocus={[Function]}
+              onSubmitEditing={[Function]}
+              returnKeyType="next"
+              secureTextEntry={true}
+              style={
+                Array [
+                  Object {
+                    "color": "#000000",
+                    "fontFamily": "SpoqaHanSansNeo-Regular",
+                    "fontSize": 16,
+                    "paddingBottom": 0,
+                    "paddingLeft": 0,
+                    "paddingRight": 0,
+                    "paddingTop": 0,
+                    "width": "100%",
+                  },
+                ]
+              }
+              testID="passwordConfirmationField"
+            />
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    nativeID="animatedComponent"
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#2687ED",
+        "justifyContent": "center",
+        "marginTop": "auto",
+        "opacity": 1,
+        "paddingBottom": 14,
+        "paddingLeft": 20,
+        "paddingRight": 20,
+        "paddingTop": 14,
+      }
+    }
+  >
+    <Text
+      color="white"
+      italic={false}
+      size={16}
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SpoqaHanSansNeo-Bold",
+            "fontSize": 16,
+            "fontStyle": "normal",
+          },
+        ]
+      }
+      weight="bold"
+    >
+      다음
+    </Text>
+  </View>
+</View>
+`;

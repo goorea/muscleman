@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MaterialInput 컴포넌트 렌더링이 올바르게 된다 1`] = `
+<View
+  style={
+    Array [
+      Object {},
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "baseline",
+          "borderBottomColor": "#bbb",
+          "borderBottomWidth": 1,
+          "marginBottom": 4,
+          "paddingBottom": 10,
+          "paddingLeft": 0,
+          "paddingRight": 0,
+          "paddingTop": 10,
+        },
+      ]
+    }
+  >
+    <Text
+      collapsable={false}
+      color="foreground"
+      nativeID="animatedComponent"
+      onLayout={[Function]}
+      style={
+        Object {
+          "color": "#000000",
+          "fontFamily": "SpoqaHanSansNeo-Regular",
+          "fontSize": 16,
+          "transform": Array [
+            Object {
+              "translateX": 0,
+            },
+            Object {
+              "translateY": 16,
+            },
+            Object {
+              "scale": 1,
+            },
+          ],
+        }
+      }
+    >
+      이름
+    </Text>
+    <TextInput
+      label="이름"
+      onBlur={[Function]}
+      onChange={[MockFunction]}
+      onChangeText={[MockFunction]}
+      onFocus={[Function]}
+      style={
+        Array [
+          Object {
+            "color": "#000000",
+            "fontFamily": "SpoqaHanSansNeo-Regular",
+            "fontSize": 16,
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "width": "100%",
+          },
+        ]
+      }
+    />
+  </View>
+</View>
+`;
