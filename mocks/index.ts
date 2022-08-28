@@ -80,4 +80,10 @@ jest
       configure: jest.fn(),
     },
   }))
+  .mock('@invertase/react-native-apple-authentication', () => ({
+    appleAuth: {
+      performRequest: jest.fn(),
+      getCredentialStateForUser: jest.fn(),
+    },
+  }))
   .useFakeTimers();
