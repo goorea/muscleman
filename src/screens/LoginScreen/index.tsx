@@ -4,6 +4,7 @@ import { CompositeScreenProps } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React, { useCallback } from 'react';
 import { useForm, Controller } from 'react-hook-form';
+import { Platform } from 'react-native';
 import { getUniqueId } from 'react-native-device-info';
 import { useRecoilValue } from 'recoil';
 
@@ -121,7 +122,7 @@ const LoginScreen: React.FC<P> = ({ navigation }) => {
         </SNSTitleContainer>
         <SNSButtonsContainer>
           <GoogleLogin />
-          <AppleLogin />
+          {Platform.OS === 'ios' && <AppleLogin />}
           <NaverLogin />
           <KakaoLogin />
         </SNSButtonsContainer>
