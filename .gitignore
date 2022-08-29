@@ -61,4 +61,4 @@ buck-out/
 
 # Environments
 .env
-.env.prod
+.env.production
