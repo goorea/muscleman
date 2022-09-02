@@ -59,7 +59,7 @@ const TrainingModal: React.FC<P> = ({ training, hide }) => (
                 size={10}
               />
             </CategoryContainer>
-            {training.description && (
+            {!!training.description && (
               <DescriptionContainer>
                 <Text>{training.description}</Text>
               </DescriptionContainer>
