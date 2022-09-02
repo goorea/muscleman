@@ -23,7 +23,7 @@ export const CloseButton = styled(Button)`
 
 export const Thumbnail = styled(Image)`
   margin-top: 10px;
-  width: 300px;
+  width: 240px;
   height: 240px;
 `;
 
