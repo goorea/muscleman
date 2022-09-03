@@ -2,6 +2,7 @@ import styled from 'styled-components/native';
 
 import Button from '@src/components/Button';
 import Image from '@src/components/Image';
+import Text from '@src/components/Text';
 import { flexCenter, flexFillCenter } from '@src/styles/flex';
 
 export const NotLoginContainer = styled.View`
@@ -101,4 +102,8 @@ export const FooterContainer = styled.View`
   margin-top: auto;
   flex-direction: row;
   justify-content: flex-end;
+`;
+
+export const FooterDivider = styled(Text)`
+  margin: 0 3px;
 `;
