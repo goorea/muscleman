@@ -9,20 +9,21 @@ import Button from '@src/components/Button';
 import ConfirmModal from '@src/components/ConfirmModal';
 import SocialIcon from '@src/components/SocialIcon';
 import Text from '@src/components/Text';
+import { getProfileImage } from '@src/functions';
 import { userState } from '@src/recoils';
 import { Gender, User } from '@src/types/graphql';
 import { MainTabParamList, RootStackParamList } from '@src/types/navigation';
 
-import useEdit from './hooks/useEdit';
-import useEditProfileImage from './hooks/useEditProfileImage';
+// import useEdit from './hooks/useEdit';
+// import useEditProfileImage from './hooks/useEditProfileImage';
 import useLogout from './hooks/useLogout';
 import useWithdrawal from './hooks/useWithdrawal';
 import {
   Circle,
   Container,
   Divider,
-  EditButton,
-  EditProfileImage,
+  // EditButton,
+  // EditProfileImage,
   EmailContainer,
   FooterContainer,
   HeaderContainer,
@@ -33,6 +34,7 @@ import {
   NicknameEmailContainer,
   NotLoginContainer,
   FooterDivider,
+  ProfileImage,
 } from './styled';
 
 type P = CompositeScreenProps<
@@ -49,8 +51,8 @@ const ProfileScreen: React.FC<P> = ({ navigation }) => {
       }),
     [navigation],
   );
-  const { editProfileImage, editProfileImageNode } = useEditProfileImage();
-  const { edit, editIconProps } = useEdit();
+  // const { editProfileImage, editProfileImageNode } = useEditProfileImage();
+  // const { edit, editIconProps } = useEdit();
   const { logout } = useLogout();
   const { confirmModalRef, handleConfirm, withdrawal, loading } =
     useWithdrawal();
@@ -77,15 +79,16 @@ const ProfileScreen: React.FC<P> = ({ navigation }) => {
     <>
       <Container>
         <HeaderContainer>
-          <EditProfileImage
-            type="clear"
-            onPress={editProfileImage}
-            node={editProfileImageNode}
-          />
+          <ProfileImage source={getProfileImage(user)} />
+          {/*<EditProfileImage*/}
+          {/*  type="clear"*/}
+          {/*  onPress={editProfileImage}*/}
+          {/*  node={editProfileImageNode}*/}
+          {/*/>*/}
           <NicknameEmailContainer>
             <NicknameContainer>
               <Text weight="bold">{user.nickname}</Text>
-              <EditButton onPress={edit} type="clear" icon={editIconProps} />
+              {/*<EditButton onPress={edit} type="clear" icon={editIconProps} />*/}
             </NicknameContainer>
             <EmailContainer>
               {user.provider && (
