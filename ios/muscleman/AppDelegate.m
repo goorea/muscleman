@@ -1,5 +1,10 @@
 #import "AppDelegate.h"
 
+#import <Firebase.h>
+#import "RNSplashScreen.h"
+#import <RNKakaoLogins.h>
+#import <NaverThirdPartyLogin/NaverThirdPartyLoginConnection.h>
+
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
@@ -11,11 +16,6 @@
 #import <FlipperKitNetworkPlugin/FlipperKitNetworkPlugin.h>
 #import <SKIOSNetworkPlugin/SKIOSNetworkAdapter.h>
 #import <FlipperKitReactPlugin/FlipperKitReactPlugin.h>
-
-#import <Firebase.h>
-#import "RNSplashScreen.h"
-#import <RNKakaoLogins.h>
-#import <NaverThirdPartyLogin/NaverThirdPartyLoginConnection.h>
 
 static void InitializeFlipper(UIApplication *application) {
   FlipperClient *client = [FlipperClient sharedClient];
@@ -76,7 +76,7 @@ static void InitializeFlipper(UIApplication *application) {
     return [RNKakaoLogins handleOpenUrl: url];
   }
   
-  if ([url.scheme isEqualToString:@"your_apps_urlscheme"]) {
+  if ([url.scheme isEqualToString:@"kr.muscleman"]) {
     return [[NaverThirdPartyLoginConnection getSharedInstance] application:app openURL:url options:options];
   }
 
