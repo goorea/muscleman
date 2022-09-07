@@ -15,9 +15,9 @@ import {
   Container,
   Submit,
   Title,
-  GenderContainer,
-  GenderSelector,
-  GenderSelectors,
+  // GenderContainer,
+  // GenderSelector,
+  // GenderSelectors,
 } from './styled';
 
 export type RegisterFormElement = {
@@ -53,17 +53,16 @@ const RegisterForm: React.ForwardRefRenderFunction<RegisterFormElement, P> = (
     defaultValues: { gender: Gender.Male },
   });
   const [visibleBirthPicker, setVisibleBirthPicker] = useState<boolean>(false);
-  const { nameRules, nicknameRules, telRules, birthRules } = useRules();
-  const { nameRender, nicknameRender, telRender, birthRender } = useRenders(
-    setVisibleBirthPicker,
-  );
+  const { nameRules, nicknameRules /*, telRules, birthRules*/ } = useRules();
+  const { nameRender, nicknameRender /*, telRender, birthRender*/ } =
+    useRenders(setVisibleBirthPicker);
   const onBirthPick = (date: Date) => {
     setVisibleBirthPicker(false);
     setValue('birth', dayjs(date).format('YYYY-MM-DD'));
   };
   const onBirthCancel = () => setVisibleBirthPicker(false);
-  const setMale = () => setValue('gender', Gender.Male);
-  const setFemale = () => setValue('gender', Gender.Female);
+  // const setMale = () => setValue('gender', Gender.Male);
+  // const setFemale = () => setValue('gender', Gender.Female);
 
   React.useImperativeHandle(ref, () => ({
     getValues,
@@ -96,42 +95,42 @@ const RegisterForm: React.ForwardRefRenderFunction<RegisterFormElement, P> = (
             control={control}
             rules={nicknameRules}
           />
-          <Controller
-            render={telRender}
-            name="tel"
-            control={control}
-            rules={telRules}
-          />
-          <Controller
-            render={birthRender}
-            name="birth"
-            control={control}
-            rules={birthRules}
-          />
-          <GenderContainer>
-            <Text color="grey3">성별</Text>
+          {/*<Controller*/}
+          {/*  render={telRender}*/}
+          {/*  name="tel"*/}
+          {/*  control={control}*/}
+          {/*  rules={telRules}*/}
+          {/*/>*/}
+          {/*<Controller*/}
+          {/*  render={birthRender}*/}
+          {/*  name="birth"*/}
+          {/*  control={control}*/}
+          {/*  rules={birthRules}*/}
+          {/*/>*/}
+          {/*<GenderContainer>*/}
+          {/*  <Text color="grey3">성별</Text>*/}
 
-            <GenderSelectors>
-              <GenderSelector
-                title="남자"
-                color={watch('gender') === Gender.Male ? 'primary' : 'disabled'}
-                titleColor={watch('gender') === Gender.Male ? 'white' : 'black'}
-                weight="normal"
-                onPress={setMale}
-              />
-              <GenderSelector
-                title="여자"
-                color={
-                  watch('gender') === Gender.Female ? 'primary' : 'disabled'
-                }
-                titleColor={
-                  watch('gender') === Gender.Female ? 'white' : 'black'
-                }
-                weight="normal"
-                onPress={setFemale}
-              />
-            </GenderSelectors>
-          </GenderContainer>
+          {/*  <GenderSelectors>*/}
+          {/*    <GenderSelector*/}
+          {/*      title="남자"*/}
+          {/*      color={watch('gender') === Gender.Male ? 'primary' : 'disabled'}*/}
+          {/*      titleColor={watch('gender') === Gender.Male ? 'white' : 'black'}*/}
+          {/*      weight="normal"*/}
+          {/*      onPress={setMale}*/}
+          {/*    />*/}
+          {/*    <GenderSelector*/}
+          {/*      title="여자"*/}
+          {/*      color={*/}
+          {/*        watch('gender') === Gender.Female ? 'primary' : 'disabled'*/}
+          {/*      }*/}
+          {/*      titleColor={*/}
+          {/*        watch('gender') === Gender.Female ? 'white' : 'black'*/}
+          {/*      }*/}
+          {/*      weight="normal"*/}
+          {/*      onPress={setFemale}*/}
+          {/*    />*/}
+          {/*  </GenderSelectors>*/}
+          {/*</GenderContainer>*/}
 
           {errorMessages.map(error => (
             <Text size={12} color="error">
