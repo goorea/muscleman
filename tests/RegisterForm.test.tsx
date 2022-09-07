@@ -22,8 +22,8 @@ describe('RegisterForm 컴포넌트', () => {
 
     expect(queryByTestId('nameField')).not.toBeNull();
     expect(queryByTestId('nicknameField')).not.toBeNull();
-    expect(queryByTestId('telField')).not.toBeNull();
-    expect(queryByTestId('birthField')).not.toBeNull();
+    // expect(queryByTestId('telField')).not.toBeNull();
+    // expect(queryByTestId('birthField')).not.toBeNull();
     expect(queryByText('확인')).not.toBeNull();
   });
 
@@ -69,17 +69,17 @@ describe('RegisterForm 컴포넌트', () => {
     expect(queryByText('8글자보다 많습니다')).not.toBeNull();
   });
 
-  it('휴대폰 번호를 입력하지 않거나 생일을 입력하지 않으면 에러 메세지가 보인다', async () => {
-    const { getByText, queryByText } = rendered();
-
-    expect(queryByText('휴대폰 번호를 입력해주세요')).toBeNull();
-    expect(queryByText('생년월일을 선택해주세요')).toBeNull();
-
-    await act(async () => fireEvent.press(getByText('확인')));
-
-    expect(queryByText('휴대폰 번호를 입력해주세요')).not.toBeNull();
-    expect(queryByText('생년월일을 선택해주세요')).not.toBeNull();
-  });
+  // it('휴대폰 번호를 입력하지 않거나 생일을 입력하지 않으면 에러 메세지가 보인다', async () => {
+  //   const { getByText, queryByText } = rendered();
+  //
+  //   expect(queryByText('휴대폰 번호를 입력해주세요')).toBeNull();
+  //   expect(queryByText('생년월일을 선택해주세요')).toBeNull();
+  //
+  //   await act(async () => fireEvent.press(getByText('확인')));
+  //
+  //   expect(queryByText('휴대폰 번호를 입력해주세요')).not.toBeNull();
+  //   expect(queryByText('생년월일을 선택해주세요')).not.toBeNull();
+  // });
 
   it('올바른 값을 입력한 뒤에 확인 버튼을 누르면 onSubmit 함수가 실행된다', async () => {
     const { getByTestId, getByText } = rendered();
@@ -87,8 +87,8 @@ describe('RegisterForm 컴포넌트', () => {
     await act(async () => {
       fireEvent.changeText(getByTestId('nameField'), 'John');
       fireEvent.changeText(getByTestId('nicknameField'), 'John');
-      fireEvent.changeText(getByTestId('telField'), '01012341234');
-      fireEvent.changeText(getByTestId('birthField'), '1970-01-01');
+      // fireEvent.changeText(getByTestId('telField'), '01012341234');
+      // fireEvent.changeText(getByTestId('birthField'), '1970-01-01');
     });
 
     await act(async () => fireEvent.press(getByText('확인')));
