@@ -6,15 +6,16 @@ import React, { useCallback } from 'react';
 import { useRecoilValue } from 'recoil';
 
 import HomeCarousel from '@src/components/HomeCarousel';
+import HomeOneRMCalculator from '@src/components/HomeOneRMCalculator';
+import HomeUser from '@src/components/HomeUser';
 import Text from '@src/components/Text';
 import TodayPlan from '@src/components/TodayPlan';
 import { plansState } from '@src/recoils';
 import { MainTabParamList, RootStackParamList } from '@src/types/navigation';
 
-import useUser from './hooks/useUser';
 import {
   Container,
-  UserContainer,
+  UserWithCalculatorContainer,
   PlansContainer,
   EmptyPlansContainer,
   Notice,
@@ -30,12 +31,14 @@ const HomeScreen: React.FC<P> = ({ navigation }) => {
   const todayPlans = useRecoilValue(plansState).filter(plan =>
     dayjs(plan.plannedAt).isSame(new Date(), 'day'),
   );
-  const { onPressUser, userNode } = useUser(navigation);
   const toPlan = useCallback(() => navigation.navigate('Plans'), [navigation]);
 
   return (
     <Container>
-      <UserContainer onPress={onPressUser} type="clear" node={userNode} />
+      <UserWithCalculatorContainer>
+        <HomeUser />
+        <HomeOneRMCalculator />
+      </UserWithCalculatorContainer>
 
       <HomeCarousel navigation={navigation} />
 
