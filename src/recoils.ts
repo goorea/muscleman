@@ -4,12 +4,12 @@ import { SBDOneRM } from '@src/operations/queries/getOneRM';
 import { User, Plan } from '@src/types/graphql';
 
 export const userState = atom<User | undefined>({
-  key: 'user',
+  key: 'userState',
   default: undefined,
 });
 
 export const SBDOneRMState = atom<SBDOneRM>({
-  key: 'SBDOneRM',
+  key: 'SBDOneRMState',
   default: {
     squat: 0,
     benchPress: 0,

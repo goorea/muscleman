@@ -1,0 +1,391 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OneRMCalculatorModal 컴포넌트 렌더링이 올바르게 된다 1`] = `
+<Modal
+  animationType="fade"
+  hardwareAccelerated={false}
+  onDismiss={[Function]}
+  presentationStyle="overFullScreen"
+  transparent={true}
+  visible={false}
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      nativeID="animatedComponent"
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#000000",
+          "bottom": 0,
+          "left": 0,
+          "opacity": 0.6,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    />
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+            "borderRadius": 10,
+            "overflow": "hidden",
+            "width": "85%",
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        nativeID="animatedComponent"
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+            "opacity": 1,
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "position": "absolute",
+            "right": 5,
+            "top": 5,
+            "zIndex": 10,
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": "#000000",
+                "fontSize": 24,
+              },
+              undefined,
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingBottom": 20,
+              "paddingLeft": 20,
+              "paddingRight": 20,
+              "paddingTop": 20,
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              },
+            ]
+          }
+        >
+          <View
+            isFirst={true}
+            style={
+              Array [
+                Object {
+                  "flexBasis": 0,
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "marginRight": 10,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "baseline",
+                      "borderBottomColor": "#bbb",
+                      "borderBottomWidth": 1,
+                      "marginBottom": 4,
+                      "paddingBottom": 10,
+                      "paddingLeft": 0,
+                      "paddingRight": 0,
+                      "paddingTop": 10,
+                    },
+                  ]
+                }
+              >
+                <Text
+                  collapsable={false}
+                  color="foreground"
+                  nativeID="animatedComponent"
+                  onLayout={[Function]}
+                  style={
+                    Object {
+                      "color": "#000000",
+                      "fontFamily": "SpoqaHanSansNeo-Regular",
+                      "fontSize": 16,
+                      "transform": Array [
+                        Object {
+                          "translateX": 0,
+                        },
+                        Object {
+                          "translateY": 16,
+                        },
+                        Object {
+                          "scale": 1,
+                        },
+                      ],
+                    }
+                  }
+                >
+                  들어올린 중량(kg)
+                </Text>
+                <TextInput
+                  autoFocus={true}
+                  keyboardType="number-pad"
+                  label="들어올린 중량(kg)"
+                  name="weight"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onChangeText={[Function]}
+                  onFocus={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "color": "#000000",
+                        "fontFamily": "SpoqaHanSansNeo-Regular",
+                        "fontSize": 16,
+                        "paddingBottom": 0,
+                        "paddingLeft": 0,
+                        "paddingRight": 0,
+                        "paddingTop": 0,
+                        "width": "100%",
+                      },
+                    ]
+                  }
+                  testID="weightField"
+                />
+              </View>
+            </View>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "flexBasis": 0,
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "marginRight": 0,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "baseline",
+                      "borderBottomColor": "#bbb",
+                      "borderBottomWidth": 1,
+                      "marginBottom": 4,
+                      "paddingBottom": 10,
+                      "paddingLeft": 0,
+                      "paddingRight": 0,
+                      "paddingTop": 10,
+                    },
+                  ]
+                }
+              >
+                <Text
+                  collapsable={false}
+                  color="foreground"
+                  nativeID="animatedComponent"
+                  onLayout={[Function]}
+                  style={
+                    Object {
+                      "color": "#000000",
+                      "fontFamily": "SpoqaHanSansNeo-Regular",
+                      "fontSize": 16,
+                      "transform": Array [
+                        Object {
+                          "translateX": 0,
+                        },
+                        Object {
+                          "translateY": 16,
+                        },
+                        Object {
+                          "scale": 1,
+                        },
+                      ],
+                    }
+                  }
+                >
+                  최대 반복 횟수
+                </Text>
+                <TextInput
+                  keyboardType="number-pad"
+                  label="최대 반복 횟수"
+                  name="count"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onChangeText={[Function]}
+                  onFocus={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "color": "#000000",
+                        "fontFamily": "SpoqaHanSansNeo-Regular",
+                        "fontSize": 16,
+                        "paddingBottom": 0,
+                        "paddingLeft": 0,
+                        "paddingRight": 0,
+                        "paddingTop": 0,
+                        "width": "100%",
+                      },
+                    ]
+                  }
+                  testID="countField"
+                />
+              </View>
+            </View>
+          </View>
+        </View>
+        <Text
+          italic={false}
+          size={24}
+          style={
+            Array [
+              Object {
+                "color": "#000000",
+                "fontFamily": "SpoqaHanSansNeo-Regular",
+                "fontSize": 24,
+                "fontStyle": "normal",
+              },
+              Object {
+                "marginTop": 10,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          1rm = 
+          0
+          kg
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "marginTop": 10,
+              },
+            ]
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ff190c",
+                  "fontSize": 16,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "anticon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+            type="antdesign"
+          >
+            
+          </Text>
+          <Text
+            italic={false}
+            size={12}
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontFamily": "SpoqaHanSansNeo-Thin",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                },
+                Object {
+                  "marginLeft": 5,
+                  "marginTop": 1,
+                },
+              ]
+            }
+            weight="thin"
+          >
+            정확도를 위해 3kg 이상, 10개미만으로 입력해주세요!
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</Modal>
+`;

@@ -1,23 +1,14 @@
 import styled from 'styled-components/native';
 
 import Button from '@src/components/Button';
-import Image from '@src/components/Image';
 
 export const Container = styled.ScrollView`
   padding: 20px;
 `;
 
-export const UserContainer = styled(Button)`
+export const UserWithCalculatorContainer = styled.View`
   flex-direction: row;
-  justify-content: flex-start;
   align-items: center;
-`;
-
-export const ProfileImage = styled(Image)`
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-  margin-right: 10px;
 `;
 
 export const PlansContainer = styled.View`
