@@ -2,7 +2,7 @@ import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
 import { CompositeScreenProps } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import dayjs from 'dayjs';
-import React from 'react';
+import React, { useState } from 'react';
 import { ScrollView } from 'react-native';
 import { useRecoilValue } from 'recoil';
 
@@ -38,6 +38,7 @@ type P = CompositeScreenProps<
 >;
 
 const PlansScreen: React.FC<P> = ({ navigation, route }) => {
+  const [selectionPlan, setSelectionPlan] = useState<string[]>([]);
   const { selectedDate, onSelectDate, onPlanning } = useEvents({
     navigation,
     route,
@@ -50,10 +51,15 @@ const PlansScreen: React.FC<P> = ({ navigation, route }) => {
     deleteButtonNode,
     showDeletePlanModal,
     deletePlans,
-  } = useDelete(selectedDate);
+  } = useDelete(selectedDate, selectionPlan);
   const plansBySelectedDate = useRecoilValue<Plan[]>(plansState).filter(
     ({ plannedAt }) => dayjs(plannedAt).isSame(selectedDate, 'day'),
   );
+  const selectPlan = (id: string) => {
+    setSelectionPlan(prev =>
+      prev.includes(id) ? prev.filter(plan => plan !== id) : [...prev, id],
+    );
+  };
 
   return (
     <>
@@ -92,7 +98,10 @@ const PlansScreen: React.FC<P> = ({ navigation, route }) => {
             />
 
             {plansBySelectedDate.map(plan => (
-              <PlanContainer key={plan._id}>
+              <PlanContainer
+                key={plan._id}
+                onPress={() => selectPlan(plan._id)}
+                select={selectionPlan.includes(plan._id)}>
                 <Text weight="bold">
                   {getTrainingTypeForKorean(plan.training.type)} |{' '}
                   {plan.training.name} {plan.volumes?.length}세트

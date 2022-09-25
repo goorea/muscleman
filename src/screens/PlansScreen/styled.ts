@@ -1,4 +1,4 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 
 import Button from '@src/components/Button';
 import Text from '@src/components/Text';
@@ -35,8 +35,15 @@ export const ButtonTitle = styled(Text)`
   margin-left: 4px;
 `;
 
-export const PlanContainer = styled.View`
-  border: 1px solid ${({ theme }) => theme.greyOutline};
+interface Props {
+  select: boolean;
+}
+
+export const PlanContainer = styled.TouchableOpacity<Props>`
+  border: ${({ select, theme }) =>
+    select
+      ? css`3px solid ${theme.primary}`
+      : css`1px solid ${theme.greyOutline}`}
   border-radius: 10px;
   padding: 10px;
   margin-top: 10px;
