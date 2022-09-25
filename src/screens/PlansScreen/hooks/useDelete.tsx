@@ -1,6 +1,5 @@
-import dayjs from 'dayjs';
 import React, { useCallback, useMemo, useRef } from 'react';
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 
 import { ConfirmModalElement } from '@src/components/ConfirmModal';
 import Icon from '@src/components/Icon';
@@ -12,11 +11,8 @@ import { Plan } from '@src/types/graphql';
 
 import { ButtonBody, ButtonTitle } from '../styled';
 
-const useDelete = (selectedDate: string) => {
-  const [plans, setPlans] = useRecoilState<Plan[]>(plansState);
-  const plansBySelectedDate: Plan[] = plans.filter(({ plannedAt }) =>
-    dayjs(plannedAt).isSame(selectedDate, 'day'),
-  );
+const useDelete = (selectedDate: string, selectionPlan: string[]) => {
+  const setPlans = useSetRecoilState<Plan[]>(plansState);
   const [deletePlan, { loading }] = useDeletePlanMutation();
   const confirmModalRef = useRef<ConfirmModalElement | null>(null);
   const { deleteIconProps } = useIconProps(false);
@@ -38,7 +34,7 @@ const useDelete = (selectedDate: string) => {
   );
 
   const deletePlans = useCallback(async () => {
-    const plansIds = plansBySelectedDate.map(({ _id }) => _id);
+    const plansIds = selectionPlan;
     await Promise.all(
       plansIds.map(_id =>
         deletePlan({
@@ -57,7 +53,7 @@ const useDelete = (selectedDate: string) => {
       title: '삭제',
       contents: '선택한 운동 계획이 삭제되었습니다.',
     });
-  }, [deletePlan, plansBySelectedDate, setPlans]);
+  }, [deletePlan, selectionPlan, setPlans]);
 
   return {
     confirmModalRef,
