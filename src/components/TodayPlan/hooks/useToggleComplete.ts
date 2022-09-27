@@ -9,6 +9,7 @@ const useToggleComplete = (
 ): {
   loading: boolean;
   onToggleComplete: () => Promise<void>;
+  onToggleVolumeComplete: (volumeId: string) => Promise<void>;
 } => {
   const [multipleCreateOrUpdatePlans, { loading }] =
     useMultipleCreateOrUpdatePlansMutation();
@@ -40,7 +41,32 @@ const useToggleComplete = (
     });
   }, [multipleCreateOrUpdatePlans, plan, complete]);
 
-  return { loading, onToggleComplete };
+  const onToggleVolumeComplete = useCallback(
+    async volumeId => {
+      await multipleCreateOrUpdatePlans({
+        variables: {
+          inputs: [
+            {
+              _id: plan._id,
+              plannedAt: plan.plannedAt,
+              training: plan.training._id,
+              volumes:
+                plan.volumes?.map(volume => ({
+                  ...pick(volume, ['_id']),
+                  complete:
+                    volume._id === volumeId
+                      ? !volume.complete
+                      : volume.complete,
+                })) || [],
+            },
+          ],
+        },
+      });
+    },
+    [multipleCreateOrUpdatePlans, plan],
+  );
+
+  return { loading, onToggleComplete, onToggleVolumeComplete };
 };
 
 export default useToggleComplete;
