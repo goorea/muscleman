@@ -40,6 +40,7 @@ export type IconProps = {
   size?: number;
   color?: keyof Colors;
   onPress?: (event: GestureResponderEvent) => void;
+  testID?: string;
 };
 
 const Icon: React.FC<IconProps> = ({
@@ -48,6 +49,7 @@ const Icon: React.FC<IconProps> = ({
   size = 24,
   color = 'foreground',
   onPress,
+  testID,
 }) => {
   const { colors } = useTheme();
   const props = {
@@ -56,6 +58,7 @@ const Icon: React.FC<IconProps> = ({
     size,
     color: colors[color],
     onPress,
+    testID,
   };
 
   switch (type) {

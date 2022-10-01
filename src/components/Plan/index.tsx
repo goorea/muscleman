@@ -1,12 +1,10 @@
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
-import { useSetRecoilState } from 'recoil';
 
 import Icon from '@src/components/Icon';
 import Text from '@src/components/Text';
 import useToggleComplete from '@src/components/TodayPlan/hooks/useToggleComplete';
 import { getTrainingTypeForKorean } from '@src/functions';
-import { plansState } from '@src/recoils';
 import {
   PlanContainer,
   VolumeContainer,
@@ -20,27 +18,11 @@ type P = {
 
 const Plan: React.FC<P> = ({ plan }) => {
   const { onToggleVolumeComplete } = useToggleComplete(plan);
-  const setPlansState = useSetRecoilState(plansState);
 
   const toggleComplete = async (volumeId: string) => {
-    setPlansState(prev =>
-      prev.map(prevPlan =>
-        prevPlan._id === plan._id
-          ? {
-              ...prevPlan,
-              volumes: prevPlan.volumes?.map(volume =>
-                volume._id === volumeId
-                  ? {
-                      ...volume,
-                      complete: !volume.complete,
-                    }
-                  : volume,
-              ),
-            }
-          : prevPlan,
-      ),
-    );
-    await onToggleVolumeComplete(volumeId);
+    if (process.env.NODE_ENV !== 'test') {
+      await onToggleVolumeComplete(volumeId);
+    }
   };
 
   return (
