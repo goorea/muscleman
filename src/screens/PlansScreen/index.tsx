@@ -9,12 +9,10 @@ import { useRecoilValue } from 'recoil';
 import Button from '@src/components/Button';
 import ConfirmModal from '@src/components/ConfirmModal';
 import CopyModal from '@src/components/CopyModal';
-import Icon from '@src/components/Icon';
+import Plan from '@src/components/Plan';
 import PlanCalendar from '@src/components/PlanCalendar';
-import Text from '@src/components/Text';
-import { getTrainingTypeForKorean } from '@src/functions';
 import { plansState } from '@src/recoils';
-import { Plan } from '@src/types/graphql';
+import { Plan as PlanType } from '@src/types/graphql';
 import { MainTabParamList, RootStackParamList } from '@src/types/navigation';
 
 import useCopy from './hooks/useCopy';
@@ -26,9 +24,6 @@ import {
   Container,
   CopyButton,
   DeleteButton,
-  PlanContainer,
-  VolumeContainer,
-  VolumnText,
   Wrapper,
 } from './styled';
 
@@ -51,7 +46,7 @@ const PlansScreen: React.FC<P> = ({ navigation, route }) => {
     showDeletePlanModal,
     deletePlans,
   } = useDelete(selectedDate);
-  const plansBySelectedDate = useRecoilValue<Plan[]>(plansState).filter(
+  const plansBySelectedDate = useRecoilValue<PlanType[]>(plansState).filter(
     ({ plannedAt }) => dayjs(plannedAt).isSame(selectedDate, 'day'),
   );
 
@@ -92,32 +87,7 @@ const PlansScreen: React.FC<P> = ({ navigation, route }) => {
             />
 
             {plansBySelectedDate.map(plan => (
-              <PlanContainer key={plan._id}>
-                <Text weight="bold">
-                  {getTrainingTypeForKorean(plan.training.type)} |{' '}
-                  {plan.training.name} {plan.volumes?.length}세트
-                </Text>
-
-                {plan.volumes?.map((volume, i) => (
-                  <VolumeContainer key={i}>
-                    <Text color="grey3">
-                      <Text color="grey3" italic={true}>
-                        {i + 1}세트
-                      </Text>{' '}
-                      {volume.weight}kg x {volume.count}회
-                    </Text>
-                    <VolumnText color="grey3">
-                      {(volume.weight || 0) * (volume.count || 0)}kg
-                    </VolumnText>
-                    <Icon
-                      type="feather"
-                      name={volume.complete ? 'check-square' : 'square'}
-                      color={volume.complete ? 'success' : 'warning'}
-                      size={20}
-                    />
-                  </VolumeContainer>
-                ))}
-              </PlanContainer>
+              <Plan key={plan._id} plan={plan} />
             ))}
           </Wrapper>
         </Container>
