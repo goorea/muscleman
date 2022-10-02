@@ -19,12 +19,6 @@ type P = {
 const Plan: React.FC<P> = ({ plan }) => {
   const { onToggleVolumeComplete } = useToggleComplete(plan);
 
-  const toggleComplete = async (volumeId: string) => {
-    if (process.env.NODE_ENV !== 'test') {
-      await onToggleVolumeComplete(volumeId);
-    }
-  };
-
   return (
     <PlanContainer key={plan._id}>
       <Text weight="bold">
@@ -43,7 +37,7 @@ const Plan: React.FC<P> = ({ plan }) => {
           <VolumnText color="grey3">
             {(volume.weight || 0) * (volume.count || 0)}kg
           </VolumnText>
-          <TouchableOpacity onPress={() => toggleComplete(volume._id)}>
+          <TouchableOpacity onPress={() => onToggleVolumeComplete(volume._id)}>
             <Icon
               type="feather"
               name={volume.complete ? 'check-square' : 'square'}
