@@ -46,9 +46,19 @@ const PlansScreen: React.FC<P> = ({ navigation, route }) => {
     showDeletePlanModal,
     deletePlans,
   } = useDelete(selectedDate);
-  const plansBySelectedDate = useRecoilValue<PlanType[]>(plansState).filter(
-    ({ plannedAt }) => dayjs(plannedAt).isSame(selectedDate, 'day'),
-  );
+  const plansBySelectedDate = useRecoilValue<PlanType[]>(plansState)
+    .filter(({ plannedAt }) => dayjs(plannedAt).isSame(selectedDate, 'day'))
+    .sort((a, b) => {
+      const trainingNameOfA = a.training.name.toLowerCase();
+      const trainingNameOfB = b.training.name.toLowerCase();
+
+      if (trainingNameOfA < trainingNameOfB) {
+        return -1;
+      } else if (trainingNameOfA > trainingNameOfB) {
+        return 1;
+      }
+      return 0;
+    });
 
   return (
     <>
