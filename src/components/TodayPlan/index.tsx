@@ -1,7 +1,6 @@
 import { NavigationProp } from '@react-navigation/core/src/types';
 import { useNavigation } from '@react-navigation/native';
 import React, { useCallback } from 'react';
-import { View } from 'react-native';
 
 import Text from '@src/components/Text';
 import useFooterText from '@src/components/TodayPlan/hooks/useFooterText';
@@ -17,6 +16,7 @@ import {
   ButtonGroup,
   Container,
   TrainingImage,
+  TrainingDetail,
 } from './styled';
 
 type P = {
@@ -44,15 +44,15 @@ const TodayPlan: React.FC<P> = ({ plan }) => {
   return (
     <Container>
       <TrainingImage source={source} />
-      <View>
+      <TrainingDetail>
         <Text size={12} weight="bold" color="primary">
           {getTrainingTypeForKorean(plan.training.type)}
         </Text>
-        <Text>{plan.training.name}</Text>
+        <Text ellipsis>{plan.training.name}</Text>
         <Text size={10} color="grey3" italic={true}>
           {footerText}
         </Text>
-      </View>
+      </TrainingDetail>
       <ButtonGroup>
         <VolumeButton onPress={edit} icon={editIconProps} />
         <CompleteButton

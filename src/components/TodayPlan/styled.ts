@@ -15,6 +15,11 @@ export const TrainingImage = styled(Image)`
   width: 75px;
   height: 75px;
   margin-right: 6px;
+  border-radius: 12px;
+`;
+
+export const TrainingDetail = styled.View`
+  flex: 1;
 `;
 
 export const ButtonGroup = styled.View`
