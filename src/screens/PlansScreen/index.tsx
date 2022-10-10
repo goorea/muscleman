@@ -9,10 +9,11 @@ import { useRecoilValue } from 'recoil';
 import Button from '@src/components/Button';
 import ConfirmModal from '@src/components/ConfirmModal';
 import CopyModal from '@src/components/CopyModal';
+import NeedAuthenticate from '@src/components/NeedAuthenticate';
 import Plan from '@src/components/Plan';
 import PlanCalendar from '@src/components/PlanCalendar';
-import { plansState } from '@src/recoils';
-import { Plan as PlanType } from '@src/types/graphql';
+import { plansState, userState } from '@src/recoils';
+import { Plan as PlanType, User } from '@src/types/graphql';
 import { MainTabParamList, RootStackParamList } from '@src/types/navigation';
 
 import useCopy from './hooks/useCopy';
@@ -33,6 +34,7 @@ type P = CompositeScreenProps<
 >;
 
 const PlansScreen: React.FC<P> = ({ navigation, route }) => {
+  const user = useRecoilValue<User | undefined>(userState);
   const { selectedDate, onSelectDate, onPlanning } = useEvents({
     navigation,
     route,
@@ -49,6 +51,10 @@ const PlansScreen: React.FC<P> = ({ navigation, route }) => {
   const plansBySelectedDate = useRecoilValue<PlanType[]>(plansState).filter(
     ({ plannedAt }) => dayjs(plannedAt).isSame(selectedDate, 'day'),
   );
+
+  if (!user) {
+    return <NeedAuthenticate />;
+  }
 
   return (
     <>

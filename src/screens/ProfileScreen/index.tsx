@@ -2,11 +2,12 @@ import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
 import { CompositeScreenProps } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import dayjs from 'dayjs';
-import React, { useCallback } from 'react';
+import React from 'react';
 import { useRecoilValue } from 'recoil';
 
 import Button from '@src/components/Button';
 import ConfirmModal from '@src/components/ConfirmModal';
+import NeedAuthenticate from '@src/components/NeedAuthenticate';
 import SocialIcon from '@src/components/SocialIcon';
 import Text from '@src/components/Text';
 import { getProfileImage } from '@src/functions';
@@ -19,7 +20,6 @@ import { MainTabParamList, RootStackParamList } from '@src/types/navigation';
 import useLogout from './hooks/useLogout';
 import useWithdrawal from './hooks/useWithdrawal';
 import {
-  Circle,
   Container,
   Divider,
   // EditButton,
@@ -29,10 +29,8 @@ import {
   HeaderContainer,
   Info,
   InfoContainer,
-  LoginButton,
   NicknameContainer,
   NicknameEmailContainer,
-  NotLoginContainer,
   FooterDivider,
   ProfileImage,
 } from './styled';
@@ -42,15 +40,8 @@ type P = CompositeScreenProps<
   NativeStackScreenProps<RootStackParamList>
 >;
 
-const ProfileScreen: React.FC<P> = ({ navigation }) => {
+const ProfileScreen: React.FC<P> = () => {
   const user = useRecoilValue<User | undefined>(userState);
-  const onLogin = useCallback(
-    () =>
-      navigation.navigate('Auth', {
-        screen: 'Login',
-      }),
-    [navigation],
-  );
   // const { editProfileImage, editProfileImageNode } = useEditProfileImage();
   // const { edit, editIconProps } = useEdit();
   const { logout } = useLogout();
@@ -58,21 +49,7 @@ const ProfileScreen: React.FC<P> = ({ navigation }) => {
     useWithdrawal();
 
   if (!user) {
-    return (
-      <NotLoginContainer>
-        <Text weight="bold">로그인 후 이용 가능합니다!</Text>
-        <Circle>
-          <Text size={40}>💪</Text>
-        </Circle>
-        <LoginButton
-          onPress={onLogin}
-          type="outline"
-          color="primary"
-          title="로그인 하러가기"
-          size={12}
-        />
-      </NotLoginContainer>
-    );
+    return <NeedAuthenticate />;
   }
 
   return (

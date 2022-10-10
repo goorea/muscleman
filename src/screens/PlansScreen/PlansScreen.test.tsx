@@ -2,10 +2,16 @@ import { navigationMock, navigationNavigateMock } from '@mocks/navigationMocks';
 import { act, fireEvent, render } from '@testing-library/react-native';
 import dayjs from 'dayjs';
 import React from 'react';
+import { useRecoilValue } from 'recoil';
 
-import { wrapper } from '@tests/functions';
+import { userFactory, wrapper } from '@tests/functions';
 
 import PlansScreen from './index';
+
+jest.mock('recoil', () => ({
+  ...jest.requireActual('recoil'),
+  useRecoilValue: jest.fn(),
+}));
 
 describe('PlansScreen 컴포넌트', () => {
   const rendered = () =>
@@ -29,6 +35,10 @@ describe('PlansScreen 컴포넌트', () => {
   // });
 
   it('오늘의 운동 계획하기 버튼을 누르면 EditPlan으로 이동한다', async () => {
+    (useRecoilValue as jest.Mock).mockImplementation(({ key }) =>
+      key === 'userState' ? userFactory() : key === 'plansState' ? [] : null,
+    );
+
     const { getByText } = rendered();
 
     await act(async () => fireEvent.press(getByText('오늘의 운동 계획하기')));
