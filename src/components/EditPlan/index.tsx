@@ -6,7 +6,6 @@ import { useRecoilValue } from 'recoil';
 
 import EditVolume from '@src/components/EditVolume';
 import Icon from '@src/components/Icon';
-import Text from '@src/components/Text';
 import { getTrainingTypeForKorean } from '@src/functions';
 import useIconProps from '@src/hooks/useIconProps';
 import { editingVolumesState } from '@src/screens/EditPlanScreen/recoils';
@@ -17,6 +16,7 @@ import {
   Container,
   Header,
   IconButton,
+  TrainingName,
   HeaderButtonGroup,
   AddSetButton,
   AddSetWrapper,
@@ -43,10 +43,10 @@ const EditPlan: React.FC<P> = ({ editingPlan, drag }) => {
   return (
     <Container>
       <Header>
-        <Text weight="bold">
+        <TrainingName weight="bold" ellipsis>
           {getTrainingTypeForKorean(editingPlan.training.type)} |{' '}
           {editingPlan.training.name}
-        </Text>
+        </TrainingName>
 
         <HeaderButtonGroup>
           <IconButton
