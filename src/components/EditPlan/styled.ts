@@ -17,6 +17,10 @@ export const Header = styled.View`
   margin-bottom: 10px;
 `;
 
+export const TrainingName = styled(Text)`
+  flex: 1;
+`;
+
 export const HeaderButtonGroup = styled.View`
   flex-direction: row;
   align-items: center;
