@@ -13,7 +13,9 @@ import {
 
 import useDraggableFlistList from './hooks/useDraggableFlistList';
 import useFetch from './hooks/useFetch';
+import useIsEditing from './hooks/useIsEditing';
 import useLoad from './hooks/useLoad';
+import useReset from './hooks/useReset';
 import useTraining from './hooks/useTraining';
 import {
   AddPlanButton,
@@ -31,6 +33,7 @@ type P = CompositeScreenProps<
 const EditPlanScreen: React.FC<P> = ({ navigation, route }) => {
   const { dark } = useTheme();
   const { plannedAt } = route.params;
+  const { isEditing } = useIsEditing();
   const { previousPlansModalRef, showPreviousPlans, onLoad } =
     useLoad(plannedAt);
   const { onDragEnd, renderItem, ListHeaderComponent } = useDraggableFlistList(
@@ -40,10 +43,12 @@ const EditPlanScreen: React.FC<P> = ({ navigation, route }) => {
   const { addTraining, node } = useTraining({ navigation, route });
   const { loading, editingPlans, submit } = useFetch({ navigation, route });
 
+  useReset(navigation);
+
   return (
     <>
       <Container dark={dark}>
-        <Wrapper>
+        <Wrapper isEditing={isEditing}>
           <DraggableFlatList
             showsVerticalScrollIndicator={false}
             data={editingPlans}
