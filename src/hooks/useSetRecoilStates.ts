@@ -17,6 +17,9 @@ const useSetRecoilStates = (loginData?: AuthenticationResponse) => {
   const setPlans = useSetRecoilState<Plan[]>(plansState);
   const [getSBDOneRMAndTodayPlans, { data }] = useLazyQuery<SBDOneRmAndPlans>(
     GET_SBD_ONE_RM_AND_PLANS,
+    {
+      fetchPolicy: 'network-only',
+    },
   );
 
   useEffect(() => {
