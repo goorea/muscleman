@@ -7,7 +7,7 @@ import {
 } from '@src/screens/EditPlanScreen/recoils';
 import { EditingPlan, EditingVolume } from '@src/types';
 
-const useIsEditing = () => {
+const useIsEditing = (): { isEditing: boolean } => {
   const selectedEditingVolumeID = useRecoilValue<string>(
     selectedEditingVolumeIDState,
   );

@@ -1,7 +1,7 @@
 import { CompositeScreenProps } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useEffect } from 'react';
-import { useSetRecoilState } from 'recoil';
+import { useResetRecoilState } from 'recoil';
 
 import {
   deletePlansState,
@@ -18,17 +18,17 @@ const useReset = (
     NativeStackScreenProps<RootStackParamList>
   >['navigation'],
 ) => {
-  const setSelectedEditingVolumeID = useSetRecoilState<string>(
+  const resetSelectedEditingVolumeId = useResetRecoilState(
     selectedEditingVolumeIDState,
   );
-  const setDeletePlans = useSetRecoilState<string[]>(deletePlansState);
+  const resetDeletePlans = useResetRecoilState(deletePlansState);
 
   useEffect(() => {
     navigation.addListener('beforeRemove', () => {
-      setSelectedEditingVolumeID('');
-      setDeletePlans([]);
+      resetSelectedEditingVolumeId();
+      resetDeletePlans();
     });
-  }, [navigation, setDeletePlans, setSelectedEditingVolumeID]);
+  }, [navigation, resetDeletePlans, resetSelectedEditingVolumeId]);
 };
 
 export default useReset;
