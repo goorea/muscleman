@@ -8,12 +8,13 @@ export const Container = styled.View<{ dark: boolean }>`
   background-color: ${({ theme, dark }) => (dark ? theme.grey0 : theme.grey5)};
 `;
 
-export const Wrapper = styled.View`
-  padding: 20px 20px 60px;
+export const Wrapper = styled.View<{ isEditing: boolean }>`
+  padding: 20px 20px ${({ isEditing }) => (isEditing ? 152 : 55)}px;
 `;
 
 export const LoadPreviousPlanContainer = styled.View`
   margin-top: 10px;
+  margin-bottom: 20px;
   align-items: flex-end;
 `;
 
