@@ -2,9 +2,8 @@ import React from 'react';
 
 import MaterialInput from '@src/components/MaterialInput';
 import { RenderProps } from '@src/types/react-hook-form';
-
-import { OneRMCalculatorFormInput } from '../index';
-import { InputWrapper } from '../styled';
+import { OneRMCalculatorFormInput } from 'src/components/modals/OneRMCalculatorModal/index';
+import { InputWrapper } from 'src/components/modals/OneRMCalculatorModal/styled';
 
 const useRenders = (): {
   weightRender: RenderProps<OneRMCalculatorFormInput, 'weight'>;

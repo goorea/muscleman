@@ -5,6 +5,7 @@ exports[`OneRMCalculatorModal 컴포넌트 렌더링이 올바르게 된다 1`] 
   animationType="fade"
   hardwareAccelerated={false}
   onDismiss={[Function]}
+  onRequestClose={[Function]}
   presentationStyle="overFullScreen"
   transparent={true}
   visible={false}
@@ -45,15 +46,16 @@ exports[`OneRMCalculatorModal 컴포넌트 렌더링이 올바르게 된다 1`] 
           "top": 0,
         }
       }
+      testID="overlay"
     />
     <View
       style={
         Array [
           Object {
             "backgroundColor": "#ffffff",
-            "borderRadius": 10,
+            "borderRadius": 8,
             "overflow": "hidden",
-            "width": "85%",
+            "width": "90%",
           },
         ]
       }
@@ -85,6 +87,7 @@ exports[`OneRMCalculatorModal 컴포넌트 렌더링이 올바르게 된다 1`] 
             "zIndex": 10,
           }
         }
+        testID="closeButton"
       >
         <Text
           allowFontScaling={false}
@@ -92,7 +95,7 @@ exports[`OneRMCalculatorModal 컴포넌트 렌더링이 올바르게 된다 1`] 
             Array [
               Object {
                 "color": "#000000",
-                "fontSize": 24,
+                "fontSize": 18,
               },
               undefined,
               Object {

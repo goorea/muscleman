@@ -1,5 +1,4 @@
-import { act, fireEvent, render } from '@testing-library/react-native';
-import dayjs from 'dayjs';
+import { render } from '@testing-library/react-native';
 import React from 'react';
 
 import {
@@ -7,21 +6,16 @@ import {
   getTrainingTypeForKorean,
 } from '@src/functions';
 import { Training, TrainingCategory, TrainingType } from '@src/types/graphql';
-import { wrapper } from '@tests/functions';
-
-import TrainingModal from './index';
+import { trainingFacotry, wrapper } from '@tests/functions';
+import TrainingModal from 'src/components/modals/TrainingModal/index';
 
 describe('TrainingModal 컴포넌트', () => {
-  const training: Training = {
-    _id: '1',
+  const training: Training = trainingFacotry({
     category: TrainingCategory.Weight,
-    createdAt: dayjs().toISOString(),
     description: '하체운동',
     name: '바벨 백스쿼트',
-    preference: 1,
     type: TrainingType.Lower,
-    updatedAt: dayjs().toISOString(),
-  };
+  });
   const hide = jest.fn();
   const rendered = () =>
     render(<TrainingModal training={training} hide={hide} />, { wrapper });
@@ -38,16 +32,5 @@ describe('TrainingModal 컴포넌트', () => {
       queryByText(getTrainingCategoryForKorean(training.category)),
     ).not.toBeNull();
     expect(queryByText(training.description || '')).not.toBeNull();
-  });
-
-  it('Overlay와 CloseButton을 누르면 hide 리스너가 발생한다', async () => {
-    const { getByTestId } = rendered();
-
-    await act(async () => {
-      await fireEvent.press(getByTestId('overlay'));
-      await fireEvent.press(getByTestId('closeButton'));
-    });
-
-    expect(hide).toBeCalledTimes(2);
   });
 });

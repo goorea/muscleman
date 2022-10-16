@@ -1,8 +1,8 @@
 import { act, fireEvent, render } from '@testing-library/react-native';
 import React from 'react';
 
-import { selectedPlansState } from '@src/components/PreviousPlansModal/recoils';
 import RecoilObserver from '@src/components/RecoilObserver';
+import { selectedPlansState } from '@src/components/modals/PreviousPlansModal/recoils';
 import { TrainingType } from '@src/types/graphql';
 import {
   planFactory,

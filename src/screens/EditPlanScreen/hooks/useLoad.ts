@@ -2,8 +2,8 @@ import { pick, uniqBy, uniqueId } from 'lodash';
 import { MutableRefObject, useCallback, useRef } from 'react';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 
-import { PreviousPlansModalElement } from '@src/components/PreviousPlansModal';
-import { selectedPlansState } from '@src/components/PreviousPlansModal/recoils';
+import { PreviousPlansModalElement } from '@src/components/modals/PreviousPlansModal';
+import { selectedPlansState } from '@src/components/modals/PreviousPlansModal/recoils';
 import { editingPlansState } from '@src/screens/EditPlanScreen/recoils';
 import { EditingPlan } from '@src/types';
 import { Plan } from '@src/types/graphql';

@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { UseFormWatch } from 'react-hook-form/dist/types/form';
 
-import { OneRMCalculatorFormInput } from '@src/components/OneRMCalculatorModal';
+import { OneRMCalculatorFormInput } from '@src/components/modals/OneRMCalculatorModal';
 
 const useOneRM = (watch: UseFormWatch<OneRMCalculatorFormInput>) => {
   const weight = Number(watch('weight'));

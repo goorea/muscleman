@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 
 import OneRMCalculatorModal, {
   OneRMCalculatorModalElement,
-} from '@src/components/OneRMCalculatorModal';
+} from '@src/components/modals/OneRMCalculatorModal';
 
 import { CalculatorIcon } from './styled';
 
