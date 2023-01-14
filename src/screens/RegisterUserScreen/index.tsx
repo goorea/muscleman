@@ -3,10 +3,12 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React, { useRef } from 'react';
 import { getUniqueId } from 'react-native-device-info';
 
-import AcceptModal, { AcceptModalElement } from '@src/components/AcceptModal';
 import RegisterForm, {
   RegisterFormElement,
 } from '@src/components/RegisterForm';
+import AcceptModal, {
+  AcceptModalElement,
+} from '@src/components/modals/AcceptModal';
 import { useRegisterMutation } from '@src/operations/mutations/register';
 import {
   AuthStackParamList,

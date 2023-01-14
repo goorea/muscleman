@@ -2,8 +2,8 @@ import dayjs from 'dayjs';
 import React, { useCallback, useMemo, useRef } from 'react';
 import { useRecoilState } from 'recoil';
 
-import { ConfirmModalElement } from '@src/components/ConfirmModal';
 import Icon from '@src/components/Icon';
+import { ConfirmModalElement } from '@src/components/modals/ConfirmModal';
 import { flash } from '@src/functions';
 import useIconProps from '@src/hooks/useIconProps';
 import useDeletePlanMutation from '@src/operations/mutations/deletePlan';

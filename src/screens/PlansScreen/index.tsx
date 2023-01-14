@@ -7,11 +7,11 @@ import { ScrollView } from 'react-native';
 import { useRecoilValue } from 'recoil';
 
 import Button from '@src/components/Button';
-import ConfirmModal from '@src/components/ConfirmModal';
-import CopyModal from '@src/components/CopyModal';
 import NeedAuthenticate from '@src/components/NeedAuthenticate';
 import Plan from '@src/components/Plan';
 import PlanCalendar from '@src/components/PlanCalendar';
+import ConfirmModal from '@src/components/modals/ConfirmModal';
+import CopyModal from '@src/components/modals/CopyModal';
 import { plansState, userState } from '@src/recoils';
 import { Plan as PlanType, User } from '@src/types/graphql';
 import { MainTabParamList, RootStackParamList } from '@src/types/navigation';

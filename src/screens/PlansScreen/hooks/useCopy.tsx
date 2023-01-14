@@ -8,8 +8,8 @@ import React, {
 import * as ReactNative from 'react-native';
 import { ReactNativeThemedStyledFunction } from 'styled-components/native';
 
-import { CopyModalElement } from '@src/components/CopyModal';
 import Icon from '@src/components/Icon';
+import { CopyModalElement } from '@src/components/modals/CopyModal';
 import useIconProps from '@src/hooks/useIconProps';
 
 import { ButtonBody, ButtonTitle } from '../styled';

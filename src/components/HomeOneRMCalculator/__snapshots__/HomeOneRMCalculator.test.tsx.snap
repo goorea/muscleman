@@ -53,6 +53,7 @@ Array [
     animationType="fade"
     hardwareAccelerated={false}
     onDismiss={[Function]}
+    onRequestClose={[Function]}
     presentationStyle="overFullScreen"
     transparent={true}
     visible={false}
@@ -93,15 +94,16 @@ Array [
             "top": 0,
           }
         }
+        testID="overlay"
       />
       <View
         style={
           Array [
             Object {
               "backgroundColor": "#ffffff",
-              "borderRadius": 10,
+              "borderRadius": 8,
               "overflow": "hidden",
-              "width": "85%",
+              "width": "90%",
             },
           ]
         }
@@ -133,6 +135,7 @@ Array [
               "zIndex": 10,
             }
           }
+          testID="closeButton"
         >
           <Text
             allowFontScaling={false}
@@ -140,7 +143,7 @@ Array [
               Array [
                 Object {
                   "color": "#000000",
-                  "fontSize": 24,
+                  "fontSize": 18,
                 },
                 undefined,
                 Object {

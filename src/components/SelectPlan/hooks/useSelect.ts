@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useRecoilState } from 'recoil';
 
-import { selectedPlansState } from '@src/components/PreviousPlansModal/recoils';
+import { selectedPlansState } from '@src/components/modals/PreviousPlansModal/recoils';
 import { Plan } from '@src/types/graphql';
 
 const useSelect = (

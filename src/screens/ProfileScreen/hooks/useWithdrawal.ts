@@ -2,7 +2,7 @@ import { FetchResult } from '@apollo/client/link/core';
 import { MutationFunctionOptions } from '@apollo/client/react';
 import { MutableRefObject, useCallback, useRef } from 'react';
 
-import { ConfirmModalElement } from '@src/components/ConfirmModal';
+import { ConfirmModalElement } from '@src/components/modals/ConfirmModal';
 import { useWithdrawalMutation } from '@src/operations/mutations/withdrawal';
 import { Mutation } from '@src/types/graphql';
 

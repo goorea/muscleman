@@ -2,8 +2,8 @@ import { act, fireEvent, render } from '@testing-library/react-native';
 import dayjs from 'dayjs';
 import React from 'react';
 
-import { selectedPlansState } from '@src/components/PreviousPlansModal/recoils';
 import RecoilObserver from '@src/components/RecoilObserver';
+import { selectedPlansState } from '@src/components/modals/PreviousPlansModal/recoils';
 import { planFactory, wrapper } from '@tests/functions';
 
 import SelectPlans from './index';

@@ -9,7 +9,7 @@ import Loader from '@src/components/Loader';
 import Tab from '@src/components/Tab';
 import Tabs from '@src/components/Tabs';
 import Text from '@src/components/Text';
-import TrainingModal from '@src/components/TrainingModal';
+import TrainingModal from '@src/components/modals/TrainingModal';
 import { getTrainingTypeForKorean } from '@src/functions';
 import { TRAININGS } from '@src/operations/queries/trainings';
 import useTrainingEvents from '@src/screens/AddTrainingScreen/hooks/useTrainingEvents';
@@ -51,7 +51,8 @@ const AddTrainingScreen: React.FC<P> = ({ navigation, route }) => {
     selectedTrainings,
     setSelectedTrainings,
   );
-  const { showInfoModal, hideInfoModal } = useInfoModal(setVisibleTraining);
+  const { trainingModalRef, showInfoModal, hideInfoModal } =
+    useInfoModal(setVisibleTraining);
 
   if (loading) {
     return <Loader />;
@@ -106,7 +107,11 @@ const AddTrainingScreen: React.FC<P> = ({ navigation, route }) => {
         disabled={selectedTrainings.length === 0}
       />
 
-      <TrainingModal training={visibleTraining} hide={hideInfoModal} />
+      <TrainingModal
+        ref={trainingModalRef}
+        training={visibleTraining}
+        hide={hideInfoModal}
+      />
     </Container>
   );
 };

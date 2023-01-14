@@ -1,22 +1,48 @@
 import dayjs from 'dayjs';
 import { pick } from 'lodash';
-import { Dispatch, SetStateAction, useCallback, useState } from 'react';
+import React, {
+  Dispatch,
+  ReactElement,
+  SetStateAction,
+  useCallback,
+  useMemo,
+  useState,
+} from 'react';
+import * as ReactNative from 'react-native';
 import { useRecoilValue } from 'recoil';
+import { ReactNativeThemedStyledFunction } from 'styled-components/native';
 
+import Icon from '@src/components/Icon';
 import { flash } from '@src/functions';
 import { useMultipleCreateOrUpdatePlansMutation } from '@src/operations/mutations/multipleCreateOrUpdatePlans';
 import { plansState } from '@src/recoils';
 import { Plan } from '@src/types/graphql';
 
+import { CopyButtonBody, CopyButtonTitle } from '../styled';
+
 const useCopy = (
   selectedDate: string,
   hide: () => void,
 ): {
+  node: ReactElement<
+    ReactNativeThemedStyledFunction<typeof ReactNative.View, {}>
+  >;
   loading: boolean;
   copiedAt: string;
   setCopiedAt: Dispatch<SetStateAction<string>>;
   handleCopy: () => Promise<void>;
 } => {
+  const node = useMemo(
+    () => (
+      <CopyButtonBody>
+        <Icon type="ionicon" name="copy" color="white" size={16} />
+        <CopyButtonTitle color="white" weight="bold">
+          복사하기
+        </CopyButtonTitle>
+      </CopyButtonBody>
+    ),
+    [],
+  );
   const [multipleCreateOrUpdatePlans, { loading }] =
     useMultipleCreateOrUpdatePlansMutation(() => {
       hide();
@@ -57,6 +83,7 @@ const useCopy = (
   }, [copiedAt, multipleCreateOrUpdatePlans, plans, selectedDate]);
 
   return {
+    node,
     loading,
     copiedAt,
     setCopiedAt,

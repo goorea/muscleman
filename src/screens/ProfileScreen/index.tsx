@@ -6,10 +6,10 @@ import React from 'react';
 import { useRecoilValue } from 'recoil';
 
 import Button from '@src/components/Button';
-import ConfirmModal from '@src/components/ConfirmModal';
 import NeedAuthenticate from '@src/components/NeedAuthenticate';
 import SocialIcon from '@src/components/SocialIcon';
 import Text from '@src/components/Text';
+import ConfirmModal from '@src/components/modals/ConfirmModal';
 import { getProfileImage } from '@src/functions';
 import { userState } from '@src/recoils';
 import { Gender, User } from '@src/types/graphql';
